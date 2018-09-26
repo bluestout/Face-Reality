@@ -1,0 +1,69 @@
+@charset 'UTF-8';
+
+/**
+* itcss file structure:
+* https://www.xfive.co/blog/itcss-scalable-maintainable-css-architecture/
+*/
+
+// 1. Settings
+@import './1.settings/settings';
+
+// 2. Tools
+@import './2.tools/tools';
+
+// 3. Generic
+@import '~normalize.css/normalize';
+@import './3.generic/generic';
+
+// 4. Elements
+@import './4.elements/elements';
+
+// 5. Objects
+@import './5.objects/objects';
+
+// 6. Components
+@import '~bootstrap/scss/bootstrap-grid';
+// @import '~slick-carousel/slick/slick';
+@import './6.components/components';
+
+// 7. Utilities
+@import './7.utilities/utilities';
+
+/*
+@charset 'UTF-8';
+
+@import '~normalize.css/normalize';
+
+// Settings
+@import './variables';
+
+// Tools
+@import './tools/mixins';
+@import './tools/functions';
+
+// Core
+@import './core/forms';
+@import './core/helpers';
+@import './core/layout';
+@import './core/media';
+@import './core/responsive-tables';
+@import './core/rte';
+@import './core/typography';
+
+// Components
+@import './components/buttons';
+@import './components/hero-banner';
+@import './components/icons';
+@import './components/placeholders';
+@import './components/responsive-images';
+
+// Sections
+@import './sections/blog-posts';
+@import './sections/collection-list';
+@import './sections/featured-collection';
+@import './sections/image-with-text';
+
+// Templates
+@import './templates/gift_card';
+@import './templates/product';
+ */

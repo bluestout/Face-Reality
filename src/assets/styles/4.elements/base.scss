@@ -1,0 +1,178 @@
+h1 {
+  @include Text(52px, 70px, $color-black);
+  word-break: break-word;
+}
+
+h2 {
+  @include Text(36px, 42px, $color-black);
+  word-break: break-word;
+}
+
+h3 {
+  @include Text(24px, 30px, $color-black);
+  word-break: break-word;
+}
+
+h4 {
+  @include Text(22px, 28px, $color-black);
+  word-break: break-word;
+}
+
+h5 {
+  @include Text(20px, 26px, $color-black);
+  word-break: break-word;
+}
+
+h6 {
+  @include Text(18px, 28px, $color-black);
+  word-break: break-word;
+}
+
+p {
+  @include Text(15px, 24px, $color-black);
+  font-weight: 400;
+  margin: 0 0 24px;
+  word-break: break-word;
+}
+
+li {
+  @include Text(15px, 24px, $color-black);
+  font-weight: 400;
+  margin: 0 0 10px;
+  word-break: break-word;
+}
+
+a {
+  @include Text(15px, 24px, $color-black);
+  font-weight: 400;
+  word-break: break-word;
+  @include transition(color);
+  &:hover,
+  &:active {
+    color: $color-red;
+  }
+}
+
+a,
+a:hover,
+a:active,
+a:focus {
+  outline: 0;
+}
+
+ul,
+ol {
+  margin: 0;
+}
+
+div {
+  word-break: break-word;
+}
+
+input {
+  border: none;
+}
+
+input[type='text'],
+input[type='email'],
+input[type='tel'],
+input[type='password'],
+input[type='search'],
+textarea {
+  @include Text(16px, 16px, $color-black);
+  background-color: $color-white;
+  padding: 15px 20px;
+  border-radius: 0;
+  border: 1px solid $color-black;
+  border: none;
+  &::placeholder {
+    color: $color-black;
+  }
+}
+
+input[type='submit'],
+button[type='submit'] {
+  @include Text(16px, 16px, $color-white);
+  font-weight: 700;
+  color: $color-white;
+  background-color: $color-red;
+  padding: 10px 20px;
+  height: 36px;
+  display: inline-block;
+  vertical-align: middle;
+  @include transition(background-color);
+  &:hover,
+  &:active {
+    background-color: $color-red;
+  }
+}
+
+select {
+  @include Text(16px, 16px, $color-black);
+  background-color: $color-white;
+  padding: 15px 20px;
+  border: none;
+  border-radius: 0;
+  appearance: none;
+  &::placeholder {
+    color: $color-black;
+  }
+}
+
+input[type='checkbox'] {
+  position: relative;
+  appearance: none;
+  border-radius: 50%;
+  border: none;
+  width: 22px;
+  height: 22px;
+  display: inline-block;
+
+  &:checked {
+    &::before {
+      background-color: $color-red;
+    }
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    border-radius: 50%;
+    border: 2px solid $color-red;
+    width: 22px;
+    height: 22px;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    display: block;
+    border-radius: 50%;
+    width: 12px;
+    height: 12px;
+    @include transition(background-color 100ms);
+    background-color: transparent;
+  }
+}
+
+@include media-query('medium-down') {
+  h1 {
+    font-size: 34px;
+    line-height: 40px;
+  }
+
+  h2 {
+    font-size: 30px;
+    line-height: 36px;
+  }
+
+  ul,
+  ol {
+    padding: 0 0 0 20px;
+  }
+}

@@ -1,0 +1,54 @@
+// Transitions
+$animation-duration: 200ms;
+$animation-timing: ease-in-out;
+
+// Grid
+$grid-small: 576px;
+$grid-medium: 768px;
+$grid-large: 992px;
+$grid-widescreen: 1200px;
+$grid-xl: 1441px;
+$grid-max-width: 1170px;
+$grid-gutter: 30px;
+$grid-max: 1920px;
+
+// Breakpoints used with the media-query mixin
+$vsmall: 'v-small';
+$vsmall-up: 'v-small-up';
+$small: 'small';
+$small-down: 'small-down';
+$small-up: 'small-up';
+$medium: 'medium';
+$medium-down: 'medium-down';
+$medium-up: 'medium-up';
+$large: 'large';
+$large-down: 'large-down';
+$large-up: 'large-up';
+$xl: 'xl';
+$xl-down: 'xl-down';
+$xl-up: 'xl-up';
+$large-max: 'large-max';
+
+$breakpoints: (
+  $vsmall '(max-width: #{$grid-small - 1})',
+  $vsmall-up '(min-width: #{$grid-small})',
+  $small '(min-width: #{$grid-small}) and (max-width: #{$grid-medium - 1})',
+  $small-down '(max-width: #{$grid-medium - 1})',
+  $small-up '(min-width: #{$grid-medium})',
+  $medium '(min-width: #{$grid-medium}) and (max-width: #{$grid-large - 1})',
+  $medium-down '(max-width: #{$grid-large - 1})',
+  $medium-up '(min-width: #{$grid-large})',
+  $large '(min-width: #{$grid-large}) and (max-width: #{$grid-widescreen - 1})',
+  $large-down '(max-width: #{$grid-widescreen - 1})',
+  $large-up '(min-width: #{$grid-widescreen})',
+  $xl '(min-width: #{$grid-widescreen}) and (max-width: #{$grid-xl - 1})',
+  $xl-down '(max-width: #{$grid-xl - 1})',
+  $xl-up '(min-width: #{$grid-xl})',
+  $large-max '(min-width: #{$grid-widescreen}) and (max-width: #{$grid-max})',
+);
+
+$font-heading: var(--font-heading);
+$font-body: var(--font-body);
+$font-body-weight: var(--font-body-weight);
+$font-body-style: var(--font-body-style);
+$font-body-bold-weight: var(--font-body-bold-weight);

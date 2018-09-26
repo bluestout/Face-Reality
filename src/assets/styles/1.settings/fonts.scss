@@ -1,0 +1,9 @@
+@mixin open-sans($weight: normal, $style: normal) {
+  font: {
+    family: 'Open Sans', sans-serif;
+    weight: $weight;
+    style: $style;
+  }
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
