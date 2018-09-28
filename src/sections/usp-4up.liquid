@@ -1,0 +1,79 @@
+<section class="usp-4up">
+  <div class="row no-gutters">
+    {% for block in section.blocks %}
+      <div class="col">
+        {% if block.type == 'usp-text' %}
+          <div class="usp-4up__col usp-4up__col-text">
+            <p class="usp-4up__text">{{ block.settings.text }}</p>
+          </div>
+        {% elsif block.type == 'usp-icon' %}
+          <div class="usp-4up__col usp-4up__col-icon ">
+            <h3 class="usp-4up__title">{{ block.settings.title }}</h3>
+            {% if block.settings.icon != '' %}
+              <div class="usp-4up__icon-wrap">{% include block.settings.icon %}</div>
+            {% endif %}
+          </div>
+        {% endif %}
+      </div>
+    {% endfor %}
+  </div>
+  {% if section.settings.button_text != '' %}
+    <div class="usp-4up__button-wrap">
+      <a class="usp-4up__button-link" href="{{ section.settings.button_url }}">{{ section.settings.button_text }}</a>
+    </div>
+  {% endif %}
+</section>
+
+{% schema %}
+  {
+    "name": "USP 4-up",
+    "blocks": [
+      {
+        "type": "usp-text",
+        "name": "Text USP",
+        "settings": [
+          {
+            "type": "textarea",
+            "id": "text",
+            "label": "Text"
+          }
+        ]
+      },
+      {
+        "type": "usp-icon",
+        "name": "Icon USP",
+        "settings": [
+          {
+            "type": "textarea",
+            "id": "title",
+            "label": "Text"
+          },
+          {
+            "type": "text",
+            "id": "icon",
+            "label": "Icon",
+            "info": "Insert the snippet name, without the .liquid"
+          }
+        ]
+      }
+    ],
+    "settings": [
+      {
+        "type": "text",
+        "id": "button_text",
+        "label": "Button Text"
+      },
+      {
+        "type": "url",
+        "id": "button_url",
+        "label": "Button URL"
+      }
+    ],
+    "presets": [{
+        "name": "USP 4-up",
+        "category": "Front Page"
+    }]
+  }
+{% endschema %}
+
+

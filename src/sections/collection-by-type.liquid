@@ -1,0 +1,106 @@
+<section class="collection-by-type">
+
+  <div class="row no-gutters">
+    {% for block in section.blocks %}
+      {% if block.type == 'tab-1' %}
+        <div class="col">
+          {% assign collection_block = collections[block.settings.collection] %}
+          <div class="collection-by-type__visible-col index-{{ forloop.index }}">
+            <h3 class="collection-by-type__col-title">
+              {{ collection_block.title }}
+              <span class="collection-by-type__visible-col-arrow">{% include 'icon-arrow-down' %}</span>
+            </h3>
+          </div>
+          <div class="collection-by-type__hover-col">
+            <span class="collection-by-type__hover-col-header">
+              <h3 class="collection-by-type__col-title">{{ collection_block.title }}</h3>
+            </span>
+            {% include 'responsive-image' with
+              image: collection_block.image,
+              wrapper_class: 'collection-by-type__hover-col-image-wrap',
+              image_class: 'collection-by-type__hover-col-image',
+              alt: collection_block.title
+              max_width: 360,
+              max_height: 285,
+              span: true
+            %}
+            <span class="collection-by-type__hover-col-content">
+              <span class="collection-by-type__hover-col-text">{{ collection_block.description | strip_html | truncatewords: 20 }}</span>
+              <a href="{{ collection_block.url }}">See products</a>
+            </span>
+          </div>
+          <style>
+            .collection-by-type__visible-col.index-{{ forloop.index }} {
+              background-color: {{ block.settings.color }}
+            }
+          </style>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+
+
+</section>
+
+{% schema %}
+  {
+    "name": "Collection By Type",
+    "blocks": [
+      {
+        "type": "tab-1",
+        "name": "Collection Tab 1",
+        "settings": [
+          {
+            "type": "collection",
+            "id": "collection",
+            "label": "Collection"
+          },
+          {
+            "type": "color",
+            "id": "color",
+            "label": "Color"
+          }
+        ]
+      },
+      {
+        "type": "tab-2",
+        "name": "Collection Tab 2",
+        "settings": [
+          {
+            "type": "collection",
+            "id": "collection",
+            "label": "Collection"
+          }
+        ]
+      }
+    ],
+    "settings": [
+      {
+        "type": "text",
+        "id": "title-tab-1",
+        "label": "Tab 1 Title"
+      },
+      {
+        "type": "text",
+        "id": "title-tab-2",
+        "label": "Tab 2 Title"
+      },
+      {
+        "type": "url",
+        "id": "button_url",
+        "label": "Button URL"
+      },
+      {
+        "type": "text",
+        "id": "button_text",
+        "label": "Button Text"
+      }
+    ],
+    "presets": [{
+        "name": "Collection By Type",
+        "category": "Front Page"
+    }]
+  }
+{% endschema %}
+
+

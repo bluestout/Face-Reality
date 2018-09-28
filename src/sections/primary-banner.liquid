@@ -1,0 +1,80 @@
+{% if section.settings.background %}
+  <section class="primary-banner lazyload" data-bgset="{% include 'responsive-bg-image', image: section.settings.background %}">
+{% else %}
+  <section class="primary-banner">
+{% endif %}
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-5">
+        <h2 class="primary-banner__title">{{ section.settings.title }}</h2>
+        {% if section.settings.button_text != '' %}
+          <a href="{{ section.settings.button_url }}" class="primary-banner__link-button">{{ section.settings.button_text }}</a>
+        {% endif %}
+        {% if section.settings.link_text != '' %}
+          <div>
+            {% if section.settings.button_text != '' %}
+              <span class="primary-banner__or">or</span>
+            {% endif %}
+            <a href="{{ section.settings.link_url }}" class="primary-banner__link-inline">{{ section.settings.link_text }}</a>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  {% if section.settings.badge %}
+    <div class="primary-banner__badge">
+      {% include 'responsive-image' with image: block.settings.badge, max_width: 170, max_height: 170 %}
+    </div>
+  {% endif %}
+</section>
+
+{% schema %}
+  {
+    "name": "Primary Banner",
+    "settings": [
+      {
+        "type": "textarea",
+        "id": "title",
+        "label": "Title"
+      },
+      {
+        "type": "url",
+        "id": "button_url",
+        "label": "Button URL"
+      },
+      {
+        "type": "text",
+        "id": "button_text",
+        "label": "Button Text"
+      },
+      {
+        "type": "url",
+        "id": "link_url",
+        "label": "Link URL"
+      },
+      {
+        "type": "text",
+        "id": "link_text",
+        "label": "Link Text"
+      },
+      {
+        "type": "image_picker",
+        "id": "background",
+        "label": "Background",
+        "info": "1920x650"
+      },
+      {
+        "type": "image_picker",
+        "id": "badge",
+        "label": "Badge",
+        "info": "170x170"
+      }
+    ],
+    "presets": [{
+        "name": "Primary Banner",
+        "category": "Front Page"
+    }]
+  }
+{% endschema %}
+
+

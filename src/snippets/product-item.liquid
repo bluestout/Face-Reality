@@ -1,0 +1,58 @@
+<div class="product-item" itemscope itemtype="http://schema.org/Product">
+  <meta itemprop="name" content="{{ prod.title }}">
+  <meta itemprop="url" content="{{ shop.url }}{{ prod.url }}">
+  <meta itemprop="image" content="{{ featured_image | img_url: '800x' }}">
+  <meta itemprop="description" content="{{ prod.description | strip_html | escape }}">
+  <meta itemprop="priceCurrency" content="{{ shop.currency }}">
+  <meta itemprop="price" content="{{ prod.price | divided_by: 100.00 }}">
+  <link itemprop="availability" href="http://schema.org/{% if prod.available %}InStock{% else %}OutOfStock{% endif %}">
+  {% assign modulo = index | modulo: 2 %}
+  <span class="product-item__background {% if modulo == 0 %}product-item__background--even{% else %}product-item__background--odd{% endif %}"></span>
+  <a href="{{ product-item.url | within: collection }}" class="product-item__link">
+    <span class="product-item__tags">
+      {% include 'product-tags' with product-item, modulo: modulo %}
+    </span>
+    {% if product-item.featured_image != blank %}
+      <span class="product-item__image-wrap">
+        {% include 'responsive-image' with image: product-item.featured_image, max_width: 370, max_height: 370, span: true,  %}
+      </span>
+    {% endif %}
+    <h4 class="product-item__title">{{ product-item.title }}</h4>
+    <div class="product-item__description">{{ product-item.description | strip_html | truncatewords: 20 }}</div>
+  </a>
+
+  <div class="flex-shaper"></div>
+
+  <p class="product-item__price">
+    <div data-price-wrapper>
+    <span data-product-price>
+      {{ product-item.price | money }}
+    </span>
+
+    {% if product-item.compare_at_price_max > product-item.price %}
+      <span class="visually-hidden" data-compare-text>{{ 'products.product.regular_price' | t }}</span>
+      <s data-compare-price>
+        {% if product-item.compare_at_price > product-item.price %}
+          {{ product-item.compare_at_price | money }}
+        {% endif %}
+      </s>
+    {% endif %}
+  </div>
+  </p>
+  <form action="/cart/add" method="post" enctype="multipart/form-data">
+    <input type="hidden" name="id"  value="{{ product-item.variants[0].id }}" />
+    <button
+      type="submit"
+      name="add"
+      data-add-to-cart
+      {% unless product-item %}disabled="disabled"{% endunless %}>
+        <span data-add-to-cart-text>
+          {% if product-item.available %}
+            {{ 'products.product.add_to_cart' | t }}
+          {% else %}
+            {{ 'products.product.sold_out' | t }}
+          {% endif %}
+        </span>
+    </button>
+  </form>
+</div>
