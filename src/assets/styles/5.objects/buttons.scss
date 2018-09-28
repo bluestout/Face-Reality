@@ -1,0 +1,87 @@
+.button {
+  display: inline-block;
+  vertical-align: middle;
+  width: auto;
+  border: 0;
+  text-align: center;
+  white-space: normal;
+  text-decoration: none;
+  user-select: none;
+  appearance: none;
+
+  &--wire {
+    @include Text(14px, 16px, $color-blumine);
+    @include transition(background-color, color);
+    text-align: center;
+    text-decoration: none;
+    font-weight: 400;
+    padding: 14.5px 53px;
+    background-color: $color-white;
+    border: 1px solid $color-blumine;
+    border-radius: 0;
+    display: inline-block;
+
+    &:hover,
+    &:active,
+    &:focus {
+      background-color: $color-blumine;
+      color: $color-white;
+    }
+
+    &.button--big {
+      font-size: 20px;
+      padding-top: 13px;
+      padding-bottom: 13px;
+    }
+
+    &.button--small {
+      padding-top: 8px;
+      padding-bottom: 8px;
+      font-size: 14px;
+    }
+
+    &.button--tiny {
+      padding: 4px 20px;
+      font-size: 14px;
+    }
+  }
+
+  &--main {
+    @include Text(14px, 16px, $color-white);
+    @include transition(background-color);
+    text-align: center;
+    text-decoration: none;
+    font-weight: 400;
+    padding: 16px 57px;
+    background-color: $color-blumine;
+    border-radius: 0;
+    display: inline-block;
+
+    &:hover,
+    &:active {
+      color: $color-white;
+      background-color: $color-blumine;
+    }
+
+    &:focus {
+      color: $color-white;
+    }
+
+    &.button--big {
+      font-size: 20px;
+      padding-top: 15px;
+      padding-bottom: 15px;
+    }
+
+    &.button--small {
+      padding-top: 10px;
+      padding-bottom: 10px;
+      font-size: 14px;
+    }
+
+    &.button--tiny {
+      padding: 6px 20px;
+      font-size: 14px;
+    }
+  }
+}
