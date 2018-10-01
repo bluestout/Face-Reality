@@ -1,0 +1,21 @@
+.featured-collection {
+  text-align: center;
+  margin: 0 0 100px;
+
+  &__limiter {
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  &__title {
+    @include apercu(400);
+    @include Text(13.5px, 20px, $color-fountain-blue);
+    margin: 0 0 20px;
+  }
+
+  &__text {
+    @include apercu(400);
+    @include Text(20px, 27px, $color-black);
+    margin: 0 0 80px;
+  }
+}

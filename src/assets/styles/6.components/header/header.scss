@@ -2,6 +2,7 @@
   position: absolute;
   z-index: 1;
   background-color: transparent;
+  width: 100%;
 
   &.active {
     background-color: $color-white;

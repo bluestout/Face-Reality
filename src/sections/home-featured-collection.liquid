@@ -1,28 +1,20 @@
 <section class="featured-collection">
   <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-6">
-        <h2 class="featured-collection__title">{{ section.settings.title }}</h2>
-      </div>
-    </div>
-    <div class="row justify-content-center">
-      <div class="col-6">
-        <p class="featured-collection__text">{{ section.settings.text }}</p>
-      </div>
+    <div class="featured-collection__limiter">
+      <h2 class="featured-collection__title">{{ section.settings.title }}</h2>
+      <p class="featured-collection__text">{{ section.settings.text }}</p>
     </div>
   </div>
 
   {% if section.settings.collection %}
     <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-6">
-          <h2 class="featured-collection__title">{{ section.settings.list_title }}</h2>
-        </div>
+      <div class="featured-collection__limiter">
+        <h2 class="featured-collection__title">{{ section.settings.list_title }}</h2>
       </div>
     </div>
     <div class="row no-gutters js-featured-collection-slider">
       {% for prod in collections[section.settings.collection].products %}
-        <div class="col-lg-3 col-md-6">
+        <div class="col-lg-3 col-md-6 flex">
           {% include 'product-item' with prod, index: forloop.index %}
         </div>
       {% endfor %}
@@ -61,5 +53,3 @@
     }]
   }
 {% endschema %}
-
-

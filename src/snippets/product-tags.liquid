@@ -2,12 +2,9 @@
   {% if tag contains 'featured-tag-' %}
     {% assign tag_a = tag | split: 'featured-tag-' %}
     {%- assign tag_f = tag_a[1] | replace: '-', ' ' | capitalize -%}
-    {% if modulo == 0 %}
-      {% assign class = 'product-item__tag--even' %}
-    {% else %}
-      {% assign class = 'product-item__tag--odd' %}
-    {% endif %}
-    <span class="product-item__tag {{ class }}">{{ tag_f }}</span>
+      <span class="product-item__tag">
+        <span class="product-item__tag-text">{{ tag_f }}</span>
+      </span>
     {% break %}
   {% endif %}
 {% endfor %}

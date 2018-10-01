@@ -1,0 +1,148 @@
+.product-item {
+  position: relative;
+  display: flex;
+  flex-flow: column wrap;
+  width: 100%;
+  margin: 0 0 50px;
+
+  &:hover,
+  &:active {
+    .product-item__title {
+      color: $color-accent;
+    }
+
+    .product-item__description {
+      opacity: 1;
+    }
+  }
+
+  &--even {
+    .product-item__background {
+      background-color: rgba($color-fountain-blue, 0.14);
+    }
+
+    .product-item__tag {
+      &::before {
+        content: '';
+        z-index: 1;
+        position: absolute;
+        top: 0;
+        left: 0;
+        border-bottom: 38px solid transparent;
+        border-left: 42px solid $color-blumine;
+        border-top: 38px solid $color-blumine;
+        border-right: 42px solid transparent;
+      }
+    }
+  }
+
+  &--odd {
+    .product-item__background {
+      background-color: rgba($color-fountain-blue, 0.08);
+    }
+
+    .product-item__tag {
+      &::before {
+        content: '';
+        z-index: 1;
+        position: absolute;
+        top: 0;
+        left: 0;
+        border-bottom: 38px solid transparent;
+        border-left: 42px solid $color-fountain-blue;
+        border-top: 38px solid $color-fountain-blue;
+        border-right: 42px solid transparent;
+      }
+    }
+  }
+
+  &__background {
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 57%;
+    pointer-events: none;
+  }
+
+  &__link {
+    display: block;
+    text-decoration: none;
+    width: 100%;
+  }
+
+  &__tag-wrap {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    display: block;
+  }
+
+  &__tag {
+  }
+
+  &__tag-text {
+    position: relative;
+    z-index: 2;
+    display: block;
+    @include Text(13.5px, 20px, $color-white);
+    @include apercu;
+    text-align: left;
+    width: 60px;
+    padding: 5px;
+  }
+
+  &__image-wrap {
+    display: block;
+    margin: 0 0 30px;
+    padding: 55px 0 0;
+  }
+
+  &__title {
+    @include apercu(700);
+    @include Text(20px, 22px, $color-calypso);
+    margin: 0 auto 13px;
+    max-width: 190px;
+    @include transition(color);
+  }
+
+  &__description {
+    @include apercu(400);
+    @include Text(12.5px, 16px, $color-black, 0.5);
+    margin: 0 auto 14px;
+    max-width: 220px;
+    opacity: 0.5;
+    @include transition(opacity);
+  }
+
+  &__authorization {
+    @include myriad(400);
+    @include Text(11.5px, 16px, $color-white);
+    background-color: $color-de-york;
+    padding: 6px;
+    text-align: center;
+    width: 180px;
+    margin: 0 0 15px;
+    display: inline-block;
+  }
+
+  &__price {
+    @include aller(700);
+    @include Text(13.5px, 16px, $color-blumine);
+    display: block;
+    width: 100%;
+    margin: 0 0 15px;
+  }
+
+  &__form {
+    display: block;
+    width: 100%;
+    &-submit {
+      @extend .button;
+      @extend .button--main;
+      padding: 16px;
+      width: 180px;
+    }
+  }
+}

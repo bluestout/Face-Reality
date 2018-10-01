@@ -90,8 +90,7 @@ textarea {
   }
 }
 
-input[type='submit'],
-button[type='submit'] {
+input[type='submit'] {
   @include Text(16px, 16px, $color-white);
   font-weight: 700;
   color: $color-white;

@@ -1,0 +1,47 @@
+.usp-4up {
+  &__col {
+    padding: 80px 60px;
+
+    &--icon {
+      text-align: center;
+    }
+
+    &--even {
+      background-color: rgba($color-calypso, 0.17);
+    }
+
+    &--odd {
+      background-color: rgba($color-calypso, 0.1);
+    }
+  }
+
+  &__text {
+    @include Text(16px, 25px, $color-black);
+    @include apercu(400);
+  }
+  &__title {
+    @include Text(18px, 20px, $color-blumine);
+    @include apercu(700);
+  }
+  &__icon-wrap {
+    margin: 0 0 25px;
+  }
+
+  &__button-wrap {
+    position: relative;
+    display: block;
+    min-height: 146px;
+  }
+
+  &__button-link {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 14px;
+    padding: 20px 95px;
+    @extend .button;
+    @extend .button--main;
+    @extend .button--big;
+  }
+}
