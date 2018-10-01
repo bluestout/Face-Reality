@@ -1,0 +1,20 @@
+<section class="blog-stories">
+  <h2 class="blog-stories__title">{{ section.settings.title }}</h2>
+</section>
+
+{% schema %}
+  {
+    "name": "Stories",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title"
+      }
+    ],
+    "presets": [{
+        "name": "Stories",
+        "category": "Front Page"
+    }]
+  }
+{% endschema %}

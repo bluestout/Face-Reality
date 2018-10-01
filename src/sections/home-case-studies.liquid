@@ -1,0 +1,84 @@
+<section class="home-case-studies">
+  <div class="container">
+    <h3 class="home-case-studies__suptitle">{{ section.settings.suptitle }}</h3>
+    <h2 class="home-case-studies__title">{{ section.settings.title }}</h2>
+    <div class="home-case-studies__studies js-case-studies-slider">
+      {% for block in section.blocks %}
+        <div class="home-case-studies__study">
+          <div class="row">
+            <div class="col-md-5">
+              <h2 class="home-case-studies__study-title">{{ block.settings.title }}</h2>
+              <p class="home-case-studies__study-title">{{ block.settings.description }}</p>
+            </div>
+            {% if block.settings.image_before and block.settings.image_after %}
+              <div class="col-md-7">
+                <div class="home-case-studies__study-comparison">
+                  <img class="home-case-studies__study-comparison-image-before" src="{{ block.settings.image_before | img_url: '800x600' }}" alt="{{ block.settings.title }} before"/>
+                  <div class="home-case-studies__study-comparison-split">
+                    <img class="home-case-studies__study-comparison-image-after" src="{{ block.settings.image_after | img_url: '800x600' }}" alt="{{ block.settings.title }} after"/>
+                  </div>
+                  <span class="home-case-studies__study-comparison-slide">
+                    <span><</span>
+                    <span>></span>
+                  </span>
+                  <span class="home-case-studies__study-comparison-before">Before</span>
+                  <span class="home-case-studies__study-comparison-after">After</span>
+                </div>
+              </div>
+            {% endif %}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+  {
+    "name": "Case Studies",
+    "settings": [
+      {
+        "type": "text",
+        "id": "suptitle",
+        "label": "Suptitle"
+      },
+      {
+        "type": "textarea",
+        "id": "title",
+        "label": "Title"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "study",
+        "name": "Case Study",
+        "settings": [
+          {
+            "type": "textarea",
+            "id": "title",
+            "label": "Study title"
+          },
+          {
+            "type": "textarea",
+            "id": "description",
+            "label": "Study description"
+          },
+          {
+            "type": "image_picker",
+            "id": "image_before",
+            "label": "Before image"
+          },
+          {
+            "type": "image_picker",
+            "id": "image_after",
+            "label": "After image"
+          }
+        ]
+      }
+    ],
+    "presets": [{
+        "name": "Case Studies",
+        "category": "Front Page"
+    }]
+  }
+{% endschema %}

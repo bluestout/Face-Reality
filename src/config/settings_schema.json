@@ -132,6 +132,11 @@
         "type": "text",
         "id": "social_vimeo_link",
         "label": "Vimeo link"
+      },
+      {
+        "type": "text",
+        "id": "social_linkedin_link",
+        "label": "LinkedIn link"
       }
     ]
   },

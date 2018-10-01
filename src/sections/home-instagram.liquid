@@ -1,0 +1,27 @@
+<section class="instagram-feed">
+  <a href="{{ section.settings.url }}">
+    <h2 class="instagram-feed__title">{{ section.settings.title }}</h2>
+  </a>
+</section>
+
+{% schema %}
+  {
+    "name": "Testimonials",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title"
+      },
+      {
+        "type": "url",
+        "id": "link",
+        "label": "Link"
+      }
+    ],
+    "presets": [{
+        "name": "Instagram",
+        "category": "Front Page"
+    }]
+  }
+{% endschema %}

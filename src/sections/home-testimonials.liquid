@@ -1,0 +1,103 @@
+<section class="home-testimonials">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8 col-sm-10">
+        <h3 class="home-testimonials__suptitle">{{ section.settings.suptitle }}</h3>
+        <h2 class="home-testimonials__title">{{ section.settings.title }}</h2>
+        <p class="home-testimonials__text">{{ section.settings.text }}</p>
+      </div>
+    </div>
+    <div class="row js-testimonials-slider">
+      {% for block in section.blocks %}
+        <div class="col-lg-4">
+          <div class="home-testimonials__testimonial">
+            <p class="home-testimonials__testimonial-text">{{ block.settings.testimonial }}</p>
+            {% if block.settings.image %}
+              {% include 'responsive-image'
+                with image: block.settings.image,
+                max_width: 350,
+                max_height: 350,
+                wrapper_class: 'home-testimonials__testimonial-image-wrap',
+                image_class: 'home-testimonials__testimonial-image'
+              %}
+            {% endif %}
+            <div>
+              <span class="home-testimonials__testimonial-name">{{ block.settings.title }}</span>
+              <span class="home-testimonials__testimonial-date">{{ block.settings.date }}</span>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+    {% if section.settings.button_text != '' %}
+      <div class="home-testimonials__button-wrap">
+        <a href="{{ section.settings.button_url }}" class="home-testimonials__button">{{ section.settings.button_text }}</a>
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+{% schema %}
+  {
+    "name": "Testimonials",
+    "settings": [
+      {
+        "type": "text",
+        "id": "suptitle",
+        "label": "Suptitle"
+      },
+      {
+        "type": "textarea",
+        "id": "title",
+        "label": "Title"
+      },
+      {
+        "type": "textarea",
+        "id": "text",
+        "label": "Description"
+      },
+      {
+        "type": "text",
+        "id": "button_text",
+        "label": "Link Text"
+      },
+      {
+        "type": "url",
+        "id": "button_link",
+        "label": "Link URL"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "testimonial",
+        "name": "Testimonial",
+        "settings": [
+          {
+            "type": "textarea",
+            "id": "testimonial",
+            "label": "Testimonial Text"
+          },
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          },
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Name"
+          },
+          {
+            "type": "text",
+            "id": "date",
+            "label": "Date"
+          }
+        ]
+      }
+    ],
+    "presets": [{
+        "name": "Testimonials",
+        "category": "Front Page"
+    }]
+  }
+{% endschema %}
