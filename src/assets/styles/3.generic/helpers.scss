@@ -101,11 +101,6 @@
   flex: 1;
 }
 
-.no-text-height {
-  font-size: 0;
-  line-height: 0;
-}
-
 .text-right {
   text-align: right;
 }
@@ -120,4 +115,9 @@
 
 .responsive-table {
   overflow: scroll;
+}
+
+%no-font-size {
+  font-size: 0;
+  line-height: 0;
 }

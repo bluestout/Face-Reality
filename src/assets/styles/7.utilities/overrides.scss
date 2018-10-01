@@ -17,3 +17,9 @@
   /* stylelint-disable declaration-no-important */
   padding: 0 !important;
 }
+
+.container {
+  @media (min-width: 1355px) {
+    max-width: 1295px;
+  }
+}

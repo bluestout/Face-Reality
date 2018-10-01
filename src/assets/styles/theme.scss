@@ -19,11 +19,12 @@
 @import './4.elements/elements';
 
 // 5. Objects
+@import '~bootstrap/scss/bootstrap-grid';
+
+// @import '~slick-carousel/slick/slick';
 @import './5.objects/objects';
 
 // 6. Components
-@import '~bootstrap/scss/bootstrap-grid';
-// @import '~slick-carousel/slick/slick';
 @import './6.components/components';
 
 // 7. Utilities

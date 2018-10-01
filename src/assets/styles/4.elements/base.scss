@@ -1,55 +1,55 @@
 h1 {
-  @include Text(52px, 70px, $color-black);
+  @include Text(46px, 62px, $color-black);
   word-break: break-word;
 }
 
 h2 {
-  @include Text(36px, 42px, $color-black);
+  @include Text(32px, 37px, $color-black);
   word-break: break-word;
 }
 
 h3 {
-  @include Text(24px, 30px, $color-black);
+  @include Text(21px, 26px, $color-black);
   word-break: break-word;
 }
 
 h4 {
-  @include Text(22px, 28px, $color-black);
+  @include Text(20px, 24px, $color-black);
   word-break: break-word;
 }
 
 h5 {
-  @include Text(20px, 26px, $color-black);
+  @include Text(18px, 24px, $color-black);
   word-break: break-word;
 }
 
 h6 {
-  @include Text(18px, 28px, $color-black);
+  @include Text(16px, 24px, $color-black);
   word-break: break-word;
 }
 
 p {
-  @include Text(15px, 24px, $color-black);
+  @include Text(13.5px, 21px, $color-black);
   font-weight: 400;
   margin: 0 0 24px;
   word-break: break-word;
 }
 
 li {
-  @include Text(15px, 24px, $color-black);
+  @include Text(13.5px, 21px, $color-black);
   font-weight: 400;
   margin: 0 0 10px;
   word-break: break-word;
 }
 
 a {
-  @include Text(15px, 24px, $color-black);
+  @include Text(13.5px, 21px, $color-black);
   font-weight: 400;
   word-break: break-word;
   @include transition(color);
   &:hover,
   &:active {
-    color: $color-red;
+    color: $color-calico;
   }
 }
 
@@ -162,13 +162,13 @@ input[type='checkbox'] {
 
 @include media-query('medium-down') {
   h1 {
-    font-size: 34px;
-    line-height: 40px;
+    font-size: 32px;
+    line-height: 36px;
   }
 
   h2 {
-    font-size: 30px;
-    line-height: 36px;
+    font-size: 28px;
+    line-height: 34px;
   }
 
   ul,

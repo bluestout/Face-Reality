@@ -1,0 +1,11 @@
+%paragraph-black {
+  @include Text(12.5px, 14px, $color-black);
+}
+
+%paragraph-white {
+  @include Text(12.5px, 14px, $color-white);
+}
+
+%paragraph-blue {
+  @include Text(12.5px, 14px, $color-blumine);
+}
