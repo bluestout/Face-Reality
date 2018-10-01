@@ -14,37 +14,34 @@
   {%- if section.settings.announcement_bar_enabled -%}
     <div class="site-header__announcement-bar">
       {%- if section.settings.announcement_bar_home_page_only == false or template.name == 'index' -%}
-        {%- if section.settings.announcement_bar_link != blank -%}
-          <a href="{{ section.settings.announcement_bar_link }}" class="site-header__announcement-link">
-            {{ section.settings.announcement_bar_text | escape }}
-          </a>
-        {%- else -%}
-          <p class="site-header__announcement-text">{{ section.settings.announcement_bar_text | escape }}</p>
-        {%- endif -%}
+        <p class="site-header__announcement-text">{{ section.settings.announcement_bar_text }}</p>
       {%- endif -%}
     </div>
   {%- endif -%}
   <div class="container">
     <div class="site-header__secondary-nav">
-      <a href="tel:(510) 351-1842" class="site-header__secondary-nav-link"><span>ICON</span> (510) 351-1842</a>
+      <a href="tel:(510) 351-1842" class="site-header__secondary-nav-link"><span class="icon-phone site-header__secondary-nav-icon site-header__secondary-nav-icon--left"></span> (510) 351-1842</a>
       <a href="#" class="site-header__secondary-nav-link">Acne Information Center</a>
       <a href="#" class="site-header__secondary-nav-link">Blog</a>
-      <a href="#" class="site-header__secondary-nav-link">For professionals <span>ICON</span></a>
+      <a href="#" class="site-header__secondary-nav-button">For professionals <span class="icon-arrow-right site-header__secondary-nav-icon site-header__secondary-nav-icon--right"></span></a>
     </div>
 
     <div class="row">
-      <div class="col-lg-3">
+      <div class="col-md-auto flex-col-wrap justify-content-center">
         {% if template.name == 'index' %}
-          <h1>
+          <h1 class="site-header__logo-wrap">
         {% else %}
-          <div class="h1">
+          <div class="site-header__logo-wrap">
         {% endif %}
             <a href="/" class="site-header__logo-link">
               {% if section.settings.logo != blank %}
                 {% capture image_size %}{{ section.settings.logo_max_width }}x{% endcapture %}
-                <img class="site-header__logo" src="{{ section.settings.logo | img_url: image_size }}"
-                    srcset="{{ section.settings.logo | img_url: image_size }} 1x, {{ section.settings.logo | img_url: image_size, scale: 2 }} 2x"
-                    alt="{{ section.settings.logo.alt | default: shop.name }}"/>
+                <img
+                  class="site-header__logo"
+                  src="{{ section.settings.logo | img_url: image_size }}"
+                  srcset="{{ section.settings.logo | img_url: image_size }} 1x, {{ section.settings.logo | img_url: image_size, scale: 2 }} 2x"
+                  alt="{{ section.settings.logo.alt | default: shop.name }}"
+                />
               {% else %}
                 {{ shop.name }}
               {% endif %}
@@ -56,65 +53,12 @@
         {% endif %}
       </div>
 
-      <div class="col-lg-6">
-        <nav role="navigation" class="site-header__primary-nav">
-          <ul class="site-header__primary-nav-list">
-            {% for link in linklists[section.settings.menu].links %}
-              {% if link.links != blank %}
-                <li class="site-header__primary-nav-item">
-                  <a href="{{ link.url }}" class="site-header__primary-nav-link">
-                    {{ link.title }}
-                    {% include 'icon-arrow-down' %}
-                  </a>
-                  <ul class="site-header__primary-nav-sub-list">
-                    {% for childlink in link.links %}
-                      <li class="site-header__primary-nav-sub-item">
-                        <a href="{{ childlink.url }}" class="site-header__primary-nav-sub-link">{{ childlink.title }}</a>
-                      </li>
-                    {% endfor %}
-                  </ul>
-                </li>
-              {% else %}
-                <li class="site-header__primary-nav-item">
-                  <a href="{{ link.url }}" class="site-header__primary-nav-link">{{ link.title }}</a>
-                </li>
-              {% endif %}
-            {% endfor %}
-          </ul>
-        </nav>
+      <div class="col-md flex-col-wrap justify-content-center">
+        {% include 'header-primary-nav' %}
       </div>
 
-      <div class="col-lg-3">
-        <div class="site-header__utility-nav">
-          <button type="button" class="site-header__utility-nav-icon">{% include 'icon-search' %}</button>
-
-          <form action="/search" method="get" role="search" class="site-header__utility-nav-searchform hide">
-            <label for="Search" class="label-hidden">
-              {{ 'general.search.placeholder' | t }}
-            </label>
-
-            <input
-              class="site-header__utility-nav-input"
-              type="search"
-              name="q"
-              id="Search"
-              value="{{ search.terms | escape }}"
-              placeholder="{{ 'general.search.placeholder' | t }}"/>
-
-            <button type="submit" class="site-header__utility-nav-icon">
-              {% include 'icon-search' %}
-              <span class="icon-fallback-text">{{ 'general.search.submit' | t }}</span>
-            </button>
-          </form>
-
-          <a href="/cart" class="site-header__utility-nav-button">
-            {% include 'icon-cart' %}
-            {{ 'layout.cart.title' | t }}
-            ({{ cart.item_count }} {{ 'layout.cart.items_count' | t: count: cart.item_count }})
-          </a>
-
-          <a href="#" class="site-header__utility-nav-button">Find a nearby clinic</a>
-        </div>
+      <div class="col-md-auto flex-col-wrap justify-content-center">
+        {% include 'header-utility-nav' %}
       </div>
     </div>
   </div>
@@ -179,16 +123,10 @@
         "default": true
       },
       {
-        "type": "text",
+        "type": "textarea",
         "id": "announcement_bar_text",
         "label": "Announcement text",
         "default": "Announce something here"
-      },
-      {
-        "type": "url",
-        "id": "announcement_bar_link",
-        "label": "Announcement link",
-        "info": "Optional"
       },
       {
         "type": "header",

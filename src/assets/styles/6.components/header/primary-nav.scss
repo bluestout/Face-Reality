@@ -1,0 +1,43 @@
+&-list {
+  position: relative;
+  text-align: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+&-item {
+  list-style: none;
+  margin: 0 12px;
+  display: inline-block;
+}
+
+&-link {
+  @include Text(13.5px, 16px, $color-black);
+  padding: 5px;
+  display: inline-block;
+  vertical-align: middle;
+  text-decoration: none;
+}
+
+&-icon {
+  font-size: 8px;
+  line-height: inherit;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 0 0 5px;
+}
+
+&-sub-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: none;
+}
+
+&-sub-item {
+}
+
+&-sub-link {
+  text-decoration: none;
+}

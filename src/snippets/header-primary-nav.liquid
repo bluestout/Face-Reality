@@ -1,0 +1,25 @@
+<nav role="navigation" class="site-header__primary-nav">
+  <ul class="site-header__primary-nav-list">
+    {% for link in linklists[section.settings.menu].links %}
+      {% if link.links != blank %}
+        <li class="site-header__primary-nav-item">
+          <a href="{{ link.url }}" class="site-header__primary-nav-link">
+            {{ link.title }}
+            <span class="icon-angle-down site-header__primary-nav-icon"></span>
+          </a>
+          <ul class="site-header__primary-nav-sub-list">
+            {% for childlink in link.links %}
+              <li class="site-header__primary-nav-sub-item">
+                <a href="{{ childlink.url }}" class="site-header__primary-nav-sub-link">{{ childlink.title }}</a>
+              </li>
+            {% endfor %}
+          </ul>
+        </li>
+      {% else %}
+        <li class="site-header__primary-nav-item">
+          <a href="{{ link.url }}" class="site-header__primary-nav-link">{{ link.title }}</a>
+        </li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+</nav>
