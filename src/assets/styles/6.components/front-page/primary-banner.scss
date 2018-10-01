@@ -1,0 +1,37 @@
+.primary-banner {
+  position: relative;
+  padding: 120px 0 140px;
+  text-align: center;
+
+  &--bg {
+    @include backgroundImage;
+  }
+
+  &__title {
+    @include Text(45px, 47px, $color-black);
+    @include apercu(700);
+    margin: 0 0 35px;
+  }
+
+  &__link-button {
+    @extend .button;
+    @extend .button--main;
+    padding: 16px 75px;
+    margin: 0 0 15px;
+  }
+
+  &__or {
+    @include Text(12.5px, 14px, $color-dusty-gray);
+  }
+
+  &__link-inline {
+    @include Text(12.5px, 14px, $color-dove-gray);
+    text-decoration: none;
+  }
+
+  &__badge {
+    position: absolute;
+    right: 11px;
+    bottom: 11px;
+  }
+}

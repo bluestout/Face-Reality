@@ -1,8 +1,9 @@
 {% if section.settings.background %}
-  <section class="primary-banner lazyload" data-bgset="{% include 'responsive-bg-image', image: section.settings.background %}">
+  <section class="primary-banner primary-banner--bg lazyload" data-bgset="{% include 'responsive-bg-image', image: section.settings.background %}">
 {% else %}
   <section class="primary-banner">
 {% endif %}
+  <div data-header-offset></div>
   <div class="container">
     <div class="row">
       <div class="col-lg-5">
