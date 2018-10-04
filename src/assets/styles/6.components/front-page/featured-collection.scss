@@ -8,8 +8,7 @@
   }
 
   &__title {
-    @include apercu(400);
-    @include Text(13.5px, 20px, $color-fountain-blue);
+    @extend %title-small;
     margin: 0 0 20px;
   }
 

@@ -7,24 +7,24 @@
         <p class="home-testimonials__text">{{ section.settings.text }}</p>
       </div>
     </div>
-    <div class="row js-testimonials-slider">
+    <div class="js-testimonials-slider">
       {% for block in section.blocks %}
-        <div class="col-lg-4">
-          <div class="home-testimonials__testimonial">
-            <p class="home-testimonials__testimonial-text">{{ block.settings.testimonial }}</p>
-            {% if block.settings.image %}
-              {% include 'responsive-image'
-                with image: block.settings.image,
-                max_width: 350,
-                max_height: 350,
-                wrapper_class: 'home-testimonials__testimonial-image-wrap',
-                image_class: 'home-testimonials__testimonial-image'
-              %}
-            {% endif %}
-            <div>
-              <span class="home-testimonials__testimonial-name">{{ block.settings.title }}</span>
-              <span class="home-testimonials__testimonial-date">{{ block.settings.date }}</span>
-            </div>
+        <div class="home-testimonials__testimonial">
+          <p class="home-testimonials__testimonial-text">{{ block.settings.testimonial }}</p>
+          <div class="flex-shaper"></div>
+          <img src="http://via.placeholder.com/350x10" class="home-testimonials__testimonial-separator"/>
+          {% if block.settings.image %}
+            {% include 'responsive-image'
+              with image: block.settings.image,
+              max_width: 350,
+              max_height: 350,
+              wrapper_class: 'home-testimonials__testimonial-image-wrap',
+              image_class: 'home-testimonials__testimonial-image'
+            %}
+          {% endif %}
+          <div>
+            <span class="home-testimonials__testimonial-name">{{ block.settings.title }}</span>
+            <span class="home-testimonials__testimonial-date">{{ block.settings.date }}</span>
           </div>
         </div>
       {% endfor %}

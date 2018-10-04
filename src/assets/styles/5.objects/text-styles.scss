@@ -9,3 +9,8 @@
 %paragraph-blue {
   @include Text(12.5px, 14px, $color-blumine);
 }
+
+%title-small {
+  @include apercu(400);
+  @include Text(13.5px, 20px, $color-fountain-blue);
+}

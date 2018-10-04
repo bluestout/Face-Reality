@@ -12,10 +12,8 @@
   }
 
   &__tabs-link {
+    @extend %title-small;
     display: block;
-    @include apercu(400);
-    font-size: 13.5px;
-    line-height: 20px;
     text-decoration: none;
     padding: 14px 28px;
     border-bottom: 1px solid rgba($color-black, 0.35);
