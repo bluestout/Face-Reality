@@ -8,8 +8,10 @@ import 'lazysizes/plugins/respimg/ls.respimg';
 import '../../styles/theme.scss';
 import '../../styles/theme.scss.liquid';
 
-import {focusHash, bindInPageLinks} from '@shopify/theme-a11y';
-import {cookiesEnabled} from '@shopify/theme-cart';
+import '../custom/collection-by-type';
+
+import { focusHash, bindInPageLinks } from '@shopify/theme-a11y';
+import { cookiesEnabled } from '@shopify/theme-cart';
 
 // Common a11y fixes
 focusHash();
@@ -19,6 +21,6 @@ bindInPageLinks();
 if (cookiesEnabled()) {
   document.documentElement.className = document.documentElement.className.replace(
     'supports-no-cookies',
-    'supports-cookies',
+    'supports-cookies'
   );
 }

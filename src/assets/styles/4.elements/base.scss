@@ -49,7 +49,7 @@ a {
   @include transition(color);
   &:hover,
   &:active {
-    color: $color-calico;
+    color: $color-accent;
   }
 }
 

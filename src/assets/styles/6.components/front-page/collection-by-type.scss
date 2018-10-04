@@ -1,0 +1,152 @@
+.collection-by-type {
+  padding: 0 0 160px;
+
+  @function opacity-by-index($index) {
+    $base: 0.15;
+    $base: $base + ($index * 0.05);
+    @return $base;
+  }
+
+  &__tabs {
+    margin: 0 0 30px;
+  }
+
+  &__tabs-link {
+    display: block;
+    @include apercu(400);
+    font-size: 13.5px;
+    line-height: 20px;
+    text-decoration: none;
+    padding: 14px 28px;
+    border-bottom: 1px solid rgba($color-black, 0.35);
+    @include transition(color);
+
+    &.active {
+      color: $color-fountain-blue;
+    }
+
+    &:not(.active) {
+      color: rgba($color-black, 0.35);
+    }
+
+    &:active,
+    &:hover {
+      color: $color-accent;
+    }
+  }
+
+  &__type {
+    margin: 0 0 45px;
+    display: none;
+    &.active {
+      display: block;
+    }
+  }
+
+  &__visible-col {
+    position: relative;
+    padding-top: 100%;
+    @for $i from 1 through 10 {
+      &.index-#{$i} {
+        .collection-by-type__visible-col-inner {
+          background-color: rgba($color-de-york, opacity-by-index($i));
+          background-color: rgba($color-de-york, opacity-by-index($i));
+        }
+      }
+    }
+
+    &:hover,
+    &:active {
+      + .collection-by-type__hover-col {
+        opacity: 1;
+        pointer-events: auto;
+      }
+    }
+  }
+
+  &__visible-col-inner {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: calc(100% - 4px);
+    height: calc(100% - 4px);
+    display: flex;
+    flex-flow: column wrap;
+  }
+
+  &__col-title {
+    @include apercu(700);
+    @include Text(22px, 24px, $color-blumine);
+    text-align: center;
+    display: inline-block;
+    margin: auto;
+    width: 95%;
+  }
+
+  &__visible-col-arrow {
+    position: relative;
+    top: 2px;
+    display: block;
+    color: $color-calypso;
+    opacity: 0.25;
+    float: right;
+  }
+
+  &__hover-col {
+    position: absolute;
+    z-index: 1;
+    top: -58px;
+    left: -2px;
+    width: calc(100% + 4px);
+    min-height: calc(100% + 76px);
+    background-color: $color-white;
+    box-shadow: 0 0 7px 5px rgba(#b8c8ce, 0.2);
+    opacity: 0;
+    pointer-events: none;
+    text-decoration: none;
+    @include transition(opacity);
+    &:hover,
+    &:active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+  }
+
+  &__hover-col-header {
+    display: flex;
+    height: 60px;
+  }
+
+  &__hover-col-image-wrap {
+    margin: 0 auto 20px;
+  }
+
+  &__hover-col-content {
+    padding: 0 30px 25px;
+    display: block;
+  }
+
+  &__hover-col-text {
+    @include apercu(400);
+    @include Text(12.5px, 16px, rgba($color-blumine, 0.65));
+    text-align: center;
+    margin: 0 0 22px;
+    display: block;
+  }
+
+  &__hover-col-link {
+    @include apercu(400);
+    @include Text(12.5px, 16px, $color-blumine);
+    display: block;
+    text-align: center;
+    text-decoration: none;
+  }
+
+  &__link-wrap {
+    text-align: center;
+  }
+  &__link {
+    @extend .button;
+    @extend .button--wire;
+  }
+}
