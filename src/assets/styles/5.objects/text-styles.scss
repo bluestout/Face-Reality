@@ -14,3 +14,8 @@
   @include apercu(400);
   @include Text(13.5px, 20px, $color-fountain-blue);
 }
+
+%title-section {
+  @include apercu(700);
+  @include Text(36.5px, 40px, $color-blumine);
+}

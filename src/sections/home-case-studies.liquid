@@ -1,29 +1,49 @@
-<section class="home-case-studies">
+<section class="case-studies">
   <div class="container">
-    <h3 class="home-case-studies__suptitle">{{ section.settings.suptitle }}</h3>
-    <h2 class="home-case-studies__title">{{ section.settings.title }}</h2>
-    <div class="home-case-studies__studies js-case-studies-slider">
+    <h3 class="case-studies__suptitle">{{ section.settings.suptitle }}</h3>
+    <h2 class="case-studies__title">{{ section.settings.title }}</h2>
+    <div class="case-studies__studies js-case-studies-slider">
       {% for block in section.blocks %}
-        <div class="home-case-studies__study">
+        <div class="case-studies__study">
           <div class="row">
-            <div class="col-md-5">
-              <h2 class="home-case-studies__study-title">{{ block.settings.title }}</h2>
-              <p class="home-case-studies__study-title">{{ block.settings.description }}</p>
+            <div class="col-md-5 flex-col-wrap justify-content-center">
+              <div class="case-studies__study-content">
+                <h2 class="case-studies__study-title">{{ block.settings.title }}</h2>
+                <div class="case-studies__study-text">{{ block.settings.description }}</div>
+              </div>
             </div>
             {% if block.settings.image_before and block.settings.image_after %}
-              <div class="col-md-7">
-                <div class="home-case-studies__study-comparison">
-                  <img class="home-case-studies__study-comparison-image-before" src="{{ block.settings.image_before | img_url: '800x600' }}" alt="{{ block.settings.title }} before"/>
-                  <div class="home-case-studies__study-comparison-split">
-                    <img class="home-case-studies__study-comparison-image-after" src="{{ block.settings.image_after | img_url: '800x600' }}" alt="{{ block.settings.title }} after"/>
+              {% comment %} <div class="col-md-7 flex-col-wrap justify-content-center">
+                <div class="case-studies__study-comparison">
+                  <img class="case-studies__study-comparison-image" src="{{ block.settings.image_before | img_url: '800x600' }}" alt="{{ block.settings.title }} before"/>
+                  <div class="case-studies__study-comparison-split">
+                    <img class="case-studies__study-comparison-image-split" src="{{ block.settings.image_after | img_url: '800x600' }}" alt="{{ block.settings.title }} after"/>
                   </div>
-                  <span class="home-case-studies__study-comparison-slide">
+                  <span class="case-studies__study-comparison-slide">
                     <span><</span>
                     <span>></span>
                   </span>
-                  <span class="home-case-studies__study-comparison-before">Before</span>
-                  <span class="home-case-studies__study-comparison-after">After</span>
+                  <span class="case-studies__study-comparison-before">Before</span>
+                  <span class="case-studies__study-comparison-after">After</span>
                 </div>
+              </div> {% endcomment %}
+            {% else %}
+              <div class="col-md-7 flex-col-wrap justify-content-center">
+                  <div class="case-studies__study-comparison img-comp-container">
+                    <div class="img-comp-wrap">
+                      <img
+                        class="case-studies__study-comparison-image js-study-comparison-image"
+                        src="http://via.placeholder.com/800x600"
+                        alt="{{ block.settings.title }} before"
+                      />
+                    </div>
+                    <div class="img-comp-wrap js-img-comp-overlay">
+                      <img
+                        src="http://via.placeholder.com/799x599"
+                        alt="{{ block.settings.title }} after"
+                      />
+                    </div>
+                  </div>
               </div>
             {% endif %}
           </div>

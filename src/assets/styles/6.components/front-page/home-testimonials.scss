@@ -9,8 +9,7 @@
   }
 
   &__title {
-    @include apercu(700);
-    @include Text(36.5px, 40px, $color-blumine);
+    @extend %title-section;
     text-align: center;
     margin: 0 0 25px;
   }

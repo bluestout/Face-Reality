@@ -10,6 +10,7 @@ import '../../styles/theme.scss.liquid';
 
 import '../custom/collection-by-type';
 import '../custom/home-testimonials-slider';
+import '../custom/case-studies';
 
 import { focusHash, bindInPageLinks } from '@shopify/theme-a11y';
 import { cookiesEnabled } from '@shopify/theme-cart';

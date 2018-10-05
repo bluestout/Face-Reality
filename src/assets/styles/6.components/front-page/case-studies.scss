@@ -1,0 +1,80 @@
+.case-studies {
+  position: relative;
+  padding: 100px 0;
+
+  &__suptitle {
+    @extend %title-small;
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 25px;
+  }
+
+  &__title {
+    @extend %title-section;
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 65px;
+  }
+
+  &__studies {
+  }
+
+  &__study {
+  }
+
+  &__study-content {
+    max-width: 300px;
+  }
+
+  &__study-title {
+    @include apercu(700);
+    @include Text(31px, 35px, $color-blumine);
+    margin: 0 0 50px;
+  }
+
+  &__study-text {
+    p,
+    li,
+    a {
+      @include Text(15px, 22px, $color-black);
+    }
+  }
+
+  &__study-comparison {
+    position: relative;
+    overflow: hidden;
+
+    &-image {
+      position: relative;
+      display: block;
+    }
+
+    &-split {
+    }
+
+    &-image-split {
+    }
+
+    &-before,
+    &-after {
+      position: absolute;
+      bottom: 5px;
+      display: block;
+      padding: 2px 5px;
+      width: 60px;
+      font-size: 12.5px;
+      line-height: 16px;
+      text-align: center;
+      color: $color-white;
+      background-color: rgba($color-blumine, 0.75);
+    }
+
+    &-before {
+      left: 5px;
+    }
+
+    &-after {
+      right: 5px;
+    }
+  }
+}
