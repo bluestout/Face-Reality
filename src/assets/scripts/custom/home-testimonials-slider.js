@@ -28,5 +28,5 @@ function testimonials() {
 }
 
 $(document).ready(() => {
-  //testimonials();
+  testimonials();
 });

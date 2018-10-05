@@ -1,4 +1,5 @@
 .home-testimonials {
+  position: relative;
   padding: 80px 0 60px;
   background-color: rgba($color-blumine, 0.08);
   &__suptitle {
@@ -22,11 +23,21 @@
     max-width: 700px;
   }
 
+  &__container {
+    // need to create a custom container to fit the design
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
   &__testimonial {
+    // override slick overrides...
+    display: flex !important;
     height: 100%;
-    display: flex;
     flex-flow: column wrap;
-    padding: 0 0 50px;
+    padding: 0 60px 50px;
 
     &-separator {
       display: block;
@@ -84,5 +95,123 @@
   &__button {
     @extend .button;
     @extend .button--wire;
+  }
+
+  // slick-specific styling starts here
+  .slick-track {
+    display: flex;
+  }
+
+  .slick-slide {
+    height: auto;
+    > div {
+      height: 100%;
+    }
+  }
+
+  .slick-slider {
+    position: static;
+  }
+
+  .slick-arrow {
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    padding: 10px;
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+    color: rgba($color-blumine, 0.3);
+    outline: none;
+    @include transition(color);
+
+    &:hover,
+    &:active {
+      color: $color-blumine;
+    }
+
+    &.slick-prev {
+      left: 20px;
+    }
+    &.slick-next {
+      right: 20px;
+    }
+  }
+
+  .slick-dots {
+    display: block;
+    list-style: none;
+    margin: 0 0 40px;
+    padding: 0;
+    text-align: center;
+
+    li {
+      display: inline-block;
+      margin: 0 10px 10px;
+    }
+
+    button {
+      position: relative;
+      font-size: 0;
+      appearance: none;
+      outline: none;
+      border: none;
+      background-color: transparent;
+      padding: 10px 5px;
+
+      &::after {
+        content: '';
+        display: block;
+        background-color: $color-blumine;
+        width: 15px;
+        height: 3px;
+        opacity: 0.25;
+        @include transition(opacity, background-color);
+      }
+
+      &:hover,
+      &:active {
+        &::after {
+          background-color: $color-accent;
+          opacity: 1;
+        }
+      }
+    }
+
+    .slick-active {
+      button {
+        &::after {
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  // slick-specific styling ends here
+
+  @media (min-width: $grid-small) {
+    &__container {
+      max-width: 540px;
+    }
+  }
+  @media (min-width: $grid-medium) {
+    &__container {
+      max-width: 720px;
+    }
+  }
+  @media (min-width: $grid-large) {
+    &__container {
+      max-width: 960px;
+    }
+  }
+  @media (min-width: $grid-widescreen) {
+    &__container {
+      max-width: 1140px;
+    }
+  }
+  @media (min-width: 1500px) {
+    &__container {
+      max-width: 1410px;
+    }
   }
 }

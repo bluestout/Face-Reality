@@ -1,5 +1,6 @@
 .collection-by-type {
   padding: 0 0 160px;
+  overflow: hidden;
 
   @function opacity-by-index($index) {
     $base: 0.15;
