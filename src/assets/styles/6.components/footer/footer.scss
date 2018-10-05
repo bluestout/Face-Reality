@@ -1,0 +1,119 @@
+.site-footer__nav {
+  &-link {
+    @include Text(12px, 14px, $color-blumine);
+    text-decoration: none;
+    opacity: 0.5;
+    margin: 0 0 30px;
+    display: inline-block;
+    @include transition(opacity);
+
+    &:hover,
+    &:active {
+      opacity: 1;
+    }
+  }
+
+  &-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  &-subitem {
+    margin: 0 0 5px;
+  }
+
+  &-sublink {
+    @include Text(12px, 14px, $color-blumine);
+    text-decoration: none;
+    display: inline-block;
+    @include transition(color);
+
+    &:hover,
+    &:active {
+      color: $color-accent;
+    }
+  }
+}
+
+.site-footer {
+  &__logo-wrap {
+    display: block;
+    text-align: center;
+  }
+
+  &__logo-link {
+    display: inline-block;
+    @extend %no-font-size;
+  }
+
+  &__logo {
+  }
+
+  &__socials {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  &__social {
+    font-size: 20px;
+    color: $color-blumine;
+    text-decoration: none;
+    &:not(:first-of-type) {
+      margin: 0 0 0 30px;
+    }
+  }
+
+  &__copyright {
+    @include Text(12px, 14px, $color-blumine);
+    text-align: center;
+    margin: 90px 0 30px;
+    opacity: 0.5;
+
+    > a {
+      @include Text(12px, 14px, $color-blumine);
+      text-decoration: none;
+    }
+  }
+}
+
+body {
+  .site-footer__newsletter {
+    margin: 0 0 30px;
+
+    &-text {
+      @include Text(12.5px, 14.5px, $color-blumine);
+      margin: 0 0 15px;
+    }
+
+    &-form {
+      border: 1px solid $color-blumine;
+    }
+
+    &-input {
+      position: relative;
+      &::placeholder {
+        opacity: 0.5;
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        right: 0;
+        top: 20%;
+        height: 60px;
+        width: 1px;
+        display: block;
+        background-color: rgba($color-blumine, 0.3);
+      }
+    }
+
+    &-submit {
+      font-weight: 400;
+      appearance: none;
+      background-color: transparent;
+      color: $color-blumine;
+    }
+  }
+}
