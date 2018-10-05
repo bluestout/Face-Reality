@@ -9,7 +9,8 @@ import '../../styles/theme.scss';
 import '../../styles/theme.scss.liquid';
 
 import '../custom/collection-by-type';
-import '../custom/home-testimonials-slider';
+import '../custom/home-testimonials';
+import '../custom/featured-collection';
 import '../custom/case-studies';
 
 import { focusHash, bindInPageLinks } from '@shopify/theme-a11y';

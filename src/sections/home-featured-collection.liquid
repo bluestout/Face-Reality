@@ -12,11 +12,9 @@
         <h2 class="featured-collection__title">{{ section.settings.list_title }}</h2>
       </div>
     </div>
-    <div class="row no-gutters js-featured-collection-slider">
+    <div class="js-featured-collection-slider">
       {% for prod in collections[section.settings.collection].products %}
-        <div class="col-lg-3 col-md-6 flex">
-          {% include 'product-item' with prod, index: forloop.index %}
-        </div>
+        {% include 'product-item' with prod, index: forloop.index %}
       {% endfor %}
     </div>
   {% endif %}
