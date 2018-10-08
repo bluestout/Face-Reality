@@ -1,0 +1,22 @@
+.breadcrumbs {
+  padding: 45px 0 25px;
+  opacity: 0.4;
+  &__link {
+    @include apercu(400);
+    @include Text(11px, 17px, $color-blumine);
+    display: inline-block;
+  }
+
+  &__current {
+    @include apercu(400);
+    @include Text(11px, 17px, $color-blumine);
+    display: inline-block;
+  }
+
+  &__separator {
+    @include apercu(400);
+    @include Text(13px, 17px, $color-blumine);
+    display: inline-block;
+    margin: 0 6px;
+  }
+}
