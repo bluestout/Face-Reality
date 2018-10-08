@@ -1,4 +1,20 @@
-{% section 'product' %}
+<div class="container">
+  <div class="row">
+    <div class="col-lg-6">
+      {% include 'product-gallery' %}
+    </div>
+    <div class="col-lg-6">
+      {% section 'product' %}
+    </div>
+  </div>
+</div>
+
+{% include 'product-tabs' %}
+
+{% include 'product-related' %}
+
+{% include 'product-reviews' %}
+
 
 <script type="application/ld+json">
 {

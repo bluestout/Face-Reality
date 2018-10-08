@@ -3,6 +3,7 @@
   display: flex;
   flex-flow: column wrap;
   width: 100%;
+  text-align: center;
   margin: 0 0 50px;
 
   &:hover,
@@ -109,7 +110,7 @@
 
   &__description {
     @include apercu(400);
-    @include Text(12.5px, 16px, $color-black, 0.5);
+    @include Text(12.5px, 16px, $color-black, 0.5px);
     margin: 0 auto 14px;
     max-width: 220px;
     opacity: 0.5;
@@ -121,10 +122,9 @@
     @include Text(11.5px, 16px, $color-white);
     background-color: $color-de-york;
     padding: 6px;
-    text-align: center;
     width: 180px;
-    margin: 0 0 15px;
-    display: inline-block;
+    margin: 0 auto 15px;
+    display: block;
   }
 
   &__price {
