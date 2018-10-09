@@ -1,6 +1,6 @@
 {% assign found = false %}
 {% for c in product.collections %}
-  {% if found == false and c.handle contains 'simple' or c.handle contains 'muscle' or c.handle contains 'sugar' or c.handle contains 'smart' and c.all_products_count > 1 %}
+  {% if found == false and c.all_products_count > 1 %}
     {% assign found = true %}
     {% assign collection = c %}
   {% endif %}
@@ -9,29 +9,13 @@
 
 {% if products.size > 0 %}
   <div class="product-related">
-    <div class="container">
-      <h3 class="product-related__title">Other products in this group</h3>
-      <div class="row">
-        {% comment %} get exactly 3 or less products and exclude the current product, if we're on the product page {% endcomment %}
-        {% assign current_p = false %}
-        {% for p in collection.products limit: 4 %}
-          {% if p.handle == product.handle %}
-            {% assign current_p = true %}
-          {% endif %}
-        {% endfor %}
-        {% if current_p %}
-          {% assign for_limit = 4 %}
-        {% else %}
-          {% assign for_limit = 3 %}
-        {% endif %}
-        {% for p in collection.products limit: for_limit %}
-          {% unless p.handle == product.handle %}
-            <div class="col-lg-4 col-md-6">
-              {% include 'product-item' with p %}
-            </div>
-          {% endunless %}
-        {% endfor %}
-      </div>
+    <h3 class="product-related__title">Other products in this group</h3>
+    <div class="js-related-products-slider product-related__list">
+      {% for p in collection.products limit: 6 %}
+        {% unless p.handle == product.handle %}
+          {% include 'product-item' with p, index: forloop.index %}
+        {% endunless %}
+      {% endfor %}
     </div>
   </div>
 {% endif %}

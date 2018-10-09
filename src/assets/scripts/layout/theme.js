@@ -12,6 +12,7 @@ import '../custom/home-testimonials';
 import '../custom/featured-collection';
 import '../custom/case-studies';
 import '../custom/tabs';
+import '../custom/product-related';
 
 import { focusHash, bindInPageLinks } from '@shopify/theme-a11y';
 import { cookiesEnabled } from '@shopify/theme-cart';

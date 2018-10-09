@@ -1,3 +1,4 @@
+{% assign modulo = index | modulo: 2 %}
 <div class="product-item {% if modulo == 0 %}product-item--even{% else %}product-item--odd{% endif %}" itemscope itemtype="http://schema.org/Product">
   <meta itemprop="name" content="{{ prod.title }}">
   <meta itemprop="url" content="{{ shop.url }}{{ prod.url }}">
@@ -6,7 +7,6 @@
   <meta itemprop="priceCurrency" content="{{ shop.currency }}">
   <meta itemprop="price" content="{{ prod.price | divided_by: 100.00 }}">
   <link itemprop="availability" href="http://schema.org/{% if prod.available %}InStock{% else %}OutOfStock{% endif %}">
-  {% assign modulo = index | modulo: 2 %}
   <div class="product-item__background"></div>
   <a href="{{ product-item.url | within: collection }}" class="product-item__link">
     <span class="product-item__tag-wrap">

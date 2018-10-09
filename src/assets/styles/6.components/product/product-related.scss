@@ -1,0 +1,117 @@
+.product-related {
+  position: relative;
+  margin: 0 0 120px;
+
+  &__title {
+    @extend %title-small;
+    margin: 0 0 30px;
+    text-align: center;
+  }
+
+  &__list {
+    &:not(.slick) {
+    }
+  }
+
+  .product-item {
+    // override slick overrides...
+    display: flex !important;
+    height: 100%;
+    flex-flow: column wrap;
+    padding: 0 0 50px;
+    margin: 0;
+  }
+
+  // slick-specific styling starts here
+  .slick-track {
+    display: flex;
+  }
+
+  .slick-slide {
+    height: auto;
+    > div {
+      height: 100%;
+    }
+  }
+
+  .slick-slider {
+    position: static;
+  }
+
+  .slick-arrow {
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    padding: 10px;
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+    color: rgba($color-blumine, 0.3);
+    outline: none;
+    cursor: pointer;
+    @include transition(color);
+
+    &:hover,
+    &:active {
+      color: $color-blumine;
+    }
+
+    &.slick-prev {
+      left: 20px;
+    }
+    &.slick-next {
+      right: 20px;
+    }
+  }
+
+  .slick-dots {
+    display: none !important;
+    list-style: none;
+    margin: 0 0 40px;
+    padding: 0;
+    text-align: center;
+
+    li {
+      display: inline-block;
+      margin: 0 10px 10px;
+    }
+
+    button {
+      position: relative;
+      font-size: 0;
+      appearance: none;
+      outline: none;
+      border: none;
+      background-color: transparent;
+      padding: 10px 5px;
+
+      &::after {
+        content: '';
+        display: block;
+        background-color: $color-blumine;
+        width: 15px;
+        height: 3px;
+        opacity: 0.25;
+        @include transition(opacity, background-color);
+      }
+
+      &:hover,
+      &:active {
+        &::after {
+          background-color: $color-accent;
+          opacity: 1;
+        }
+      }
+    }
+
+    .slick-active {
+      button {
+        &::after {
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  // slick-specific styling ends here
+}

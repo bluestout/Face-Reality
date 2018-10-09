@@ -6,17 +6,6 @@
   text-align: center;
   margin: 0 0 50px;
 
-  &:hover,
-  &:active {
-    .product-item__title {
-      color: $color-accent;
-    }
-
-    .product-item__description {
-      opacity: 1;
-    }
-  }
-
   &--even {
     .product-item__background {
       background-color: rgba($color-fountain-blue, 0.14);
@@ -71,6 +60,16 @@
     display: block;
     text-decoration: none;
     width: 100%;
+    &:hover,
+    &:active {
+      .product-item__title {
+        color: $color-accent;
+      }
+
+      .product-item__description {
+        opacity: 1;
+      }
+    }
   }
 
   &__tag-wrap {
