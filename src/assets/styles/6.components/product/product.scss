@@ -4,6 +4,16 @@
   margin: 0 auto 105px;
   max-width: 400px;
 
+  &__authorization-tag {
+    @include myriad(400);
+    @include Text(11.5px, 16px, $color-white);
+    background-color: $color-de-york;
+    padding: 4px;
+    width: 180px;
+    margin: 0 auto 20px;
+    display: block;
+  }
+
   &__title {
     @include apercu(700);
     @include Text(31px, 35px, $color-blumine);
@@ -106,6 +116,41 @@
     @extend .button--main;
     font-weight: 700;
     height: 42px;
+  }
+
+  &__authorization {
+    position: relative;
+    background-color: #f7f7f2;
+    padding: 65px 50px 30px;
+    margin: 0 0 40px;
+  }
+
+  &__authorization-icon {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translate(-50%);
+    background-color: $color-white;
+    border-radius: 50%;
+    display: block;
+    padding: 10px;
+  }
+
+  &__authorization-content {
+    p {
+      color: $color-blumine;
+    }
+    a:not(.button) {
+      color: $color-blumine;
+    }
+    .button {
+      padding: 14px 28px;
+      width: 220px;
+    }
+  }
+
+  .social-sharing {
+    margin: 0 0 40px;
   }
 }
 

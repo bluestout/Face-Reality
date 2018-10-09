@@ -2,6 +2,8 @@
 
   {%- assign current_variant = product.selected_or_first_available_variant -%}
 
+  <div class="product-single__authorization-tag">Needs authorization</div>
+
   <h1 class="product-single__title">{{ product.title }}</h1>
   <p class="product-single__id">Product ID. {{ product.id }}</p>
 
@@ -87,6 +89,18 @@
   </form>
 
   {% include 'product-usps' %}
+
+
+  <div class="product-single__authorization">
+    <span class="product-single__authorization-icon">ICON</span>
+    <div class="product-single__authorization-content">
+      <p>To be able to buy this product you need to be authorized. Please see your nearest Face Reality clinic to get authorization.</p>
+      <a href="" class="button button--main">Why can't I buy?</a>
+      <br>
+      <br>
+      <p>If you already have an authorization, <a href="#">log in</a></p>
+    </div>
+  </div>
 
   {% if section.settings.show_share_buttons %}
     {% include 'social-sharing', share_title: product.title, share_permalink: product.url, share_image: product %}
