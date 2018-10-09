@@ -1,5 +1,321 @@
 {
-  "current": "Default",
+  "current": {
+    "color_accent": "#c4cdd5",
+    "color_body_text": "#161d25",
+    "color_main_bg": "#fff",
+    "font_heading": "helvetica_n4",
+    "font_body": "helvetica_n4",
+    "share_image": "",
+    "social_sharing_blog": true,
+    "share_facebook": true,
+    "share_twitter": true,
+    "share_pinterest": true,
+    "social_twitter_link": "#",
+    "social_facebook_link": "#",
+    "social_pinterest_link": "",
+    "social_instagram_link": "#",
+    "social_snapchat_link": "",
+    "social_tumblr_link": "",
+    "social_youtube_link": "#",
+    "social_vimeo_link": "",
+    "social_linkedin_link": "#",
+    "cart_notes_enable": true,
+    "favicon": "",
+    "checkout_header_image": "",
+    "checkout_logo_image": "",
+    "checkout_logo_position": "left",
+    "checkout_logo_size": "medium",
+    "checkout_body_background_image": "",
+    "checkout_body_background_color": "#fff",
+    "checkout_input_background_color_mode": "white",
+    "checkout_sidebar_background_image": "",
+    "checkout_sidebar_background_color": "#fafafa",
+    "checkout_heading_font": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'",
+    "checkout_body_font": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'",
+    "checkout_accent_color": "#197bbd",
+    "checkout_button_color": "#197bbd",
+    "checkout_error_color": "#e32c2b",
+    "sections": {
+      "header": {
+        "type": "header",
+        "settings": {
+          "announcement_bar_enabled": true,
+          "announcement_bar_home_page_only": true,
+          "announcement_bar_text": "10% promo discount on all products. Only this week. <a href=\"#\">Shop Now</a>",
+          "logo": "shopify://shop_images/Face-Reality-Logo-1.png",
+          "logo_max_width": 180,
+          "menu": "main-menu"
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "settings": {
+          "footer_linklist": "footer",
+          "newsletter_text": "Sign up for Face Reality Newsletter and\u0003 receive promotions, announcements in your inbox",
+          "logo": "shopify://shop_images/Face-Reality-Logo-1.png"
+        }
+      },
+      "1538382507930": {
+        "type": "home-collection-by-type",
+        "blocks": {
+          "1538382537118": {
+            "type": "tab-1",
+            "settings": {
+              "collection": "smart"
+            }
+          },
+          "1538382564151": {
+            "type": "tab-1",
+            "settings": {
+              "collection": "simple"
+            }
+          },
+          "1538382624911": {
+            "type": "tab-2",
+            "settings": {
+              "collection": "frontpage"
+            }
+          },
+          "1538382579508": {
+            "type": "tab-2",
+            "settings": {
+              "collection": "smart"
+            }
+          },
+          "1538575249055": {
+            "type": "tab-1",
+            "settings": {
+              "collection": "lean"
+            }
+          },
+          "1538575259812": {
+            "type": "tab-1",
+            "settings": {
+              "collection": "smart"
+            }
+          },
+          "1538575268244": {
+            "type": "tab-1",
+            "settings": {
+              "collection": "smart-1"
+            }
+          },
+          "1538575279750": {
+            "type": "tab-1",
+            "settings": {
+              "collection": "frontpage"
+            }
+          },
+          "1538575289940": {
+            "type": "tab-2",
+            "settings": {
+              "collection": "frontpage"
+            }
+          },
+          "1538575296199": {
+            "type": "tab-2",
+            "settings": {
+              "collection": "most-popular"
+            }
+          },
+          "1538575302231": {
+            "type": "tab-2",
+            "settings": {
+              "collection": "smart-1"
+            }
+          }
+        },
+        "block_order": [
+          "1538382537118",
+          "1538382564151",
+          "1538382624911",
+          "1538382579508",
+          "1538575249055",
+          "1538575259812",
+          "1538575268244",
+          "1538575279750",
+          "1538575289940",
+          "1538575296199",
+          "1538575302231"
+        ],
+        "settings": {
+          "title_tab_1": "Browse by skin type",
+          "title_tab_2": "Browse by product type",
+          "button_url": "",
+          "button_text": "Browse all products"
+        }
+      },
+      "1538382732928": {
+        "type": "home-featured-collection",
+        "settings": {
+          "title": "Our products",
+          "text": "The Face Reality products are specifically formulated for acneic skin and are guaranteed to not clog your pores.",
+          "list_title": "Most popular",
+          "collection": "most-popular"
+        }
+      },
+      "1538382768903": {
+        "type": "home-primary-banner",
+        "settings": {
+          "title": "Tried everything and still have acne? Get it under control with our clear-skin system.",
+          "button_url": "",
+          "button_text": "Learn More",
+          "link_url": "",
+          "link_text": "Explore our products",
+          "background": "",
+          "badge": ""
+        }
+      },
+      "1538382773526": {
+        "type": "home-usp-4up",
+        "blocks": {
+          "1538382823598": {
+            "type": "usp-text",
+            "settings": {
+              "text": "Face Reality Acne Clinic has a clear-skin system that will have your acne under control in about three to four months, depending on your type of acne. We combine the power of clinical-grade products that are customized for your type of acne, with a series of bi-monthly treatments."
+            }
+          },
+          "1538382836120": {
+            "type": "usp-icon",
+            "settings": {
+              "title": "Find a certified local clinic",
+              "icon": ""
+            }
+          },
+          "1538382845748": {
+            "type": "usp-icon",
+            "settings": {
+              "title": "Find the correct products for your skin type",
+              "icon": ""
+            }
+          },
+          "1538382848109": {
+            "type": "usp-icon",
+            "settings": {
+              "title": "Clear skin in 3-4 months",
+              "icon": ""
+            }
+          }
+        },
+        "block_order": [
+          "1538382823598",
+          "1538382836120",
+          "1538382845748",
+          "1538382848109"
+        ],
+        "settings": {
+          "button_text": "Find a nearby clinic",
+          "button_url": ""
+        }
+      },
+      "1538384423675": {
+        "type": "home-testimonials",
+        "blocks": {
+          "1538384458991": {
+            "type": "testimonial",
+            "settings": {
+              "testimonial": "This place really is amazing and anyone with acne knows $25 (which they waive if you elect to get a treatment) is REALLY cheap and worth it to get his or her skin under control. I have been to so many different places, spent tons of money, even tried the stuff from acne.org, just to be disappointed. I finally decided to check this place out based on all the great reviews and really nice man (Pat) I spoke with at the clinic over the phone. This place is the first place I have been able to leave from after getting a facial where I didn’t feel like I needed to hide.",
+              "image": "shopify://shop_images/spa-facial-treatment.jpg",
+              "title": "Jeannine L.",
+              "date": "Jun 2018"
+            }
+          },
+          "1538384503030": {
+            "type": "testimonial",
+            "settings": {
+              "testimonial": "Within two to three weeks we noticed a huge change. The inflammation was going down and with treatments every two weeks my daughter Sarah’s skin really did start to clear. What amazes me is that Sarah has been to dermatologists since she was in junior high school. The last time she went in, the doctor said he did not know what to do, they had tried it all. Well, Sarah walked down the aisle on her wedding day acne free, thanks to Face Reality!",
+              "image": "shopify://shop_images/blue-black-on-brick.jpg",
+              "title": "Sune N.",
+              "date": "Jun 2018"
+            }
+          },
+          "1538384524495": {
+            "type": "testimonial",
+            "settings": {
+              "testimonial": "This place really is amazing and anyone with acne knows $25 (which they waive if you elect to get a treatment) is REALLY cheap and worth it to get his or her skin under control. I have been to so many different places, spent tons of money, even tried the stuff from acne.org, just to be disappointed. I finally decided to check this place out based on all the great reviews and really nice man (Pat) I spoke with at the clinic over the phone. This place is the first place I have been able to leave from after getting a facial where I didn’t feel like I needed to hide.",
+              "image": "shopify://shop_images/spa-facial-treatment.jpg",
+              "title": "Jeannine L.",
+              "date": "Jun 2018"
+            }
+          },
+          "1538665766851": {
+            "type": "testimonial",
+            "settings": {
+              "testimonial": "This place really is amazing and anyone with acne knows $25 (which they waive if you elect to get a treatment) is REALLY cheap and worth it to get his or her skin under control. I have been to so many different places, spent tons of money, even tried the stuff from acne.org, just to be disappointed. I finally decided to check this place out based on all the great reviews and really nice man (Pat) I spoke with at the clinic over the phone. This place is the first place I have been able to leave from after getting a facial where I didn’t feel like I needed to hide.",
+              "image": "shopify://shop_images/blue-black-on-brick.jpg",
+              "title": "Jeannine L.",
+              "date": "Jun 2018"
+            }
+          },
+          "1538665789693": {
+            "type": "testimonial",
+            "settings": {
+              "testimonial": "Within two to three weeks we noticed a huge change. The inflammation was going down and with treatments every two weeks my daughter Sarah’s skin really did start to clear. What amazes me is that Sarah has been to dermatologists since she was in junior high school. The last time she went in, the doctor said he did not know what to do, they had tried it all. Well, Sarah walked down the aisle on her wedding day acne free, thanks to Face Reality!",
+              "image": "shopify://shop_images/spa-facial-treatment.jpg",
+              "title": "Sune N.",
+              "date": "Jun 2018"
+            }
+          }
+        },
+        "block_order": [
+          "1538384458991",
+          "1538384503030",
+          "1538384524495",
+          "1538665766851",
+          "1538665789693"
+        ],
+        "settings": {
+          "suptitle": "Testimonials",
+          "title": "Our process changes lives",
+          "text": "Thousand of clients have been sucessfully put acne under control with our Clear skin system. Read their comments.",
+          "button_text": "Read all testimonials",
+          "button_link": ""
+        }
+      },
+      "1538385694899": {
+        "type": "home-case-studies",
+        "blocks": {
+          "1538385715089": {
+            "type": "study",
+            "settings": {
+              "title": "Inflamed Acne",
+              "description": "<p>Characteristics:</p>\n<ul>\n<li>redness/ blotchiness</li>\n<li>hot to the touch</li>\n<li>pimples/ pustules/ whiteheads/ blackheads</li>\n<li>possibility of cysts</li>\n<li>excessive oil</li>\n<li>sensitive skin and reactive to products</li>\n</ul>",
+              "image_before": "",
+              "image_after": ""
+            }
+          }
+        },
+        "block_order": ["1538385715089"],
+        "settings": {
+          "suptitle": "Case Studies",
+          "title": "Acne types"
+        }
+      },
+      "1538388429503": {
+        "type": "home-instagram",
+        "settings": {
+          "title": "@facerealityacneclinic",
+          "link": "#"
+        }
+      },
+      "1538388684815": {
+        "type": "home-stories",
+        "settings": {
+          "title": "Stories"
+        }
+      }
+    },
+    "content_for_index": [
+      "1538382768903",
+      "1538382773526",
+      "1538382732928",
+      "1538382507930",
+      "1538384423675",
+      "1538385694899",
+      "1538388684815",
+      "1538388429503"
+    ]
+  },
   "presets": {
     "Default": {
       "sections": {
@@ -7,20 +323,24 @@
           "type": "collection-list",
           "blocks": {
             "collection-list-0": {
-              "type": "collection"
+              "type": "collection",
+              "settings": {}
             },
             "collection-list-1": {
-              "type": "collection"
+              "type": "collection",
+              "settings": {}
             },
             "collection-list-2": {
-              "type": "collection"
+              "type": "collection",
+              "settings": {}
             }
           },
           "block_order": [
             "collection-list-0",
             "collection-list-1",
             "collection-list-2"
-          ]
+          ],
+          "settings": {}
         },
         "featured-collection": {
           "type": "featured-collection",
@@ -29,7 +349,8 @@
           }
         },
         "featured-product": {
-          "type": "featured-product"
+          "type": "featured-product",
+          "settings": {}
         }
       },
       "content_for_index": [
