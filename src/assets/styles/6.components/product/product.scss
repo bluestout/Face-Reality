@@ -1,7 +1,7 @@
 .product-single {
   padding: 25px 0 0;
   text-align: center;
-  margin: 0 auto 0;
+  margin: 0 auto 105px;
   max-width: 400px;
 
   &__title {
@@ -97,3 +97,7 @@
     height: 42px;
   }
 }
+
+@import './product-usps';
+@import './product-tabs';
+@import './product-related';

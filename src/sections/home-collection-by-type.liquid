@@ -1,18 +1,18 @@
-<section class="collection-by-type">
+<section class="collection-by-type" data-tabs-container>
   <div class="collection-by-type__tabs">
     <div class="container">
       <div class="row no-gutters justify-content-center">
         <div class="col-md-auto">
-          <a href="#" class="collection-by-type__tabs-link active" data-tab-target="1">{{ section.settings.title_tab_1 }}</a>
+          <a href="#" class="collection-by-type__tabs-link active" data-tab-link="1">{{ section.settings.title_tab_1 }}</a>
         </div>
         <div class="col-md-auto">
-          <a href="#" class="collection-by-type__tabs-link" data-tab-target="2">{{ section.settings.title_tab_2 }}</a>
+          <a href="#" class="collection-by-type__tabs-link" data-tab-link="2">{{ section.settings.title_tab_2 }}</a>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="collection-by-type__type active" data-col-type-tab="1">
+  <div class="collection-by-type__type active" data-tab="1">
     <div class="row no-gutters">
       {% assign index = 1 %}
       {% comment %} looped the same array twice, because we can't know in what order the user will add blocks {% endcomment %}
@@ -53,7 +53,7 @@
     </div>
   </div>
 
-  <div class="collection-by-type__type" data-col-type-tab="2">
+  <div class="collection-by-type__type" data-tab="2">
     <div class="row no-gutters">
       {% assign index = 1 %}
       {% for block in section.blocks %}

@@ -8,10 +8,10 @@ import 'lazysizes/plugins/respimg/ls.respimg';
 import '../../styles/theme.scss';
 import '../../styles/theme.scss.liquid';
 
-import '../custom/collection-by-type';
 import '../custom/home-testimonials';
 import '../custom/featured-collection';
 import '../custom/case-studies';
+import '../custom/tabs';
 
 import { focusHash, bindInPageLinks } from '@shopify/theme-a11y';
 import { cookiesEnabled } from '@shopify/theme-cart';
