@@ -1,0 +1,10 @@
+<div class="call-to-action">
+  <p class="call-to-action__content">{{ cta_content }}</p>
+  <div class="call-to-action__button-wrap">
+    <a href="{{ cta_button_url }}" class="call-to-action__button">{{ cta_button_text }}</a>
+  </div>
+  {% if cta_link_text != '' %}
+    <span class="call-to-action__or">or</span>
+    <a href="{{ cta_link_url }}" class="call-to-action__link-inline">{{ cta_link_text }}</a>
+  {% endif %}
+</div>

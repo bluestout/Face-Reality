@@ -1,0 +1,39 @@
+.call-to-action {
+  text-align: center;
+  padding: 60px 80px;
+  background-color: $color-pampas;
+
+  &__content {
+    @include apercu(400);
+    @include Text(14px, 23px, $color-black);
+    margin: 0 0 35px;
+  }
+
+  &__button {
+    @extend .button;
+    @extend .button--main;
+    text-align: center;
+    font-size: 14px;
+    line-height: 18px;
+    padding: 19px;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 320px;
+    display: block;
+  }
+
+  &__button-wrap {
+    margin: 0 0 20px;
+  }
+
+  &__or {
+    @include apercu(400);
+    @include Text(14px, 23px, $color-black);
+  }
+
+  &__link-inline {
+    @include apercu(400);
+    @include Text(14px, 23px, $color-blumine);
+    text-decoration: none;
+  }
+}

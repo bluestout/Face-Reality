@@ -1,0 +1,9 @@
+<div class="page-banner lazyload" data-bgset="{% include 'responsive-bg-image', image: section.settings.bg %}">
+  <div class="page-banner__content">
+    {% if banner_suptitle %}
+      <h3 class="page-banner__suptitle">{{ banner_suptitle }}</h3>
+    {% endif %}
+    <h1 class="page-banner__title">{{ banner_title }}</h1>
+  </div>
+</div>
+

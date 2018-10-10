@@ -1,0 +1,20 @@
+.page-banner {
+  text-align: center;
+  padding: 180px;
+  margin: 0 0 85px;
+
+  &__content {
+    visibility: default;
+  }
+
+  &__suptitle {
+    @include apercu(400);
+    @include Text(13.5px, 20px, $color-black);
+    margin: 0 0 30px;
+  }
+
+  &__title {
+    @include apercu(700);
+    @include Text(40px, 49px, $color-black);
+  }
+}
