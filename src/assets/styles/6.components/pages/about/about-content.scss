@@ -1,0 +1,61 @@
+.about-content {
+  &__page-content {
+    @include apercu(400);
+    @include Text(20px, 30px, $color-blumine);
+
+    p {
+      @include apercu(400);
+      @include Text(20px, 30px, $color-blumine);
+    }
+
+    a {
+      @include apercu(400);
+      @include Text(20px, 30px, $color-blumine);
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      color: $color-blumine;
+    }
+  }
+
+  &__content {
+    @include apercu(400);
+    @include Text(16px, 26px, $color-black);
+    p {
+      @include apercu(400);
+      @include Text(16px, 26px, $color-black);
+    }
+    a {
+      @include apercu(400);
+      @include Text(16px, 26px, $color-black);
+    }
+  }
+
+  &__image-wrap {
+    margin: 0 0 60px;
+  }
+  .responsive-image__internal-text {
+    bottom: 60px;
+    left: 60px;
+    right: 60px;
+    max-width: 520px;
+    @include apercu(700);
+    @include Text(23px, 28px, $color-white);
+    visibility: visible;
+
+    &::before {
+      content: '';
+      position: relative;
+      bottom: 30px;
+      display: block;
+      width: 140px;
+      height: 8px;
+      background-color: $color-white;
+    }
+  }
+}

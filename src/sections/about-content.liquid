@@ -1,0 +1,111 @@
+<div class="about-content">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-3 col-sm-1 d-sm-block d-none"></div>
+      <div class="col-lg-6 col-sm-6">
+        <div class="about-content__page-content">
+          {{ page.content }}
+        </div>
+        <div class="about-content__content">
+          {{ section.settings.content_top }}
+        </div>
+      </div>
+      <div class="col-lg-3 col-sm-4">
+        {% include 'responsive-image' with
+          image: section.settings.image_top,
+          max_width: 400,
+          max_height: 500,
+          wrapper_class: 'about-content__image-wrap',
+          img_class: 'about-content__image'
+        %}
+      </div>
+      <div class="col-1 d-lg-none d-md-block d-sm-block d-none"></div>
+    </div>
+    <div class="about-content__image-wrap">
+      {% include 'responsive-image' with
+        image: section.settings.image_middle,
+        max_width: 1110,
+        max_height: 560,
+        wrapper_class: 'about-content__image-wrap',
+        img_class: 'about-content__image'
+        internal_text: section.settings.content_middle
+      %}
+    </div>
+    <div class="row">
+      <div class="col-lg-3 col-sm-1 d-sm-block d-none"></div>
+      <div class="col-lg-6 col-sm-10 ">
+        <div class="about-content__content">
+        {{ section.settings.content_bottom }}
+        </div>
+
+        {% include 'call-to-action' with
+          cta_content: section.settings.cta_content,
+          cta_button_text: section.settings.cta_button_text,
+          cta_button_url: section.settings.cta_button_url,
+          cta_link_text: section.settings.cta_link_text,
+          cta_link_url: section.settings.cta_link_url
+        %}
+      </div>
+      <div class="col-lg-3 col-sm-1 d-sm-block d-none"></div>
+    </div>
+  </div>
+</div>
+
+
+{% schema %}
+  {
+    "name": "Content",
+    "settings": [
+      {
+        "type": "richtext",
+        "id": "content_top",
+        "label": "Top content"
+      },
+      {
+        "type": "image_picker",
+        "id": "image_top",
+        "label": "Top image"
+      },
+      {
+        "type": "image_picker",
+        "id": "image_middle",
+        "label": "Middle image"
+      },
+      {
+        "type": "textarea",
+        "id": "content_middle",
+        "label": "Middle image text"
+      },
+      {
+        "type": "richtext",
+        "id": "content_bottom",
+        "label": "Bottom content"
+      },
+      {
+        "type": "textarea",
+        "id": "cta_content",
+        "label": "CTA description"
+      },
+      {
+        "type": "text",
+        "id": "cta_button_text",
+        "label": "CTA button text"
+      },
+      {
+        "type": "url",
+        "id": "cta_button_url",
+        "label": "CTA button URL"
+      },
+      {
+        "type": "text",
+        "id": "cta_link_text",
+        "label": "CTA link text"
+      },
+      {
+        "type": "url",
+        "id": "cta_link_url",
+        "label": "CTA link url"
+      }
+    ]
+  }
+{% endschema %}

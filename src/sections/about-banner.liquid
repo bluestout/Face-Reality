@@ -1,0 +1,28 @@
+{% include 'page-banner' with
+  banner_bg: section.settings.bg,
+  banner_suptitle: section.settings.suptitle,
+  banner_title: section.settings.title
+%}
+
+{% schema %}
+  {
+    "name": "Header banner",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "bg",
+        "label": "Banner Backgound"
+      },
+      {
+        "type": "text",
+        "id": "suptitle",
+        "label": "Banner suptitle"
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Banner title"
+      }
+    ]
+  }
+{% endschema %}

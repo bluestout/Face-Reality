@@ -107,11 +107,16 @@
   <picture>
 {% endif %}
 
+{% if internal_text %}
+  <span class="responsive-image__internal-text">{{ internal_text }}</span>
+{% endif %}
+
 {% if span %}
   </span>
 {% else %}
   </div>
 {% endif %}
+
 
 <noscript>
   <img class="{{ image_class }}" src="{{ image | img_url: '2048x2048' }}" alt="{{ image.alt | escape }}">
