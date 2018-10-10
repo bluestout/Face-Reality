@@ -1,5 +1,13 @@
 .product-gallery {
   margin: 0 0 105px;
+
+  &__image-wrapper {
+    background-color: rgba($color-fountain-blue, 0.08);
+  }
+
+  &__image {
+  }
+
   &__thumbnails {
   }
 

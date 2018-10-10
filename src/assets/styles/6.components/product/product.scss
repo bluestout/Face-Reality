@@ -175,7 +175,7 @@
 
   &__authorization {
     position: relative;
-    background-color: #f7f7f2;
+    background-color: $color-pampas;
     padding: 65px 50px 30px;
     margin: 0 0 40px;
   }
@@ -212,3 +212,5 @@
 @import './product-usps';
 @import './product-tabs';
 @import './product-related';
+@import './product-gallery';
+@import './product-reviews';
