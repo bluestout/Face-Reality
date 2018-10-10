@@ -1,0 +1,43 @@
+<div class="different-mentions">
+  <h2 class="different-mentions__title">{{ section.settings.title }}</h2>
+  <div class="js-different-mentions-slider different-mentions__mentions">
+    {% for block in section.blocks %}
+      <div class="different-mentions__mention">
+        <a class="different-mentions__mention-link" href="{{ block.settings.url }}">
+          <img class="different-mentions__mention-logo" src="{{ block.settings.image | img_url: '300x' }}" alt="Logo"/>
+        </a>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Mentions",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Section Title"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "mention",
+        "name": "Mention",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Mention Logo"
+          },
+          {
+            "type": "url",
+            "id": "url",
+            "label": "Mention Link"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

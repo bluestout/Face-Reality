@@ -1,0 +1,18 @@
+.full-w-rows {
+  margin: 0 0 65px;
+  &__section-title {
+    @include apercu(700);
+    @include Text(32px, 38px, $color-blumine);
+    text-align: center;
+    margin: 0 0 60px;
+  }
+
+  &__section-content {
+  }
+
+  &__image-wrap {
+  }
+
+  &__image {
+  }
+}

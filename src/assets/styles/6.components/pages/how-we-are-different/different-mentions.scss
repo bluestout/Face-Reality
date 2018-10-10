@@ -1,0 +1,134 @@
+.different-mentions {
+  position: relative;
+  padding: 0 60px;
+
+  &__title {
+    @extend %title-small;
+    text-align: center;
+    margin: 0 0 25px;
+  }
+
+  &__mentions {
+    margin: 0 0 100px;
+    @include clearfix;
+  }
+
+  &__mention {
+    text-align: center;
+    padding: 40px 10px;
+    margin: 0 5px;
+    width: 310px;
+    float: left;
+  }
+
+  &__mention-link {
+    display: inline-block;
+    @extend %no-font-size;
+
+    &:hover,
+    &:active {
+      .different-mentions__mention-logo {
+        opacity: 1;
+      }
+    }
+  }
+
+  &__mention-logo {
+    display: inline-block;
+    max-width: 100%;
+    opacity: 0.35;
+    @include transition(opacity);
+  }
+
+  // slick-specific styling starts here
+  .slick-track {
+    display: flex;
+  }
+
+  .slick-slide {
+    height: auto;
+    > div {
+      height: 100%;
+    }
+  }
+
+  .slick-slider {
+    position: static;
+  }
+
+  .slick-arrow {
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    padding: 10px;
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+    color: rgba($color-blumine, 0.3);
+    outline: none;
+    @include transition(color);
+
+    &:hover,
+    &:active {
+      color: $color-blumine;
+    }
+
+    &.slick-prev {
+      left: 20px;
+    }
+    &.slick-next {
+      right: 20px;
+    }
+  }
+
+  .slick-dots {
+    display: none !important;
+    list-style: none;
+    margin: 0 0 40px;
+    padding: 0;
+    text-align: center;
+
+    li {
+      display: inline-block;
+      margin: 0 10px 10px;
+    }
+
+    button {
+      position: relative;
+      font-size: 0;
+      appearance: none;
+      outline: none;
+      border: none;
+      background-color: transparent;
+      padding: 10px 5px;
+
+      &::after {
+        content: '';
+        display: block;
+        background-color: $color-blumine;
+        width: 15px;
+        height: 3px;
+        opacity: 0.25;
+        @include transition(opacity, background-color);
+      }
+
+      &:hover,
+      &:active {
+        &::after {
+          background-color: $color-accent;
+          opacity: 1;
+        }
+      }
+    }
+
+    .slick-active {
+      button {
+        &::after {
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  // slick-specific styling ends here
+}
