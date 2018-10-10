@@ -1,0 +1,64 @@
+<section class="testimonials-content">
+  <div class="testimonials-content__container">
+    <div class="row">
+      {% for block in section.blocks %}
+        <div class="testimonials-content__testimonial">
+          <p class="testimonials-content__testimonial-text">{{ block.settings.testimonial }}</p>
+          <div class="flex-shaper"></div>
+          <img src="http://via.placeholder.com/350x10" class="testimonials-content__testimonial-separator"/>
+          {% if block.settings.image %}
+            {% include 'responsive-image'
+              with image: block.settings.image,
+              max_width: 350,
+              max_height: 350,
+              wrapper_class: 'testimonials-content__testimonial-image-wrap',
+              image_class: 'testimonials-content__testimonial-image'
+            %}
+          {% endif %}
+          <div>
+            <span class="testimonials-content__testimonial-name">{{ block.settings.title }}</span>
+            <span class="testimonials-content__testimonial-date">{{ block.settings.date }}</span>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+  {
+    "name": "Testimonials",
+    "blocks": [
+      {
+        "type": "testimonial",
+        "name": "Testimonial",
+        "settings": [
+          {
+            "type": "textarea",
+            "id": "testimonial",
+            "label": "Testimonial Text"
+          },
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          },
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Name"
+          },
+          {
+            "type": "text",
+            "id": "date",
+            "label": "Date"
+          }
+        ]
+      }
+    ],
+    "presets": [{
+        "name": "Testimonials",
+        "category": "Front Page"
+    }]
+  }
+{% endschema %}
