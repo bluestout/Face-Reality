@@ -1,27 +1,54 @@
 <section class="testimonials-content">
   <div class="testimonials-content__container">
-    <div class="row">
-      {% for block in section.blocks %}
-        <div class="testimonials-content__testimonial">
-          <p class="testimonials-content__testimonial-text">{{ block.settings.testimonial }}</p>
-          <div class="flex-shaper"></div>
-          <img src="http://via.placeholder.com/350x10" class="testimonials-content__testimonial-separator"/>
-          {% if block.settings.image %}
-            {% include 'responsive-image'
-              with image: block.settings.image,
-              max_width: 350,
-              max_height: 350,
-              wrapper_class: 'testimonials-content__testimonial-image-wrap',
-              image_class: 'testimonials-content__testimonial-image'
-            %}
-          {% endif %}
-          <div>
-            <span class="testimonials-content__testimonial-name">{{ block.settings.title }}</span>
-            <span class="testimonials-content__testimonial-date">{{ block.settings.date }}</span>
+    {% comment %} assign an initial index that we will increment, to manage pagination {% endcomment %}
+    {% assign index = 1 %}
+    {% for block in section.blocks %}
+      {% comment %} assign a variable that will determine pagination size {% endcomment %}
+      {% assign paginate_by = 3 %}
+      {% comment %} check if the current loop element should add a new pagination row {% endcomment %}
+      {% assign split_modulo = paginate_by %}
+      {% assign split = forloop.index | modulo: split_modulo  %}
+
+      {% if split == 1 %}
+        <div class="testimonials-content__row" {% if index != 1 %}style="display:none"{% endif %} data-testimonials-page-row="{{ index }}">
+          <div class="row">
+      {% endif %}
+
+        <div class="col-lg-4 col-md-6 flex">
+          <div class="testimonials-content__testimonial flex-col-wrap">
+            <p class="testimonials-content__testimonial-text">{{ block.settings.testimonial }}</p>
+            <div class="flex-shaper"></div>
+            <img src="http://via.placeholder.com/350x10" class="testimonials-content__testimonial-separator"/>
+            {% if block.settings.image %}
+              {% include 'responsive-image'
+                with image: block.settings.image,
+                max_width: 350,
+                max_height: 350,
+                wrapper_class: 'testimonials-content__testimonial-image-wrap',
+                image_class: 'testimonials-content__testimonial-image lazyload'
+              %}
+            {% endif %}
+            <div>
+              <span class="testimonials-content__testimonial-name">{{ block.settings.title }}</span>
+              <span class="testimonials-content__testimonial-date">{{ block.settings.date }}</span>
+            </div>
           </div>
         </div>
-      {% endfor %}
-    </div>
+
+      {% if split == 0 %}
+        {% assign index = index | plus: 1 %}
+      {% endif %}
+
+      {% if split == 0 or forloop.last %}
+          </div>
+        </div>
+      {% endif %}
+
+    {% endfor %}
+  </div>
+
+  <div class="testimonials-content__load-wrap">
+    <button type="button" class="testimonials-content__load-more" data-testimonials-loader="2">Load more</button>
   </div>
 </section>
 

@@ -1,6 +1,7 @@
 .different-mentions {
   position: relative;
   padding: 0 60px;
+  margin: 0 0 100px;
 
   &__title {
     @extend %title-small;
@@ -9,16 +10,16 @@
   }
 
   &__mentions {
-    margin: 0 0 100px;
     @include clearfix;
   }
 
   &__mention {
+    background-color: $color-white;
     text-align: center;
-    padding: 40px 10px;
-    margin: 0 3px;
+    padding: 30px 10px;
     width: 310px;
     float: left;
+    justify-content: center;
   }
 
   &__mention-link {
@@ -46,6 +47,7 @@
   }
 
   .slick-slide {
+    margin: 0 3px;
     height: auto;
     > div {
       height: 100%;
