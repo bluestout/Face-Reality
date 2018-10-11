@@ -1,51 +1,111 @@
-<h1>{{ 'customer.register.title' | t }}</h1>
+<div class="account-pages">
+  <div class="register">
+    <div class="row no-gutters">
+      <div class="col-md-6 justify-content-center flex-col-wrap">
+        {% if section.settings.bg %}
+          {% include 'responsive-image' with
+            image: section.settings.bg,
+            max_width: 1024,
+            max_height: 1024,
+            wrapper_class: 'register__image-wrap',
+            img_class: 'register__image'
+          %}
+        {% else %}
+          <div class="register__image-wrap">
+            <img src="http://via.placeholder.com/1024x1024" alt="$" class="register__image">
+          </div>
+        {% endif %}
+      </div>
+      <div class="col-md-6 justify-content-center flex-col-wrap">
+        <div class="register__registration">
 
-{% form 'create_customer' %}
-  {{ form.errors | default_errors }}
+          <h1 class="register__registration-title">Registration</h1>
+          <p class="register__registration-info-note">Please enter your information to create an account</p>
+          <div class="register__registration-form">
+            {% form 'create_customer' %}
+              {{ form.errors | default_errors }}
 
-  <label for="FirstName" class="label-hidden">
-    {{ 'customer.register.first_name' | t }}
-  </label>
-  <input type="text"
-    name="customer[first_name]"
-    id="FirstName"
-    placeholder="{{ 'customer.register.first_name' | t }}"
-    autofocus
-    {% if form.first_name %}value="{{ form.first_name }}"{% endif %}>
 
-  <label for="LastName" class="label-hidden">
-    {{ 'customer.register.last_name' | t }}
-  </label>
-  <input type="text"
-    name="customer[last_name]"
-    id="LastName"
-    placeholder="{{ 'customer.register.last_name' | t }}"
-    {% if form.last_name %}value="{{ form.last_name }}"{% endif %}>
+              <div class="register__input-wrap">
+                <label for="FirstName" class="label-hidden">Full name</label>
+                <input type="text"
+                  class="register__input"
+                  name="customer[name]"
+                  id="Name"
+                  placeholder="Full name"
+                  autofocus
+                  {% if form.first_name %}value="{{ form.name }}"{% endif %}/>
+              </div>
 
-  <label for="Email" class="label-hidden">
-    {{ 'customer.register.email' | t }}
-  </label>
-  <input type="email"
-    name="customer[email]"
-    id="Email"
-    class="{% if form.errors contains 'email' %}input-error{% endif %}"
-    placeholder="{{ 'customer.register.email' | t }}"
-    value="{% if form.email %}{{ form.email }}{% endif %}"
-    spellcheck="false"
-    autocomplete="off"
-    autocapitalize="off">
+              {% comment %}
+              <label for="FirstName" class="label-hidden">
+                {{ 'customer.register.first_name' | t }}
+              </label>
+              <input type="text"
+                name="customer[first_name]"
+                id="FirstName"
+                placeholder="{{ 'customer.register.first_name' | t }}"
+                autofocus
+                {% if form.first_name %}value="{{ form.first_name }}"{% endif %}/>
 
-  <label for="CreatePassword" class="label-hidden">
-    {{ 'customer.register.password' | t }}
-  </label>
-  <input type="password"
-    name="customer[password]"
-    id="CreatePassword"
-    class="{% if form.errors contains 'password' %}input-error{% endif %}"
-    placeholder="{{ 'customer.register.password' | t }}">
+              <label for="LastName" class="label-hidden">
+                {{ 'customer.register.last_name' | t }}
+              </label>
+              <input type="text"
+                name="customer[last_name]"
+                id="LastName"
+                placeholder="{{ 'customer.register.last_name' | t }}"
+                {% if form.last_name %}value="{{ form.last_name }}"{% endif %}/>
+                {% endcomment %}
 
-  <p>
-    <input type="submit" value="{{ 'customer.register.submit' | t }}" class="button">
-  </p>
-  <a href="{{ shop.url }}">{{ 'customer.register.cancel' | t }}</a>
-{% endform %}
+
+              <div class="register__input-wrap register__input-wrap--margin">
+                <label for="Email" class="label-hidden">{{ 'customer.register.email' | t }}</label>
+                <input type="email"
+                  class="register__input register__input--bordermerge"
+                  name="customer[email]"
+                  id="Email"
+                  class="{% if form.errors contains 'email' %}input-error{% endif %}"
+                  placeholder="{{ 'customer.register.email' | t }}"
+                  value="{% if form.email %}{{ form.email }}{% endif %}"
+                  spellcheck="false"
+                  autocomplete="off"
+                  autocapitalize="off"/>
+              </div>
+
+              <div class="register__input-wrap">
+                <label for="CreatePassword" class="label-hidden">{{ 'customer.register.password' | t }}</label>
+                <input type="password"
+                  class="register__input"
+                  name="customer[password]"
+                  id="CreatePassword"
+                  class="{% if form.errors contains 'password' %}input-error{% endif %}"
+                  placeholder="{{ 'customer.register.password' | t }}"/>
+              </div>
+
+              <div class="register__input-wrap register__input-wrap--margin">
+                <label for="CreatePasswordConfirm" class="label-hidden">Repeat password</label>
+                <input type="password"
+                  class="register__input register__input--bordermerge"
+                  name="customer[password_confirmation]"
+                  id="CreatePasswordConfirm"
+                  class="{% if form.errors contains 'password' %}input-error{% endif %}"
+                  placeholder="Repeat password"/>
+              </div>
+
+              <div>
+                <input class="register__submit" type="submit" value="Create account" class="button">
+              </div>
+            {% endform %}
+          </div>
+          <span class="register__have-account">Already have an account yet?</span>
+          <a href="#" class="register__have-account-link">Log in</a>
+          <div class="register__link-separator"></div>
+          <a href="#" class="register__professionals">Professionals click here</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

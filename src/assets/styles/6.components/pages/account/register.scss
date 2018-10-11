@@ -1,0 +1,92 @@
+.register {
+  margin: 0 0 120px;
+
+  &__image-wrap {
+  }
+
+  &__image {
+  }
+
+  &__registration {
+    text-align: center;
+    max-width: 300px;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  &__registration-title {
+    @include apercu(700);
+    @include Text(21px, 25px, $color-blumine);
+    margin: 0 0 20px;
+  }
+
+  &__registration-info-note {
+    @include apercu(400);
+    @include Text(12.5px, 15px, $color-black);
+    opacity: 0.6;
+    margin: 0 auto 50px;
+    max-width: 180px;
+  }
+
+  &__registration-form {
+    margin: 0 0 30px;
+  }
+
+  &__input-wrap {
+    &--margin {
+      margin: 0 0 10px;
+    }
+  }
+
+  &__input {
+    position: relative;
+    border: 1px solid rgba($color-calypso, 0.3);
+    display: block;
+    width: 100%;
+    outline: none;
+
+    &::placeholder {
+      opacity: 0.3;
+    }
+
+    &:hover,
+    &:active {
+      z-index: 1;
+      border-color: rgba($color-calypso, 0.99);
+    }
+
+    &--bordermerge {
+      position: relative;
+      top: -1px;
+    }
+  }
+
+  &__submit {
+    @extend .button;
+    @extend .button--main;
+    display: block;
+    width: 100%;
+    height: 50px;
+  }
+
+  &__have-account {
+    @include apercu(400);
+    @include Text(12.5px, 15px, $color-black);
+    opacity: 0.6;
+  }
+
+  &__have-account-link {
+    @include apercu(400);
+    @include Text(12.5px, 15px, $color-black);
+    opacity: 0.6;
+  }
+
+  &__link-separator {
+    margin: 0 0 70px;
+  }
+
+  &__professionals {
+    @include apercu(400);
+    @include Text(12.5px, 15px, $color-blumine);
+  }
+}
