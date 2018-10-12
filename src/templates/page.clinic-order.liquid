@@ -1,0 +1,25 @@
+{% comment %} TODO background & text implement {% endcomment %}
+<div class="clinic-order">
+  <div class="clinic-order__inner">
+    <h1 class="clinic-order__title">{{ page.title }}</h1>
+    <p class="clinic-order__text">{{ page.content | strip }}</p>
+    <div class="clinic-order__row-wrap">
+      <div class="row no-gutters">
+        <div class="col-lg-1"></div>
+        <div class="col-lg-4">
+          <span class="clinic-order__icon">ICON</span>
+          <p class="clinic-order__col-text">If you already have an account, please log in.</p>
+          <a href="/customer/login" class="clinic-order__link">Log in</a>
+        </div>
+        <div class="col-lg-1"></div>
+        <div class="col-lg-1"></div>
+        <div class="col-lg-4">
+          <span class="clinic-order__icon">ICON</span>
+          <p class="clinic-order__col-text">If you don’t have an account, please register.</p>
+          <a href="/customer/register" class="clinic-order__link">Register</a>
+        </div>
+        <div class="col-lg-1"></div>
+      </div>
+    </div>
+  </div>
+</div>

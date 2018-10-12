@@ -1,0 +1,57 @@
+.clinic-order {
+  @include backgroundImage;
+  text-align: center;
+  padding: 100px 50px 285px;
+  margin: 0 0 120px;
+
+  &__inner {
+    background-color: $color-white;
+    margin: 0 auto;
+    max-width: 900px;
+    padding: 85px 110px;
+  }
+
+  &__row-wrap {
+    position: relative;
+    &::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 0;
+      height: 100%;
+      width: 1px;
+      background-color: $color-wild-sand;
+    }
+  }
+
+  &__title {
+    @include apercu(700);
+    @include Text(35.5px, 40px, $color-blumine);
+    margin: 0 auto 15px;
+  }
+
+  &__text {
+    @include apercu;
+    @include Text(14px, 21px, $color-black);
+    margin: 0 auto 65px;
+  }
+
+  &__icon {
+    display: block;
+    margin: 0 0 20px;
+  }
+
+  &__col-text {
+    @include apercu;
+    @include Text(15px, 22px, $color-black);
+    margin: 0 auto 35px;
+  }
+
+  &__link {
+    @extend .button;
+    @extend .button--main;
+    line-height: 20px;
+    width: 180px;
+    height: 42px;
+  }
+}
