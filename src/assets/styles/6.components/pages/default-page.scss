@@ -1,0 +1,49 @@
+.default-page {
+  padding: 25px 25px 50px;
+  margin: 0 0 120px;
+  background-color: rgba($color-blumine, 0.08);
+  &__inner {
+    background-color: $color-white;
+    padding: 100px 0 200px;
+  }
+
+  &__title {
+    @include apercu(700);
+    @include Text(40px, 48px, $color-blumine);
+    text-align: center;
+    margin: 0 0 120px;
+  }
+
+  &__content {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      color: $color-blumine;
+    }
+
+    h3 {
+      margin: 70px 0 40px;
+    }
+
+    p {
+      font-size: 15px;
+      line-height: 22px;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    li {
+      text-indent: -23.5px;
+    }
+
+    li::before {
+      content: '—';
+      padding: 0 10px 0 0;
+    }
+  }
+}
