@@ -1,0 +1,101 @@
+{% comment %} TODO {% endcomment %}
+<div class="contact-form-wrap">
+  {% if section.settings.script != '' %}
+    {{ script }}
+  {% else %}
+    {% form 'contact' %}
+
+      {% if form.posted_successfully? %}
+        <p class="form-success contact-form-wrap__note">
+          {{ 'contact.form.post_success' | t }}
+        </p>
+      {% endif %}
+
+      {{ form.errors | default_errors }}
+
+      <div class="contact-form-wrap__input-wrap">
+        <label class="label-hidden" for="ContactFormName">{{ 'contact.form.name' | t }}</label>
+        <input
+          type="text"
+          class="contact-form-wrap__input"
+          name="contact[name]"
+          id="ContactFormName"
+          placeholder="Enter your name"
+          value="{% if form[name] %}{{ form[name] }}{% elsif customer %}{{ customer.name }}{% endif %}"/>
+      </div>
+
+      <div class="contact-form-wrap__input-wrap">
+        <label class="label-hidden" for="ContactFormEmail">{{ 'contact.form.email' | t }}</label>
+        <input
+          type="email"
+          class="contact-form-wrap__input"
+          name="contact[email]"
+          id="ContactFormEmail"
+          placeholder="Enter your email address"
+          value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
+          spellcheck="false"
+          autocomplete="off"
+          autocapitalize="off"/>
+      </div>
+
+      <div class="contact-form-wrap__input-wrap contact-form-wrap__input-wrap--select">
+        <label class="label-hidden" for="ContactFormReason">Reason for contact</label>
+        <select
+          class="contact-form-wrap__input contact-form-wrap__input--select"
+          name="contact[reason]"
+          id="ContactFormPhone"
+        >
+          <option value="" disabled selected>Reason for contact</option>
+          <option value=""></option>
+        </select>
+      </div>
+
+      <div class="contact-form-wrap__input-wrap">
+        <label class="label-hidden" for="ContactFormMessage">{{ 'contact.form.message' | t }}</label>
+        <textarea
+          rows="6"
+          class="contact-form-wrap__input"
+          name="contact[body]"
+          id="ContactFormMessage"
+          placeholder="Start typing your message...">
+          {%- if form.body -%}
+            {{- form.body -}}
+          {%- endif -%}
+        </textarea>
+      </div>
+
+      <div class="contact-form-wrap__input-wrap contact-form-wrap__input-wrap--submit">
+        <input type="submit" class="contact-form-wrap__submit" value="{{ 'contact.form.send' | t }}">
+      </div>
+
+    {% endform %}
+  {% endif %}
+</div>
+
+
+{% schema %}
+  {
+    "name": "Contact Information",
+    "settings": [
+      {
+        "type": "html",
+        "id": "script",
+        "label": "Script",
+        "info": "Insert script here to override Shopify contact form"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "block",
+        "name": "Reason",
+        "settings": [
+          {
+            "type": "text",
+            "id": "reason",
+            "name": "Reason"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

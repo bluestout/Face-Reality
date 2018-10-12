@@ -1,0 +1,54 @@
+.contact-form-wrap {
+  padding: 135px 0;
+  text-align: center;
+  margin: 0 auto;
+  max-width: 420px;
+
+  &__note {
+    @include apercu;
+    @include Text(20px, 30px, $color-black);
+    margin: 0 0 30px;
+  }
+
+  &__input-wrap {
+    border-bottom: 1px solid $color-gallery;
+    margin: 0 0 30px;
+
+    &--select {
+      position: relative;
+
+      &::after {
+        content: '\e902';
+        position: absolute;
+        right: 12px;
+        top: 20px;
+        display: block;
+        @include icoMoon;
+      }
+    }
+
+    &--submit {
+      text-align: left;
+    }
+  }
+
+  &__input {
+    @include apercu;
+    @include Text(16px, 24px, $color-black);
+    display: block;
+    width: 100%;
+    padding: 10px 0;
+
+    &::placeholder {
+      opacity: 0.35;
+    }
+  }
+
+  &__submit {
+    @extend .button;
+    @extend .button--main;
+    height: 42px;
+    width: 100%;
+    max-width: 210px;
+  }
+}

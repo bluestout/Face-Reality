@@ -1,0 +1,31 @@
+.contact-information {
+  padding: 135px 0;
+  text-align: center;
+  margin: 0 auto;
+  max-width: 460px;
+
+  &__description {
+    @include apercu;
+    @include Text(20px, 30px, $color-black);
+    margin: 0 0 80px;
+  }
+
+  &__link {
+    display: inline-block;
+    margin: 0 0 40px;
+    text-decoration: underline;
+  }
+
+  &__icon {
+    @include Text(20px, 26px, $color-blumine);
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  &__text {
+    @include apercu;
+    @include Text(20px, 26px, $color-blumine);
+    display: inline-block;
+    vertical-align: middle;
+  }
+}

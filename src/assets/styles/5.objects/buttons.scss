@@ -9,7 +9,8 @@
   user-select: none;
   appearance: none;
 
-  &--wire {
+  /* this is so the input default is overridden */
+  &.button--wire {
     @extend %paragraph-blue;
     @include transition(background-color, color);
     text-align: center;
@@ -46,7 +47,8 @@
     }
   }
 
-  &--main {
+  /* this is so the input default is overridden */
+  &.button--main {
     @include myriad(400);
     @extend %paragraph-white;
     @include transition(background-color);

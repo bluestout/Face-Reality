@@ -1,0 +1,38 @@
+<div class="contact-information">
+  <p class="contact-information__description">{{ section.settings.description }}</p>
+  {% if section.settings.phone != '' %}
+    <a href="tel:{{ section.settings.phone }}" class="contact-information__link">
+      <span class="contact-information__icon icon-phone"></span>
+      <span class="contact-information__text">{{ section.settings.phone }}</span>
+    </a>
+  {% endif %}
+  {% if section.settings.email != '' %}
+    <a href="mailto:{{ section.settings.email }}" class="contact-information__link">
+      <span class="contact-information__icon icon-envelope"></span>
+      <span class="contact-information__text">{{ section.settings.email }}</span>
+    </a>
+  {% endif %}
+</div>
+
+{% schema %}
+  {
+    "name": "Contact Information",
+    "settings": [
+      {
+        "type": "textarea",
+        "id": "description",
+        "label": "Description"
+      },
+      {
+        "type": "text",
+        "id": "phone",
+        "label": "Phone"
+      },
+      {
+        "type": "text",
+        "id": "email",
+        "label": "Email"
+      }
+    ]
+  }
+{% endschema %}
