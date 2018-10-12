@@ -67,6 +67,10 @@
     display: block;
     width: 100%;
     height: 50px;
+
+    &--alternate {
+      @extend .button--wire;
+    }
   }
 
   &__have-account {
@@ -83,6 +87,13 @@
 
   &__link-separator {
     margin: 0 0 70px;
+
+    &-small {
+      margin: 0 0 20px;
+    }
+    &-xsmall {
+      margin: 0 0 10px;
+    }
   }
 
   &__professionals {
