@@ -1,0 +1,52 @@
+.conduct-policies {
+  padding: 25px 25px 50px;
+  margin: 0 0 85px;
+  background-color: rgba($color-blumine, 0.08);
+
+  &__inner {
+    background-color: $color-white;
+    padding: 100px 0 120px;
+  }
+
+  &__introduction {
+    @include apercu;
+    @include Text(20px, 30px, $color-black);
+    text-align: center;
+    margin: 0 0 90px;
+  }
+
+  &__image-wrap {
+    text-align: center;
+  }
+
+  &__image {
+    display: inline-block;
+  }
+
+  &__title {
+    @include apercu(700);
+    @include Text(22px, 27px, $color-blumine);
+    text-align: center;
+    margin: 0 0 25px;
+  }
+
+  &__content {
+    @include apercu;
+    @include Text(15px, 22px, $color-black);
+    margin: 0 0 60px;
+
+    ul {
+      list-style: none;
+      padding: 0 0 0 60px;
+    }
+
+    li {
+      text-indent: -40px;
+    }
+
+    li::before {
+      content: '—';
+      padding: 0 26.5px 0 0;
+    }
+  }
+}

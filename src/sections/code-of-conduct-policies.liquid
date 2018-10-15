@@ -1,0 +1,56 @@
+<div class="conduct-policies">
+  <div class="conduct-policies__inner">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8 col-sm-11">
+          <p class="conduct-policies__introduction">{{ section.settings.title }}</p>
+          {% for block in section.blocks %}
+            <div class="conduct-policies__content">
+              <div class="conduct-policies__image-wrap">
+                <img src="{{ block.settings.image | img_url: '100x100' }}" alt="{{ section.settings.title }}" class="conduct-policies__image"/>
+              </div>
+              <h3 class="conduct-policies__title">{{ block.settings.title }}</h3>
+              <p class="conduct-policies__content">{{ block.settings.content }}</p>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Policies",
+    "settings": [
+      {
+        "type": "textarea",
+        "id": "title",
+        "label": "Introduction paragraph"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "policy",
+        "name": "Policy",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Icon"
+          },
+          {
+            "type": "textarea",
+            "id": "title",
+            "label": "Title"
+          },
+          {
+            "type": "textarea",
+            "id": "content",
+            "label": "Description"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}
