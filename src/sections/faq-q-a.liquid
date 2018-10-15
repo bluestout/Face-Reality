@@ -1,0 +1,65 @@
+<div class="q-and-a">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-9 col-sm-11">
+        <p class="q-and-a__introduction">{{ section.settings.title }}</p>
+        <div class="q-and-a__filter-wrap">
+          <input placeholder="{{ section.settings.filter }}" class="q-and-a__filter" type="text" data-faq-filter-input/>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="q-and-a__q-a-pairs">
+    {% for block in section.blocks %}
+      <div class="q-and-a__q-a-pair" data-faq-item>
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-lg-8 col-sm-11">
+              <a href="#" class="q-and-a__question" data-faq-question>
+                <span class="q-and-a__q-icon icon-question"></span>
+                <span class="q-and-a__question-text" data-faq-question-text>{{ block.settings.title }}</span>
+                <span class="q-and-a__toggle-icon icon-add"></span>
+              </a>
+              <div class="q-and-a__answer" data-faq-answer>{{ block.settings.answer }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "FAQ",
+    "settings": [
+      {
+        "type": "textarea",
+        "id": "title",
+        "label": "Introduction paragraph"
+      },
+      {
+        "type": "textarea",
+        "id": "filter",
+        "label": "Filter text"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "faq",
+        "name": "FAQ",
+        "settings": [
+          {
+            "type": "textarea",
+            "id": "title",
+            "label": "Question"
+          },{
+            "type": "textarea",
+            "id": "answer",
+            "label": "Answer"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

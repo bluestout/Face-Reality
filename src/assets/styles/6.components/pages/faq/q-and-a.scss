@@ -1,0 +1,159 @@
+.q-and-a {
+  padding: 25px 25px 50px;
+  margin: 0 0 85px;
+  background-color: rgba($color-blumine, 0.08);
+
+  &__filter-wrap {
+    position: relative;
+    margin: 0 auto 50px;
+    max-width: 500px;
+    width: 100%;
+
+    &::before {
+      content: '\e904';
+      position: absolute;
+      left: 5px;
+      top: 16px;
+      @include icoMoon;
+      color: $color-dusty-gray;
+    }
+  }
+
+  &__filter {
+    display: block;
+    width: 100%;
+    border-bottom: 1px solid $color-dusty-gray;
+    background-color: transparent;
+    padding: 15px 50px;
+
+    &::placeholder {
+      text-align: center;
+      color: $color-dusty-gray;
+    }
+  }
+
+  &__q-a-pairs {
+  }
+
+  &__q-a-pair {
+    background-color: rgba($color-white, 0.8);
+    padding: 35px 0;
+    margin: 0 0 5px;
+    @include transition(background-color);
+
+    &.active {
+      background-color: $color-white;
+      .q-and-a__q-icon {
+        opacity: 0.85;
+      }
+      .q-and-a__toggle-icon {
+        opacity: 0.85;
+
+        &::before {
+          content: '\e90f';
+        }
+      }
+
+      .q-and-a__question-text {
+        color: $color-blumine;
+      }
+    }
+  }
+
+  &__question {
+    display: block;
+    @include clearfix;
+  }
+
+  &__q-icon {
+    width: 30px;
+    height: 30px;
+    font-size: 16px;
+    line-height: 30px;
+    color: $color-calypso;
+    border: 1px solid $color-calypso;
+    opacity: 0.25;
+    text-align: center;
+    display: block;
+    float: left;
+    @include transition(opacity);
+  }
+
+  &__question-text {
+    @include apercu;
+    @include Text(20px, 30px, $color-black);
+    width: calc(100% - 60px);
+    padding: 0 30px;
+    display: block;
+    float: left;
+    @include transition(color);
+  }
+
+  &__toggle-icon {
+    width: 30px;
+    height: 30px;
+    font-size: 30px;
+    line-height: 30px;
+    color: $color-calypso;
+    opacity: 0.25;
+    text-align: center;
+    display: block;
+    float: left;
+    @include transition(color);
+  }
+
+  &__answer {
+    @include apercu;
+    @include Text(16px, 22px, $color-black);
+    display: none;
+    padding: 60px 60px 30px;
+  }
+
+  &__inner {
+    background-color: $color-white;
+    padding: 100px 0 120px;
+  }
+
+  &__introduction {
+    @include apercu;
+    @include Text(20px, 30px, $color-black);
+    text-align: center;
+    margin: 0 auto 50px;
+    max-width: 770px;
+  }
+
+  &__image-wrap {
+    text-align: center;
+  }
+
+  &__image {
+    display: inline-block;
+  }
+
+  &__title {
+    @include apercu(700);
+    @include Text(22px, 27px, $color-blumine);
+    text-align: center;
+    margin: 0 0 25px;
+  }
+
+  &__content {
+    @include apercu;
+    @include Text(15px, 22px, $color-black);
+    margin: 0 0 60px;
+
+    ul {
+      list-style: none;
+      padding: 0 0 0 60px;
+    }
+
+    li {
+      text-indent: -40px;
+    }
+
+    li::before {
+      content: '—';
+      padding: 0 26.5px 0 0;
+    }
+  }
+}

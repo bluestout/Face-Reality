@@ -1,0 +1,18 @@
+.faq-banner {
+  padding: 160px 0;
+  text-align: center;
+  @include backgroundImage;
+  background-color: $color-dove-gray;
+
+  &__suptitle {
+    @include apercu(400);
+    @include Text(13.5px, 20px, $color-white);
+    margin: 0 auto 20px;
+  }
+
+  &__title {
+    @include apercu(700);
+    @include Text(40px, 49px, $color-white);
+    margin: 0 auto;
+  }
+}
