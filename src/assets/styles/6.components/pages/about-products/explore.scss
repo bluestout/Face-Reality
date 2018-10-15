@@ -1,0 +1,12 @@
+.collection-by-type {
+  background-color: rgba($color-blumine, 0.08);
+  text-align: center;
+  padding: 120px 0 100px;
+  margin: 0 0 125px;
+
+  &__link {
+    &--margin {
+      margin: 0 0 50px;
+    }
+  }
+}

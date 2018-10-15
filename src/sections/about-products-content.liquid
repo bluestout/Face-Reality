@@ -1,0 +1,76 @@
+<div class="about-products-content">
+  <div class="about-products-content__inner">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8 col-sm-11">
+          <p class="about-products-content__title">{{ section.settings.title }}</p>
+          <div class="about-products-content__icons">
+            <span class="about-products-content__icon">
+              {% include 'about-products-icon-1' %}
+              <span class="about-products-content__icon-text">
+                {{ section.settings.icon_1_text }}
+              </span>
+            </span>
+            <span class="about-products-content__icon">
+              {% include 'about-products-icon-1' %}
+              <span class="about-products-content__icon-text">
+                {{ section.settings.icon_2_text }}
+              </span>
+            </span>
+            <span class="about-products-content__icon">
+              {% include 'about-products-icon-1' %}
+              <span class="about-products-content__icon-text">
+                {{ section.settings.icon_3_text }}
+              </span>
+            </span>
+          </div>
+          <div class="about-products-content__content">
+            {{ section.settings.content }}
+          </div>
+          <div class="about-products-content__small-print">
+            {{ section.settings.small_print }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{% schema %}
+  {
+    "name": "Content",
+    "settings": [
+      {
+        "type": "textarea",
+        "id": "title",
+        "label": "introduction paragraph"
+      },
+      {
+        "type": "textarea",
+        "id": "icon_1_text",
+        "label": "Icon 1 Text"
+      },
+      {
+        "type": "textarea",
+        "id": "icon_2_text",
+        "label": "Icon 2 Text"
+      },
+      {
+        "type": "textarea",
+        "id": "icon_3_text",
+        "label": "Icon 3 Text"
+      },
+      {
+        "type": "richtext",
+        "id": "content",
+        "label": "Content"
+      },
+      {
+        "type": "textarea",
+        "id": "small_print",
+        "label": "Small Print"
+      }
+    ]
+  }
+{% endschema %}

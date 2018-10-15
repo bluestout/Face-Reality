@@ -1,26 +1,18 @@
-<section class="collection-by-type" data-tabs-container>
-  <div class="collection-by-type__tabs">
-    <div class="container">
-      <div class="row no-gutters justify-content-center">
-        <div class="col-md-auto">
-          <a href="#" class="collection-by-type__tabs-link active" data-tab-link="1">{{ section.settings.title_tab_1 }}</a>
-        </div>
-        <div class="col-md-auto">
-          <a href="#" class="collection-by-type__tabs-link" data-tab-link="2">{{ section.settings.title_tab_2 }}</a>
-        </div>
-      </div>
-    </div>
-  </div>
+<section class="collection-by-type">
 
-  <div class="collection-by-type__type active" data-tab="1">
+  <h2 class="collection-by-type__title">{{ section.settings.title }}</h2>
+
+  <h3 class="collection-by-type__collection-title">{{ section.settings.collection_1_title }}</h3>
+
+  <div class="collection-by-type__type">
     <div class="row no-gutters">
-      {% assign index_t1 = 1 %}
+      {% assign index = 1 %}
       {% comment %} looped the same array twice, because we can't know in what order the user will add blocks {% endcomment %}
       {% for block in section.blocks %}
         {% if block.type == 'tab-1' %}
           <div class="col">
             {% assign collection_block = collections[block.settings.collection] %}
-            <div class="collection-by-type__visible-col index-{{ index_t1 }}">
+            <div class="collection-by-type__visible-col index-{{ index }}">
               <div class="collection-by-type__visible-col-inner">
                 <h3 class="collection-by-type__col-title">
                   {{ collection_block.title }}
@@ -47,20 +39,26 @@
               </span>
             </a>
           </div>
-          {% assign index_t1 = index_t1 | plus: 1 %}
+          {% assign index = index | plus: 1 %}
         {% endif %}
       {% endfor %}
     </div>
   </div>
 
-  <div class="collection-by-type__type" data-tab="2">
+  {% if section.settings.button_1_text != '' %}
+    <a class="collection-by-type__link collection-by-type__link--margin" href="{{ section.settings.button_1_url }}">{{ section.settings.button_1_text }}</a>
+  {% endif %}
+
+  <h3 class="collection-by-type__collection-title">{{ section.settings.collection_2_title }}</h3>
+
+  <div class="collection-by-type__type">
     <div class="row no-gutters">
-      {% assign index_t2 = 1 %}
+      {% assign index = 1 %}
       {% for block in section.blocks %}
         {% if block.type == 'tab-2' %}
           <div class="col">
             {% assign collection_block = collections[block.settings.collection] %}
-            <div class="collection-by-type__visible-col index-{{ index_t2 }}">
+            <div class="collection-by-type__visible-col index-{{ index }}">
               <div class="collection-by-type__visible-col-inner">
                 <h3 class="collection-by-type__col-title">
                   {{ collection_block.title }}
@@ -87,29 +85,25 @@
               </span>
             </a>
           </div>
-          {% assign index_t2 = index_t2 | plus: 1 %}
+          {% assign index = index | plus: 1 %}
         {% endif %}
       {% endfor %}
     </div>
   </div>
 
-  {% if section.settings.button_text %}
-    <div class="container">
-      <div class="collection-by-type__link-wrap">
-        <a href="{{ section.settings.button_url }}" class="collection-by-type__link">{{ section.settings.button_text }}</a>
-      </div>
-    </div>
+  {% if section.settings.button_2_text != '' %}
+    <a class="collection-by-type__link" href="{{ section.settings.button_2_url }}">{{ section.settings.button_2_text }}</a>
   {% endif %}
 
 </section>
 
 {% schema %}
   {
-    "name": "Collection By Type",
+    "name": "Explore products",
     "blocks": [
       {
         "type": "tab-1",
-        "name": "Collection Tab 1",
+        "name": "Collection 1",
         "settings": [
           {
             "type": "collection",
@@ -120,7 +114,7 @@
       },
       {
         "type": "tab-2",
-        "name": "Collection Tab 2",
+        "name": "Collection 2",
         "settings": [
           {
             "type": "collection",
@@ -133,29 +127,40 @@
     "settings": [
       {
         "type": "text",
-        "id": "title_tab_1",
-        "label": "Tab 1 Title"
+        "id": "title",
+        "label": "Section Title"
       },
       {
         "type": "text",
-        "id": "title_tab_2",
-        "label": "Tab 2 Title"
+        "id": "collection_1_title",
+        "label": "Collection 1 Title"
       },
       {
         "type": "url",
-        "id": "button_url",
-        "label": "Button URL"
+        "id": "button_1_url",
+        "label": "Coll. 1 Button URL"
       },
       {
         "type": "text",
-        "id": "button_text",
-        "label": "Button Text"
+        "id": "button_1_text",
+        "label": "Coll. 1 Button Text"
+      },
+      {
+        "type": "text",
+        "id": "collection_2_title",
+        "label": "Collection 2 Title"
+      },
+      {
+        "type": "url",
+        "id": "button_2_url",
+        "label": "Coll. 2 Button URL"
+      },
+      {
+        "type": "text",
+        "id": "button_2_text",
+        "label": "Coll. 2 Button Text"
       }
-    ],
-    "presets": [{
-        "name": "Collection By Type",
-        "category": "Front Page"
-    }]
+    ]
   }
 {% endschema %}
 

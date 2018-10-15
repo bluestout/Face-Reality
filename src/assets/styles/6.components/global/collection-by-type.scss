@@ -8,6 +8,17 @@
     @return $base;
   }
 
+  &__title {
+    @include apercu(700);
+    @include Text(25px, 30px, $color-blumine);
+    margin: 0 0 40px;
+  }
+
+  &__collection-title {
+    @extend %title-small;
+    margin: 0 0 40px;
+  }
+
   &__tabs {
     margin: 0 0 30px;
   }
