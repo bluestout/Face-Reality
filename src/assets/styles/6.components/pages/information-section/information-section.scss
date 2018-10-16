@@ -1,0 +1,7 @@
+.information-section {
+  margin: 0 0 75px;
+  background-color: rgba($color-blumine, 0.08);
+
+  @import './banner';
+  @import './articles';
+}

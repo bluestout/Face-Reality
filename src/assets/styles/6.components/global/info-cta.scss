@@ -1,0 +1,56 @@
+.info-cta {
+  @include backgroundImage;
+  background-color: $color-dove-gray;
+  padding: 165px 15px;
+
+  &__title {
+    @include aller(700);
+    @include Text(25px, 27px, $color-white);
+    text-transform: uppercase;
+    margin: 0 auto 40px;
+    text-align: center;
+    max-width: 710px;
+  }
+
+  &__button-wrap {
+    text-align: center;
+    margin: 0 0 20px;
+  }
+
+  &__button {
+    @extend .button;
+    @include myriad;
+    @include Text(14px, 16px, $color-dove-gray);
+    @include transition(background-color, color);
+    text-align: center;
+    text-decoration: none;
+    padding: 20px 60px;
+    background-color: $color-white;
+    border-radius: 0;
+    &:hover,
+    &:active {
+      background-color: $color-accent;
+    }
+  }
+
+  &__link-wrap {
+    text-align: center;
+  }
+
+  &__or {
+    @include apercu;
+    @include Text(14px, 23px, $color-white);
+  }
+
+  &__link {
+    @include apercu;
+    @include Text(14px, 23px, $color-white);
+    text-decoration: none;
+    @include transition(color);
+
+    &:hover,
+    &:active {
+      color: $color-accent;
+    }
+  }
+}

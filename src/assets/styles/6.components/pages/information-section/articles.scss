@@ -1,0 +1,87 @@
+.info-s-articles {
+  padding: 0 15px 60px;
+
+  &__backlink {
+    @include apercu;
+    @include Text(12px, 18px, $color-blumine);
+    display: inline-block;
+    vertical-align: middle;
+    text-decoration: none;
+    margin: 0 0 30px;
+
+    &::before {
+      content: '\e907';
+      display: inline-block;
+      vertical-align: bottom;
+      margin: 0 10px 0 0;
+      @include icoMoon;
+      font-size: 14px;
+      line-height: 18px;
+      opacity: 0.6;
+    }
+  }
+
+  &__articles {
+  }
+
+  &__article {
+    text-align: center;
+    background-color: $color-white;
+    padding: 0 0 45px;
+    margin: 0 0 30px;
+  }
+
+  &__image-wrap {
+    margin: 0 0 50px;
+  }
+
+  &__image {
+    height: 220px;
+    object-fit: cover;
+  }
+
+  &__title {
+    @include apercu(700);
+    @include Text(24px, 30px, $color-blumine);
+    margin: 0 auto 24px;
+    padding: 0 15px;
+  }
+
+  &__description {
+    @include apercu;
+    @include Text(14px, 18px, $color-black);
+    opacity: 0.6;
+    margin: 0 auto 24px;
+    padding: 0 15px;
+    max-width: 225px;
+  }
+
+  &__link {
+    padding: 0 15px;
+    align-self: center;
+    text-decoration: none;
+    @include transition(background-color);
+
+    &:hover,
+    &:active {
+      background-color: rgba($color-blumine, 0.08);
+    }
+  }
+
+  &__text {
+    @include apercu(700);
+    @include Text(14px, 18px, $color-blumine);
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  &__icon {
+    font-size: 18px;
+    line-height: 18px;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 0 0 20px;
+    color: $color-black;
+    opacity: 0.25;
+  }
+}

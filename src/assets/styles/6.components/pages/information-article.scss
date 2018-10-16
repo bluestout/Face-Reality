@@ -1,0 +1,121 @@
+.information-article {
+  margin: 0 0 105px;
+
+  &__wrap {
+    padding: 25px 25px 100px;
+    background-color: rgba($color-blumine, 0.08);
+  }
+
+  &__section-title {
+    @include apercu(700);
+    @include Text(25px, 30px, $color-blumine);
+    text-align: center;
+    margin: 0 0 16px;
+  }
+
+  &__navigation {
+    position: relative;
+    text-align: center;
+    margin: 0 0 24px;
+  }
+
+  .breadcrumbs {
+    padding: 1px 0;
+  }
+
+  &__backlink {
+    position: absolute;
+    left: 0;
+    @include apercu;
+    @include Text(12px, 18px, $color-blumine);
+    text-decoration: none;
+  }
+
+  &__backlink-icon {
+    margin: 0 15px 0 0;
+    font-size: 16px;
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  &__backlink-text {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  &__inner {
+    background-color: $color-white;
+  }
+
+  &__utilities {
+    position: relative;
+    padding: 30px 0;
+    text-align: right;
+  }
+
+  &__social {
+    display: inline-block;
+    text-decoration: none;
+
+    &:not(:last-of-type) {
+      margin: 0 40px 0 0;
+    }
+
+    &-text {
+      @include apercu;
+      @include Text(15px, 22px, $color-blumine);
+      vertical-align: middle;
+    }
+
+    &-icon {
+      @include Text(20px, 22px, $color-blumine);
+      margin: 0 10px 0 0;
+      vertical-align: middle;
+    }
+  }
+
+  .social-sharing {
+    position: absolute;
+    display: none;
+    margin: 0;
+  }
+
+  &__title {
+    @include apercu(700);
+    @include Text(40px, 48px, $color-blumine);
+    text-align: center;
+    margin: 0 0 40px;
+  }
+
+  &__introduction {
+    @include apercu;
+    @include Text(20px, 29px, $color-black);
+    text-align: center;
+    margin: 0 0 70px;
+  }
+
+  &__content {
+    &::first-letter {
+      @include aller(700);
+      @include Text(49px, 60px, $color-blumine);
+    }
+
+    p {
+      @include Text(15px, 22px, $color-black);
+    }
+
+    ul {
+      list-style: none;
+      padding: 0 0 0 60px;
+    }
+
+    li {
+      text-indent: -40px;
+    }
+
+    li::before {
+      content: '—';
+      padding: 0 26.5px 0 0;
+    }
+  }
+}

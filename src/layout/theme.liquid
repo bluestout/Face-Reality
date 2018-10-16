@@ -35,7 +35,7 @@
   {% include 'style-tags', layout: 'theme' %}
   {% include 'css-variables' %}
 
-  <link rel="stylesheet" href="https://s3.amazonaws.com/icomoon.io/58486/Face-Reality/style.css?z7q5rf">
+  <link rel="stylesheet" href="https://s3.amazonaws.com/icomoon.io/58486/Face-Reality/style.css?45vrvj">
 
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
 
@@ -64,7 +64,9 @@
   {% section 'header' %}
 
   <main role="main" id="MainContent">
-    {% include 'breadcrumbs' %}
+    <div class="container">
+      {% include 'breadcrumbs' %}
+    </div>
     {{ content_for_layout }}
   </main>
 

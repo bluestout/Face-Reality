@@ -1,5 +1,4 @@
 <div class="social-sharing">
-
   {% if settings.share_facebook %}
     <a class="social-sharing__link" target="_blank" href="//www.facebook.com/sharer.php?u={{ shop.url | append: share_permalink }}" title="{{ 'general.social.share_on_facebook' | t }}" rel="nofollow">
       {% include 'icon-facebook' %}
@@ -20,5 +19,4 @@
       <span class="hide" aria-hidden="true">{{ 'general.social.share_on_pinterest' | t }}</span>
     </a>
   {% endif %}
-
 </div>
