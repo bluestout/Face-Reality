@@ -1,0 +1,48 @@
+<div class="info-topics">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8 col-sm-11">
+        <div class="info-topics__filter-wrap">
+          <span class="info-topics__filter-caret icon-angle-down"></span>
+          <select name="info-center-filter" class="info-topics__filter" type="text" data-infocenter-filter>
+            <option value="" disabled selected>Quick filter topics</option>
+            <option value="all">All topics</option>
+            {% for link in linklists['information-center'].links %}
+              <option value="{{ link.handle }}">{{ link.title }}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <div class="info-topics__introduction">{{ page.content }}</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="info-topics__topics">
+    <div class="row">
+      {% for link in linklists['information-center'].links %}
+        <div class="col-lg-4 col-md-6 flex" data-ic-topic="{{ link.handle }}">
+          <div class="info-topics__topic">
+            <div class="info-topics__image-wrap">
+              {% if block.settings.image %}
+                <img class="info-topics__image" src="{{ block.settings.image | img_url: '750x440' }}" alt="{{ link.title }}" class="conduct-policies__image"/>
+              {% else %}
+                <img class="info-topics__image" src="http://via.placeholder.com/750x440" alt="{{ link.title }}" class="conduct-policies__image"/>
+              {% endif %}
+            </div>
+            <a href="{{ link.url }}" target="_blank" class="info-topics__title">{{ link.title }}</a>
+            {% if link.links %}
+              <ul class="info-topics__subtopics">
+                {% for sublink in link.links %}
+                  <li class="info-topics__subtopic">
+                    <a href="{{ sublink.url }}" target="_blank" class="info-topics__sublink">{{ sublink.title }}</a>
+                  </li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+
+</div>

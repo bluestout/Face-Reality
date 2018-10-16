@@ -39,7 +39,7 @@
     margin: 0 0 55px;
   }
 
-  &__small-print {
+  &__footnote {
     @include apercu;
     @include Text(12px, 17px, $color-black);
     opacity: 0.5;

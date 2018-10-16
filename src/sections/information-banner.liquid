@@ -1,0 +1,27 @@
+{% if section.settings.bg %}
+  <div class="information-banner" data-bgset="{% include 'responsive-bg-image', image: section.settings.bg %}">
+{% else %}
+  <div class="information-banner">
+{% endif %}
+  <h1 class="information-banner__suptitle">{{ page.title }}</h1>
+  <h2 class="information-banner__title">{{ section.settings.subtitle }}</h2>
+</div>
+
+{% schema %}
+  {
+    "name": "Header Banner",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "bg",
+        "label": "Background"
+      },
+      {
+        "type": "text",
+        "id": "subtitle",
+        "label": "Subtitle"
+      }
+    ]
+  }
+{% endschema %}
+
