@@ -17,6 +17,7 @@ import '../custom/different-mentions';
 import '../custom/testimonials';
 import '../custom/faq';
 import '../custom/information-center';
+import '../custom/header';
 
 import { focusHash, bindInPageLinks } from '@shopify/theme-a11y';
 import { cookiesEnabled } from '@shopify/theme-cart';
