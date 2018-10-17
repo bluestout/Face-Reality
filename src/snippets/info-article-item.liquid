@@ -1,0 +1,33 @@
+{% comment %} split shopify cdn image src {% endcomment %}
+{%- assign page_object = info-article-item.object -%}
+{% if page_object.metafields.info_article.image and page_object.metafields.info_article.image != '' %}
+  {% assign img_src = '' %}
+  {% assign img_src = page_object.metafields.info_article.image %}
+  {% assign src_split = '' %}
+  {% if img_src contains '.jpg' and img_src contains 'cdn.shopify' %}
+    {% assign src_split = img_src | split: '.jpg' %}
+    {% assign type = '.jpg' %}
+  {% elsif img_src contains '.png' and img_src contains 'cdn.shopify' %}
+    {% assign src_split = img_src | split: '.png' %}
+    {% assign type = '.png' %}
+  {% endif %}
+{% endif %}
+
+
+<div class="info-article-item flex-col-wrap">
+  <div class="info-article-item__image-wrap">
+    {% comment %} reconstruct image with proper size parameter, if it's a shopify cdn image {% endcomment %}
+    {% if src_split and src_split != ''  %}
+      <img src="{{ src_split[0] | append: '_450x' | append: type }}" alt="{{ info-article-item.title }}" class="info-article-item__image">
+    {% elsif img_src and img_src != '' %}
+      <img src="{{ img_src }}" alt="{{ info-article-item.title }}" class="info-article-item__image">
+    {% endif %}
+  </div>
+  <h3 class="info-article-item__title">{{ info-article-item.title }}</h3>
+  <div class="info-article-item__description">Learn acne basics</div>
+  <div class="flex-shaper"></div>
+  <a href="{{ info-article-item.url }}" class="info-article-item__link">
+    <span class="info-article-item__text">Learn More</span>
+    <span class="info-article-item__icon icon-angle-right"></span>
+  </a>
+</div>
