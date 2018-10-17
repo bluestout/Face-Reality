@@ -1,9 +1,8 @@
-{% comment %} TODO sectioning, images, links {% endcomment %}
 <div class="information-section">
 
   <div class="info-s-banner">
     <h1 class="info-s-banner__title">{{ page.title }}</h1>
-    <h2 class="info-s-banner__subtitle">Learn acne basics</h2>
+    <h2 class="info-s-banner__subtitle">{{ page.content | strip | strip_html | truncatewords: 30 }}</h2>
     {% include 'breadcrumbs' %}
   </div>
 

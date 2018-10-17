@@ -1,8 +1,9 @@
 {% comment %} split shopify cdn image src {% endcomment %}
 {%- assign page_object = info-article-item.object -%}
-{% if page_object.metafields.info_article.image and page_object.metafields.info_article.image != '' %}
+{%- assign page_meta = page_object.metafields.info_center -%}
+{% if page_meta.image and page_meta.image != '' %}
   {% assign img_src = '' %}
-  {% assign img_src = page_object.metafields.info_article.image %}
+  {% assign img_src = page_meta.image %}
   {% assign src_split = '' %}
   {% if img_src contains '.jpg' and img_src contains 'cdn.shopify' %}
     {% assign src_split = img_src | split: '.jpg' %}
@@ -24,7 +25,13 @@
     {% endif %}
   </div>
   <h3 class="info-article-item__title">{{ info-article-item.title }}</h3>
-  <div class="info-article-item__description">Learn acne basics</div>
+  {% if page_meta.excerpt %}
+    <div class="info-article-item__description">{{ page_meta.excerpt }}</div>
+  {% else %}
+  <div class="info-article-item__description">
+    {{ page_object.content | strip_html | truncatewords: 10, '...' }}
+  </div>
+  {% endif %}
   <div class="flex-shaper"></div>
   <a href="{{ info-article-item.url }}" class="info-article-item__link">
     <span class="info-article-item__text">Learn More</span>

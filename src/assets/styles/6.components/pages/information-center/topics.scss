@@ -67,15 +67,28 @@
   &__image {
     display: inline-block;
     height: 220px;
+    width: 100%;
     object-fit: cover;
   }
 
   &__title {
-    @include apercu(700);
-    @include Text(25px, 30px, $color-blumine);
-    margin: 0 0 40px;
+    margin: 0 0 30px;
     text-decoration: none;
     display: inline-block;
+    @extend %no-font-size;
+
+    &-primary {
+      @include apercu(700);
+      @include Text(25px, 30px, $color-blumine);
+      margin: 0 0 5px;
+      display: inline-block;
+    }
+
+    &-secondary {
+      @include apercu(700);
+      @include Text(14px, 17px, $color-blumine);
+      display: block;
+    }
   }
 
   &__subtopics {
