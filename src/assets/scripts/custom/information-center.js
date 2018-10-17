@@ -12,4 +12,20 @@ function infoCenter(event) {
   }
 }
 
+function initBacklinks() {
+  const backlinks = document.querySelectorAll('[data-info-backlink]');
+  for (let i = 0; i < backlinks.length; i++) {
+    backlinks[i].setAttribute('href', document.referrer);
+    backlinks[i].onclick = historyBack;
+  }
+}
+
+function historyBack() {
+  history.back();
+}
+
 $(document).on('change', '[data-infocenter-filter]', infoCenter);
+
+$(document).ready(() => {
+  initBacklinks();
+});
