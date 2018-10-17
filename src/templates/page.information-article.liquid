@@ -1,7 +1,8 @@
-{% comment %} TODO sectioning,  {% endcomment %}
+{% comment %} TODO sectioning?  {% endcomment %}
+{% assign metafields = page.metafields.info_article %}
 <div class="information-article">
-
   <div class="information-article__wrap">
+
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-lg-8 col-sm-11 static">
@@ -25,38 +26,46 @@
     </div>
 
     <div class="information-article__inner">
+      <div class="information-article__utilities">
+        <a href="#" class="information-article__social" data-info-share-toggle>
+          <span class="information-article__social-icon icon-share"></span>
+          <span class="information-article__social-text">Share</span>
+        </a>
+        {% comment %} TODO print only the document in question? {% endcomment %}
+        <a href="javascript:window.print()" class="information-article__social">
+          <span class="information-article__social-icon icon-document"></span>
+          <span class="information-article__social-text">Print</span>
+        </a>
+        {% capture absolute_url %}{{ shop.secure_url }}{{ page.url }}{% endcapture %}
+        {% include 'social-sharing',
+          share_title: page.title,
+          share_permalink: absolute_url
+          attributes: 'data-info-sharing'
+        %}
+      </div>
+
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-lg-8 col-sm-11">
-            <div class="information-article__utilities">
-              <a href="#" class="information-article__social">
-                <span class="information-article__social-icon icon-share"></span>
-                <span class="information-article__social-text">Share</span>
-              </a>
-              <a href="#" class="information-article__social">
-                <span class="information-article__social-icon icon-document"></span>
-                <span class="information-article__social-text">Print</span>
-              </a>
-              {% capture absolute_url %}{{ shop.secure_url }}{{ page.url }}{% endcapture %}
-              {% include 'social-sharing', share_title: page.title, share_permalink: absolute_url %}
-            </div>
             <h1 class="information-article__title">{{ page.title }}</h1>
-            <p class="information-article__introduction">Have you ever noticed getting acne wherever your skin is constantly rubbed on, like wearing a hat or helmet, or playing the violin?  You are a victim of acne mechanica.</p>
+            <p class="information-article__introduction">{{ metafields.introduction }}</p>
             <article class="information-article__content">{{ page.content }}</article>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="information-article__related"></div>
+    {% include 'info-article-related' %}
 
-    <a class="information-article__backlink static" href="/pages/information-center">
-      <span class="information-article__backlink-icon icon-angle-left"></span>
-      <span class="information-article__backlink-text">Back to Acne Information Center Index
-    </a>
+    <div class="max-wrap">
+      <a class="information-article__backlink static" href="/pages/information-center">
+        <span class="information-article__backlink-icon icon-angle-left"></span>
+        <span class="information-article__backlink-text">Back to Acne Information Center Index
+      </a>
+    </div>
 
   </div>
 
-  {% include 'info-cta' %}
+  {% section 'info-cta' %}
 
 </div>

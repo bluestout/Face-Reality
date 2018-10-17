@@ -1,0 +1,36 @@
+{% comment %} loop through the information center linklist
+and see if any match current page. Stop both loops when found {% endcomment %}
+{% for link in linklists['information-center'].links %}
+  {% for sublink in link.links %}
+    {% if sublink.handle == page.handle %}
+      {% assign parent_handle = link.handle %}
+      {% break %}
+      {% assign break_parent = true %}
+    {% endif %}
+  {% endfor %}
+  {% if break_parent %}
+    {% break %}
+  {% endif %}
+{% endfor %}
+
+{% for link in linklists['information-center'].links %}
+  {% if link.handle == parent_handle and link.links.size > 1 %}
+    {% comment %} only render items if there actually are any to show {% endcomment %}
+    <div class="info-related">
+      <h3 class="info-related__title">Other articles in this section</h3>
+      <div class="info-related__articles">
+        <div class="row justify-content-center">
+          {% for sublink in link.links %}
+            {% comment %} exclude current page {% endcomment %}
+            {% unless sublink.handle == page.handle %}
+              <div class="col-xl-3 col-lg-4 col-sm-6 col-12 flex">
+                {% include 'info-article-item' with sublink %}
+              </div>
+            {% endunless %}
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+    {% break %}
+  {% endif %}
+{% endfor %}

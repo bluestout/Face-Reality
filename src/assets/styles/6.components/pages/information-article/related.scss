@@ -1,0 +1,13 @@
+.info-related {
+  max-width: $grid-max;
+  margin: 0 auto;
+  &__title {
+    @extend %title-small;
+    text-align: center;
+    margin: 0 0 30px;
+  }
+
+  &__articles {
+    margin: 0 0 25px;
+  }
+}

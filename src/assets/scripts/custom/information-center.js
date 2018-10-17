@@ -1,5 +1,10 @@
 import $ from 'jquery';
 
+function shareToggle(event) {
+  event.preventDefault();
+  $('[data-info-sharing]').slideToggle();
+}
+
 function infoCenter(event) {
   const value = event.currentTarget.value;
   if (value === 'all') {
@@ -25,6 +30,8 @@ function historyBack() {
 }
 
 $(document).on('change', '[data-infocenter-filter]', infoCenter);
+
+$(document).on('click', '[data-info-share-toggle]', shareToggle);
 
 $(document).ready(() => {
   initBacklinks();

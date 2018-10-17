@@ -9,7 +9,7 @@ h2 {
 }
 
 h3 {
-  @include Text(21px, 26px, $color-black);
+  @include Text(22px, 26px, $color-black);
   word-break: break-word;
 }
 

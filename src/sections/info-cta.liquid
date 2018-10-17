@@ -1,0 +1,54 @@
+{% unless section.settings.title == '' and section.settings.button_text == '' %}
+  <div class="info-cta" {% if section.settings.bg %}data-bgset="{% include 'responsive-bg-image', image: section.settings.bg %}"{% endif %}>
+    <h2 class="info-cta__title">{{ section.settings.title }}</h2>
+    {% unless section.settings.button_text == '' %}
+      <div class="info-cta__button-wrap">
+        <a href="{{ section.settings.button_url }}" class="info-cta__button">{{ section.settings.button_text }}</a>
+      </div>
+    {% endunless %}
+    {% unless section.settings.link_text == '' %}
+      <div class="info-cta__link-wrap">
+        <span class="info-cta__or">or</span>
+        <a class="info-cta__link" href="{{ section.settings.link_url }}">{{ section.settings.link_text }}</a>
+      </div>
+    {% endunless %}
+  </div>
+{% endunless %}
+
+{% schema %}
+  {
+    "name": "Learn more banner",
+    "settings": [
+      {
+        "type": "textarea",
+        "id": "title",
+        "label": "Title"
+      },
+      {
+        "type": "image_picker",
+        "id": "bg",
+        "label": "Background"
+      },
+      {
+        "type": "url",
+        "id": "button_url",
+        "label": "Button URL"
+      },
+      {
+        "type": "text",
+        "id": "button_text",
+        "label": "Button Text"
+      },
+      {
+        "type": "url",
+        "id": "link_url",
+        "label": "Link URL"
+      },
+      {
+        "type": "text",
+        "id": "link_text",
+        "label": "Link Text"
+      }
+    ]
+  }
+{% endschema %}
