@@ -1,0 +1,66 @@
+<div class="treatment-content max-wrap">
+  <div class="row">
+    {% for block in section.blocks %}
+      <div class="col-lg-4 col-md-6 col-12 flex">
+        <div class="treatment-content__item flex-col-wrap">
+          {% include 'responsive-image'
+            with image: block.settings.image,
+            max_width: 500,
+            max_height: 290,
+            wrapper_class: 'treatment-content__image-wrap',
+            image_class: 'treatment-content__image lazyload'
+          %}
+          <h3 class="treatment-content__title">{{ block.settings.title }}</h3>
+          <p class="treatment-content__price">{{ block.settings.price }}</p>
+          <div class="flex-shaper"></div>
+          <p class="treatment-content__description">{{ block.settings.description }}</p>
+          <a href="{{ section.settings.link_url }}" class="treatment-content__link">{{ block.settings.link_text }}</a>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Treatments list",
+    "blocks": [
+      {
+        "type": "block",
+        "name": "Treatment",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          },
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Title"
+          },
+          {
+            "type": "textarea",
+            "id": "price",
+            "label": "Price"
+          },
+          {
+            "type": "textarea",
+            "id": "description",
+            "label": "Description"
+          },
+          {
+            "type": "url",
+            "id": "link_url",
+            "label": "Link URL"
+          },
+          {
+            "type": "text",
+            "id": "link_text",
+            "label": "Link text"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

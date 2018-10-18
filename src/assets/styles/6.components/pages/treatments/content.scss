@@ -1,0 +1,68 @@
+.treatment-content {
+  margin-bottom: 100px;
+  padding: 0 15px;
+
+  &__item {
+    text-align: center;
+    padding: 0 60px 55px;
+    background-color: rgba($color-blumine, 0.08);
+  }
+
+  &__image-wrap {
+    height: 220px;
+    margin: 0 0 40px;
+  }
+
+  &__image {
+    object-fit: cover;
+  }
+
+  &__title {
+    @include apercu(700);
+    @include Text(32px, 34px, $color-blumine);
+    margin: 0 0 10px;
+  }
+
+  &__price {
+    @include apercu(700);
+    @include Text(18px, 22px, $color-blumine);
+    margin: 0 0 30px;
+
+    small {
+      font-weight: 400;
+    }
+  }
+
+  &__description {
+    @include apercu;
+    @include Text(15px, 22px, $color-black);
+    margin: 0 0 40px;
+  }
+
+  &__link {
+    @include apercu;
+    @include Text(14px, 18px, $color-blumine);
+    padding: 5px 20px;
+    background-color: transparent;
+    text-decoration: none;
+    display: inline-block;
+    vertical-align: bottom;
+    align-self: center;
+    @include transition(background-color);
+
+    &:hover,
+    &:active {
+      background-color: rgba($color-white, 0.6);
+    }
+
+    &::after {
+      content: '\e905';
+      margin: 0 0 0 20px;
+      @include icoMoon;
+      @include Text(18px, 1, $color-blumine);
+      opacity: 0.5;
+      display: inline-block;
+      vertical-align: bottom;
+    }
+  }
+}
