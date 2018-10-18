@@ -1,0 +1,29 @@
+<div class="case-studies">
+
+  <div class="studies-banner">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8 col-sm-11">
+          {% include 'breadcrumbs' %}
+          <h1 class="studies-banner__title">{{ page_title }}</h1>
+          <h2 class="studies-banner__subtitle">{{ page.content | strip | strip_html | truncatewords: 30 }}</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="studies-articles">
+    <div class="studies-articles__items">
+      <div class="row">
+        {% for link in linklists['case-studies'].links %}
+          <div class="col-lg-4 col-sm-6 col-12 flex">
+            {% include 'case-study-item' with link %}
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+  {% section 'info-cta' %}
+
+</div>

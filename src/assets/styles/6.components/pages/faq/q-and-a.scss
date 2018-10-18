@@ -143,16 +143,14 @@
     margin: 0 0 60px;
 
     ul {
-      list-style: none;
       padding: 0 0 0 60px;
     }
 
-    li {
+    ul li {
       text-indent: -40px;
     }
 
-    li::before {
-      content: '—';
+    ul li::before {
       padding: 0 26.5px 0 0;
     }
   }

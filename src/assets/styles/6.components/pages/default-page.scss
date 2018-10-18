@@ -32,18 +32,5 @@
       font-size: 15px;
       line-height: 22px;
     }
-
-    ul {
-      list-style: none;
-    }
-
-    li {
-      text-indent: -23.5px;
-    }
-
-    li::before {
-      content: '—';
-      padding: 0 10px 0 0;
-    }
   }
 }

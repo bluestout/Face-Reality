@@ -1,0 +1,60 @@
+.case-study-item {
+  background-color: $color-white;
+  padding: 0 0 45px;
+  margin: 0 0 30px;
+  width: 100%;
+
+  &__comparison {
+    margin: 0 0 40px;
+  }
+
+  &__content {
+    @extend %no-font-size;
+    padding: 0 60px;
+    &--center {
+      text-align: center;
+    }
+  }
+
+  &__title {
+    @include apercu(700);
+    @include Text(24px, 30px, $color-blumine);
+    text-align: center;
+    margin: 0 0 40px;
+  }
+
+  &__description {
+    @include apercu;
+    @include Text(14px, 18px, $color-black);
+    margin: 0 0 60px;
+  }
+
+  &__link {
+    text-align: center;
+    text-decoration: none;
+    margin: 0 0 55px;
+    @include transition(background-color);
+
+    &:hover,
+    &:active {
+      background-color: rgba($color-blumine, 0.08);
+    }
+  }
+
+  &__text {
+    @include myriad(400);
+    @include Text(14px, 18px, $color-blumine);
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  &__icon {
+    font-size: 18px;
+    line-height: 18px;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 0 0 20px;
+    color: $color-black;
+    opacity: 0.5;
+  }
+}

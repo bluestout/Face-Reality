@@ -1,6 +1,10 @@
-.info-s-banner {
-  padding: 75px 15px 0;
+.studies-banner {
   text-align: center;
+  margin: 0 0 80px;
+
+  .breadcrumbs {
+    padding: 40px 0;
+  }
 
   &__title {
     @include apercu(700);
@@ -11,9 +15,5 @@
   &__subtitle {
     @include apercu;
     @include Text(20px, 28px, $color-black);
-  }
-
-  .breadcrumbs {
-    padding: 30px 0 25px;
   }
 }

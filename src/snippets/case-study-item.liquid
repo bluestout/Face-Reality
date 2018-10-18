@@ -1,0 +1,37 @@
+{% comment %} split shopify cdn image src {% endcomment %}
+{%- assign page_object = case-study-item.object -%}
+{%- assign page_meta = page_object.metafields.info_center -%}
+{% if page_meta.image and page_meta.image != '' %}
+  {% assign img_src = '' %}
+  {% assign img_src = page_meta.image %}
+  {% assign src_split = '' %}
+  {% if img_src contains '.jpg' and img_src contains 'cdn.shopify' %}
+    {% assign src_split = img_src | split: '.jpg' %}
+    {% assign type = '.jpg' %}
+  {% elsif img_src contains '.png' and img_src contains 'cdn.shopify' %}
+    {% assign src_split = img_src | split: '.png' %}
+    {% assign type = '.png' %}
+  {% endif %}
+{% endif %}
+
+<div class="case-study-item flex-col-wrap">
+  <div class="case-study-item__comparison">
+  </div>
+  <div class="case-study-item__content">
+    <h3 class="case-study-item__title">{{ case-study-item.title }}</h3>
+    {% if page_meta.excerpt %}
+      <div class="case-study-item__description">{{ page_meta.excerpt }}</div>
+    {% else %}
+      <div class="case-study-item__description">
+        {{ page_object.content }}
+      </div>
+    {% endif %}
+  </div>
+  <div class="flex-shaper"></div>
+  <div class="case-study-item__content case-study-item__content--center">
+    <a href="{{ case-study-item.url }}" class="case-study-item__link">
+      <span class="case-study-item__text">View Case Study</span>
+      <span class="case-study-item__icon icon-angle-right"></span>
+    </a>
+  </div>
+</div>
