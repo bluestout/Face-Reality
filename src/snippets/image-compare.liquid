@@ -1,0 +1,43 @@
+{% comment %} 
+  use like this:
+
+  {%- include 'image-compare' 
+    with before: image.before, 
+    after: image.after , 
+    initial: 50, 
+    indicators: true, 
+    height: 370 
+  -%}
+
+  before & after : images to be compared
+  initial: initial position of the compare slider
+  indicators: show the small before and after tags
+  height: set a fixed height for both images
+
+  only before and after images are required
+{% endcomment %}
+
+{%- if before and after and before != blank and after != blank -%}
+  <div class="image-compare" {% if initial %}data-compare-base="{{ initial }}"{% endif %}>
+    <div class="image-compare__overflow-wrap">
+      <div class="image-compare__before-wrap">
+        <img src="{{ before }}" alt="Before" class="image-compare__before" {% if height != blank %}style="height:{{height}}px"{% endif %}/>
+      </div>
+      <div class="image-compare__after-wrap" data-compare-after-wrap>
+        <img src="{{ after }}" alt="After" class="image-compare__after" data-compare-after-image {% if height != blank %}style="height:{{height}}px"{% endif %}/>
+      </div>
+      {% if indicators %}
+        <span class="image-compare__indicator-before">Before</span>
+        <span class="image-compare__indicator-after">After</span>
+      {% endif %}
+    </div>
+    <div class="image-compare__range-wrap">
+      <input class="image-compare__range" type="range" min="0" max="100" data-compare-range/>
+    </div>
+    <div class="image-compare__separator" data-compare-visual-slide>
+      <div class="image-compare__separator-circle">
+        <div class="image-compare__separator-inner"></div>
+      </div>
+    </div>
+  </div>
+{%- endif -%}

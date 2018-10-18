@@ -13,38 +13,12 @@
               </div>
             </div>
             {% if block.settings.image_before and block.settings.image_after %}
-              {% comment %} <div class="col-md-7 flex-col-wrap justify-content-center">
-                <div class="case-studies__study-comparison">
-                  <img class="case-studies__study-comparison-image" src="{{ block.settings.image_before | img_url: '800x600' }}" alt="{{ block.settings.title }} before"/>
-                  <div class="case-studies__study-comparison-split">
-                    <img class="case-studies__study-comparison-image-split" src="{{ block.settings.image_after | img_url: '800x600' }}" alt="{{ block.settings.title }} after"/>
-                  </div>
-                  <span class="case-studies__study-comparison-slide">
-                    <span><</span>
-                    <span>></span>
-                  </span>
-                  <span class="case-studies__study-comparison-before">Before</span>
-                  <span class="case-studies__study-comparison-after">After</span>
-                </div>
-              </div> {% endcomment %}
-            {% else %}
-              <div class="col-md-7 flex-col-wrap justify-content-center">
-                  <div class="case-studies__study-comparison img-comp-container">
-                    <div class="img-comp-wrap">
-                      <img
-                        class="case-studies__study-comparison-image js-study-comparison-image"
-                        src="http://via.placeholder.com/800x600"
-                        alt="{{ block.settings.title }} before"
-                      />
-                    </div>
-                    <div class="img-comp-wrap js-img-comp-overlay">
-                      <img
-                        src="http://via.placeholder.com/799x599"
-                        alt="{{ block.settings.title }} after"
-                      />
-                    </div>
-                  </div>
-              </div>
+              {%- include 'image-compare' 
+                with before: block.settings.image_before, 
+                after: block.settings.image_after, 
+                initial: 50, 
+                indicators: true
+              -%}
             {% endif %}
           </div>
         </div>

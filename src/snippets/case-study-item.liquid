@@ -15,8 +15,16 @@
 {% endif %}
 
 <div class="case-study-item flex-col-wrap">
+
   <div class="case-study-item__comparison">
+    {%- include 'image-compare' 
+      with before: "http://via.placeholder.com/800x600", 
+      after:"http://via.placeholder.com/400x300", 
+      initial: 50, 
+      indicators: true 
+    -%}
   </div>
+
   <div class="case-study-item__content">
     <h3 class="case-study-item__title">{{ case-study-item.title }}</h3>
     {% if page_meta.excerpt %}
