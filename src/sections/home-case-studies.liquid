@@ -1,24 +1,28 @@
 <section class="case-studies-section">
   <div class="container">
-    <h3 class="case-studies__suptitle">{{ section.settings.suptitle }}</h3>
-    <h2 class="case-studies__title">{{ section.settings.title }}</h2>
-    <div class="case-studies__studies js-case-studies-slider">
+    <h3 class="case-studies-section__suptitle">{{ section.settings.suptitle }}</h3>
+    <h2 class="case-studies-section__title">{{ section.settings.title }}</h2>
+    <div class="case-studies-section__studies js-case-studies-slider">
       {% for block in section.blocks %}
-        <div class="case-studies__study">
+        <div class="case-studies-section__study">
           <div class="row">
             <div class="col-md-5 flex-col-wrap justify-content-center">
-              <div class="case-studies__study-content">
-                <h2 class="case-studies__study-title">{{ block.settings.title }}</h2>
-                <div class="case-studies__study-text">{{ block.settings.description }}</div>
+              <div class="case-studies-section__study-content">
+                <h2 class="case-studies-section__study-title">{{ block.settings.title }}</h2>
+                <div class="case-studies-section__study-text">{{ block.settings.description }}</div>
               </div>
             </div>
+            <div class="col-md-7 flex-col-wrap justify-content-center">
             {% if block.settings.image_before and block.settings.image_after %}
-              {%- include 'image-compare' 
-                with before: block.settings.image_before, 
-                after: block.settings.image_after, 
-                initial: 50, 
+              {% assign img_before = block.settings.image_before | img_url: 'medium' %}
+              {% assign img_after = block.settings.image_after | img_url: 'medium' %}
+              {%- include 'image-compare'
+                with before: img_before,
+                after: img_after,
+                initial: 50,
                 indicators: true
               -%}
+            </div>
             {% endif %}
           </div>
         </div>
