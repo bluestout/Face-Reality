@@ -154,4 +154,8 @@
     @extend .button;
     @extend .button--wire;
   }
+
+  @media (max-width: $grid-max + 1px) {
+    overflow: hidden;
+  }
 }

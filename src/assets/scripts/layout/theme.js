@@ -18,6 +18,7 @@ import '../custom/faq';
 import '../custom/information-center';
 import '../custom/header';
 import '../custom/image-compare';
+import '../custom/home-stories';
 
 import { focusHash, bindInPageLinks } from '@shopify/theme-a11y';
 import { cookiesEnabled } from '@shopify/theme-cart';

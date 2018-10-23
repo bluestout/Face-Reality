@@ -1,62 +1,29 @@
-<section class="blog-stories max-wrap">
+{% comment %} TODO replace the api link, maybe add some way to not have it hardcoded {% endcomment %}
+<section class="blog-stories max-wrap" data-blog-posts>
   <h2 class="blog-stories__title">{{ section.settings.title }}</h2>
   <div class="row no-gutters">
-    <div class="col-lg-6">
-      <div class="blog-stories__story" data-blog-story="1">
-        <div class="blog-stories__background" style="background-image: url('https://via.placeholder.com/800x800')"></div>
-        <a href="#" class="blog-stories__link">
-          <span class="blog-stories__post-info">
-            <h3 class="blog-stories__title blog-stories__title--big">How to choose a good quality omega-3 fish oil</h>
-            <span class="blog-stories__author">by Francesca Buongiorno</span>
-          </span>
-          <span class="blog-stories__icon-wrap">
-            <span class="blog-stories__icon icon-arrow-right"></span>
-          </span>
-        </a>
-      </div>
+    <div class="col-lg-6 flex" data-blog-story="1">
     </div>
     <div class="col-lg-6">
-      <div class="row no-gutters">
-        <div class="col-sm-6">
-          <div class="blog-stories__story" data-blog-story="2">
-
-          </div>
+      <div class="row no-gutters blog-stories__half-h-row">
+        <div class="col-sm-6" data-blog-story="2">
         </div>
-        <div class="col-sm-6">
-          <div class="blog-stories__story" data-blog-story="3">
-
-          </div>
+        <div class="col-sm-6" data-blog-story="3">
         </div>
       </div>
-      <div class="row no-gutters">
-        <div class="col-sm-6">
-          <div class="blog-stories__story" data-blog-story="4">
-
-          </div>
+      <div class="row no-gutters blog-stories__half-h-row">
+        <div class="col-sm-6" data-blog-story="4">
         </div>
-        <div class="col-sm-6">
-          <div class="blog-stories__story" data-blog-story="5">
-
-          </div>
+        <div class="col-sm-6" data-blog-story="5">
         </div>
       </div>
     </div>
   </div>
-    {% comment %} TODO - see if you can convert this to pure js {% endcomment %}
-  <script>
-    jQuery(document).ready(function() {
-      jQuery.ajax({
-        url: 'http://demo.wp-api.org/wp-json/wp/v2/posts',
-        type: 'GET',
-        dataType: 'json',
-        data: { "per_page": "5" },
-        contentType: "application/json",
-        success: function(result){
-          console.log(result);
-        }
-      });
-    });
-  </script>
+  {% if section.settings.link_text %}
+    <div class="blog-stories__inline-link-wrap">
+      <a href="{{ section.settings.link_url }}" class="blog-stories__inline-link">{{ section.settings.link_text }}</a>
+    </div>
+  {% endif %}
 </section>
 
 {% schema %}
@@ -67,6 +34,16 @@
         "type": "text",
         "id": "title",
         "label": "Title"
+      },
+      {
+        "type": "text",
+        "id": "link_text",
+        "label": "Link Text"
+      },
+      {
+        "type": "url",
+        "id": "link_url",
+        "label": "Link URL"
       }
     ],
     "presets": [{

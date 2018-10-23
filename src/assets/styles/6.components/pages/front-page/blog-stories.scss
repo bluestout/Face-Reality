@@ -1,0 +1,139 @@
+.blog-stories {
+  display: none;
+  margin: 0 0 85px;
+  &__title {
+    @extend %title-small;
+    margin: 0 0 30px;
+    text-align: center;
+  }
+
+  &__half-h-row {
+    height: 50%;
+  }
+
+  &__background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    @include backgroundImage;
+  }
+
+  &__link {
+    position: relative;
+    width: 100%;
+    align-self: flex-end;
+    display: flex;
+    flex-flow: row wrap;
+    text-decoration: none;
+    padding: 25px;
+    background: linear-gradient(
+      0deg,
+      rgba(#0a1823, 0.65) 0%,
+      rgba(#0a1823, 0.65) 100%
+    );
+    @include transition(height 1s ease-out);
+
+    &:hover,
+    &:active {
+      .blog-stories__icon {
+        opacity: 1;
+      }
+    }
+  }
+
+  &__post-title {
+    display: block;
+    @include apercu(700);
+    @include Text(25px, 26px, $color-white);
+    margin: 0 0 15px;
+  }
+
+  &__post-info {
+    flex: 1 0 80%;
+  }
+
+  &__author {
+    @include apercu(400);
+    @include Text(12.5px, 13px, $color-white);
+    opacity: 0.6;
+    @include transition(opacity);
+  }
+
+  &__icon-wrap {
+    text-align: right;
+    display: flex;
+    flex: 1 0 20%;
+    @extend %no-font-size;
+  }
+
+  &__icon {
+    font-size: 20px;
+    line-height: 1;
+    color: $color-white;
+    opacity: 0.35;
+    display: block;
+    width: 100%;
+    text-align: right;
+    align-self: flex-end;
+    @include transition(opacity);
+  }
+
+  &__story {
+    position: relative;
+    display: flex;
+    height: 100%;
+    width: 100%;
+
+    &--big {
+      min-height: 770px;
+
+      .blog-stories__link {
+        padding: 140px 35px 30px 45px;
+        height: 300px;
+        &:hover,
+        &:active {
+          height: 100%;
+        }
+      }
+
+      .blog-stories__post-title {
+        @include Text(35.5px, 36px, $color-white);
+      }
+
+      .blog-stories__post-info {
+        align-self: flex-end;
+      }
+    }
+
+    &--small {
+      .blog-stories__link {
+        height: 70%;
+        &:hover,
+        &:active {
+          height: 100%;
+        }
+      }
+
+      .blog-stories__post-title {
+        margin: 0;
+        align-self: flex-end;
+      }
+
+      .blog-stories__post-info {
+        display: flex;
+      }
+    }
+  }
+
+  &__inline-link-wrap {
+    text-align: center;
+    margin: 35px 0 0;
+  }
+
+  &__inline-link {
+    @extend .button;
+    @extend .button--wire;
+  }
+}
