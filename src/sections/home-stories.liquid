@@ -1,5 +1,62 @@
-<section class="blog-stories">
+<section class="blog-stories max-wrap">
   <h2 class="blog-stories__title">{{ section.settings.title }}</h2>
+  <div class="row no-gutters">
+    <div class="col-lg-6">
+      <div class="blog-stories__story" data-blog-story="1">
+        <div class="blog-stories__background" style="background-image: url('https://via.placeholder.com/800x800')"></div>
+        <a href="#" class="blog-stories__link">
+          <span class="blog-stories__post-info">
+            <h3 class="blog-stories__title blog-stories__title--big">How to choose a good quality omega-3 fish oil</h>
+            <span class="blog-stories__author">by Francesca Buongiorno</span>
+          </span>
+          <span class="blog-stories__icon-wrap">
+            <span class="blog-stories__icon icon-arrow-right"></span>
+          </span>
+        </a>
+      </div>
+    </div>
+    <div class="col-lg-6">
+      <div class="row no-gutters">
+        <div class="col-sm-6">
+          <div class="blog-stories__story" data-blog-story="2">
+
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="blog-stories__story" data-blog-story="3">
+
+          </div>
+        </div>
+      </div>
+      <div class="row no-gutters">
+        <div class="col-sm-6">
+          <div class="blog-stories__story" data-blog-story="4">
+
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="blog-stories__story" data-blog-story="5">
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+    {% comment %} TODO - see if you can convert this to pure js {% endcomment %}
+  <script>
+    jQuery(document).ready(function() {
+      jQuery.ajax({
+        url: 'http://demo.wp-api.org/wp-json/wp/v2/posts',
+        type: 'GET',
+        dataType: 'json',
+        data: { "per_page": "5" },
+        contentType: "application/json",
+        success: function(result){
+          console.log(result);
+        }
+      });
+    });
+  </script>
 </section>
 
 {% schema %}

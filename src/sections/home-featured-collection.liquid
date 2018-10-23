@@ -12,7 +12,7 @@
         <h2 class="featured-collection__title">{{ section.settings.list_title }}</h2>
       </div>
     </div>
-    <div class="js-featured-collection-slider">
+    <div class="js-featured-collection-slider max-wrap">
       {% for prod in collections[section.settings.collection].products %}
         {% include 'product-item' with prod, index: forloop.index %}
       {% endfor %}
