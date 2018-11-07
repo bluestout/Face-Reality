@@ -40,6 +40,7 @@
     "start": "slate-tools start --env=dev",
     "watch": "slate-tools start --skipFirstDeploy --env=dev",
     "build": "slate-tools build --env=dev",
+    "build-production": "slate-tools build --env=prod",
     "deploy": "slate-tools build && slate-tools deploy --env=prod",
     "zip": "slate-tools build && slate-tools zip",
     "lint": "slate-tools lint",
