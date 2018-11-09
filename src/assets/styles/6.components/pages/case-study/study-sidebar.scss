@@ -1,0 +1,42 @@
+.study-sidebar {
+  &__title {
+    @include apercu(700);
+    @include Text(22px,27px,$color-black);
+    margin: 0 0 20px;
+  }
+  &__description {
+    @include apercu;
+    @include Text(13.5px,17px,$color-black);
+    margin: 0 0 30px;
+    opacity: 0.55;
+  }
+  &__items {
+    margin: 0 0 30px;
+  }
+
+  &__item {
+    margin: 0 0 4px;
+  }
+
+  &__link {
+    padding: 35px 30px;
+    background-color: $color-white;
+    text-decoration: none;
+    @extend %no-font-size;
+    display: flex;
+  }
+
+  &__link-text {
+    @include Text(16px,16px,$color-blumine);
+    @include aller(700);
+    text-transform: uppercase;
+    align-self: center;
+  }
+
+  &__link-icon {
+    @include Text(10px,16px,$color-blumine);
+    text-align: right;
+    align-self: center;
+    margin: 0 0 0 20px;
+  }
+}

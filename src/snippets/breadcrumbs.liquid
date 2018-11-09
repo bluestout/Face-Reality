@@ -1,6 +1,11 @@
 <nav class="breadcrumbs" role="navigation" aria-label="breadcrumbs">
   <a href="/" title="Home" class="breadcrumbs__link">Home</a>
-  {% if template contains 'information-section' or template contains 'information-article' %}
+  {% if template contains 'case-study'  %}
+    <span aria-hidden="true" class="breadcrumbs__separator">&rsaquo;</span>
+    <a href="/pages/case-studies" class="breadcrumbs__link">Case Studies</a>
+    <span aria-hidden="true" class="breadcrumbs__separator">&rsaquo;</span>
+    <span class="breadcrumbs__current">{{ page.title }}</span>
+  {% elsif template contains 'information-section' or template contains 'information-article' %}
     <span aria-hidden="true" class="breadcrumbs__separator">&rsaquo;</span>
     <a href="/pages/acne-information-center" class="breadcrumbs__link">Acne Information Center</a>
     <span aria-hidden="true" class="breadcrumbs__separator">&rsaquo;</span>

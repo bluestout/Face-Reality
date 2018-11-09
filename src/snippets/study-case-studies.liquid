@@ -1,0 +1,7 @@
+{%- if template contains "case-study" -%}
+  {% if page.handle == "inflamed-acne" %}
+    {% section 'study-inflamed-acne' %}
+  {% elsif page.handle == "non-inflamed-acne" %}
+    {% section 'study-non-inflamed-acne' %}
+  {% endif %}
+{%- endif -%}

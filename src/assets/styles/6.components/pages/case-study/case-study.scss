@@ -1,0 +1,57 @@
+.case-study {
+  background-color: $color-aqua-haze;
+  padding: 30px 0 120px;
+
+  .study-title {
+    @include apercu(700);
+    @include Text(25px,29px,$color-black);
+    margin: 0 0 15px;
+    text-align: center;
+  }
+
+  .breadcrumbs {
+    text-align: center;
+    padding: 0;
+    margin: 0 0 30px;
+    opacity: 0.55;
+    &__link {
+      color: $color-black;
+    }
+
+    &__current {
+      color: $color-black;
+    }
+
+    &__separator {
+      color: $color-black;
+    }
+  }
+
+
+  .study-backlink {
+    @include apercu;
+    @include Text(12px,18px,$color-calypso);
+    text-decoration: none;
+  }
+  .study-backlink-icon {
+    margin: 0 15px 0 0;
+    font-size: 14px;
+    line-height: 18px;
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  @import "./study-case-list";
+  @import "./study-article";
+  @import "./study-sidebar";
+
+  .info-cta {
+    &__title {
+      text-transform: none;
+    }
+  }
+}
+
+.study-bottom-margin {
+  margin: 0 0 100px;
+}

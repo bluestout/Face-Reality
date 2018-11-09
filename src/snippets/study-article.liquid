@@ -1,0 +1,28 @@
+<article class="study-article">
+  <div class="study-article__utilities">
+    <a href="#" class="study-article__social" data-info-share-toggle>
+      <span class="study-article__social-icon icon-share"></span>
+      <span class="study-article__social-text">Share</span>
+    </a>
+    {% comment %} TODO print only the document in question? {% endcomment %}
+    <a href="javascript:window.print()" class="study-article__social">
+      <span class="study-article__social-icon icon-document"></span>
+      <span class="study-article__social-text">Print</span>
+    </a>
+    {% capture absolute_url %}{{ shop.secure_url }}{{ page.url }}{% endcapture %}
+    {% include 'social-sharing',
+      share_title: page.title,
+      share_permalink: absolute_url
+      attributes: 'data-info-sharing'
+    %}
+  </div>
+
+  <div class="row justify-content-center">
+    <div class="col-lg-8 col-sm-11">
+      <h1 class="study-article__title">{{ page.title }}</h1>
+      <p class="study-article__introduction">{{ metafields.introduction }}</p>
+      <article class="study-article__content shopify-rte">{{ page.content }}</article>
+      {% include 'study-case-studies' %}
+    </div>
+  </div>
+</article>
