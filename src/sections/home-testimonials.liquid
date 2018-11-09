@@ -14,7 +14,7 @@
         <div class="home-testimonials__testimonial">
           <p class="home-testimonials__testimonial-text">{{ block.settings.testimonial }}</p>
           <div class="flex-shaper"></div>
-          <img src="http://via.placeholder.com/350x10" class="home-testimonials__testimonial-separator"/>
+          {% include 'zig-line-separator' %}
           {% if block.settings.image %}
             {% include 'responsive-image'
               with image: block.settings.image,

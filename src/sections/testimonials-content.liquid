@@ -18,7 +18,8 @@
           <div class="testimonials-content__testimonial flex-col-wrap">
             <p class="testimonials-content__testimonial-text">{{ block.settings.testimonial }}</p>
             <div class="flex-shaper"></div>
-            <img src="http://via.placeholder.com/350x10" class="testimonials-content__testimonial-separator"/>
+            {% include 'zig-line-separator' %}
+            <div class="testimonials-content__testimonial-separator"></div>
             {% if block.settings.image %}
               {% include 'responsive-image'
                 with image: block.settings.image,
