@@ -1,6 +1,6 @@
 .info-topics {
   padding: 25px 25px 50px;
-  background-color: rgba($color-blumine, 0.08);
+  background-color: $color-aqua-haze;
   margin: 0 0 100px;
 
   &__filter-wrap {
@@ -120,7 +120,7 @@
 
     &:hover,
     &:active {
-      background-color: rgba($color-blumine, 0.08);
+      background-color: $color-aqua-haze;
       &::after {
         top: calc(50% - 10px);
         font-size: 20px;

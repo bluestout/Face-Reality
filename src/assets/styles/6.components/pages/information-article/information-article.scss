@@ -3,7 +3,7 @@
 
   &__wrap {
     padding: 25px 25px 100px;
-    background-color: rgba($color-blumine, 0.08);
+    background-color: $color-aqua-haze;
   }
 
   &__section-title {
@@ -186,7 +186,7 @@
       font-style: italic;
       display: block;
       text-align: center;
-      border-bottom: 1px solid rgba($color-blumine, 0.08);
+      border-bottom: 1px solid $color-aqua-haze;
       margin: 0 auto 40px;
       max-width: 90%;
 
