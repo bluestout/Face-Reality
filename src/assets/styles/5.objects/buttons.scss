@@ -22,11 +22,14 @@
     border-radius: 0;
     display: inline-block;
 
-    &:hover,
-    &:active,
-    &:focus {
-      background-color: $color-blumine;
-      color: $color-white;
+
+    &:not(:disabled) {
+      &:hover,
+      &:active,
+      &:focus {
+        background-color: $color-blumine;
+        color: $color-white;
+      }
     }
 
     &.button--big {
@@ -45,6 +48,12 @@
       padding: 4px 20px;
       font-size: 12px;
     }
+
+    &:disabled {
+      cursor: not-allowed;
+      background-color: transparent;
+      color: $color-blumine;
+    }
   }
 
   /* this is so the input default is overridden */
@@ -60,14 +69,16 @@
     border-radius: 0;
     display: inline-block;
 
-    &:hover,
-    &:active {
-      color: $color-white;
-      background-color: $color-accent;
-    }
+    &:not(:disabled) {
+      &:hover,
+      &:active {
+        color: $color-white;
+        background-color: $color-accent;
+      }
 
-    &:focus {
-      color: $color-white;
+      &:focus {
+        color: $color-white;
+      }
     }
 
     &.button--big {
@@ -85,6 +96,11 @@
     &.button--tiny {
       padding: 6px 20px;
       font-size: 12px;
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+      background-color: $color-blumine;
     }
   }
 }

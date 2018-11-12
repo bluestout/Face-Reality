@@ -1,29 +1,51 @@
-<h1>{{ 'customer.activate_account.title' | t }}</h1>
-<p>{{ 'customer.activate_account.subtext' | t }}</p>
+{% comment %} todo - image {% endcomment %}
+<div class="account-pages">
+  <div class="register">
+    <div class="row no-gutters">
+      <div class="col-md-6 justify-content-center flex-col-wrap">
+        <div class="register__image-wrap">
+          <img src="http://via.placeholder.com/1024x1024" alt="" class="register__image">
+        </div>
+      </div>
+      <div class="col-md-6 justify-content-center flex-col-wrap">
+        <div class="register__registration">
+          <h1 class="register__registration-title">{{ 'customer.activate_account.title' | t }}</h1>
+          <p class="register__registration-info-note">{{ 'customer.activate_account.subtext' | t }}</p>
 
-{% form 'activate_customer_password' %}
-  {{ form.errors | default_errors }}
 
-  <p>
-    <label for="CustomerPassword" class="label-hidden">
-      {{ 'customer.activate_account.password' | t }}
-    </label>
-    <input type="password"
-      name="customer[password]"
-      id="CustomerPassword"
-      placeholder="{{ 'customer.activate_account.password' | t }}">
-  </p>
+          {% form 'activate_customer_password' %}
+            {{ form.errors | default_errors }}
 
-  <p>
-    <label for="CustomerPasswordConfirmation" class="label-hidden">
-      {{ 'customer.activate_account.password_confirm' | t }}
-    </label>
-    <input type="password"
-      name="customer[password_confirmation]"
-      id="CustomerPasswordConfirmation"
-      placeholder="{{ 'customer.activate_account.password_confirm' | t }}">
-  </p>
+            <div class="register__input-wrap">
+              <input
+                class="register__input"
+                type="password"
+                name="customer[password]"
+                id="CustomerPassword"
+                placeholder="{{ 'customer.activate_account.password' | t }}">
+            </div>
 
-  <input type="submit" class="button" value="{{ 'customer.activate_account.submit' | t }}">
-  <input type="submit" class="button button--secondary" name="decline" value="{{ 'customer.activate_account.cancel' | t }}">
-{% endform %}
+            <div class="register__input-wrap register__input-wrap--margin">
+              <input
+                class="register__input register__input--bordermerge"
+                type="password"
+                name="customer[password_confirmation]"
+                id="CustomerPasswordConfirmation"
+                placeholder="{{ 'customer.activate_account.password_confirm' | t }}">
+            </div>
+
+            <div class="register__input-wrap register__input-wrap--submit">
+              <input type="submit" class="register__submit" value="{{ 'customer.activate_account.submit' | t }}">
+            </div>
+
+            <div class="register__input-wrap register__input-wrap--submit">
+              <input type="submit" class="register__submit" name="decline" value="{{ 'customer.activate_account.cancel' | t }}">
+            </div>
+
+          {% endform %}
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

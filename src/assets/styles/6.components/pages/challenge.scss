@@ -1,0 +1,11 @@
+.shopify-challenge {
+  &__container {
+    padding: 100px 0;
+    .shopify-challenge__button {
+      margin: 24px auto 0;
+      @extend .button--main;
+      @extend .button;
+      display: block;
+    }
+  }
+}
