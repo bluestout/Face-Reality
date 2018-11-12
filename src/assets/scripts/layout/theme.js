@@ -19,6 +19,7 @@ import '../custom/information-center';
 import '../custom/header';
 import '../custom/image-compare';
 import '../custom/home-stories';
+import '../custom/register';
 
 import { focusHash, bindInPageLinks } from '@shopify/theme-a11y';
 import { cookiesEnabled } from '@shopify/theme-cart';

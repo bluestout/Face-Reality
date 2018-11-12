@@ -22,7 +22,7 @@
 
           <h1 class="register__registration-title">Registration</h1>
           <p class="register__registration-info-note">Please enter your information to create an account</p>
-          <div class="register__registration-form">
+          <div class="register__registration-form" data-register-form-parent>
             {% form 'create_customer' %}
               {{ form.errors | default_errors }}
 
@@ -35,7 +35,8 @@
                   id="Name"
                   placeholder="Full name"
                   autofocus
-                  {% if form.first_name %}value="{{ form.name }}"{% endif %}/>
+                  {% if form.first_name %}value="{{ form.name }}"{% endif %}
+                  data-register-name/>
               </div>
 
               {% comment %}
@@ -71,7 +72,8 @@
                   value="{% if form.email %}{{ form.email }}{% endif %}"
                   spellcheck="false"
                   autocomplete="off"
-                  autocapitalize="off"/>
+                  autocapitalize="off"
+                  data-register-email/>
               </div>
 
               <div class="register__input-wrap">
@@ -81,7 +83,8 @@
                   name="customer[password]"
                   id="CreatePassword"
                   class="{% if form.errors contains 'password' %}input-error{% endif %}"
-                  placeholder="{{ 'customer.register.password' | t }}"/>
+                  placeholder="{{ 'customer.register.password' | t }}"
+                  data-register-password/>
               </div>
 
               <div class="register__input-wrap register__input-wrap--margin">
@@ -91,13 +94,15 @@
                   name="customer[password_confirmation]"
                   id="CreatePasswordConfirm"
                   class="{% if form.errors contains 'password' %}input-error{% endif %}"
-                  placeholder="Repeat password"/>
+                  placeholder="Repeat password"
+                  data-register-password-check/>
               </div>
 
               <div>
-                <input class="register__submit" type="submit" value="Create account" class="button">
+                <input class="register__submit" type="submit" value="Create account" class="button" data-register-submit />
               </div>
             {% endform %}
+            <div class="error-message" data-register-error-message style="display:none"></div>
           </div>
           <span class="register__have-account">Already have an account?</span>
           <a href="/account/login" class="register__have-account-link">Log in</a>
