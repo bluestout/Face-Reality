@@ -1,0 +1,101 @@
+<div class="study-case-list">
+  {%- for block in section.blocks -%}
+    <div class="study-case-list__item">
+
+      {% if block.settings.client %}
+        <div class="study-case-list__client-title">
+          <span class="study-case-list__client">{{ block.settings.client }}</span>
+      {% endif %}
+        {% if block.settings.client and block.settings.age %}
+          <span class="study-case-list__age">, {{ block.settings.age }}</span>
+        {% endif %}
+        {% if block.settings.client %}
+        </div>
+      {% endif %}
+
+      {% if block.settings.before and block.settings.after  %}
+        <div class="study-case-list__comparison">
+          {% assign img_before = block.settings.before | img_url: 'large' %}
+          {% assign img_after = block.settings.after | img_url: 'large' %}
+          {%- include 'image-compare'
+            with before: img_before,
+            after: img_after,
+            initial: 50,
+            indicators: true
+          -%}
+        </div>
+      {% endif %}
+
+      {% if block.settings.laura %}
+        <div class="study-case-list__notes">
+          <img src="https://cdn.shopify.com/s/files/1/0019/3603/1842/files/laura-thumbnail.min.png?17216436934819562109" class="study-case-list__notes-image"/>
+          <h3 class="study-case-list__notes-title">Laura's notes:</h3>
+          <p class="study-case-list__notes-content">{{ block.settings.laura }}</p>
+        </div>
+      {% endif %}
+
+      {% if block.settings.testimonial %}
+        <div class="study-case-list__testimonial">
+          <h3 class="study-case-list__testimonial-title">Client testimonial:</h3>
+          <p class="study-case-list__testimonial-content">{{ block.settings.testimonial }}</p>
+          {% include 'zig-line-separator' %}
+          {% if block.settings.client %}
+            <div class="study-case-list__testimonial-info">
+              <span class="study-case-list__testimonial-client">{{ block.settings.client }}</span>
+          {% endif %}
+          {% if block.settings.client and block.settings.age %}
+            <span class="study-case-list__testimonial-age">{{ block.settings.age }}</span>
+          {% endif %}
+          {% if block.settings.client %}
+            </div>
+          {% endif %}
+        </div>
+      {% endif %}
+    </div>
+  {%- endfor -%}
+</div>
+
+
+{% schema %}
+  {
+    "name": "Inflamed Acne",
+    "blocks": [
+      {
+        "type": "block",
+        "name": "Case",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "before",
+            "label": "Before Image"
+          },
+          {
+            "type": "image_picker",
+            "id": "after",
+            "label": "After Image"
+          },
+          {
+            "type": "textarea",
+            "id": "laura",
+            "label": "Laura's notes"
+          },
+          {
+            "type": "textarea",
+            "id": "testimonial",
+            "label": "Client testimonial"
+          },
+          {
+            "type": "text",
+            "id": "client",
+            "label": "Client Name"
+          },
+          {
+            "type": "text",
+            "id": "age",
+            "label": "Client Age"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

@@ -1,7 +1,15 @@
+{% comment %} one study file for each case study - because shopify does not have sections in sections {% endcomment %}
+{{ page.handle }}
 {%- if template contains "case-study" -%}
   {% if page.handle == "inflamed-acne" %}
     {% section 'study-inflamed-acne' %}
-  {% elsif page.handle == "non-inflamed-acne" %}
-    {% section 'study-non-inflamed-acne' %}
+  {% elsif page.handle == "noninflamed-acne" %}
+    {% section 'study-noninflamed-acne' %}
+  {% elsif page.handle == "acne-hyperpigmentation" %}
+    {% section 'study-acne-hyperpigmentation' %}
+  {% elsif page.handle == "rosacea" %}
+    {% section 'study-rosacea' %}
+  {% elsif page.handle == "back-acne" %}
+    {% section 'study-back-acne' %}
   {% endif %}
 {%- endif -%}
