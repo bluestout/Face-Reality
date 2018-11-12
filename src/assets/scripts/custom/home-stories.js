@@ -54,21 +54,23 @@ function blogTemplate(blog, index) {
 }
 
 function getWpBlogs() {
-  $.ajax({
-    url: 'http://demo.wp-api.org/wp-json/wp/v2/posts?_embed',
-    type: 'GET',
-    dataType: 'json',
-    data: { per_page: '5' },
-    contentType: 'application/json',
-    success: results => {
-      if (results.length > 0) {
-        for (let i = 0; i < results.length; i++) {
-          $(`[data-blog-story="${i + 1}"]`).html(blogTemplate(results[i], i));
+  if ($('body').hasClass("template-index")) {
+    $.ajax({
+      url: 'http://demo.wp-api.org/wp-json/wp/v2/posts?_embed',
+      type: 'GET',
+      dataType: 'json',
+      data: {per_page: 5},
+      contentType: 'application/json',
+      success: results => {
+        if (results.length > 0) {
+          for (let i = 0; i < results.length; i++) {
+            $(`[data-blog-story="${i + 1}"]`).html(blogTemplate(results[i], i));
+          }
+          $('[data-blog-posts]').slideDown();
         }
-        $('[data-blog-posts]').slideDown();
       }
-    }
-  });
+    });
+  }
 }
 
 $(document).ready(() => {
