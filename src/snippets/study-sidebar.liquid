@@ -1,25 +1,14 @@
-{% comment %} TODO - implement {% endcomment %}
 <div class="study-sidebar">
   <h2 class="study-sidebar__title">Other case studies</h2>
   <p class="study-sidebar__description">Some more examples of acne problems we helped our clients with.</p>
   <div class="study-sidebar__items">
-    <div class="study-sidebar__item">
-      <a href="#" class="study-sidebar__link">
-        <span class="study-sidebar__link-text">Acne</span>
-        <span class="study-sidebar__link-icon icon-angle-right"></span>
-      </a>
-    </div>
-    <div class="study-sidebar__item">
-      <a href="#" class="study-sidebar__link">
-        <span class="study-sidebar__link-text">Acne</span>
-        <span class="study-sidebar__link-icon icon-angle-right"></span>
-      </a>
-    </div>
-    <div class="study-sidebar__item">
-      <a href="#" class="study-sidebar__link">
-        <span class="study-sidebar__link-text">Acne</span>
-        <span class="study-sidebar__link-icon icon-angle-right"></span>
-      </a>
-    </div>
+    {% for link in linklists['case-studies'].links %}
+      <div class="study-sidebar__item">
+        <a href="{{ link.url }}" class="study-sidebar__link">
+          <span class="study-sidebar__link-text">{{ link.title }}</span>
+          <span class="study-sidebar__link-icon icon-angle-right"></span>
+        </a>
+      </div>
+    {% endfor %}
   </div>
 </div>

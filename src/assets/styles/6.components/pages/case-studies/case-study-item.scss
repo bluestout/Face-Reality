@@ -12,6 +12,7 @@
   &__content {
     @extend %no-font-size;
     padding: 0 60px;
+    margin: 0 0 60px;
     &--center {
       text-align: center;
     }
@@ -22,12 +23,31 @@
     @include Text(24px, 30px, $color-blumine);
     text-align: center;
     margin: 0 0 40px;
+    padding: 0 20px;
   }
 
   &__description {
     @include apercu;
     @include Text(14px, 18px, $color-black);
-    margin: 0 0 60px;
+
+    p, li {
+      @include Text(14px, 18px, $color-black);
+    }
+
+    ul {
+      list-style: none;
+      padding-inline-start: 50px;
+    }
+
+    ul li {
+      text-indent: -28.5px;
+    }
+
+    ul li::before {
+      content: '—';
+      padding: 0 15px 0 0;
+    }
+
   }
 
   &__link {

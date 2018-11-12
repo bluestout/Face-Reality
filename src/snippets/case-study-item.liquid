@@ -25,14 +25,12 @@
     -%}
   </div>
 
+  <h3 class="case-study-item__title">{{ case-study-item.title }}</h3>
   <div class="case-study-item__content">
-    <h3 class="case-study-item__title">{{ case-study-item.title }}</h3>
     {% if page_meta.excerpt %}
       <div class="case-study-item__description">{{ page_meta.excerpt }}</div>
     {% else %}
-      <div class="case-study-item__description">
-        {{ page_object.content }}
-      </div>
+      <div class="case-study-item__description">{{ page_object.content }}</div>
     {% endif %}
   </div>
   <div class="flex-shaper"></div>
