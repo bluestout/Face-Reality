@@ -1,0 +1,81 @@
+.single-order {
+  padding: 0 15px;
+
+  .order-history__title {
+    margin: 0 0 30px;
+  }
+
+  &__return {
+    margin: 0 0 30px;
+    text-align: center;
+  }
+
+  &__return-link {
+    text-decoration: none;
+    color: $color-blumine;
+    display: inline-block;
+    @include transition(color);
+    &:hover,
+    &:active {
+      color: $color-accent;
+    }
+  }
+
+  &__item {
+    margin: 0 0 100px;
+  }
+
+  &__title {
+    @include apercu(700);
+    @include Text(20px, 26px, $color-blumine);
+    margin: 0 0 10px;
+  }
+
+  &__date {
+    @include apercu;
+    @include Text(16px, 22px, $color-black);
+    margin: 0 0 20px;
+  }
+
+  &__note {
+    color: $color-calypso;
+    margin: 0 0 10px;
+  }
+
+  &__table {
+    margin: 0 0 40px;
+    border-spacing: 0;
+  }
+
+  &__row {
+    &:nth-of-type(even) {
+      background-color: $color-aqua-haze;
+    }
+  }
+
+  &__cell {
+    @include apercu(400);
+    @include Text(16px, 20px, $color-black);
+    padding: 20px;
+    text-align: left;
+    border-bottom: 1px solid $color-mercury;
+
+    &--head {
+      @include Text(14px, 20px, rgba($color-blumine, 0.5));
+      padding: 10px 20px;
+      border-top: 1px solid $color-mercury;
+    }
+
+    &--foot {
+      @include Text(14px, 20px, $color-blumine);
+      padding: 10px 20px;
+      border-bottom: 1px solid rgba($color-mercury, 0.5);
+    }
+  }
+
+  &__note-title {
+    @include apercu(700);
+    @include Text(18px, 22px, $color-blumine);
+    margin: 0 0 10px;
+  }
+}
