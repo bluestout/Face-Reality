@@ -1,0 +1,25 @@
+.account-sidebar {
+  margin: 0 0 40px;
+  padding: 0 0 0 40px;
+
+  .account-sidebar__title {
+    @include apercu(700);
+    @include Text(14px, 18px, $color-blumine);
+    margin: 0 0 25px;
+  }
+
+  .account-sidebar__link {
+    @include apercu(700);
+    @include Text(14px, 18px, $color-black);
+    text-decoration: none;
+    margin: 0 0 25px;
+    opacity: 0.5;
+    display: inline-block;
+    @include transition(opacity);
+
+    &:hover,
+    &:active {
+      opacity: 1;
+    }
+  }
+}

@@ -1,43 +1,55 @@
-<h1>{{ 'customer.account.title' | t }}</h1>
+<div class="account-pages">
+  <div class="max-wrap order-history">
+    <h1 class="order-history__title">{{ 'customer.account.title' | t }}</h1>
+    <div class="row no-gutters justify-content-between">
 
-<h2>{{ 'customer.orders.title' | t }}</h2>
+      <div class="col-xl-2 col-lg-3">
+        {% include 'account-sidebar' %}
+      </div>
 
-{% paginate customer.orders by 20 %}
-  {% if customer.orders.size != 0 %}
-    <table class="responsive-table">
-      <thead>
-        <tr>
-          <th>{{ 'customer.orders.order_number' | t }}</th>
-          <th>{{ 'customer.orders.date' | t }}</th>
-          <th>{{ 'customer.orders.payment_status' | t }}</th>
-          <th>{{ 'customer.orders.fulfillment_status' | t }}</th>
-          <th>{{ 'customer.orders.total' | t }}</th>
-        </tr>
-      </thead>
-      <tbody>
-        {% for order in customer.orders %}
-          <tr class="responsive-table-row">
-            <td data-label="{{ 'customer.orders.order_number' | t }}">{{ order.name | link_to: order.customer_url }}</td>
-            <td data-label="{{ 'customer.orders.date' | t }}">{{ order.created_at | date: format: 'month_day_year' }}</td>
-            <td data-label="{{ 'customer.orders.payment_status' | t }}">{{ order.financial_status_label }}</td>
-            <td data-label="{{ 'customer.orders.fulfillment_status' | t }}">{{ order.fulfillment_status_label }}</td>
-            <td data-label="{{ 'customer.orders.total' | t }}">{{ order.total_price | money }}</td>
-          </tr>
-        {% endfor %}
-      </tbody>
-    </table>
-  {% else %}
-    <p>{{ 'customer.orders.none' | t }}</p>
-  {% endif %}
+      <div class="col-xl-9 col-lg-8">
+        {% paginate customer.orders by 10 %}
+          {% if customer.orders.size != 0 %}
+            <table class="order-history__table responsive-table">
+              <thead>
+                <tr class="">
+                  <th class="order-history__cell order-history__cell--head">{{ 'customer.orders.date' | t }}</th>
+                  <th class="order-history__cell order-history__cell--head">{{ 'customer.orders.order_number' | t }}</th>
+                  <th class="order-history__cell order-history__cell--head">{{ 'customer.orders.total' | t }}</th>
+                  <th class="order-history__cell order-history__cell--head">{{ 'customer.orders.fulfillment_status' | t }}</t>
+                </tr>
+              </thead>
+              <tbody>
+                {% for order in customer.orders %}
+                  {% assign classes = "" %}
+                  {% if order.fulfillment_status == "fulfilled" %}
+                    {% assign row_classes = "order-history__row--fulfilled" %}
+                    {% assign span_classes = "order-history__fulfillment--fulfilled" %}
+                  {% endif %}
+                  <tr class="responsive-table-row order-history__row {{ row_classes }}" data-table-pagination-row>
+                    <td class="order-history__cell" data-label="{{ 'customer.orders.date' | t }}">{{ order.created_at | date: "%m/%d/%Y" }}</td>
+                    <td class="order-history__cell" data-label="{{ 'customer.orders.order_number' | t }}">{{ order.name | link_to: order.customer_url }}</td>
+                    <td class="order-history__cell" data-label="{{ 'customer.orders.total' | t }}">{{ order.total_price | money }}</td>
+                    <td class="order-history__cell" data-label="{{ 'customer.orders.fulfillment_status' | t }}">
+                      <span class="order-history__fulfillment {{ span_classes }}">{{ order.fulfillment_status_label }}</span>
+                    </td>
+                  </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          {% else %}
+            <p class="order-history__no-orders">{{ 'customer.orders.none' | t }}</p>
+          {% endif %}
 
-  {% if paginate.pages > 1 %}
-    {% include 'pagination' %}
-  {% endif %}
-
-{% endpaginate %}
-
-<h2>{{ 'customer.account.details' | t }}</h2>
-
-{{ customer.default_address | format_address }}
-
-<a href="/account/addresses">{{ 'customer.account.view_addresses' | t }} ({{ customer.addresses_count }})</a>
+          {% if paginate.pages > 1 %}
+            {% if paginate.next.is_link %}
+              <div class="order-history__pagination" data-order-pagination>
+                <a class="order-history__load-more" href="{{ paginate.next.url }}" data-order-load-more>Load more</a>
+              </div>
+            {% endif %}
+          {% endif %}
+        {% endpaginate %}
+      </div>
+    </div>
+  </div>
+</div>

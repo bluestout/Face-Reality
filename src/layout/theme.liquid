@@ -70,7 +70,7 @@
 
   <main role="main" id="MainContent">
     {% comment %} TODO when do we show breadcrumbs and when not? {% endcomment %}
-    {% unless template == 'index' or template == 'cart' or template == 'list-collections' or hide == true or template contains 'information' or template contains 'case-' or template == null %}
+    {% unless template == 'index' or template == 'cart' or template == 'list-collections' or hide == true or template contains 'information' or template contains 'case-' or template == null or template contains 'account' %}
       <div class="container">
         {% include 'breadcrumbs' %}
       </div>
