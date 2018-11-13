@@ -45,4 +45,22 @@
     @extend .button--main;
     @extend .button--big;
   }
+
+  @include media-query("xl-down") {
+    &__col {
+      padding: 40px;
+    }
+  }
+
+  @include media-query("large-down") {
+    &__col {
+      padding: 40px 30px;
+    }
+  }
+
+  @include media-query("medium-down") {
+    &__col {
+      padding: 20px 30px;
+    }
+  }
 }

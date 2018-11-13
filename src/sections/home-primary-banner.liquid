@@ -1,11 +1,11 @@
 {% if section.settings.background %}
   <section class="primary-banner primary-banner--bg lazyload" data-bgset="{% include 'responsive-bg-image', image: section.settings.background %}">
 {% else %}
-  <section class="primary-banner">
+  <section class="primary-banner" style="background-image:url('http://via.placeholder.com/1920x600')">
 {% endif %}
   <div class="container">
     <div class="row">
-      <div class="col-lg-5">
+      <div class="col-xl-5 col-lg-6">
         <h2 class="primary-banner__title">{{ section.settings.title }}</h2>
         {% if section.settings.button_text != '' %}
           <a href="{{ section.settings.button_url }}" class="primary-banner__link-button">{{ section.settings.button_text }}</a>
@@ -24,6 +24,10 @@
   {% if section.settings.badge %}
     <div class="primary-banner__badge">
       {% include 'responsive-image' with image: block.settings.badge, max_width: 170, max_height: 170 %}
+    </div>
+  {% else %}
+      <div class="primary-banner__badge">
+        <img src="http://via.placeholder.com/170x170" alt="">
     </div>
   {% endif %}
 </section>

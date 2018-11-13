@@ -1,7 +1,7 @@
 <section class="usp-4up max-wrap">
   <div class="row no-gutters">
     {% for block in section.blocks %}
-      <div class="col flex">
+      <div class="col-lg col-md-12 flex">
         {% assign modulo = forloop.index | modulo: 2 %}
         {% if modulo == 0 %}
           {% assign even_odd = 'usp-4up__col--even' %}

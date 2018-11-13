@@ -34,4 +34,48 @@
     right: 11px;
     bottom: 11px;
   }
+
+  @include media-query("xl-down") {
+    &__title {
+      font-size: 38px;
+      line-height: 42px;
+    }
+  }
+
+  @include media-query("large-down") {
+    padding: 100px 0 60px;
+    &__title {
+      font-size: 38px;
+      line-height: 42px;
+    }
+
+    &__badge {
+      display: none;
+    }
+  }
+
+  @include media-query("medium-down") {
+    padding: 100px 0 40px;
+    &__title {
+      font-size: 30px;
+      line-height: 36px;
+      margin: 0 0 20px;
+    }
+
+    &__link-button {
+      padding: 10px 60px;
+      margin: 0 0 10px;
+    }
+  }
+
+  @include media-query("small-down") {
+    padding: 200px 0 20px;
+
+    &__title {
+      font-size: 20px;
+      line-height: 24px;
+      max-width: 350px;
+      margin: 0 auto 20px;
+    }
+  }
 }
