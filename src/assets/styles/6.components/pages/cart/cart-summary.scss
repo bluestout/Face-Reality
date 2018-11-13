@@ -1,0 +1,81 @@
+.cart-summary {
+  background-color: $color-mystic;
+  height: 100%;
+  text-align: center;
+  padding: 70px 15% 0;
+
+  &__title {
+    @include myriad(700);
+    @include Text(18px, 22px, $color-blumine);
+    margin: 0 0 60px;
+  }
+
+  &__totals {
+    background-color: $color-white;
+    padding: 22px 25px;
+    display: flex;
+    margin: 0 0 5px;
+  }
+
+  &__totals-text {
+    @include apercu;
+    @include Text(13.5px, 24px, $color-blumine);
+    flex: 1;
+    text-align: left;
+  }
+
+  &__totals-price {
+    @include apercu;
+    @include Text(18px, 24px, $color-blumine);
+    flex: 1;
+    text-align: right;
+  }
+
+  &__note {
+    @include apercu;
+    @include Text(14px, 20px, $color-blumine);
+    margin: 0 0 30px;
+  }
+
+  &__label {
+    @include apercu;
+    @include Text(14px, 20px, $color-blumine);
+    margin: 0 0 5px;
+  }
+
+  &__textarea {
+    width: 100%;
+    margin: 0 0 30px;
+  }
+
+  &__checkout-button {
+    @extend .button;
+    @extend .button--main;
+    padding: 22px;
+    font-size: 14px;
+    width: 100%;
+    margin: 0 0 30px;
+  }
+
+  &__usps {
+    padding: 30px 0 0;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+  }
+
+  &__usp {
+    text-align: center;
+    display: inline-block;
+    vertical-align: top;
+    margin: 0 20px 30px;
+  }
+
+  &__usp-text {
+    @include apercu(700);
+    @include Text(12px, 14px, $color-blumine);
+    display: block;
+    margin: 15px auto 0;
+    max-width: 100px;
+  }
+}

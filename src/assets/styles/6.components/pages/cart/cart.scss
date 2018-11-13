@@ -1,0 +1,11 @@
+.cart {
+  padding: 55px 30px 0;
+  margin-bottom: 100px;
+
+  @import "./cart-header";
+  @import "./cart-table";
+  @import "./cart-summary";
+
+  .cart-content {
+  }
+}

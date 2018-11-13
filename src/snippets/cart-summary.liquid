@@ -1,0 +1,39 @@
+<div class="cart-summary">
+  <h2 class="cart-summary__title">Order summary</h2>
+  <div class="cart-summary__totals">
+    <span class="cart-summary__totals-text">{{ 'cart.general.subtotal' | t }}</span>
+    <span class="cart-summary__totals-price">{{ cart.total_price | money }}</span>
+  </div>
+
+  {% if cart.total_discounts > 0 %}
+    <div class="cart-summary__totals">
+      <span class="cart-summary__totals-text">{{ 'cart.general.savings' | t }}</span>
+      <span class="cart-summary__totals-text">{{ cart.total_discounts | money }}</span>
+    </div>
+  {% endif %}
+
+  <input class="cart-summary__checkout-button" type="submit" name="checkout" class="button" value="{{ 'cart.general.checkout' | t }}"/>
+
+  <p class="cart-summary__note">{{ 'cart.general.shipping_at_checkout' | t }}</p>
+
+  {% if settings.cart_notes_enable %}
+    <label class="cart-summary__label" for="CartSpecialInstructions">{{ 'cart.general.note' | t }}</label>
+    <textarea class="cart-summary__textarea" name="note" id="CartSpecialInstructions">{{ cart.note }}</textarea>
+  {% endif %}
+
+  {% comment %} TODO - icons {% endcomment %}
+  <div class="cart-summary__usps">
+    <span class="cart-summary__usp">
+      {% include 'about-products-icon-1' %}
+      <span class="cart-summary__usp-text">Premium formulations</span>
+    </span>
+    <span class="cart-summary__usp">
+      {% include 'about-products-icon-1' %}
+      <span class="cart-summary__usp-text">Clear skin in 3-4 months</span>
+    </span>
+    <span class="cart-summary__usp">
+      {% include 'about-products-icon-1' %}
+      <span class="cart-summary__usp-text">Success rate</span>
+    </span>
+  </div>
+</div>

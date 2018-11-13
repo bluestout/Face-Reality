@@ -3,6 +3,9 @@
     "accessibility": {
       "skip_to_content": "Skip to content"
     },
+    "glossary": {
+      "option": "Option"
+    },
     "meta": {
       "tags": "Tagged \"{{ tags }}\"",
       "page": "Page {{ page }}"
@@ -94,7 +97,7 @@
       "subtotal": "Subtotal",
       "shipping_at_checkout": "Shipping & taxes calculated at checkout",
       "update": "Update Cart",
-      "checkout": "Check Out",
+      "checkout": "Proceed to checkout",
       "empty": "Your cart is currently empty.",
       "cookies_required": "Enable cookies to use the shopping cart",
       "continue_browsing_html": "Continue browsing <a href=\"/collections/all\">here</a>.",

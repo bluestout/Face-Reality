@@ -1,0 +1,29 @@
+.cart-header {
+  margin: 0 0 35px;
+
+  &__title {
+    @include apercu(700);
+    @include Text(25px, 30px, $color-blumine);
+    text-align: center;
+  }
+
+  &__return {
+    align-self: flex-end;
+  }
+
+  &__return-link {
+    text-decoration: none;
+    color: $color-blumine;
+    display: inline-block;
+    @include transition(color);
+    &:hover,
+    &:active {
+      color: $color-accent;
+    }
+  }
+
+  &__return-icon {
+    margin: 0 5px 0 0;
+    display: inline-block;
+  }
+}

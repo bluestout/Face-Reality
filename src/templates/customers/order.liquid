@@ -11,12 +11,10 @@
     </div>
     <div class="single-order__item">
       <h2 class="single-order__title">{{ 'customer.order.title' | t: name: order.name }}</h2>
-
       <p class="single-order__date">{{ 'customer.order.date' | t: date: order.created_at | date: "%B %d, %Y %I:%M%p" }}</p>
-
       <p class="single-order__note">{{ 'customer.order.payment_status' | t }}: {{ order.financial_status_label }}</p>
-
       <p class="single-order__note">{{ 'customer.order.fulfillment_status' | t }}: {{ order.fulfillment_status_label }}</p>
+      <br><br>
 
       {% if order.cancelled %}
         {%- assign cancelled_at = order.cancelled_at | date: "%B %d, %Y %I:%M%p" -%}
