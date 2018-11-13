@@ -20,6 +20,7 @@ import '../custom/header';
 import '../custom/image-compare';
 import '../custom/home-stories';
 import '../custom/register';
+import '../custom/account';
 
 import { focusHash, bindInPageLinks } from '@shopify/theme-a11y';
 import { cookiesEnabled } from '@shopify/theme-cart';

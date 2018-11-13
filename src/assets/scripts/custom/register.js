@@ -1,12 +1,12 @@
-import $ from 'jquery';
+import $ from "jquery";
 
 const elements = {
-  errorText: '[data-register-error-message]',
-  formSubmit: '[data-register-submit]',
-  passwordInput: '[data-register-password]',
-  passwordCheckInput: '[data-register-password-check]',
-  emailInput: '[data-register-email]',
-  nameInput: '[data-register-name]',
+  errorText: "[data-register-error-message]",
+  formSubmit: "[data-register-submit]",
+  passwordInput: "[data-register-password]",
+  passwordCheckInput: "[data-register-password-check]",
+  emailInput: "[data-register-email]",
+  nameInput: "[data-register-name]",
 };
 
 let showErrorEvent;
@@ -34,29 +34,29 @@ function passwordConfirm() {
 
 function emailConfirm() {
   const emailInput = $(elements.emailInput).val();
-  if (emailInput.length === 0 || !emailInput.includes('@')) {
-    $(elements.emailInput).addClass('error');
+  if (emailInput.length === 0 || !emailInput.includes("@")) {
+    $(elements.emailInput).addClass("error");
     submitError(5);
   } else {
-    $(elements.emailInput).removeClass('error');
+    $(elements.emailInput).removeClass("error");
   }
 }
 
 function nameConfirm() {
   const nameInput = $(elements.nameInput).val();
   if (nameInput.length === 0) {
-    $(elements.nameInput).addClass('error');
+    $(elements.nameInput).addClass("error");
     submitError(4);
   } else {
-    $(elements.nameInput).removeClass('error');
+    $(elements.nameInput).removeClass("error");
   }
 }
 
 function disableForm() {
-  $(elements.formSubmit).prop('disabled', true);
+  $(elements.formSubmit).prop("disabled", true);
 }
 function enableForm() {
-  $(elements.formSubmit).prop('disabled', false);
+  $(elements.formSubmit).prop("disabled", false);
 }
 
 $(document).ready(() => {
@@ -67,47 +67,53 @@ $(document).ready(() => {
 
 function passwordError(haserror) {
   if (haserror) {
-    $(elements.passwordInput).addClass('error');
-    $(elements.passwordCheckInput).addClass('error');
+    $(elements.passwordInput).addClass("error");
+    $(elements.passwordCheckInput).addClass("error");
   } else {
-    $(elements.passwordInput).removeClass('error');
-    $(elements.passwordCheckInput).removeClass('error');
+    $(elements.passwordInput).removeClass("error");
+    $(elements.passwordCheckInput).removeClass("error");
   }
 }
 
 function submitError(error) {
   switch (error) {
     case 1:
-      $(elements.errorText).text('Please enter a password.');
+      $(elements.errorText).text("Please enter a password.");
       break;
     case 2:
-      $(elements.errorText).text('Password must be at least 6 characters long.');
+      $(elements.errorText).text(
+        "Password must be at least 6 characters long.",
+      );
       break;
     case 3:
-      $(elements.errorText).text('Passwords do not match.');
+      $(elements.errorText).text("Passwords do not match.");
       break;
     case 4:
-      $(elements.errorText).text('Please enter a name.');
+      $(elements.errorText).text("Please enter a name.");
       break;
     case 5:
-      $(elements.errorText).text('Please enter a valid email.');
+      $(elements.errorText).text("Please enter a valid email.");
       break;
   }
   showError();
 }
 
 function showError() {
-  if (!$(elements.errorText).hasClass('active')) {
-    $(elements.errorText).addClass('active');
-    $(elements.errorText).slideDown('fast');
+  if (!$(elements.errorText).hasClass("active")) {
+    $(elements.errorText).addClass("active");
+    $(elements.errorText).slideDown("fast");
   }
   clearTimeout(showErrorEvent);
   showErrorEvent = setTimeout(() => {
-    $(elements.errorText).removeClass('active');
-    $(elements.errorText).slideUp('fast');
+    $(elements.errorText).removeClass("active");
+    $(elements.errorText).slideUp("fast");
   }, 3000);
 }
 
-$(document).on('keyup', `${elements.passwordInput}, ${elements.passwordCheckInput}`, passwordConfirm);
-$(document).on('keyup', elements.emailInput, emailConfirm);
-$(document).on('keyup', elements.nameInput, nameConfirm);
+$(document).on(
+  "keyup",
+  `${elements.passwordInput}, ${elements.passwordCheckInput}`,
+  passwordConfirm,
+);
+$(document).on("keyup", elements.emailInput, emailConfirm);
+$(document).on("keyup", elements.nameInput, nameConfirm);

@@ -36,17 +36,6 @@ function faqFilter() {
   }, 200);
 }
 
-window._wq = window._wq || [];
-$("[data-gallery-video]").each(function() {
-  var vidId = $(this).attr("id");
-  _wq.push({
-    id: vidId,
-    onReady: function(video) {
-      console.log("I got a handle to the video!", video);
-    },
-  });
-});
-
 $(document).on("click", "[data-faq-question]", faqAccordion);
 
 $(document).on("change, keydown", "[data-faq-filter-input]", faqFilter);

@@ -1,8 +1,8 @@
-import $ from 'jquery';
-import 'slick-carousel';
+import $ from "jquery";
+import "slick-carousel";
 
 function testimonials() {
-  const $testimonials = $('.js-testimonials-slider');
+  const $testimonials = $(".js-testimonials-slider");
   if ($testimonials.length > 0) {
     $testimonials.slick({
       swipeToSlide: true,
@@ -10,19 +10,19 @@ function testimonials() {
       dots: true,
       slidesToShow: 3,
       nextArrow:
-        '<button type="button" class="slick-next slick-arrow icon-arrow-right"></button>',
+        "<button type='button' class='slick-next slick-arrow icon-arrow-right'></button>",
       prevArrow:
-        '<button type="button" class="slick-prev slick-arrow icon-arrow-left"></button>',
+        "<button type='button' class='slick-prev slick-arrow icon-arrow-left'></button>",
       responsive: [
         {
           breakpoint: 576,
           settings: {
             slidesToShow: 1,
             centerMode: true,
-            centerPadding: '33px'
-          }
-        }
-      ]
+            centerPadding: "33px",
+          },
+        },
+      ],
     });
   }
 }

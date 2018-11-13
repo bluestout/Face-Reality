@@ -1,15 +1,15 @@
-import $ from 'jquery';
+import $ from "jquery";
 
 function blogTemplate(blog, index) {
   console.log(blog);
   console.log(index);
-  let authorElement = '';
-  let backgroundStyle = '';
-  let size = '';
+  let authorElement = "";
+  let backgroundStyle = "";
+  let size = "";
   if (index === 0) {
-    size = ' blog-stories__story--big';
+    size = " blog-stories__story--big";
   } else {
-    size = ' blog-stories__story--small';
+    size = " blog-stories__story--small";
   }
   if (blog._embedded.author[0] && index === 0) {
     authorElement = `<span class="blog-stories__author">${
@@ -18,10 +18,10 @@ function blogTemplate(blog, index) {
   }
   if (
     blog._embedded &&
-    blog._embedded['wp:featuredmedia'] &&
-    blog._embedded['wp:featuredmedia'][0]
+    blog._embedded["wp:featuredmedia"] &&
+    blog._embedded["wp:featuredmedia"][0]
   ) {
-    const blogMedia = blog._embedded['wp:featuredmedia'][0];
+    const blogMedia = blog._embedded["wp:featuredmedia"][0];
     if (blogMedia.media_details.sizes.large) {
       backgroundStyle = `style="background-image: url(${
         blogMedia.media_details.sizes.large
@@ -54,21 +54,21 @@ function blogTemplate(blog, index) {
 }
 
 function getWpBlogs() {
-  if ($('body').hasClass("template-index")) {
+  if ($("body").hasClass("template-index")) {
     $.ajax({
-      url: 'http://demo.wp-api.org/wp-json/wp/v2/posts?_embed',
-      type: 'GET',
-      dataType: 'json',
-      data: {per_page: 5},
-      contentType: 'application/json',
-      success: results => {
+      url: "http://demo.wp-api.org/wp-json/wp/v2/posts?_embed",
+      type: "GET",
+      dataType: "json",
+      data: { per_page: 5 },
+      contentType: "application/json",
+      success: (results) => {
         if (results.length > 0) {
           for (let i = 0; i < results.length; i++) {
             $(`[data-blog-story="${i + 1}"]`).html(blogTemplate(results[i], i));
           }
-          $('[data-blog-posts]').slideDown();
+          $("[data-blog-posts]").slideDown();
         }
-      }
+      },
     });
   }
 }

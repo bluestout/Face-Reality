@@ -1,8 +1,8 @@
-import $ from 'jquery';
-import 'slick-carousel';
+import $ from "jquery";
+import "slick-carousel";
 
 function mentions() {
-  const $mentions = $('.js-different-mentions-slider');
+  const $mentions = $(".js-different-mentions-slider");
   if ($mentions.length > 0) {
     $mentions.slick({
       swipeToSlide: true,
@@ -10,9 +10,9 @@ function mentions() {
       dots: true,
       slidesToShow: 5,
       nextArrow:
-        '<button type="button" class="slick-next slick-arrow icon-arrow-right"></button>',
+        "<button type='button' class='slick-next slick-arrow icon-arrow-right'></button>",
       prevArrow:
-        '<button type="button" class="slick-prev slick-arrow icon-arrow-left"></button>'
+        "<button type='button' class='slick-prev slick-arrow icon-arrow-left'></button>",
     });
   }
 }
