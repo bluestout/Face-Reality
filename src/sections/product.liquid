@@ -1,3 +1,4 @@
+{% comment %} todo - user authorization {% endcomment %}
 <div class="product-single" data-section-id="{{ section.id }}" data-section-type="product" data-enable-history-state="true">
 
   {%- assign current_variant = product.selected_or_first_available_variant -%}
@@ -38,38 +39,22 @@
         <div class="product-single__option-name">{{ option.name }}</div>
         <div class="product-single__variants-wrap">
           {% for value in option.values %}
-            {% for variant in product.variants %}
-              {% if variant['title'] == value  %}
-                <div class="product-single__variant-wrap{% unless variant.available %} product-single__variant-wrap--not-allowed{% endunless %}">
-                  {% comment %} Pick the first available variant, or first variant if all unavailable {% endcomment %}
-                  <input
-                    class="product-single__variant"
-                    type="radio"
-                    name="variation-radio"
-                    value="{{ value | escape }}"
-                    data-single-option-selector
-                    data-index="option{{ option.position }}"
-                    {% if variant.available %}
-                    title="{{ value }}"
-                    {% else %}
-                    title="Out Of Stock"
-                    {% endif %}
-                    {% if variant.available %}
-                      {% unless var_selected %}
-                        checked="checked"
-                        {% assign var_selected = true %}
-                      {% endunless %}
-                    {% endif %}
-                    {% unless product.available %}
-                      {% if forloop.index == 1 %}
-                        checked="checked"
-                      {% endif %}
-                    {% endunless %}
-                    />
-                  <label class="product-single__variant-label">{{ value }}</label>
-                </div>
-              {% endif %}
-            {% endfor %}
+            <div class="product-single__variant-wrap">
+              <input
+                class="product-single__variant"
+                type="radio"
+                name="variation-radio-{{ option.name | handleize }}"
+                value="{{ value | escape }}"
+                data-single-option-selector
+                data-index="option{{ option.position }}"
+                {% if product.available %}
+                  {% if forloop.index == 1 %}
+                    checked="checked"
+                  {% endif %}
+                {% endif %}
+                />
+              <label class="product-single__variant-label">{{ value }}</label>
+            </div>
           {% endfor %}
         </div>
       {% endfor %}

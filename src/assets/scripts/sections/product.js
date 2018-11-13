@@ -6,29 +6,29 @@
  * @namespace product
  */
 
-import $ from 'jquery';
-import Variants from '@shopify/theme-variants';
-import {formatMoney} from '@shopify/theme-currency';
-import {register} from '@shopify/theme-sections';
+import $ from "jquery";
+import Variants from "@shopify/theme-variants";
+import { formatMoney } from "@shopify/theme-currency";
+import { register } from "@shopify/theme-sections";
 
 const selectors = {
-  addToCart: '[data-add-to-cart]',
-  addToCartText: '[data-add-to-cart-text]',
-  comparePrice: '[data-compare-price]',
-  comparePriceText: '[data-compare-text]',
-  originalSelectorId: '[data-product-select]',
-  priceWrapper: '[data-price-wrapper]',
-  productImageWrapper: '[data-product-image-wrapper]',
-  productFeaturedImage: '[data-product-featured-image]',
-  productJson: '[data-product-json]',
-  productPrice: '[data-product-price]',
-  productThumbs: '[data-product-single-thumbnail]',
-  singleOptionSelector: '[data-single-option-selector]',
+  addToCart: "[data-add-to-cart]",
+  addToCartText: "[data-add-to-cart-text]",
+  comparePrice: "[data-compare-price]",
+  comparePriceText: "[data-compare-text]",
+  originalSelectorId: "[data-product-select]",
+  priceWrapper: "[data-price-wrapper]",
+  productImageWrapper: "[data-product-image-wrapper]",
+  productFeaturedImage: "[data-product-featured-image]",
+  productJson: "[data-product-json]",
+  productPrice: "[data-product-price]",
+  productThumbs: "[data-product-single-thumbnail]",
+  singleOptionSelector: "[data-single-option-selector]",
 };
 
 const cssClasses = {
-  activeThumbnail: 'active-thumbnail',
-  hide: 'hide',
+  activeThumbnail: "active-thumbnail",
+  hide: "hide",
 };
 
 const keyboardKeys = {
@@ -41,7 +41,7 @@ const keyboardKeys = {
  * @param {string} container - selector for the section container DOM element
  */
 
-register('product', {
+register("product", {
   onLoad() {
     this.$container = $(this.container);
     this.namespace = `.${this.id}`;
@@ -58,7 +58,7 @@ register('product', {
 
     const options = {
       $container: this.$container,
-      enableHistoryState: this.$container.data('enable-history-state') || false,
+      enableHistoryState: this.$container.data("enable-history-state") || false,
       singleOptionSelector: selectors.singleOptionSelector,
       originalSelectorId: selectors.originalSelectorId,
       product: this.productSingleObject,
@@ -95,13 +95,13 @@ register('product', {
     }
 
     $productThumbs
-      .on('click', (evt) => {
+      .on("click", (evt) => {
         evt.preventDefault();
-        const imageId = $(evt.currentTarget).data('thumbnail-id');
+        const imageId = $(evt.currentTarget).data("thumbnail-id");
         this.switchImage(imageId);
         this.setActiveThumbnail(imageId);
       })
-      .on('keyup', this.handleImageFocus.bind(this));
+      .on("keyup", this.handleImageFocus.bind(this));
   },
 
   handleImageFocus(evt) {
@@ -109,17 +109,17 @@ register('product', {
       return;
     }
 
-    this.$featuredImage.filter(':visible').focus();
+    this.$featuredImage.filter(":visible").focus();
   },
 
   setActiveThumbnail(imageId) {
     let newImageId = imageId;
 
     // If "imageId" is not defined in the function parameter, find it by the current product image
-    if (typeof newImageId === 'undefined') {
+    if (typeof newImageId === "undefined") {
       newImageId = $(
         `${selectors.productImageWrapper}:not('.${cssClasses.hide}')`,
-      ).data('image-id');
+      ).data("image-id");
     }
 
     const $thumbnail = $(
@@ -128,10 +128,10 @@ register('product', {
 
     $(selectors.productThumbs)
       .removeClass(cssClasses.activeThumbnail)
-      .removeAttr('aria-current');
+      .removeAttr("aria-current");
 
     $thumbnail.addClass(cssClasses.activeThumbnail);
-    $thumbnail.attr('aria-current', true);
+    $thumbnail.attr("aria-current", true);
   },
 
   switchImage(imageId) {
@@ -159,7 +159,7 @@ register('product', {
     if (variant) {
       $(selectors.priceWrapper, this.$container).removeClass(cssClasses.hide);
     } else {
-      $(selectors.addToCart, this.$container).prop('disabled', true);
+      $(selectors.addToCart, this.$container).prop("disabled", true);
       $(selectors.addToCartText, this.$container).html(
         theme.strings.unavailable,
       );
@@ -168,10 +168,10 @@ register('product', {
     }
 
     if (variant.available) {
-      $(selectors.addToCart, this.$container).prop('disabled', false);
+      $(selectors.addToCart, this.$container).prop("disabled", false);
       $(selectors.addToCartText, this.$container).html(theme.strings.addToCart);
     } else {
-      $(selectors.addToCart, this.$container).prop('disabled', true);
+      $(selectors.addToCart, this.$container).prop("disabled", true);
       $(selectors.addToCartText, this.$container).html(theme.strings.soldOut);
     }
   },
@@ -208,7 +208,7 @@ register('product', {
       );
       $compareEls.removeClass(cssClasses.hide);
     } else {
-      $comparePrice.html('');
+      $comparePrice.html("");
       $compareEls.addClass(cssClasses.hide);
     }
   },
