@@ -73,11 +73,11 @@ input {
   border: none;
 }
 
-input[type='text'],
-input[type='email'],
-input[type='tel'],
-input[type='password'],
-input[type='search'],
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="password"],
+input[type="search"],
 textarea {
   @include Text(16px, 16px, $color-black);
   background-color: $color-white;
@@ -90,7 +90,7 @@ textarea {
   }
 }
 
-input[type='submit'] {
+input[type="submit"] {
   @include Text(16px, 16px, $color-white);
   font-weight: 700;
   color: $color-white;
@@ -118,7 +118,7 @@ select {
   }
 }
 
-input[type='checkbox'] {
+input[type="checkbox"] {
   position: relative;
   appearance: none;
   border-radius: 50%;
@@ -129,29 +129,27 @@ input[type='checkbox'] {
 
   &:checked {
     &::before {
-      background-color: $color-red;
+      background-color: $color-blumine;
     }
   }
 
   &::after {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
     display: block;
-    border-radius: 50%;
-    border: 2px solid $color-red;
+    border: 2px solid $color-blumine;
     width: 22px;
     height: 22px;
   }
 
   &::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 5px;
     left: 5px;
     display: block;
-    border-radius: 50%;
     width: 12px;
     height: 12px;
     @include transition(background-color 100ms);
@@ -159,7 +157,7 @@ input[type='checkbox'] {
   }
 }
 
-@include media-query('medium-down') {
+@include media-query("medium-down") {
   h1 {
     font-size: 32px;
     line-height: 36px;

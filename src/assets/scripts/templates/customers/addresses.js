@@ -7,25 +7,25 @@
  * @namespace customerAddresses
  */
 
-import $ from 'jquery';
+import $ from "jquery";
 
-const $newAddressForm = $('#AddressNewForm');
+const $newAddressForm = $("#AddressNewForm");
 
 if ($newAddressForm.length) {
   // Initialize observers on address selectors, defined in shopify_common.js
   if (Shopify) {
     new Shopify.CountryProvinceSelector(
-      'AddressCountryNew',
-      'AddressProvinceNew',
+      "AddressCountryNew",
+      "AddressProvinceNew",
       {
-        hideElement: 'AddressProvinceContainerNew',
+        hideElement: "AddressProvinceContainerNew",
       },
     );
   }
 
   // Initialize each edit form's country/province selector
-  $('.address-country-option').each(function() {
-    const formId = $(this).data('form-id');
+  $(".address-country-option").each(function() {
+    const formId = $(this).data("form-id");
     const countrySelector = `AddressCountry_${formId}`;
     const provinceSelector = `AddressProvince_${formId}`;
     const containerSelector = `AddressProvinceContainer_${formId}`;
@@ -36,26 +36,26 @@ if ($newAddressForm.length) {
   });
 
   // Toggle new/edit address forms
-  $('.address-new-toggle').on('click', () => {
-    $newAddressForm.toggleClass('hide');
+  $(".js-address-new-toggle").on("click", () => {
+    $newAddressForm.slideToggle();
   });
 
-  $('.address-edit-toggle').on('click', function() {
-    const formId = $(this).data('form-id');
-    $(`#EditAddress_${formId}`).toggleClass('hide');
+  $(".js-address-edit-toggle").on("click", function() {
+    const formId = $(this).data("form-id");
+    $(`#EditAddress_${formId}`).slideToggle();
   });
 
-  $('.address-delete').on('click', function() {
+  $(".address-delete").on("click", function() {
     const $el = $(this);
-    const formId = $el.data('form-id');
-    const confirmMessage = $el.data('confirm-message');
+    const formId = $el.data("form-id");
+    const confirmMessage = $el.data("confirm-message");
     if (
       window.confirm(
-        confirmMessage || 'Are you sure you wish to delete this address?',
+        confirmMessage || "Are you sure you wish to delete this address?",
       )
     ) {
       Shopify.postLink(`/account/addresses/${formId}`, {
-        parameters: {_method: 'delete'},
+        parameters: { _method: "delete" },
       });
     }
   });

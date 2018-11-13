@@ -2,7 +2,7 @@
   {% if template contains "account" %}
     <h2 class="account-sidebar__title">{{ 'customer.orders.title' | t }}</h2>
   {% elsif template contains "addresses" %}
-    <h2 class="account-sidebar__title">{{ 'customer.account.details' | t }}</h2>
+    <h2 class="account-sidebar__title">{{ 'customer.account.view_addresses' | t }}</h2>
   {% endif %}
   {% unless template.name == 'account' %}
     <div>
