@@ -1,7 +1,8 @@
 .default-page {
   padding: 25px 25px 50px;
-  margin: 0 0 120px;
+  margin: 0 0 20px;
   background-color: $color-aqua-haze;
+
   &__inner {
     background-color: $color-white;
     padding: 100px 0 200px;
@@ -12,6 +13,49 @@
     @include Text(40px, 48px, $color-blumine);
     text-align: center;
     margin: 0 0 120px;
+
+    &--shipping {
+      margin: 0 0 40px;
+    }
+  }
+
+  &__sup-title {
+    @include apercu;
+    @include Text(13.5px, 20px, $color-black);
+    text-align: center;
+    margin: 0 0 40px;
+  }
+
+  &__introduction {
+    @include apercu;
+    @include Text(20px, 30px, $color-black);
+    text-align: center;
+    margin: 0 0 100px;
+  }
+
+  &__table {
+    border-spacing: 0;
+  }
+
+  &__cell {
+    @include myriad;
+    @include Text(13.5px, 20px, $color-black);
+    border-bottom: 1px solid $color-white;
+    background-color: $color-aqua-haze;
+    text-align: center;
+    padding: 20px;
+
+    &--left {
+      text-align: left;
+    }
+
+    &--head {
+      @include apercu;
+      @include Text(12px, 17px, $color-black);
+      opacity: 0.5;
+      padding: 10px 20px;
+      background-color: transparent;
+    }
   }
 
   &__content {
@@ -43,7 +87,7 @@
     }
 
     ul li::before {
-      content: '—';
+      content: "—";
       padding: 0 15px 0 0;
     }
   }

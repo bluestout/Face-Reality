@@ -18,7 +18,7 @@
       position: relative;
 
       &::after {
-        content: '\e902';
+        content: "\e902";
         position: absolute;
         right: 12px;
         top: 20px;
@@ -28,6 +28,7 @@
     }
 
     &--submit {
+      border-bottom: none;
       text-align: left;
     }
   }

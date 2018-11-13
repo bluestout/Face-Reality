@@ -37,6 +37,7 @@
 }
 
 .site-footer {
+  padding: 100px 0 0;
   &__logo-wrap {
     display: block;
     text-align: center;
@@ -98,7 +99,7 @@ body {
       }
 
       &::after {
-        content: '';
+        content: "";
         position: absolute;
         right: 0;
         top: 20%;

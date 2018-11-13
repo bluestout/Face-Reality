@@ -1,0 +1,76 @@
+<table class="default-page__table">
+  <thead>
+    <tr>
+      <th class="default-page__cell default-page__cell--left default-page__cell--head">{{ section.settings.method_head }}</th>
+      <th class="default-page__cell default-page__cell--head">{{ section.settings.rate_head }}</th>
+      <th class="default-page__cell default-page__cell--head">{{ section.settings.time_head }}</th>
+      <th class="default-page__cell default-page__cell--head">{{ section.settings.carrier_head }}</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for block in section.blocks %}
+      <tr>
+        <td class="default-page__cell default-page__cell--left">{{ block.settings.method }}</td>
+        <td class="default-page__cell">{{ block.settings.rate }}</td>
+        <td class="default-page__cell">{{ block.settings.time }}</td>
+        <td class="default-page__cell">{{ block.settings.carrier }}</td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% schema %}
+  {
+    "name": "Shipping table",
+    "settings": [
+      {
+        "type": "text",
+        "id": "method_head",
+        "label": "Method header"
+      },
+      {
+        "type": "text",
+        "id": "rate_head",
+        "label": "Rate header"
+      },
+      {
+        "type": "text",
+        "id": "time_head",
+        "label": "Time header"
+      },
+      {
+        "type": "text",
+        "id": "carrier_head",
+        "label": "Carrier header"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "block",
+        "name": "Type",
+        "settings": [
+          {
+            "type": "text",
+            "id": "method",
+            "label": "Method"
+          },
+          {
+            "type": "text",
+            "id": "rate",
+            "label": "Rate"
+          },
+          {
+            "type": "text",
+            "id": "time",
+            "label": "Delivery time"
+          },
+          {
+            "type": "text",
+            "id": "carrier",
+            "label": "Carrier"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

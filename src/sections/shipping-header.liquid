@@ -1,0 +1,22 @@
+<h3 class="default-page__sup-title">{{ section.settings.suptitle }}</h3>
+<h1 class="default-page__title default-page__title--shipping">{{ page.title }}</h1>
+<p class="default-page__introduction">{{ section.settings.introduction }}</p>
+
+{% schema %}
+  {
+    "name": "Shipping header",
+    "settings": [
+      {
+        "type": "text",
+        "id": "suptitle",
+        "label": "Sup title"
+      },
+      {
+        "type": "textarea",
+        "id": "introduction",
+        "label": "Introduction"
+      }
+    ]
+  }
+{% endschema %}
+
