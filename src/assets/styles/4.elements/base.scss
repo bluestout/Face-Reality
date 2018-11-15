@@ -157,6 +157,45 @@ input[type="checkbox"] {
   }
 }
 
+input[type="radio"] {
+  position: relative;
+  appearance: none;
+  border: none;
+  width: 17px;
+  height: 17px;
+  display: inline-block;
+  outline: none;
+
+  &:checked {
+    &::before {
+      background-color: $color-blumine;
+    }
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    border: 1px solid $color-blumine;
+    width: 17px;
+    height: 17px;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    display: block;
+    width: 11px;
+    height: 11px;
+    @include transition(background-color 80ms);
+    background-color: transparent;
+  }
+}
+
 @include media-query("medium-down") {
   h1 {
     font-size: 32px;

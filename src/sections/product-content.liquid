@@ -1,24 +1,25 @@
 {% comment %} todo - user authorization {% endcomment %}
-<div class="product-single" data-section-id="{{ section.id }}" data-section-type="product" data-enable-history-state="true">
-
+<div class="product-content" data-section-id="{{ section.id }}" data-section-type="product" data-enable-history-state="true">
   {%- assign current_variant = product.selected_or_first_available_variant -%}
 
-  <div class="product-single__authorization-tag">Needs authorization</div>
+  {% if product.tags contains "authorization" %}
+    <div class="product-content__authorization-tag">Needs authorization</div>
+  {% endif %}
 
-  <h1 class="product-single__title">{{ product.title }}</h1>
-  <p class="product-single__id">Product ID. {{ product.id }}</p>
+  <h1 class="product-content__title">{{ product.title }}</h1>
+  <p class="product-content__id">Product ID. {{ product.id }}</p>
 
-  <div class="product-single__reviews">
+  <div class="product-content__reviews">
     <span class="shopify-product-reviews-badge" data-id="{{ product.id }}"></span>
   </div>
 
-  <div class="product-single__description">
+  <div class="product-content__description">
     {{ product.description }}
   </div>
 
-  <form class="product-single__form" action="/cart/add" method="post" enctype="multipart/form-data">
+  <form class="product-content__form" action="/cart/add" method="post" enctype="multipart/form-data">
 
-    <div class="product-single__price" data-price-wrapper>
+    <div class="product-content__price" data-price-wrapper>
       <span data-product-price>
         {{ current_variant.price | money }}
       </span>
@@ -36,12 +37,12 @@
     {% assign var_selected = false %}
     {% unless product.has_only_default_variant %}
       {% for option in product.options_with_values %}
-        <div class="product-single__option-name">{{ option.name }}</div>
-        <div class="product-single__variants-wrap">
+        <div class="product-content__option-name">{{ option.name }}</div>
+        <div class="product-content__variants-wrap">
           {% for value in option.values %}
-            <div class="product-single__variant-wrap">
+            <div class="product-content__variant-wrap">
               <input
-                class="product-single__variant"
+                class="product-content__variant"
                 type="radio"
                 name="variation-radio-{{ option.name | handleize }}"
                 value="{{ value | escape }}"
@@ -53,7 +54,7 @@
                   {% endif %}
                 {% endif %}
                 />
-              <label class="product-single__variant-label">{{ value }}</label>
+              <label class="product-content__variant-label">{{ value }}</label>
             </div>
           {% endfor %}
         </div>
@@ -71,14 +72,14 @@
       {% endfor %}
     </select>
 
-    <div class="product-single__submit-wrap">
-      <div class="product-single__input-wrap">
-        <button type="button" class="product-single__quantity-button" data-qty-change="#Quantity" data-direction="down">-</button>
-        <input class="product-single__quantity" type="number" id="Quantity" name="quantity" value="1" min="1">
-        <button type="button" class="product-single__quantity-button" data-qty-change="#Quantity" data-direction="up">+</button>
+    <div class="product-content__submit-wrap">
+      <div class="product-content__input-wrap">
+        <button type="button" class="product-content__quantity-button" data-qty-change="#Quantity" data-direction="down">-</button>
+        <input class="product-content__quantity" type="number" id="Quantity" name="quantity" value="1" min="1">
+        <button type="button" class="product-content__quantity-button" data-qty-change="#Quantity" data-direction="up">+</button>
       </div>
       <button
-        class="product-single__submit"
+        class="product-content__submit"
         type="submit"
         name="add"
         data-add-to-cart
@@ -97,11 +98,11 @@
   {% include 'product-usps' %}
 
 
-  <div class="product-single__authorization">
-    <span class="product-single__authorization-icon">ICON</span>
-    <div class="product-single__authorization-content">
+  <div class="product-content__authorization">
+    <span class="product-content__authorization-icon">ICON</span>
+    <div class="product-content__authorization-content">
       <p>To be able to buy this product you need to be authorized. Please see your nearest Face Reality clinic to get authorization.</p>
-      <a href="" class="button button--main">Why can't I buy?</a>
+      <a href="" class="product-content__button">Why can't I buy?</a>
       <br>
       <br>
       <p>If you already have an authorization, <a href="#">log in</a></p>
