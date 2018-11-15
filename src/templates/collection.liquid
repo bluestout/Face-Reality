@@ -1,102 +1,70 @@
-{% paginate collection.products by 12 %}
-  <header role="banner">
-    <h1>{{ collection.title }}</h1>
-    {% if collection.description != blank %}
-      <div class="rte">
-        {{ collection.description }}
-      </div>
-    {% endif %}
-
-    {% if collection.all_tags.size > 0 %}
-      <ul>
-        {% for tag in collection.all_tags %}
-          {% if current_tags contains tag %}
-            <li class="active">
-              {{ tag | link_to_remove_tag: tag }}
-            </li>
-          {% else %}
-            <li>
-              {{ tag | link_to_tag: tag }}
-            </li>
-          {% endif %}
-        {% endfor %}
-      </ul>
-    {% endif %}
-  </header>
-
-  <div>
-    {% for product in collection.products %}
-      <div>
-        {% if product.featured_image != blank %}
-          <a href="{{ product.url | within: collection }}">
-            {% include 'responsive-image' with
-              image: product.featured_image,
-              max_width: 700,
-              max_height: 800
-            %}
-          </a>
-        {% endif %}
-
-        <p>
-          <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
-        </p>
-        <p>
-          {% if product.compare_at_price > product.price %}
-
-            {% if product.price_varies %}
-              {%- assign sale_price = product.price | money -%}
-              {{ 'products.product.on_sale_from_html' | t: price: sale_price }}
-            {% else %}
-              {{ 'products.product.on_sale' | t }}
-              {{ product.price | money }}
-            {% endif %}
-
-          {% else %}
-
-            {% if product.price_varies %}
-              {%- assign price = product.price | money -%}
-              {{ 'products.product.from_text_html' | t: price: price }}
-            {% else %}
-              {{ product.price | money }}
-            {% endif %}
-
-          {% endif %}
-
-          {% if product.compare_at_price > product.price %}
-            <span class="visually-hidden">{{ 'products.product.regular_price' | t }}</span>
-            <s>{{ product.compare_at_price | money }}</s>
-          {% endif %}
-
-          {% unless product.available %}
-            {{ 'products.product.sold_out' | t }}
-          {% endunless %}
-        </p>
-      </div>
-
-    {% else %}
-      {% if collection.handle == 'all' and collection.all_vendors.size == 0 and collection.all_types.size == 0 %}
-        {% for i in (1..8) %}
-          <a href="#">
-            {% capture current %}{% cycle 1, 2, 3, 4, 5, 6 %}{% endcapture %}
-            {{ 'product-' | append: current | placeholder_svg_tag: 'placeholder-svg placeholder-svg--small' }}
-          </a>
-
-          <p>
-            <a href="#">{{ 'homepage.onboarding.product_title' | t }}</a>
-          </p>
-
-          <p>
-            {{ 1999 | money }}
-          </p>
-        {% endfor %}
-      {% else %}
-        <p>{{ 'collections.general.no_matches' | t }}</p>
-      {% endif %}
-
-    {% endfor %}
+<div class="collection-page">
+  <div class="collection-banner" style="background-image:url('http://via.placeholder.com/1920x400')">
+    <div class="container">
+      <h2 class="collection-banner__subtitle">The face reality products are specifically formulated for acneic skin and are guaranteed to not clog your pores.</h2>
+    </div>
   </div>
 
-  {% if paginate.pages > 1 %}
-    {% include 'pagination' %}
-  {% endif %}
-{% endpaginate %}
+  <div class="collection-content max-wrap">
+    <div class="row no-gutters">
+      <div class="col-lg-3">
+      </div>
+      <div class="col-lg-9">
+        {% include 'authorization-filter' %}
+      </div>
+    </div>
+    <div class="row no-gutters">
+      <div class="col-lg-3">
+
+        <span data-collection-filter-global-list style="display:none !important"></span>
+
+        {% include 'product-filter' %}
+
+      </div>
+      <div class="col-lg-9">
+        <div class="collection-products">
+          {% if collection.products.size > 0 %}
+            {% paginate collection.products by 9 %}
+              <div class="row no-gutters" data-paginate-collection-content>
+                {% for product in collection.products %}
+                  {% assign filtered_tags_s = "" %}
+                  {% for p_tag in product.tags %}
+                    {% if p_tag contains "skin-" or p_tag contains "use-" %}
+                      {% assign p_tag_h = p_tag | handleize %}
+                      {% assign filtered_tags_s = filtered_tags_s | append: p_tag_h | append: '::'  %}
+                    {% endif %}
+                  {% endfor %}
+                  {% if product.tags contains "authorization" %}
+                    {% assign filtered_tags_s = filtered_tags_s | append: 'authorization-required::' %}
+                  {% else %}
+                    {% assign filtered_tags_s = filtered_tags_s | append: 'no-authorization::' %}
+                  {% endif %}
+
+                  {% assign filtered_tags_a = filtered_tags_s  | split: '::' %}
+                  {% capture p_filtered_tag_classes %}{% unless filtered_tags_a == empty %}{% for f_tag in filtered_tags_a %} {{ f_tag }}{% endfor %}{% endunless %}{% endcapture %}
+                  {% assign all_tags = "skin-all usecase-all type-all authorization-all" %}
+                  {% assign type_tag = "type-" | append: product.type | handleize %}
+                  {% if condition %}
+                  {% endif %}
+                  <div class="col-lg-4 col-md-6 {{ all_tags }} {{ type_tag }} {{ p_filtered_tag_classes }}" data-collection-product-column>
+                    {% include 'product-item' with product, index: forloop.index %}
+                  </div>
+                {% endfor %}
+              </div>
+              {% if paginate.pages > 1 %}
+                {% if paginate.next.is_link %}
+                  <div class="collection-products__pagination" data-collection-pagination>
+                    <a class="collection-products__load-more" href="{{ paginate.next.url }}" data-order-load-more>Load more</a>
+                  </div>
+                {% endif %}
+              {% endif %}
+            {% endpaginate %}
+          {% else %}
+            <p class="collection-products__no-products">There are no products in this collection.</p>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

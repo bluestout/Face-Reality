@@ -1,0 +1,69 @@
+.product-filter {
+  margin: 0 0 40px;
+  padding: 0 50px;
+
+  &__main-title {
+    @include Text(20px, 30px, $color-blumine);
+    @include apercu(700);
+    margin: 0 0 35px;
+  }
+
+  &__filter-wrap {
+    margin: 0 0 20px;
+    cursor: pointer;
+  }
+
+  &__title {
+    padding: 0 0 20px;
+
+    &.open {
+      .product-filter__icon::before {
+        content: "\e90f";
+      }
+    }
+  }
+
+  &__icon {
+    margin: 0 30px 0 0;
+    display: inline-block;
+    @include Text(14px, 1, $color-blumine);
+  }
+
+  &__title-text {
+    @include apercu(700);
+    @include Text(15px, 22px, $color-blumine);
+  }
+
+  &__content {
+  }
+
+  &__list {
+    list-style: none;
+
+    // icon 14px + margin 30px
+    padding: 0 0 0 44px;
+    margin: 0;
+  }
+
+  &__item {
+    font-size: 0;
+    line-height: 0;
+    padding: 0 0 8px;
+    margin: 0;
+    @include clearfix;
+  }
+
+  &__radio {
+    display: block;
+    float: left;
+    width: 17px;
+    margin: 0 13px 0 0;
+  }
+
+  &__label {
+    @include Text(13.5px, 21px, $color-black);
+    display: block;
+    float: left;
+    width: calc(100% - 30px);
+  }
+}

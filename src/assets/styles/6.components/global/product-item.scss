@@ -3,6 +3,7 @@
   display: flex;
   flex-flow: column wrap;
   width: 100%;
+  height: calc(100% - 50px);
   text-align: center;
   margin: 0 0 50px;
 
@@ -13,7 +14,7 @@
 
     .product-item__tag {
       &::before {
-        content: '';
+        content: "";
         z-index: 1;
         position: absolute;
         top: 0;
@@ -33,7 +34,7 @@
 
     .product-item__tag {
       &::before {
-        content: '';
+        content: "";
         z-index: 1;
         position: absolute;
         top: 0;
@@ -138,8 +139,8 @@
     display: block;
     width: 100%;
     &-submit {
-      @extend .button;
-      @extend .button--main;
+      @extend %button;
+      @extend %button--main;
       padding: 16px;
       width: 180px;
     }
