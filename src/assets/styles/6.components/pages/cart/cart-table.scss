@@ -9,8 +9,8 @@
   }
 
   &__update {
-    @extend .button;
-    @extend .button--wire;
+    @extend %button;
+    @extend %button--wire;
   }
 
   &__update-wrap {

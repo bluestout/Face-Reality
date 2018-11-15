@@ -36,20 +36,50 @@
   &__address {
     margin: 0 0 30px;
   }
+  &__edit-open {
+    @extend %button;
+    @extend %button--main;
+    @extend %button--tiny;
+  }
+  &__edit-delete {
+    @extend %button;
+    @extend %button--main;
+    @extend %button--tiny;
+  }
+
   &__edit-form {
     padding: 30px 0 0;
   }
   &__edit-submit {
     margin: 0 0 8px;
+    @extend %button;
+    @extend %button--main;
+    @extend %button--tiny;
   }
   &__edit-cancel {
+    @extend %button;
+    @extend %button--wire;
+    @extend %button--tiny;
     margin: 0 0 8px;
   }
   &__add-new-form {
     margin: 0 0 30px;
   }
+  &__add-new-cancel {
+    @extend %button;
+    @extend %button--wire;
+    @extend %button--tiny;
+  }
   &__add-new-open {
     margin: 0 0 30px;
+    @extend %button;
+    @extend %button--main;
+  }
+  &__add-new-submit {
+    margin: 0 0 30px;
+    @extend %button;
+    @extend %button--main;
+    @extend %button--tiny;
   }
   &__cancel {
     @include Text(14px, 20px, $color-blumine);

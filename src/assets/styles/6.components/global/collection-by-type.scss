@@ -151,8 +151,8 @@
     text-align: center;
   }
   &__link {
-    @extend .button;
-    @extend .button--wire;
+    @extend %button;
+    @extend %button--wire;
   }
 
   @media (max-width: $grid-max + 1px) {

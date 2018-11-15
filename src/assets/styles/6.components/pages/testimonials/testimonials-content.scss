@@ -71,8 +71,8 @@
   }
 
   &__load-more {
-    @extend .button;
-    @extend .button--wire;
+    @extend %button;
+    @extend %button--wire;
     opacity: 0.65;
     text-transform: uppercase;
     letter-spacing: 2px;

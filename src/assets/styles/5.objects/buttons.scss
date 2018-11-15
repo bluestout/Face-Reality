@@ -1,4 +1,4 @@
-.button {
+%button {
   display: inline-block;
   vertical-align: middle;
   width: auto;
@@ -10,7 +10,7 @@
   appearance: none;
 
   /* this is so the input default is overridden */
-  &.button--wire {
+  &%button--wire {
     @extend %paragraph-blue;
     @include transition(background-color, color);
     text-align: center;
@@ -32,19 +32,19 @@
       }
     }
 
-    &.button--big {
+    &%button--big {
       font-size: 14px;
       padding-top: 19px;
       padding-bottom: 19px;
     }
 
-    &.button--small {
+    &%button--small {
       padding-top: 9px;
       padding-bottom: 9px;
       font-size: 12px;
     }
 
-    &.button--tiny {
+    &%button--tiny {
       padding: 5px 20px;
       font-size: 12px;
     }
@@ -57,7 +57,7 @@
   }
 
   /* this is so the input default is overridden */
-  &.button--main {
+  &%button--main {
     @include myriad(400);
     @extend %paragraph-white;
     @include transition(background-color);
@@ -82,19 +82,19 @@
       }
     }
 
-    &.button--big {
+    &%button--big {
       font-size: 14px;
       padding-top: 20px;
       padding-bottom: 20px;
     }
 
-    &.button--small {
+    &%button--small {
       padding-top: 10px;
       padding-bottom: 10px;
       font-size: 12px;
     }
 
-    &.button--tiny {
+    &%button--tiny {
       padding: 6px 20px;
       font-size: 12px;
     }

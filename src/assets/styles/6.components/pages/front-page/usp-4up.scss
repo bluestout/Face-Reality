@@ -41,9 +41,9 @@
     transform: translate(-50%, -50%);
     font-size: 14px;
     padding: 20px 95px;
-    @extend .button;
-    @extend .button--main;
-    @extend .button--big;
+    @extend %button;
+    @extend %button--main;
+    @extend %button--big;
   }
 
   @include media-query("xl-down") {

@@ -52,8 +52,8 @@
   }
 
   &__load-more {
-    @extend .button;
-    @extend .button--main;
+    @extend %button;
+    @extend %button--main;
   }
 
   &__no-orders {

@@ -167,10 +167,15 @@
   &__submit {
     width: 70%;
     float: left;
-    @extend .button;
-    @extend .button--main;
+    @extend %button;
+    @extend %button--main;
     font-weight: 700;
     height: 42px;
+  }
+
+  &__button {
+    @extend %button;
+    @extend %button--main;
   }
 
   &__authorization {
@@ -209,8 +214,8 @@
   }
 }
 
-@import './product-usps';
-@import './product-tabs';
-@import './product-related';
-@import './product-gallery';
-@import './product-reviews';
+@import "./product-usps";
+@import "./product-tabs";
+@import "./product-related";
+@import "./product-gallery";
+@import "./product-reviews";

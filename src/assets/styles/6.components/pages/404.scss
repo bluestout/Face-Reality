@@ -39,8 +39,8 @@
   }
 
   &__link {
-    @extend .button;
-    @extend .button--main;
+    @extend %button;
+    @extend %button--main;
     width: 240px;
     padding: 14px 28px;
   }
@@ -57,7 +57,7 @@
 
     &::before,
     &::after {
-      content: '';
+      content: "";
       position: absolute;
       left: 50%;
       width: 1px;

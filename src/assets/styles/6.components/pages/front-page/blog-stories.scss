@@ -133,7 +133,7 @@
   }
 
   &__inline-link {
-    @extend .button;
-    @extend .button--wire;
+    @extend %button;
+    @extend %button--wire;
   }
 }

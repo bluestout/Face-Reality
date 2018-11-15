@@ -49,8 +49,8 @@
   }
 
   &__checkout-button {
-    @extend .button;
-    @extend .button--main;
+    @extend %button;
+    @extend %button--main;
     padding: 22px;
     font-size: 14px;
     width: 100%;

@@ -23,10 +23,10 @@
                       {{ address | format_address }}
                     </div>
 
-                    <button type="button" class="js-address-edit-toggle button button--main button--tiny addresses__edit-open" data-form-id="{{ address.id }}">
+                    <button type="button" class="js-address-edit-toggle addresses__edit-open" data-form-id="{{ address.id }}">
                       {{ 'customer.addresses.edit' | t }}
                     </button>
-                    <button type="button" class="address-delete button button--wire button--tiny addresses__edit-delete" data-form-id="{{ address.id }}" data-confirm-message="{{ 'customer.addresses.delete_confirm' | t }}">
+                    <button type="button" class="address-delete addresses__edit-delete" data-form-id="{{ address.id }}" data-confirm-message="{{ 'customer.addresses.delete_confirm' | t }}">
                       {{ 'customer.addresses.delete' | t }}
                     </button>
 
@@ -175,8 +175,8 @@
                           {% endif %}
                         </div>
 
-                        <input type="submit" class="button button--main button--tiny addresses__edit-submit" value="{{ 'customer.addresses.update' | t }}">
-                        <button type="button" class="js-address-edit-toggle button--wire button button--tiny addresses__edit-cancel" data-form-id="{{ form.id }}">
+                        <input type="submit" class="addresses__edit-submit" value="{{ 'customer.addresses.update' | t }}">
+                        <button type="button" class="js-address-edit-toggle addresses__edit-cancel" data-form-id="{{ form.id }}">
                           {{ 'customer.addresses.cancel' | t }}
                         </button>
 
@@ -193,7 +193,7 @@
             {% endif %}
           </div>
         {% endpaginate %}
-        <button type="button" class="button button--main js-address-new-toggle addresses__add-new-open">{{ 'customer.addresses.add_new' | t }}</button>
+        <button type="button" class="js-address-new-toggle addresses__add-new-open">{{ 'customer.addresses.add_new' | t }}</button>
         <div id="AddressNewForm" class="addresses__add-new-form" style="display:none">
           {% form 'customer_address', customer.new_address %}
           <h3 class="addresses__title">{{ 'customer.addresses.add_new' | t }}</h3>
@@ -334,8 +334,8 @@
             </div>
           </div>
 
-          <input type="submit" class="button button--main button--tiny addresses__add-new-submit" value="{{ 'customer.addresses.add' | t }}">
-          <button type="button" class="js-address-new-toggle button button--wire button--tiny addresses__add-new-cancel">
+          <input type="submit" class="addresses__add-new-submit" value="{{ 'customer.addresses.add' | t }}">
+          <button type="button" class="js-address-new-toggle addresses__add-new-cancel">
             {{ 'customer.addresses.cancel' | t }}
           </button>
 

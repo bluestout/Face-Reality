@@ -96,8 +96,8 @@
   }
 
   &__button {
-    @extend .button;
-    @extend .button--wire;
+    @extend %button;
+    @extend %button--wire;
   }
 
   // slick-specific styling starts here

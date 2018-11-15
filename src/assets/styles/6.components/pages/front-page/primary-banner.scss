@@ -14,8 +14,8 @@
   }
 
   &__link-button {
-    @extend .button;
-    @extend .button--main;
+    @extend %button;
+    @extend %button--main;
     padding: 16px 75px;
     margin: 0 0 15px;
   }

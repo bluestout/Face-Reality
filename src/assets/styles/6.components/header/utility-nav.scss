@@ -21,8 +21,8 @@
 }
 
 &-button {
-  @extend .button;
-  @extend .button--main;
+  @extend %button;
+  @extend %button--main;
   display: inline-block;
   vertical-align: middle;
   padding: 12px;

@@ -10,8 +10,8 @@
   }
 
   &__button {
-    @extend .button;
-    @extend .button--main;
+    @extend %button;
+    @extend %button--main;
     text-align: center;
     font-size: 14px;
     line-height: 18px;

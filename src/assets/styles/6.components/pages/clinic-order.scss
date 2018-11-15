@@ -14,7 +14,7 @@
   &__row-wrap {
     position: relative;
     &::after {
-      content: '';
+      content: "";
       position: absolute;
       left: 50%;
       top: 0;
@@ -48,8 +48,8 @@
   }
 
   &__link {
-    @extend .button;
-    @extend .button--main;
+    @extend %button;
+    @extend %button--main;
     line-height: 20px;
     width: 180px;
     height: 42px;
