@@ -22,6 +22,8 @@ import "../custom/home-stories";
 import "../custom/register";
 import "../custom/account";
 import "../custom/qty-changer";
+import "../custom/accordion";
+import "../custom/collection-page";
 
 import { focusHash, bindInPageLinks } from "@shopify/theme-a11y";
 import { cookiesEnabled } from "@shopify/theme-cart";
