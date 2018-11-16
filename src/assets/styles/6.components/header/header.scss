@@ -83,11 +83,11 @@
   }
 
   &__primary-nav {
-    @import 'primary-nav';
+    @import "./primary-nav";
   }
 
   &__utility-nav {
-    @import 'utility-nav';
+    @import "./utility-nav";
   }
 }
 

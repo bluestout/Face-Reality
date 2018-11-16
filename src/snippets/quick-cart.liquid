@@ -1,0 +1,14 @@
+{% comment %} todo - styling and layout changes {% endcomment %}
+<div class="quick-cart" data-quick-cart>
+  <div class="quick-cart__header">
+    <a href="/cart" class="quick-cart__title">
+      <h3 class="quick-cart__title-text">Cart</h3>
+      <span class="icon-chevron-down quick-cart__title-arrow"></span>
+    </a>
+    <button type="button" class="quick-cart__close" data-quick-cart-toggle>close</button>
+  </div>
+  <div class="quick-cart__content" data-quick-cart-content>
+    {% comment %} Loads with ajax {% endcomment %}
+  </div>
+</div>
+<div class="quick-cart__overlay" data-quick-cart-overlay></div>

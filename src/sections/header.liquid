@@ -26,39 +26,41 @@
       <a href="#" class="site-header__secondary-nav-button">For professionals <span class="icon-arrow-right site-header__secondary-nav-icon site-header__secondary-nav-icon--right"></span></a>
     </div>
 
-    <div class="row">
-      <div class="col-md-auto flex-col-wrap justify-content-center">
-        {% if template.name == 'index' %}
-          <h1 class="site-header__logo-wrap">
-        {% else %}
-          <div class="site-header__logo-wrap">
-        {% endif %}
-            <a href="/" class="site-header__logo-link">
-              {% if section.settings.logo != blank %}
-                {% capture image_size %}{{ section.settings.logo_max_width }}x{% endcapture %}
-                <img
-                  class="site-header__logo"
-                  src="{{ section.settings.logo | img_url: image_size }}"
-                  srcset="{{ section.settings.logo | img_url: image_size }} 1x, {{ section.settings.logo | img_url: image_size, scale: 2 }} 2x"
-                  alt="{{ section.settings.logo.alt | default: shop.name }}"
-                />
-              {% else %}
-                {{ shop.name }}
-              {% endif %}
-            </a>
-        {% if template.name == 'index' %}
-          </h1>
-        {% else %}
-          </div>
-        {% endif %}
-      </div>
+    <div class="relative">
+      <div class="row">
+        <div class="col-md-auto flex-col-wrap justify-content-center">
+          {% if template.name == 'index' %}
+            <h1 class="site-header__logo-wrap">
+          {% else %}
+            <div class="site-header__logo-wrap">
+          {% endif %}
+              <a href="/" class="site-header__logo-link">
+                {% if section.settings.logo != blank %}
+                  {% capture image_size %}{{ section.settings.logo_max_width }}x{% endcapture %}
+                  <img
+                    class="site-header__logo"
+                    src="{{ section.settings.logo | img_url: image_size }}"
+                    srcset="{{ section.settings.logo | img_url: image_size }} 1x, {{ section.settings.logo | img_url: image_size, scale: 2 }} 2x"
+                    alt="{{ section.settings.logo.alt | default: shop.name }}"
+                  />
+                {% else %}
+                  {{ shop.name }}
+                {% endif %}
+              </a>
+          {% if template.name == 'index' %}
+            </h1>
+          {% else %}
+            </div>
+          {% endif %}
+        </div>
 
-      <div class="col-md flex-col-wrap justify-content-center">
-        {% include 'header-primary-nav' %}
-      </div>
+        <div class="col-md flex-col-wrap justify-content-center">
+          {% include 'header-primary-nav' %}
+        </div>
 
-      <div class="col-md-auto flex-col-wrap justify-content-center">
-        {% include 'header-utility-nav' %}
+        <div class="col-md-auto flex-col-wrap justify-content-center">
+          {% include 'header-utility-nav' %}
+        </div>
       </div>
     </div>
   </div>

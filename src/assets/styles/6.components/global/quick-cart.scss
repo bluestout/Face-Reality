@@ -1,0 +1,361 @@
+.quick-cart {
+  &__form {
+  }
+  &__items-wrap {
+  }
+  &__item {
+  }
+  &__image-wrap {
+  }
+  &__image-link {
+  }
+  &__image {
+  }
+  &__remove {
+  }
+  &__item-content {
+  }
+  &__item-title {
+  }
+  &__item-text {
+  }
+  &__item-info {
+  }
+  &__item-qty {
+  }
+  &__qty-change {
+  }
+  &__qty {
+  }
+  &__item-price {
+  }
+  &__totals {
+  }
+  &__totals-text {
+  }
+  &__totals-text--left {
+  }
+  &__totals-text--right {
+  }
+  &__checkout {
+  }
+}
+
+.quick-cart {
+  z-index: 5;
+  position: fixed;
+  top: 0;
+  right: -400px;
+  width: 400px;
+  height: 100%;
+  padding: 32px 24px;
+  background-color: $color-wild-sand;
+  @include transition(right 400ms);
+
+  &.open {
+    right: 0;
+  }
+
+  &__overlay {
+    z-index: 4;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    background-color: rgba($color-black, 0.5);
+    pointer-events: none;
+    @include transition(400ms opacity);
+
+    &.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+  }
+
+  &__header {
+    @include clearfix;
+    padding: 0 0 32px;
+    margin: 0 0 30px;
+    border-bottom: 1px solid rgba($color-blumine, 0.2);
+  }
+
+  &__title {
+    float: left;
+    &:hover,
+    &:active {
+      .quick-cart__title-arrow {
+        color: $color-blumine;
+      }
+    }
+  }
+
+  &__title-text {
+    @include Text(24px, 24px, $color-blumine);
+    font-weight: 700;
+    display: inline-block;
+  }
+
+  &__title-arrow {
+    @include Text(20px, 24px, rgba($color-black, 0.3));
+    display: inline-block;
+    margin: 0 0 0 10px;
+    transform: rotate(-90deg);
+    @include transition(color);
+  }
+
+  &__close {
+    @include Text(24px, 24px, $color-blumine);
+    float: right;
+    border: none;
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+    border-radius: 0;
+    @include transition(color);
+    &:hover,
+    &:active {
+      color: $color-blumine;
+    }
+  }
+
+  &__items-wrap {
+    overflow-y: auto;
+    margin: 0 -24px 0 0;
+    padding: 0 24px 0 0;
+  }
+
+  &__item {
+    margin: 0 0 36px;
+    @include clearfix;
+  }
+
+  &__image-wrap {
+    float: left;
+    display: block;
+    width: 80px;
+    text-align: center;
+    margin: 0 12px 0 0;
+  }
+
+  &__image-link {
+    display: block;
+    margin: 0 0 20px;
+  }
+
+  &__image {
+    display: block;
+    object-fit: scale-down;
+  }
+
+  &__remove {
+    display: inline-block;
+    text-align: center;
+    font-size: 22px;
+    padding: 6px;
+    @include transition(color);
+    &:hover,
+    &:active {
+      color: $color-blumine;
+    }
+  }
+
+  &__item-content {
+    float: left;
+    display: block;
+    width: calc(100% - 104px);
+    margin: 0 0 0 12px;
+    text-align: left;
+  }
+
+  &__item-title {
+    @include Text(16px, 20px, $color-blumine);
+    font-weight: 700;
+    margin: 0 0 9px;
+  }
+
+  &__item-text {
+    @include Text(16px, 20px, $color-blumine, -0.2px);
+    font-weight: 400;
+    margin: 0 0 16px;
+    p,
+    a,
+    span {
+      color: inherit;
+      font-size: inherit;
+      line-height: inherit;
+      font-weight: inherit;
+    }
+    a {
+      text-decoration: underline;
+    }
+  }
+
+  &__item-info {
+    margin: 0 0 16px;
+    @include clearfix;
+  }
+
+  &__item-qty {
+    float: left;
+    display: block;
+    width: 60%;
+  }
+
+  &__qty {
+    display: inline-block;
+    width: 50px;
+    vertical-align: middle;
+    @include Text(16px, 20px, $color-mercury);
+    font-weight: 400;
+    text-align-last: center;
+    text-align: center;
+    padding: 9px;
+    margin: 0 5px;
+    border: 1px solid $color-mercury;
+    appearance: none;
+    &::-webkit-inner-spin-button,
+    &::-webkit-outer-spin-button {
+      appearance: none;
+      margin: 0;
+    }
+  }
+
+  &__qty-change {
+    display: inline-block;
+    vertical-align: middle;
+    @include Text(26px, 26px, $color-mercury);
+    @include transition(color);
+    cursor: pointer;
+    &:hover,
+    &:active {
+      color: $color-wild-sand;
+    }
+  }
+
+  &__item-price {
+    float: right;
+    display: block;
+    width: 40%;
+    padding: 11px 0;
+    text-align: right;
+  }
+
+  &__totals {
+    @include clearfix;
+    margin: 0 0 24px;
+  }
+  &__totals-text {
+    @include Text(16px, 20px, $color-blumine);
+    font-weight: 700;
+  }
+  &__totals-text--left {
+    float: left;
+    display: block;
+    max-width: 50%;
+  }
+  &__totals-text--right {
+    float: right;
+    display: block;
+    max-width: 50%;
+  }
+  &__checkout {
+    display: block;
+    padding: 15px;
+    width: 100%;
+    font-size: 20px;
+  }
+
+  &__bottom-notes {
+    display: block;
+    padding: 0 20px;
+    margin: 30px 0 0;
+    border: 1px solid $color-mercury;
+    background-color: $color-white;
+
+    &-note {
+      display: block;
+      font-weight: 700;
+      padding: 10px 0;
+      @include Text(14px, 24px, $color-blumine, -0.1px);
+
+      p,
+      span,
+      a {
+        @include Text(14px, 24px, $color-periwinkle-gray, -0.1px);
+      }
+
+      &:not(:first-of-type) {
+        border-top: 1px solid #ded8d3;
+      }
+    }
+  }
+
+  @include media-query("v-small") {
+    right: -320px;
+    width: 320px;
+    padding: 20px 15px;
+    &--open {
+      right: 0;
+    }
+    &__header {
+      padding: 0 0 24px;
+      margin: 0 0 24px;
+    }
+    &__items-wrap {
+      margin: 0 -15px 0 0;
+      padding: 0 15px 0 0;
+    }
+    &__item {
+      margin: 0 0 24px;
+    }
+    &__image-wrap {
+      margin: 0 10px 0 0;
+    }
+    &__item-content {
+      width: calc(100% - 100px);
+      margin: 0 0 0 10px;
+    }
+    &__item-title {
+      margin: 0 0 8px;
+    }
+    &__item-text {
+      margin: 0 0 8px;
+    }
+    &__item-info {
+      margin: 0 0 8px;
+    }
+    &__item-price {
+      padding: 7px 0;
+    }
+    &__qty {
+      width: 40px;
+      padding: 5px;
+      margin: 0 3px;
+    }
+    &__qty-change {
+      font-size: 20px;
+      line-height: 20px;
+    }
+    &__totals {
+      margin: 0 0 16px;
+    }
+    &__bottom-notes {
+      margin: 10px 0 0;
+
+      &-note {
+        padding: 5px 0;
+        font-size: 11px;
+        line-height: 20px;
+
+        p,
+        span,
+        a {
+          font-size: 11px;
+          line-height: 20px;
+        }
+      }
+    }
+  }
+}

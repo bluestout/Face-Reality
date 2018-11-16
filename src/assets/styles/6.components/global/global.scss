@@ -1,11 +1,19 @@
-@import "./product-item";
-@import "./breadcrumbs";
-@import "./social-sharing";
-@import "./page-banner";
-@import "./call-to-action";
-@import "./different-mentions";
-@import "./collection-by-type";
-@import "./info-cta";
-@import "./article-item";
-@import "./zig-line-separator";
-@import "./linear-loader";
+#MainContent {
+  // this is here just to override base styles
+
+  @import "./product-item";
+  @import "./breadcrumbs";
+  @import "./social-sharing";
+  @import "./page-banner";
+  @import "./call-to-action";
+  @import "./different-mentions";
+  @import "./collection-by-type";
+  @import "./info-cta";
+  @import "./article-item";
+  @import "./zig-line-separator";
+  @import "./linear-loader";
+}
+body {
+  // this is here just to override base styles - more generic than maincontent
+  @import "./quick-cart";
+}

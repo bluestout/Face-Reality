@@ -8,42 +8,38 @@
   margin: 0 0 50px;
 
   &--even {
-    .product-item__background {
+    &__background {
       background-color: rgba($color-fountain-blue, 0.14);
     }
 
-    .product-item__tag {
-      &::before {
-        content: "";
-        z-index: 1;
-        position: absolute;
-        top: 0;
-        left: 0;
-        border-bottom: 38px solid transparent;
-        border-left: 42px solid $color-blumine;
-        border-top: 38px solid $color-blumine;
-        border-right: 42px solid transparent;
-      }
+    &__tag::before {
+      content: "";
+      z-index: 1;
+      position: absolute;
+      top: 0;
+      left: 0;
+      border-bottom: 38px solid transparent;
+      border-left: 42px solid $color-blumine;
+      border-top: 38px solid $color-blumine;
+      border-right: 42px solid transparent;
     }
   }
 
   &--odd {
-    .product-item__background {
+    &__background {
       background-color: rgba($color-fountain-blue, 0.08);
     }
 
-    .product-item__tag {
-      &::before {
-        content: "";
-        z-index: 1;
-        position: absolute;
-        top: 0;
-        left: 0;
-        border-bottom: 38px solid transparent;
-        border-left: 42px solid $color-fountain-blue;
-        border-top: 38px solid $color-fountain-blue;
-        border-right: 42px solid transparent;
-      }
+    &__tag::before {
+      content: "";
+      z-index: 1;
+      position: absolute;
+      top: 0;
+      left: 0;
+      border-bottom: 38px solid transparent;
+      border-left: 42px solid $color-fountain-blue;
+      border-top: 38px solid $color-fountain-blue;
+      border-right: 42px solid transparent;
     }
   }
 
@@ -63,11 +59,11 @@
     width: 100%;
     &:hover,
     &:active {
-      .product-item__title {
+      &__title {
         color: $color-accent;
       }
 
-      .product-item__description {
+      &__description {
         opacity: 1;
       }
     }
@@ -78,9 +74,6 @@
     top: 5px;
     left: 5px;
     display: block;
-  }
-
-  &__tag {
   }
 
   &__tag-text {
@@ -132,7 +125,7 @@
     @include Text(13.5px, 16px, $color-blumine);
     display: block;
     width: 100%;
-    margin: 0 0 15px;
+    margin: 0 0 5px;
   }
 
   &__form {
@@ -144,5 +137,69 @@
       padding: 16px;
       width: 180px;
     }
+  }
+
+  &__option-name {
+    @include myriad(400);
+    @include Text(11.5px, 16px, $color-blumine);
+  }
+  &__variants-wrap {
+    display: flex;
+    flex-flow: row wrap;
+    margin: 0 0 5px;
+    border: 1px solid $bermuda-gray;
+  }
+
+  &__variant-wrap {
+    position: relative;
+    flex: 1 0 auto;
+  }
+
+  &__variant {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    appearance: none;
+    border-top: 1px solid #d0dce5;
+    border-left: 1px solid #d0dce5;
+    background-color: #eef2f5;
+    outline: none;
+    cursor: pointer;
+    @include transition(background-color, color);
+
+    &:hover + label,
+    &:active + label {
+      color: $color-calypso;
+      opacity: 1;
+    }
+
+    &::after,
+    &::before {
+      content: none;
+    }
+
+    &:checked {
+      background-color: $color-white;
+    }
+
+    &:checked + label {
+      color: $color-blumine;
+      opacity: 1;
+    }
+  }
+
+  &__variant-label {
+    z-index: 2;
+    position: relative;
+    @include apercu(400);
+    @include Text(11px, 12px, $color-dove-gray);
+    opacity: 0.5;
+    margin: 0;
+    padding: 6px;
+    display: inline-block;
+    pointer-events: none;
+    @include transition(opacity, color);
   }
 }

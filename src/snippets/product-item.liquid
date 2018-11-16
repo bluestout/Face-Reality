@@ -1,8 +1,9 @@
 {% comment %} TODO authorization {% endcomment %}
 {% assign modulo = index | modulo: 2 %}
 {% assign p_tags = product-item.tags %}
+{%- assign current_p_i_variant = product.selected_or_first_available_variant -%}
 
-<div class="product-item {% if modulo == 0 %}product-item--even{% else %}product-item--odd{% endif %}" itemscope itemtype="http://schema.org/Product">
+<div class="product-item {% if modulo == 0 %}product-item--even{% else %}product-item--odd{% endif %}" itemscope itemtype="http://schema.org/Product" data-product-item>
   <meta itemprop="name" content="{{ prod.title }}">
   <meta itemprop="url" content="{{ shop.url }}{{ prod.url }}">
   <meta itemprop="image" content="{{ featured_image | img_url: '800x' }}">
@@ -32,32 +33,64 @@
 
   <div class="flex-shaper"></div>
 
-  <div class="product-item__price">
-    <div data-price-wrapper>
-      <div data-product-price>
-        {{ product-item.price | money }}
-      </div>
-
-      {% if product-item.compare_at_price_max > product-item.price %}
-        <span class="visually-hidden" data-compare-text>{{ 'products.product.regular_price' | t }}</span>
-        <s data-compare-price>
-          {% if product-item.compare_at_price > product-item.price %}
-            {{ product-item.compare_at_price | money }}
-          {% endif %}
-        </s>
+  <div class="product-item__price" data-product-item-price-wrapper>
+    <span data-product-item-price>
+      {{ current_p_i_variant.price | money }}
+    </span>
+    <s data-product-item-compare-price>
+      {% if current_p_i_variant.compare_at_price > current_p_i_variant.price %}
+        {{ current_p_i_variant.compare_at_price | money }}
       {% endif %}
-    </div>
+    </s>
   </div>
 
   <form class="product-item__form" action="/cart/add" method="post" enctype="multipart/form-data">
-    <input type="hidden" name="id"  value="{{ product-item.variants[0].id }}" />
+    <select name="id" class="no-js" data-product-item-select>
+      {% for variant in product-item.variants %}
+        <option
+          {% if variant == current_variant %}selected="selected"{% endif %}
+          {% unless variant.available %}disabled="disabled"{% endunless %}
+          value="{{ variant.id }}">
+            {{ variant.title }}
+        </option>
+      {% endfor %}
+    </select>
+
+    {% assign var_selected = false %}
+    {% unless product-item.has_only_default_variant %}
+      {% for option in product-item.options_with_values %}
+        <div class="product-item__option-name">{{ option.name }}</div>
+        <div class="product-item__variants-wrap" data-product-item-option>
+          {% for value in option.values %}
+            <div class="product-item__variant-wrap">
+              <input
+                class="product-item__variant"
+                type="radio"
+                name="variation-radio-{{ option.name | handleize }}"
+                value="{{ value | escape }}"
+                data-product-item-option-input
+                data-index="option{{ option.position }}"
+                {% if product-item.available %}
+                  {% if forloop.index == 1 %}
+                    checked="checked"
+                  {% endif %}
+                {% endif %}
+                />
+              <label class="product-item__variant-label">{{ value }}</label>
+            </div>
+          {% endfor %}
+        </div>
+      {% endfor %}
+    {% endunless %}
+
     <button
       class="product-item__form-submit"
       type="submit"
       name="add"
       data-add-to-cart
+      data-product-item-add-button
       {% unless product-item.available %}disabled="disabled"{% endunless %}>
-        <span data-add-to-cart-text>
+        <span data-add-button-text>
           {% if product-item.available %}
             {{ 'products.product.add_to_cart' | t }}
           {% else %}
@@ -66,4 +99,10 @@
         </span>
     </button>
   </form>
+
+  {% unless product == empty %}
+    <script type="application/json" data-product-item-json>
+      {{ product | json }}
+    </script>
+  {% endunless %}
 </div>

@@ -24,6 +24,8 @@ import "../custom/account";
 import "../custom/qty-changer";
 import "../custom/accordion";
 import "../custom/collection-page";
+import "../custom/product-item";
+import "../custom/ajax-add-to-cart";
 
 import { focusHash, bindInPageLinks } from "@shopify/theme-a11y";
 import { cookiesEnabled } from "@shopify/theme-cart";
