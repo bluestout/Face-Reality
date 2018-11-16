@@ -44,7 +44,7 @@
                 name="skin-f-tag"
                 value="{{ skin_tag | handleize }}"
               />
-              <label for="skin-f-{{ skin_tag | handleize }}" class="product-filter__label">{{ skin_tag }}</label>
+              <label for="skin-f-{{ skin_tag | handleize }}" class="product-filter__label">{{ skin_tag | remove: 'skin-' }}</label>
             </li>
           {% endfor %}
         </ul>
@@ -116,7 +116,7 @@
                 name="usecase-f-tag"
                 value="{{ use_tag | handleize }}"
               />
-              <label for="usecase-f-{{ use_tag | handleize }}" class="product-filter__label">{{ use_tag }}</label>
+              <label for="usecase-f-{{ use_tag | handleize }}" class="product-filter__label">{{ use_tag | remove: 'use-' }}</label>
             </li>
           {% endfor %}
         </ul>

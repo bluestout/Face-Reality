@@ -4,7 +4,6 @@ const filter = {
   item: "[data-collection-product-column]",
   authorization: "[data-authorization-filter]",
   set: "[data-filter-set]",
-  list: "[data-collection-filter-global-list]",
 };
 
 const page = {
@@ -49,23 +48,25 @@ function runFilter() {
 
   // remove the -all tag and the element class from the query
   $allSets.each(function() {
-    let classes = $(this)
-      .attr("class")
-      .replace(/js-filter-set/, "")
-      .replace(/product-filter__filter-wrap/, "")
-      .replace(/usecase-all/, "")
-      .replace(/skin-all/, "")
-      .replace(/type-all/, "")
-      .replace(/authorization-all/, "")
-      .split(/\s+/);
-    classes = cleanArray(classes);
-    if (classes.length > 0) {
-      for (let i = 0; i < classes.length; i++) {
-        activeTags += `.${classes[i]}`;
-        allClasses.push(classes[i]);
+    let classes = $(this).attr("class");
+    if (classes) {
+      classes = classes
+        .replace(/js-filter-set/, "")
+        .replace(/product-filter__filter-wrap/, "")
+        .replace(/usecase-all/, "")
+        .replace(/skin-all/, "")
+        .replace(/type-all/, "")
+        .replace(/authorization-all/, "")
+        .split(/\s+/);
+      classes = cleanArray(classes);
+      if (classes.length > 0) {
+        for (let i = 0; i < classes.length; i++) {
+          activeTags += `.${classes[i]}`;
+          allClasses.push(classes[i]);
+        }
       }
+      // push the remaining (actual tags) to the allclasses array
     }
-    // push the remaining (actual tags) to the allclasses array
   });
 
   // depending on the allClasses content show or hide items
@@ -76,21 +77,6 @@ function runFilter() {
     $(filter.item).fadeIn();
   }
 }
-
-/*
-function authorizationChange() {
-  $(`${el.authorization} input`).change(() => {
-    // const value = $(`${el.authorization} input:checked`).val();
-    console.log(value);
-    if (value === "all") {
-    } else if (value === "authorization-required") {
-    } else if (value === "no-authorization") {
-    }
-  });
-}
-
-$(document).ready(authorizationChange);
- */
 
 // load more order items on click - pagination ajax
 function loadMore(event) {
