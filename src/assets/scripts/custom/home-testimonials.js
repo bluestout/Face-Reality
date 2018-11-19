@@ -15,11 +15,19 @@ function testimonials() {
         "<button type='button' class='slick-prev slick-arrow icon-arrow-left'></button>",
       responsive: [
         {
-          breakpoint: 576,
+          breakpoint: 992,
+          settings: {
+            slidesToShow: 2,
+            centerMode: false,
+            centerPadding: 0,
+          },
+        },
+        {
+          breakpoint: 768,
           settings: {
             slidesToShow: 1,
-            centerMode: true,
-            centerPadding: "33px",
+            centerMode: false,
+            centerPadding: 0,
           },
         },
       ],

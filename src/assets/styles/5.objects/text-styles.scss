@@ -18,4 +18,8 @@
 %title-section {
   @include apercu(700);
   @include Text(36.5px, 40px, $color-blumine);
+  @include media-query("medium-down") {
+    font-size: 25px;
+    line-height: 32px;
+  }
 }

@@ -126,5 +126,19 @@
       line-height: 26px;
       margin: 0 0 40px;
     }
+
+    .slick-dots {
+      padding: 0 30px;
+    }
+
+    .slick-arrow {
+      &.slick-prev::before {
+        content: "\e907";
+      }
+
+      &.slick-next::before {
+        content: "\e905";
+      }
+    }
   }
 }

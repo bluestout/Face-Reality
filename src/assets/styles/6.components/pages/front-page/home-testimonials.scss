@@ -38,8 +38,11 @@
     flex-flow: column wrap;
     padding: 0 60px 50px;
 
-    .zig-line-separator {
+    .zig-line-separator-wrapper {
       margin: 0 0 20px;
+    }
+
+    .zig-line-separator {
       border-color: $color-iron;
 
       &::before {
@@ -50,6 +53,7 @@
         border-left: 16px solid $color-aqua-haze;
       }
     }
+
     &-text {
       position: relative;
       @include apercu(400);
@@ -57,11 +61,11 @@
       margin: 0 0 35px;
 
       &::before {
-        content: '';
+        content: "";
         position: relative;
         height: 37px;
         width: 50px;
-        background-image: url('http://via.placeholder.com/51x37');
+        background-image: url("http://via.placeholder.com/51x37");
         opacity: 0.3;
         display: inline-block;
         margin: 0 10px 0 0;
@@ -75,6 +79,7 @@
     &-image {
       display: block;
       object-fit: cover;
+      margin: auto;
     }
 
     &-name {
@@ -119,7 +124,7 @@
   .slick-arrow {
     position: absolute;
     z-index: 1;
-    top: 50%;
+    bottom: 50%;
     padding: 10px;
     background-color: transparent;
     border: none;
@@ -163,7 +168,7 @@
       padding: 10px 5px;
 
       &::after {
-        content: '';
+        content: "";
         display: block;
         background-color: $color-blumine;
         width: 15px;
@@ -192,6 +197,7 @@
 
   // slick-specific styling ends here
 
+  // .home-testimonials__container specific widths
   @media (min-width: $grid-small) {
     &__container {
       max-width: 540px;
@@ -215,6 +221,77 @@
   @media (min-width: 1500px) {
     &__container {
       max-width: 1410px;
+    }
+  }
+
+  @include media-query("large-down") {
+    &__testimonial {
+      padding: 0 40px 40px;
+    }
+  }
+
+  @include media-query("medium-down") {
+    padding: 60px 0 40px;
+
+    &__suptitle {
+      margin: 0 0 20px;
+    }
+
+    &__text {
+      font-size: 19px;
+      line-height: 24px;
+      margin: 0 auto 40px;
+    }
+
+    &__testimonial {
+      padding: 0 25px 15px;
+
+      .zig-line-separator-wrapper {
+        order: 3;
+      }
+
+      &-info {
+        margin: 0 0 15px;
+        order: 2;
+      }
+
+      &-text {
+        margin: 0 0 20px;
+        order: 4;
+      }
+
+      &-image-wrap {
+        order: 1;
+        margin: 0 0 10px;
+      }
+
+      .flex-shaper {
+        order: 5;
+      }
+    }
+
+    .slick-arrow {
+      &.slick-prev::before {
+        content: "\e907";
+      }
+
+      &.slick-next::before {
+        content: "\e905";
+      }
+    }
+  }
+
+  @include media-query("v-small") {
+    &__testimonial {
+      padding: 0;
+    }
+
+    .slick-dots {
+      margin: 0 0 25px;
+    }
+
+    .slick-arrow {
+      bottom: 112px;
     }
   }
 }
