@@ -2,11 +2,11 @@
   <div class="collection-by-type__tabs">
     <div class="container">
       <div class="row no-gutters justify-content-center">
-        <div class="col-md-auto">
-          <a href="#" class="collection-by-type__tabs-link active" data-tab-link="1">{{ section.settings.title_tab_1 }}</a>
+        <div class="col-auto">
+          <a href="#" class="collection-by-type__tabs-link active" data-tab-link="1"><span class="collection-by-type__tabs-text">{{ section.settings.title_tab_1 }}</span></a>
         </div>
-        <div class="col-md-auto">
-          <a href="#" class="collection-by-type__tabs-link" data-tab-link="2">{{ section.settings.title_tab_2 }}</a>
+        <div class="col-auto">
+          <a href="#" class="collection-by-type__tabs-link" data-tab-link="2"><span class="collection-by-type__tabs-text">{{ section.settings.title_tab_2 }}</span></a>
         </div>
       </div>
     </div>
@@ -18,14 +18,12 @@
       {% comment %} looped the same array twice, because we can't know in what order the user will add blocks {% endcomment %}
       {% for block in section.blocks %}
         {% if block.type == 'tab-1' %}
-          <div class="col">
+          <div class="col-lg col-md-4 col-6 col-count">
             {% assign collection_block = collections[block.settings.collection] %}
             <div class="collection-by-type__visible-col index-{{ index_t1 }}">
               <div class="collection-by-type__visible-col-inner">
-                <h3 class="collection-by-type__col-title">
-                  {{ collection_block.title }}
-                  <span class="collection-by-type__visible-col-arrow icon-angle-right"></span>
-                </h3>
+                <h3 class="collection-by-type__col-title">{{ collection_block.title }}</h3>
+                <span class="collection-by-type__visible-col-arrow icon-angle-right"></span>
               </div>
             </div>
             <a href="{{ collection_block.url }}" class="collection-by-type__hover-col">
@@ -58,14 +56,12 @@
       {% assign index_t2 = 1 %}
       {% for block in section.blocks %}
         {% if block.type == 'tab-2' %}
-          <div class="col">
+          <div class="col-lg col-md-4 col-6 col-count">
             {% assign collection_block = collections[block.settings.collection] %}
             <div class="collection-by-type__visible-col index-{{ index_t2 }}">
               <div class="collection-by-type__visible-col-inner">
-                <h3 class="collection-by-type__col-title">
-                  {{ collection_block.title }}
-                  <span class="collection-by-type__visible-col-arrow icon-angle-right"></span>
-                </h3>
+                <h3 class="collection-by-type__col-title">{{ collection_block.title }}</h3>
+                <span class="collection-by-type__visible-col-arrow icon-angle-right"></span>
               </div>
             </div>
             <a href="{{ collection_block.url }}" class="collection-by-type__hover-col">

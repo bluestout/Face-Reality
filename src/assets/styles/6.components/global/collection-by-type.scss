@@ -7,23 +7,30 @@
     @return $base;
   }
 
-  &__title {
-    @include apercu(700);
-    @include Text(25px, 30px, $color-blumine);
-    margin: 0 0 40px;
-  }
-
-  &__collection-title {
-    @extend %title-small;
-    margin: 0 0 40px;
-  }
-
   &__tabs {
     margin: 0 0 30px;
   }
 
+  &__tabs-text {
+    position: relative;
+    display: inline-block;
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -15px;
+      display: block;
+      height: 2px;
+      width: 100%;
+      background-color: transparent;
+    }
+  }
+
   &__tabs-link {
+    position: relative;
     @extend %title-small;
+    text-align: center;
     display: block;
     text-decoration: none;
     padding: 14px 28px;
@@ -32,6 +39,9 @@
 
     &.active {
       color: $color-fountain-blue;
+      .collection-by-type__tabs-text::after {
+        background-color: $color-calypso;
+      }
     }
 
     &:not(.active) {
@@ -76,25 +86,27 @@
     width: calc(100% - 4px);
     height: calc(100% - 4px);
     display: flex;
-    flex-flow: column wrap;
+    flex-flow: row wrap;
   }
 
   &__col-title {
     @include apercu(700);
     @include Text(22px, 24px, $color-blumine);
     text-align: center;
-    display: inline-block;
+    display: block;
     margin: auto;
-    width: 95%;
+    width: calc(100% - 20px);
   }
 
   &__visible-col-arrow {
+    @include Text(22px, 24px, $color-blumine);
     position: relative;
-    top: 2px;
     display: block;
     color: $color-calypso;
     opacity: 0.25;
-    float: right;
+    margin: auto;
+    width: 20px;
+    text-align: right;
   }
 
   &__hover-col {
@@ -153,9 +165,163 @@
   &__link {
     @extend %button;
     @extend %button--wire;
+    font-weight: 700;
   }
 
   @media (max-width: $grid-max + 1px) {
     overflow: hidden;
+  }
+
+  @include media-query("medium-down") {
+    padding: 0 0 50px;
+
+    &__type {
+      margin: 0 0 20px;
+    }
+
+    &__visible-col {
+      position: relative;
+      padding: 0;
+      height: calc(100% - 5px);
+      &:hover,
+      &:active {
+        + .collection-by-type__hover-col {
+          opacity: 0;
+          pointer-events: none;
+        }
+      }
+    }
+
+    &__visible-col-inner {
+      position: static;
+      top: 0;
+      left: 0;
+      width: auto;
+      height: 100%;
+      padding: 20px;
+    }
+
+    &__col-title {
+      font-size: 18px;
+    }
+
+    &__hover-col {
+      display: none;
+    }
+
+    .col-count:nth-of-type(3n + 1) {
+      .collection-by-type__visible-col-inner {
+        margin: 0 2.5px 5px 0;
+      }
+    }
+
+    .col-count:nth-of-type(3n + 2) {
+      .collection-by-type__visible-col-inner {
+        margin: 0 2.5px 5px;
+      }
+    }
+
+    .col-count:nth-of-type(3n + 3) {
+      .collection-by-type__visible-col-inner {
+        margin: 0 0 5px 2.5px;
+      }
+    }
+  }
+
+  @include media-query("small-down") {
+    .col-count:nth-of-type(3n + 1) {
+      .collection-by-type__visible-col-inner {
+        margin: 0;
+      }
+    }
+
+    .col-count:nth-of-type(3n + 2) {
+      .collection-by-type__visible-col-inner {
+        margin: 0;
+      }
+    }
+
+    .col-count:nth-of-type(3n + 3) {
+      .collection-by-type__visible-col-inner {
+        margin: 0;
+      }
+    }
+
+    .col-count:nth-of-type(2n + 1) {
+      .collection-by-type__visible-col-inner {
+        margin: 0 2.5px 5px 0;
+      }
+    }
+
+    .col-count:nth-of-type(2n + 2) {
+      .collection-by-type__visible-col-inner {
+        margin: 0 0 5px 2.5px;
+      }
+    }
+  }
+
+  @include media-query("v-small") {
+    &__tabs {
+      .container {
+        padding: 0;
+      }
+    }
+
+    &__tabs-link {
+      font-size: 12px;
+      padding: 10px;
+    }
+
+    &__tabs-text::after {
+      bottom: -11px;
+    }
+
+    &__col-title {
+      font-size: 16px;
+    }
+
+    .col-count:nth-of-type(3n + 1) {
+      .collection-by-type__visible-col-inner {
+        margin: 0;
+      }
+    }
+
+    .col-count:nth-of-type(3n + 2) {
+      .collection-by-type__visible-col-inner {
+        margin: 0;
+      }
+    }
+
+    .col-count:nth-of-type(3n + 3) {
+      .collection-by-type__visible-col-inner {
+        margin: 0;
+      }
+    }
+
+    .col-count:nth-of-type(2n + 1) {
+      .collection-by-type__visible-col-inner {
+        margin: 0 2.5px 5px 0;
+      }
+    }
+
+    .col-count:nth-of-type(2n + 2) {
+      .collection-by-type__visible-col-inner {
+        margin: 0 0 5px 2.5px;
+      }
+    }
+  }
+
+  @media (max-width: 400px) {
+    &__col-title {
+      width: calc(100% - 10px);
+    }
+
+    &__visible-col-arrow {
+      width: 10px;
+    }
+
+    &__visible-col-inner {
+      padding: 10px;
+    }
   }
 }
