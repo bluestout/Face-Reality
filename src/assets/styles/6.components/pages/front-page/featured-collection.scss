@@ -19,10 +19,7 @@
   }
 
   .product-item {
-    height: 100%;
     display: flex !important;
-    padding: 0 0 50px;
-    margin: 0;
   }
 
   // slick-specific styling starts here
@@ -88,7 +85,7 @@
       padding: 10px 5px;
 
       &::after {
-        content: '';
+        content: "";
         display: block;
         background-color: $color-blumine;
         width: 15px;
@@ -115,4 +112,19 @@
     }
   }
   // slick-specific styling ends here
+
+  @include media-query("medium-down") {
+    text-align: center;
+    margin: 0 0 15px;
+
+    &__title {
+      margin: 0 0 25px;
+    }
+
+    &__text {
+      font-size: 19px;
+      line-height: 26px;
+      margin: 0 0 40px;
+    }
+  }
 }

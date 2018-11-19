@@ -3,6 +3,8 @@
 {% assign p_tags = product-item.tags %}
 {%- assign current_p_i_variant = product.selected_or_first_available_variant -%}
 
+{{ current_p_i_variant | json }}
+
 <div class="product-item {% if modulo == 0 %}product-item--even{% else %}product-item--odd{% endif %}" itemscope itemtype="http://schema.org/Product" data-product-item>
   <meta itemprop="name" content="{{ prod.title }}">
   <meta itemprop="url" content="{{ shop.url }}{{ prod.url }}">
@@ -17,12 +19,17 @@
       {% include 'product-tags' with product-item %}
     </span>
     {% if product-item.featured_image != blank %}
-      <span class="product-item__image-wrap">
-        {% include 'responsive-image' with image: product-item.featured_image, max_width: 370, max_height: 370, span: true,  %}
-      </span>
+      {% include 'responsive-image' with
+        image: product-item.featured_image,
+        wrapper_class: 'product-item__image-wrap',
+        image_class: 'product-item__image',
+        max_width: 370,
+        max_height: 370,
+        span: true,
+      %}
     {% endif %}
     <h4 class="product-item__title">{{ product-item.title }}</h4>
-    <div class="product-item__description">{{ product-item.description | strip_html | truncatewords: 20 }}</div>
+    <div class="product-item__description">{{ product-item.description | strip_html | truncatewords: 15 }}</div>
     {% if p_tags contains "authorization" %}
       <div class="product-item__authorization">Needs authorization</div>
       <span class="hide" data-authorization-required=true></span>
@@ -60,7 +67,7 @@
     {% unless product-item.has_only_default_variant %}
       {% for option in product-item.options_with_values %}
         <div class="product-item__option-name">{{ option.name }}</div>
-        <div class="product-item__variants-wrap" data-product-item-option>
+        <div class="product-item__variants-wrap {% if forloop.last %}product-item__variants-wrap--last{% endif %}" data-product-item-option>
           {% for value in option.values %}
             <div class="product-item__variant-wrap">
               <input
