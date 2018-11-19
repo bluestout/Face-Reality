@@ -27,6 +27,4 @@ function products() {
   }
 }
 
-$(document).ready(() => {
-  products();
-});
+$(document).ready(products);

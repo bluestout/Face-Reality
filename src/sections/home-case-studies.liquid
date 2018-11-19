@@ -2,28 +2,30 @@
   <div class="container">
     <h3 class="case-studies-section__suptitle">{{ section.settings.suptitle }}</h3>
     <h2 class="case-studies-section__title">{{ section.settings.title }}</h2>
-    <div class="case-studies-section__studies js-case-studies-slider">
+    <div class="case-studies-section__studies" data-case-studies-slider>
       {% for block in section.blocks %}
-        <div class="case-studies-section__study">
+        <div class="case-studies-section__study {% unless forloop.last %}case-studies-section__study--margin{% endunless %}">
           <div class="row">
-            <div class="col-md-5 flex-col-wrap justify-content-center">
+            <div class="col-md-5 order-md-1 order-2 flex-col-wrap justify-content-center">
               <div class="case-studies-section__study-content">
                 <h2 class="case-studies-section__study-title">{{ block.settings.title }}</h2>
                 <div class="case-studies-section__study-text">{{ block.settings.description }}</div>
               </div>
             </div>
-            <div class="col-md-7 flex-col-wrap justify-content-center">
-            {% if block.settings.image_before and block.settings.image_after %}
-              {% assign img_before = block.settings.image_before | img_url: 'medium' %}
-              {% assign img_after = block.settings.image_after | img_url: 'medium' %}
-              {%- include 'image-compare'
-                with before: img_before,
-                after: img_after,
-                initial: 50,
-                indicators: true
-              -%}
+            <div class="col-md-7 order-md-2 order-1">
+              <div class="case-studies-section__image-compare">
+                {% if block.settings.image_before and block.settings.image_after %}
+                  {% assign img_before = block.settings.image_before | img_url: 'medium' %}
+                  {% assign img_after = block.settings.image_after | img_url: 'medium' %}
+                  {%- include 'image-compare'
+                    with before: img_before,
+                    after: img_after,
+                    initial: 50,
+                    indicators: true
+                  -%}
+                {% endif %}
+              </div>
             </div>
-            {% endif %}
           </div>
         </div>
       {% endfor %}

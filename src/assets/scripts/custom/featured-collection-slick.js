@@ -43,6 +43,4 @@ function testimonials() {
   }
 }
 
-$(document).ready(() => {
-  testimonials();
-});
+$(document).ready(testimonials);

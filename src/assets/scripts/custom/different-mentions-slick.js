@@ -17,6 +17,4 @@ function mentions() {
   }
 }
 
-$(document).ready(() => {
-  mentions();
-});
+$(document).ready(mentions);
