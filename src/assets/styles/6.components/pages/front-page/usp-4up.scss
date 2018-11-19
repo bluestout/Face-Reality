@@ -4,6 +4,7 @@
     width: 100%;
 
     &--icon {
+      display: flex;
       text-align: center;
     }
 
@@ -19,13 +20,21 @@
   &__text {
     @include Text(16px, 25px, $color-black);
     @include apercu(400);
+    @include clearfix;
   }
+
+  &__image {
+    display: none;
+  }
+
   &__title {
     @include Text(18px, 20px, $color-blumine);
     @include apercu(700);
   }
+
   &__icon-wrap {
     margin: 0 0 25px;
+    @extend %no-font-size;
   }
 
   &__button-wrap {
@@ -40,10 +49,11 @@
     left: 50%;
     transform: translate(-50%, -50%);
     font-size: 14px;
-    padding: 20px 95px;
+    padding: 20px;
     @extend %button;
     @extend %button--main;
     @extend %button--big;
+    width: 240px;
   }
 
   @include media-query("xl-down") {
@@ -58,9 +68,67 @@
     }
   }
 
+  @include media-query("medium-up") {
+    &__col--icon {
+      flex-flow: column wrap;
+      justify-content: center;
+    }
+  }
+
   @include media-query("medium-down") {
     &__col {
       padding: 20px 30px;
+
+      &--last {
+        padding: 20px 30px 40px;
+      }
+    }
+
+    &__image {
+      display: block;
+      float: right;
+      margin: 0 0 0 15px;
+    }
+
+    &__icon-wrap {
+      margin: 0 25px 0 0;
+      flex: 0 1 20%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    &__icon {
+      object-fit: scale-down;
+    }
+
+    &__button-wrap {
+      min-height: 85px;
+    }
+
+    &__title {
+      flex: 0 1 80%;
+      text-align: left;
+    }
+  }
+
+  @include media-query("small-down") {
+    &__col {
+      padding: 15px 30px;
+
+      &--last {
+        padding: 15px 30px 40px;
+      }
+    }
+
+    &__button-link {
+      padding: 14px;
+    }
+  }
+
+  @include media-query("v-small") {
+    &__image {
+      max-width: 110px;
     }
   }
 }

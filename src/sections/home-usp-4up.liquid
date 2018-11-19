@@ -8,16 +8,29 @@
         {% else %}
           {% assign even_odd = 'usp-4up__col--odd' %}
         {% endif %}
+        {% assign is_last = '' %}
+        {% if forloop.last %}
+          {% assign is_last = 'usp-4up__col--last' %}
+        {% endif %}
         {% if block.type == 'usp-text' %}
-          <div class="usp-4up__col usp-4up__col--text {{ even_odd }} flex-col-wrap justify-content-center">
-            <p class="usp-4up__text">{{ block.settings.text }}</p>
+          <div class="usp-4up__col usp-4up__col--text {{ even_odd }} {{ is_last }}">
+            <p class="usp-4up__text">
+              {% if section.settings.badge %}
+                <img class="usp-4up__image" src="{{ section.settings.badge }}" alt="Face reality" />
+              {% else %}
+                <img class="usp-4up__image" src="http://via.placeholder.com/170x170" alt="Face reality" />
+              {% endif %}
+              {{ block.settings.text }}
+            </p>
           </div>
         {% elsif block.type == 'usp-icon' %}
-          <div class="usp-4up__col usp-4up__col--icon {{ even_odd }} flex-col-wrap justify-content-center">
-            <h3 class="usp-4up__title">{{ block.settings.title }}</h3>
-            {% if block.settings.icon != '' %}
-              <div class="usp-4up__icon-wrap">{% include block.settings.icon %}</div>
+          <div class="usp-4up__col usp-4up__col--icon {{ even_odd }} {{ is_last }}">
+            {% if block.settings.icon %}
+              <div class="usp-4up__icon-wrap">
+                <img class="usp-4up__icon" src="{{ block.settings.icon | img_url: 'small' }}" alt="{{ block.settings.title }}"/>
+              </div>
             {% endif %}
+            <h3 class="usp-4up__title">{{ block.settings.title }}</h3>
           </div>
         {% endif %}
       </div>
@@ -42,6 +55,11 @@
             "type": "textarea",
             "id": "text",
             "label": "Text"
+          },
+          {
+            "type": "image_picker",
+            "id": "badge",
+            "label": "Badge"
           }
         ]
       },
@@ -55,10 +73,9 @@
             "label": "Text"
           },
           {
-            "type": "text",
+            "type": "image_picker",
             "id": "icon",
-            "label": "Icon",
-            "info": "Insert the snippet name, without the .liquid"
+            "label": "Icon"
           }
         ]
       }

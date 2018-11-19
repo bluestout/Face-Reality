@@ -47,6 +47,7 @@
     @extend %paragraph-blue;
     text-decoration: none;
     padding: 11px 20px;
+    margin: 0 0 0 10px;
     background-color: $color-white;
     display: inline-block;
     vertical-align: middle;
@@ -88,6 +89,10 @@
 
   &__utility-nav {
     @import "./utility-nav";
+  }
+
+  @include media-query("small-down") {
+    display: none;
   }
 }
 

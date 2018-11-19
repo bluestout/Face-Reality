@@ -20,10 +20,30 @@
   {%- endif -%}
   <div class="container">
     <div class="site-header__secondary-nav">
-      <a href="tel:(510) 351-1842" class="site-header__secondary-nav-link"><span class="icon-phone site-header__secondary-nav-icon site-header__secondary-nav-icon--left"></span> (510) 351-1842</a>
-      <a href="#" class="site-header__secondary-nav-link">Acne Information Center</a>
-      <a href="#" class="site-header__secondary-nav-link">Blog</a>
-      <a href="#" class="site-header__secondary-nav-button">For professionals <span class="icon-arrow-right site-header__secondary-nav-icon site-header__secondary-nav-icon--right"></span></a>
+      {% if section.settings.phone != "" %}
+        <a
+          href="tel:{{ section.settings.phone }}"
+          class="site-header__secondary-nav-link">
+          <span class="icon-phone site-header__secondary-nav-icon site-header__secondary-nav-icon--left"></span>
+          {{ section.settings.phone }}
+        </a>
+      {% endif %}
+      {% assign nav = section.settings.top_inline_nav %}
+      {% if linklists[nav].links.size > 0 %}
+        {% for link in linklists[nav].links %}
+          <a href="{{ link.url }}" class="site-header__secondary-nav-link">{{ link.title }}</a>
+        {% endfor %}
+      {% endif %}
+
+      {% if section.settings.professionals_text != "" %}
+        <a
+          href="{{ section.settings.professionals_url }}"
+          class="site-header__secondary-nav-button"
+          >
+          {{ section.settings.professionals_text }}
+          <span class="icon-arrow-right site-header__secondary-nav-icon site-header__secondary-nav-icon--right"></span>
+        </a>
+      {% endif %}
     </div>
 
     <div class="relative">
@@ -64,36 +84,11 @@
       </div>
     </div>
   </div>
-
-  {% comment %}
-  {% if shop.customer_accounts_enabled %}
-    <ul>
-      {% if customer %}
-        <li>
-          {% if customer.first_name != blank %}
-            {% capture first_name %}<a href="/account">{{ customer.first_name }}</a>{% endcapture %}
-            {{ 'layout.customer.logged_in_as_html' | t: first_name: first_name }}
-          {% else %}
-            <a href="/account">{{ 'layout.customer.account' | t }}</a>
-          {% endif %}
-        </li>
-        <li>
-          {{ 'layout.customer.log_out' | t | customer_logout_link }}
-        </li>
-      {% else %}
-        <li>
-          {{ 'layout.customer.log_in' | t | customer_login_link }}
-        </li>
-        <li>
-          {{ 'layout.customer.create_account' | t | customer_register_link }}
-        </li>
-      {% endif %}
-    </ul>
-  {% endif %}
-  {% endcomment %}
 </header>
 
-<div data-header-offset></div>
+{% unless template == 'index' %}
+  <div data-header-offset></div>
+{% endunless %}
 
 {% if section.settings.logo != blank %}
   <style>
@@ -108,6 +103,30 @@
   {
     "name": "Header",
     "settings": [
+      {
+        "type": "header",
+        "content": "Top Navigation"
+      },
+      {
+        "type": "text",
+        "id": "phone",
+        "label": "Phone"
+      },
+      {
+        "type": "link_list",
+        "id": "top_inline_nav",
+        "label": "Top Navigation List"
+      },
+      {
+        "type": "text",
+        "id": "professionals_text",
+        "label": "Professionals Link Text"
+      },
+      {
+        "type": "url",
+        "id": "professionals_url",
+        "label": "Professionals URL"
+      },
       {
         "type": "header",
         "content": "Announcement bar"
