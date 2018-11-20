@@ -1,6 +1,5 @@
 .blog-stories {
-  display: none;
-  margin: 0 0 85px;
+  margin: 0 auto 85px;
   &__title {
     @extend %title-small;
     margin: 0 0 30px;
@@ -17,7 +16,17 @@
     left: 0;
     width: 100%;
     height: 100%;
+    display: flex;
     @include backgroundImage;
+
+    img {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
   }
 
   &__link {
@@ -87,7 +96,7 @@
     width: 100%;
 
     &--big {
-      min-height: 770px;
+      padding-top: 95%;
 
       .blog-stories__link {
         padding: 140px 35px 30px 45px;
@@ -135,5 +144,54 @@
   &__inline-link {
     @extend %button;
     @extend %button--wire;
+  }
+
+  @include media-query("large-down") {
+    &__post-title {
+      font-size: 20px;
+      line-height: 24px;
+    }
+
+    &__story--big {
+      .blog-stories__post-title {
+        font-size: 30px;
+        line-height: 32px;
+      }
+    }
+  }
+
+  @include media-query("medium-down") {
+    max-width: 720px;
+    margin: 0 auto 55px;
+
+    &__title {
+      margin: 0 0 25px;
+    }
+
+    &__inline-link-wrap {
+      text-align: center;
+      margin: 15px 0 0;
+    }
+
+    &__story--small {
+      padding-top: 95%;
+    }
+
+    &__story--big {
+      .blog-stories__post-title {
+        font-size: 22px;
+        line-height: 24px;
+      }
+    }
+  }
+
+  @include media-query("small-down") {
+    &__link {
+      background: linear-gradient(
+        0deg,
+        rgba(#0a1823, 0.6) 0%,
+        rgba(#0a1823, 0) 100%
+      );
+    }
   }
 }
