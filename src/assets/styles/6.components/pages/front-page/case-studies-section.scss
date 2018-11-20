@@ -17,6 +17,7 @@
   }
 
   &__study {
+    padding: 0 5px;
     &--margin {
       margin: 0 0 60px;
     }
@@ -161,6 +162,46 @@
     }
   }
   // slick-specific styling ends here
+
+  @include media-query("large-up") {
+    .slick-slider {
+      position: static;
+    }
+
+    .slick-arrow {
+      bottom: calc(50% - 75px);
+    }
+
+    .slick-arrow.slick-prev {
+      left: 30px;
+      &::before {
+        content: "\e906";
+      }
+    }
+
+    .slick-arrow.slick-next {
+      right: 30px;
+      &::before {
+        content: "\e901";
+      }
+    }
+  }
+
+  @include media-query("xl") {
+    .slick-arrow.slick-prev {
+      left: 20px;
+      &::before {
+        content: "\e906";
+      }
+    }
+
+    .slick-arrow.slick-next {
+      right: 20px;
+      &::before {
+        content: "\e901";
+      }
+    }
+  }
 
   @include media-query("medium-down") {
     position: relative;
