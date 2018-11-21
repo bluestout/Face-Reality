@@ -1,3 +1,30 @@
 .instagram-feed {
-  margin: 0 0 90px;
+  &__title {
+    @include apercu;
+    @include Text(21px, 32px, $color-black);
+    margin: 0 auto 36px;
+    text-align: center;
+    text-decoration: none;
+  }
+}
+
+@include media-query("medium-down") {
+  .instagram-feed {
+    &__title {
+      font-size: 20px;
+      line-height: 30px;
+      margin: 0 auto 24px;
+    }
+  }
+
+  #insta-feed {
+    > a:nth-of-type(n + 4) {
+      display: none !important;
+    }
+
+    .instafeed-container {
+      width: 33.333% !important;
+      padding-top: 33.333% !important;
+    }
+  }
 }
