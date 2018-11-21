@@ -11,7 +11,8 @@
     "no-console": 0,
     "no-new": 0,
     "node/shebang": 0,
-    "quotes": ["error", "double"]
+    "quotes": ["error", "double"],
+    "quotemark": [true, "double", "avoid-escape"]
   },
   "globals": {
     "document": true,
