@@ -309,8 +309,8 @@
         "type": "home-stories",
         "settings": {
           "title": "Stories",
-          "link_text": "Test",
-          "link_url": ""
+          "link_text": "All stories",
+          "link_url": "https://facerealityacneclinic.com/blog/"
         }
       },
       "about-banner": {

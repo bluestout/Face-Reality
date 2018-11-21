@@ -1,6 +1,7 @@
 {% if section.settings.bg %}
   <div class="treatment-banner lazyload" data-bgset="{% include 'responsive-bg-image', image: section.settings.bg %}">
 {% else %}
+  {% comment %} TODO remove the placeholder when done with development {% endcomment %}
   <div class="treatment-banner lazyload" style="background-image: url('http://via.placeholder.com/1920x500')">
 {% endif %}
   <div class="treatment-banner__content max-wrap">
@@ -17,6 +18,7 @@
       %}
     {% else %}
       <div class="treatment-banner__badge-wrap">
+        {% comment %} TODO remove the placeholder when done with development {% endcomment %}
         <img src="http://via.placeholder.com/180x180" alt="{{ page.title }}" class="treatment-banner__badge"/>
       </div>
     {% endif %}

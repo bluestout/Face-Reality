@@ -9,12 +9,12 @@
 
   &__client {
     @include apercu(700);
-    @include Text(22px,27px,$color-black);
+    @include Text(22px, 27px, $color-black);
   }
 
   &__age {
     @include apercu(700);
-    @include Text(22px,27px,$color-black);
+    @include Text(22px, 27px, $color-black);
   }
 
   &__comparison {
@@ -23,7 +23,7 @@
 
   &__notes {
     @include clearfix;
-    margin:  0 0 36px;
+    margin: 0 0 36px;
 
     &-image {
       float: left;
@@ -32,13 +32,13 @@
 
     &-title {
       @include apercu(700);
-      @include Text(22px,27px,$color-black);
+      @include Text(22px, 27px, $color-black);
       margin: 25px 0 15px;
     }
 
     &-content {
       @include apercu(400);
-      @include Text(15px,22px,$color-black);
+      @include Text(15px, 22px, $color-black);
       margin: 0;
     }
   }
@@ -46,21 +46,22 @@
   &__testimonial {
     &-title {
       @include apercu(700);
-      @include Text(22px,27px,$color-black);
+      @include Text(22px, 27px, $color-black);
       margin: 0 0 15px;
     }
 
     &-content {
       @include apercu(400);
-      @include Text(15px,22px,$color-black);
+      @include Text(15px, 22px, $color-black);
       position: relative;
 
+      /* TODO remove the placeholder when done with development */
       &::before {
-        content: '';
+        content: "";
         position: relative;
         height: 37px;
         width: 50px;
-        background-image: url('http://via.placeholder.com/51x37');
+        background-image: url("http://via.placeholder.com/51x37");
         opacity: 0.3;
         display: inline-block;
         margin: 0 10px 0 0;
@@ -73,12 +74,12 @@
 
     &-client {
       @include myriad(400);
-      @include Text(12px,13px,$color-black);
+      @include Text(12px, 13px, $color-black);
     }
 
     &-age {
       @include apercu(400);
-      @include Text(12px,13px,$color-black);
+      @include Text(12px, 13px, $color-black);
       opacity: 0.5;
       margin: 0 0 0 10px;
     }
