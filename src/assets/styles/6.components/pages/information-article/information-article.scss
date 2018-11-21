@@ -1,5 +1,5 @@
 .information-article {
-  margin: 45px 0 105px;
+  margin: 45px 0 5px;
 
   &__wrap {
     padding: 25px 25px 100px;
@@ -145,7 +145,7 @@
     }
 
     ul li::before {
-      content: '—';
+      content: "—";
       padding: 0 26.5px 0 0;
     }
 
@@ -198,5 +198,5 @@
     }
   }
 
-  @import 'related';
+  @import "related";
 }

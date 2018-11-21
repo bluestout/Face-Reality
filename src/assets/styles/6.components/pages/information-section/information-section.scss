@@ -1,7 +1,6 @@
 .information-section {
-  margin: 0 0 75px;
   background-color: $color-aqua-haze;
 
-  @import './banner';
-  @import './articles';
+  @import "./banner";
+  @import "./articles";
 }

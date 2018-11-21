@@ -1,7 +1,6 @@
 .different-mentions {
   position: relative;
   padding: 0 60px;
-  margin: 0 0 100px;
 
   &__title {
     @extend %title-small;
@@ -105,7 +104,7 @@
       padding: 10px 5px;
 
       &::after {
-        content: '';
+        content: "";
         display: block;
         background-color: $color-blumine;
         width: 15px;

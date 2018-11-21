@@ -1,7 +1,6 @@
 .info-topics {
   padding: 25px 25px 50px;
   background-color: $color-aqua-haze;
-  margin: 0 0 100px;
 
   &__filter-wrap {
     text-align: center;
@@ -106,7 +105,7 @@
     @include transition(background-color);
 
     &::after {
-      content: '\e905';
+      content: "\e905";
       position: absolute;
       right: 22px;
       top: calc(50% - 5px);

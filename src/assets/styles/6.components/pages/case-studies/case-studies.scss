@@ -1,8 +1,8 @@
 .case-studies {
-  margin: 50px 0 75px;
+  margin: 50px 0 0;
   background-color: $color-aqua-haze;
 
-  @import './banner';
-  @import './articles';
-  @import './case-study-item';
+  @import "./banner";
+  @import "./articles";
+  @import "./case-study-item";
 }

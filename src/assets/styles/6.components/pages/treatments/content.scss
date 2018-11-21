@@ -1,5 +1,4 @@
 .treatment-content {
-  margin-bottom: 100px;
   padding: 0 15px;
 
   &__item {
@@ -56,7 +55,7 @@
     }
 
     &::after {
-      content: '\e905';
+      content: "\e905";
       margin: 0 0 0 20px;
       @include icoMoon;
       @include Text(18px, 1, $color-blumine);
