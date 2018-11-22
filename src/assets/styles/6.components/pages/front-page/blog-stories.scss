@@ -39,16 +39,22 @@
     padding: 25px;
     background: linear-gradient(
       0deg,
-      rgba(#0a1823, 0.65) 0%,
-      rgba(#0a1823, 0.65) 100%
+      rgba(#0a1823, 0.7) 0%,
+      rgba(#0a1823, 0) 100%
     );
-    @include transition(height 1s ease-out);
+    background-size: 100% calc(100% + 40px);
+    background-repeat: no-repeat;
+    background-position: 0 40px;
+    transition: background 200ms ease-out;
 
     &:hover,
     &:active {
       .blog-stories__icon {
         opacity: 1;
+        right: 0;
       }
+
+      background-position: 100% 0;
     }
   }
 
@@ -78,6 +84,7 @@
   }
 
   &__icon {
+    position: relative;
     font-size: 20px;
     line-height: 1;
     color: $color-white;
@@ -86,7 +93,8 @@
     width: 100%;
     text-align: right;
     align-self: flex-end;
-    @include transition(opacity);
+    transition: opacity 200ms ease-out, right 200ms ease-out;
+    right: 5px;
   }
 
   &__story {
@@ -99,7 +107,7 @@
       padding-top: 95%;
 
       .blog-stories__link {
-        padding: 140px 35px 30px 45px;
+        padding: 30px 35px 30px 45px;
         height: 40%;
       }
 

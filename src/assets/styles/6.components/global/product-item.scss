@@ -59,12 +59,12 @@
     width: 100%;
     &:hover,
     &:active {
-      &__title {
-        color: $color-accent;
+      .product-item__title {
+        color: $color-black;
       }
 
-      &__description {
-        opacity: 1;
+      .product-item__image {
+        transform: translateY(-5px);
       }
     }
   }
@@ -91,6 +91,10 @@
     display: block;
     margin: 0 auto 30px;
     padding: 55px 0 0;
+  }
+
+  &__image {
+    @include transition(transform 250ms);
   }
 
   &__title {

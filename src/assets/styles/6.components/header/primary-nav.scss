@@ -102,10 +102,12 @@
     white-space: nowrap;
     text-decoration: none;
     display: block;
+    @include transition(color, background-color);
 
     &:hover,
     &:active {
       color: $color-calypso;
+      background-color: $color-mercury;
     }
   }
 

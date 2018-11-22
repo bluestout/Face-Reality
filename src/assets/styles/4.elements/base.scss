@@ -117,15 +117,16 @@ input[type="submit"] {
   @include Text(16px, 16px, $color-white);
   font-weight: 700;
   color: $color-white;
-  background-color: $color-red;
+  background-color: $color-blumine;
   padding: 10px 20px;
   height: 36px;
   display: inline-block;
   vertical-align: middle;
   @include transition(background-color);
+
   &:hover,
   &:active {
-    background-color: $color-red;
+    background-color: $color-accent;
   }
 }
 

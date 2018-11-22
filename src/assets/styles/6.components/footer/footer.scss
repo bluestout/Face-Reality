@@ -115,6 +115,13 @@ body {
       appearance: none;
       background-color: transparent;
       color: $color-blumine;
+      @include transition(color);
+
+      &:hover,
+      &:active {
+        color: $color-black;
+        background-color: transparent;
+      }
     }
   }
 }
