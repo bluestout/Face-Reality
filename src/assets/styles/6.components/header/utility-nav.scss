@@ -1,29 +1,52 @@
-&-icon-wrap {
-  appearance: none;
-  margin: 0 10px 0 0;
-  display: inline-block;
-  vertical-align: middle;
-  text-decoration: none;
-  background: transparent;
-  border: none;
-  padding: 0;
-  @extend %no-font-size;
-}
+.utility-nav {
+  &__icon-wrap {
+    appearance: none;
+    margin: 0 10px 0 0;
+    display: inline-block;
+    vertical-align: middle;
+    text-decoration: none;
+    background: transparent;
+    border: none;
+    padding: 0;
+    @extend %no-font-size;
+  }
 
-&-icon {
-  font-size: 20px;
-}
+  &__icon {
+    font-size: 20px;
+  }
 
-&-searchform {
-}
+  &__searchform {
+  }
 
-&-input {
-}
+  &__input {
+  }
 
-&-button {
-  @extend %button;
-  @extend %button--main;
-  display: inline-block;
-  vertical-align: middle;
-  padding: 12px;
+  &__big-button {
+    @extend %button;
+    @extend %button--main;
+    text-align: center;
+    vertical-align: middle;
+    padding: 12px;
+    min-width: 180px;
+  }
+
+  @include media-query("medium-up") {
+    &__big-button {
+      display: inline-block;
+    }
+  }
+
+  @include media-query("medium-down") {
+    text-align: right;
+
+    &__big-button {
+      display: none;
+    }
+  }
+
+  @include media-query("v-small") {
+    &__icon {
+      font-size: 17px;
+    }
+  }
 }

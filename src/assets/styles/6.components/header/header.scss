@@ -4,6 +4,10 @@
   background-color: transparent;
   width: 100%;
 
+  &__primary-nav-wrap {
+    position: relative;
+  }
+
   &.active {
     background-color: $color-white;
   }
@@ -27,46 +31,56 @@
 
   &__secondary-nav {
     text-align: right;
-  }
+    @include clearfix;
 
-  &__secondary-nav-link {
-    @extend %paragraph-black;
-    @include apercu(400);
-    display: inline-block;
-    vertical-align: middle;
-    text-decoration: none;
-    padding: 11px 3px;
-    margin: 0 7px;
-    &:hover,
-    &:active {
-      color: $color-accent;
-    }
-  }
-
-  &__secondary-nav-button {
-    @extend %paragraph-blue;
-    text-decoration: none;
-    padding: 11px 20px;
-    margin: 0 0 0 10px;
-    background-color: $color-white;
-    display: inline-block;
-    vertical-align: middle;
-    &:hover,
-    &:active {
-      color: $color-accent;
-    }
-  }
-
-  &__secondary-nav-icon {
-    font: inherit;
-    vertical-align: middle;
-    display: inline-block;
-    &--left {
-      margin: 0 5px 0 0;
+    &-link {
+      @extend %paragraph-black;
+      @include apercu(400);
+      display: inline-block;
+      vertical-align: middle;
+      text-decoration: none;
+      padding: 11px 3px;
+      margin: 0 7px;
+      &:hover,
+      &:active {
+        color: $color-accent;
+      }
     }
 
-    &--right {
-      margin: 0 0 0 5px;
+    &-button {
+      @extend %paragraph-blue;
+      text-align: center;
+      text-decoration: none;
+      padding: 11px 20px;
+      margin: 0 0 0 10px;
+      background-color: $color-white;
+      display: inline-block;
+      vertical-align: middle;
+      min-width: 180px;
+
+      &:hover,
+      &:active {
+        color: $color-accent;
+      }
+    }
+
+    &-icon {
+      font: inherit;
+      vertical-align: middle;
+      display: inline-block;
+      &--left {
+        margin: 0 5px 0 0;
+      }
+
+      &--right {
+        margin: 0 0 0 5px;
+      }
+    }
+
+    &-logo-link {
+      @extend %no-font-size;
+      display: none;
+      float: left;
     }
   }
 
@@ -75,7 +89,8 @@
   }
 
   &__logo-link {
-    display: inline-block;
+    display: block;
+    @extend %no-font-size;
   }
 
   &__logo {
@@ -83,18 +98,56 @@
     object-fit: scale-down;
   }
 
-  &__primary-nav {
-    @import "./primary-nav";
+  @include media-query("large") {
+    &__secondary-nav {
+      &-logo-link {
+        display: inline-block;
+      }
+    }
+
+    &__logo {
+      display: none;
+    }
   }
 
-  &__utility-nav {
-    @import "./utility-nav";
+  @include media-query("medium-down") {
+    background-color: $color-white;
+
+    &__primary-nav-wrap {
+      padding: 5px 0;
+    }
+
+    &__secondary-nav {
+      display: none;
+    }
+
+    &__logo-wrap {
+      text-align: center;
+    }
+
+    &__logo {
+      max-width: 130px;
+    }
   }
 
-  @include media-query("small-down") {
-    display: none;
+  @include media-query("v-small") {
+    &__logo {
+      max-width: 100%;
+    }
+
+    &__announcement-text {
+      padding: 6px;
+      margin: 0;
+      font-size: 11.5px;
+    }
   }
+
+  @import "./primary-nav";
+
+  @import "./utility-nav";
 }
+
+@import "./responsive-sidemenu";
 
 [data-header-offset] {
   min-height: 104px;
