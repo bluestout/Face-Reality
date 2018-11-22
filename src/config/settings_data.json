@@ -932,6 +932,12 @@
           "time_head": "Delivery Time",
           "carrier_head": "Carrier"
         }
+      },
+      "collection-banner": {
+        "type": "collection-banner",
+        "settings": {
+          "title": "The face reality products are specifically formulated for acneic skin and are guaranteed to not clog your pores."
+        }
       }
     },
     "content_for_index": [
