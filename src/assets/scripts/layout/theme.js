@@ -27,18 +27,19 @@ import "../custom/collection-page";
 import "../custom/product-item";
 import "../custom/ajax-add-to-cart";
 import "../custom/case-study-slick";
+import "../custom/responsive-sidemenu";
 
 import { focusHash, bindInPageLinks } from "@shopify/theme-a11y";
-import { cookiesEnabled } from "@shopify/theme-cart";
+// import { cookiesEnabled } from "@shopify/theme-cart";
 
 // Common a11y fixes
 focusHash();
 bindInPageLinks();
 
 // Apply a specific class to the html element for browser support of cookies.
-if (cookiesEnabled()) {
+/* if (cookiesEnabled()) {
   document.documentElement.className = document.documentElement.className.replace(
     "supports-no-cookies",
     "supports-cookies",
   );
-}
+} */

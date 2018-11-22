@@ -6,6 +6,4 @@ function headerOffset() {
   $offset.css("min-height", headerHeight);
 }
 
-$(document).ready(() => {
-  headerOffset();
-});
+$(document).ready(headerOffset);

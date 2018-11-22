@@ -1,0 +1,114 @@
+<div class="responsive-sidemenu" data-responsive-sidemenu>
+  <div class="responsive-sidemenu__container" data-sidemenu-container>
+    <div class="responsive-sidemenu__close-bar">
+      <div class="row">
+        <div class="col-2"></div>
+        <div class="col">
+          {% if section.settings.phone != "" %}
+            <a
+              href="tel:{{ section.settings.phone }}"
+              class="responsive-sidemenu__phone"
+              rel="nofollow">
+              <span class="icon-phone responsive-sidemenu__close-bar-icon"></span>
+              <span class="responsive-sidemenu__phone-text">
+                {{ section.settings.phone }}
+              </span>
+            </a>
+          {% endif %}
+        </div>
+        <div class="col-2">
+          <button class="responsive-sidemenu__close-button" data-mobile-menu-toggle>
+            <span class="responsive-sidemenu__close-bar-icon icon-close"></span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="responsive-sidemenu__big-buttons">
+      <a href="#" class="responsive-sidemenu__big-button responsive-sidemenu__big-button--solid">Find a nearby clinic</a>
+
+      {% if section.settings.professionals_text != "" %}
+        <a
+          href="{{ section.settings.professionals_url }}"
+          class="responsive-sidemenu__big-button responsive-sidemenu__big-button--alternate"
+          >
+          {{ section.settings.professionals_text }}
+          <span class="icon-arrow-right responsive-sidemenu__big-button-icon"></span>
+        </a>
+      {% endif %}
+    </div>
+
+    <ul class="responsive-sidemenu__navigation">
+      {% assign main = section.settings.menu %}
+      {% for link in linklists[main].links %}
+        {% if link.links != blank %}
+          <li class="responsive-sidemenu__navigation-item">
+            <a href="{{ link.url }}" class="responsive-sidemenu__navigation-link" data-sidemenu-subnav-toggle>
+              {{ link.title }}
+              <span class="icon-angle-down responsive-sidemenu__navigation-icon"></span>
+            </a>
+            <ul class="responsive-sidemenu__navigation-sub-list" data-sidemenu-subnav-item>
+              {% for childlink in link.links %}
+                <li class="responsive-sidemenu__navigation-sub-item">
+                  <a href="{{ childlink.url }}" class="responsive-sidemenu__navigation-sub-link">{{ childlink.title }}</a>
+                </li>
+              {% endfor %}
+            </ul>
+          </li>
+        {% else %}
+          <li class="responsive-sidemenu__navigation-item">
+            <a href="{{ link.url }}" class="responsive-sidemenu__navigation-link">{{ link.title }}</a>
+          </li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+
+    {% assign nav = section.settings.top_inline_nav %}
+    <div class="responsive-sidemenu__secondary">
+      {% if linklists[nav].links.size > 0 %}
+        {% for link in linklists[nav].links %}
+          {% if link.handle contains "blog" %}
+            <a href="{{ link.url }}" target="_blank" class="responsive-sidemenu__secondary-link">{{ link.title }}</a>
+          {% else %}
+            <a href="{{ link.url }}" class="responsive-sidemenu__secondary-link">{{ link.title }}</a>
+          {% endif %}
+        {% endfor %}
+      {% endif %}
+      <a href="#" class="responsive-sidemenu__secondary-link">Search</a>
+    </div>
+
+    <div class="flex-shaper"></div>
+
+    <div class="responsive-sidemenu__account">
+      <div class="row no-gutters">
+        <div class="col">
+          {% if customer %}
+            <a href="/account/logout" class="responsive-sidemenu__account-item responsive-sidemenu__account-item--border">
+              <span class="responsive-sidemenu__account-icon icon-user-minus"></span>
+              <span class="responsive-sidemenu__account-text">Log out</span>
+            </a>
+          {% else %}
+            <a href="/account/register" class="responsive-sidemenu__account-item responsive-sidemenu__account-item--border">
+              <span class="responsive-sidemenu__account-icon icon-user-plus"></span>
+              <span class="responsive-sidemenu__account-text">Sign Up</span>
+            </a>
+          {% endif %}
+        </div>
+        <div class="col">
+          {% if customer %}
+            <a href="/account" class="responsive-sidemenu__account-item">
+              <span class="responsive-sidemenu__account-icon icon-user"></span>
+              <span class="responsive-sidemenu__account-text">My Account</span>
+            </a>
+          {% else %}
+            <a href="/account/login" class="responsive-sidemenu__account-item">
+              <span class="responsive-sidemenu__account-icon icon-user"></span>
+              <span class="responsive-sidemenu__account-text">Sign In</span>
+            </a>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
