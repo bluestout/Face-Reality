@@ -3,8 +3,6 @@
 {% assign p_tags = product-item.tags %}
 {%- assign current_p_i_variant = product.selected_or_first_available_variant -%}
 
-{{ current_p_i_variant | json }}
-
 <div class="product-item {% if modulo == 0 %}product-item--even{% else %}product-item--odd{% endif %}" itemscope itemtype="http://schema.org/Product" data-product-item>
   <meta itemprop="name" content="{{ prod.title }}">
   <meta itemprop="url" content="{{ shop.url }}{{ prod.url }}">

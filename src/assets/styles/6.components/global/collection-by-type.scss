@@ -96,6 +96,7 @@
     display: block;
     margin: auto;
     width: calc(100% - 20px);
+    padding: 0 7%;
   }
 
   &__visible-col-arrow {
@@ -106,7 +107,7 @@
     opacity: 0.25;
     margin: auto;
     width: 20px;
-    text-align: right;
+    text-align: left;
   }
 
   &__hover-col {
@@ -170,6 +171,22 @@
 
   @media (max-width: $grid-max + 1px) {
     overflow: hidden;
+  }
+
+  @include media-query("xl") {
+    &__hover-col-header {
+      .collection-by-type__col-title {
+        font-size: 18px;
+      }
+    }
+  }
+
+  @include media-query("large") {
+    &__hover-col-header {
+      .collection-by-type__col-title {
+        font-size: 18px;
+      }
+    }
   }
 
   @include media-query("medium-down") {

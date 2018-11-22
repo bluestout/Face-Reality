@@ -19,13 +19,11 @@ function blogTemplate(blog, index) {
   if (!img) {
     bg = extractStyleFromFeaturedmedia(blog._embedded["wp:featuredmedia"]);
   }
-  console.log(bg);
-  console.log(img);
 
   const pattern = `
     <div class="blog-stories__story${size}">
       <div class="blog-stories__background"${bg}>${img}</div>
-      <a href="${blog.link}" class="blog-stories__link">
+      <a href="${blog.link}" class="blog-stories__link" target="_blank">
         <span class="blog-stories__post-info">
           <h3 class="blog-stories__post-title">${blog.title.rendered}</h3>
           ${authorElement}

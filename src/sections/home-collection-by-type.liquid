@@ -28,7 +28,7 @@
             </div>
             <a href="{{ collection_block.url }}" class="collection-by-type__hover-col">
               <span class="collection-by-type__hover-col-header">
-                <h3 class="collection-by-type__col-title">{{ collection_block.title }}</h3>
+                <h3 class="collection-by-type__col-title">{{ collection_block.title | truncate: 30 }}</h3>
               </span>
               {% include 'responsive-image' with
                 image: collection_block.image,

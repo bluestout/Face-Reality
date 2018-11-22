@@ -10,7 +10,8 @@
   &__title {
     @include Text(45px, 47px, $color-black);
     @include apercu(700);
-    margin: 0 0 35px;
+    margin: 0 auto 35px;
+    max-width: 500px;
   }
 
   &__link-button {
@@ -59,7 +60,7 @@
     &__title {
       font-size: 30px;
       line-height: 36px;
-      margin: 0 0 20px;
+      margin: 0 auto 20px;
     }
 
     &__link-button {
@@ -75,7 +76,6 @@
       font-size: 21px;
       line-height: 23px;
       max-width: 340px;
-      margin: 0 auto 20px;
     }
   }
 }

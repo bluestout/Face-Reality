@@ -29,11 +29,10 @@
         <div class="site-footer__logo-wrap">
           <a href="/" class="site-footer__logo-link">
             {% if section.settings.logo != blank %}
-              {% capture image_size %}{{ section.settings.logo_max_width }}x{% endcapture %}
               <img
                 class="site-footer__logo"
-                src="{{ section.settings.logo | img_url: image_size }}"
-                srcset="{{ section.settings.logo | img_url: image_size }} 1x, {{ section.settings.logo | img_url: image_size, scale: 2 }} 2x"
+                src="{{ section.settings.logo | img_url: '180x' }}"
+                srcset="{{ section.settings.logo | img_url: '180x' }} 1x, {{ section.settings.logo | img_url: '180x', scale: 2 }} 2x"
                 alt="{{ section.settings.logo.alt | default: shop.name }}"
               />
             {% else %}

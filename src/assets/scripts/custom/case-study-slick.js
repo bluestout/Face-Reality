@@ -4,7 +4,7 @@ import "slick-carousel";
 function caseStudies() {
   const $caseStudies = $("[data-case-studies-slider]");
   $caseStudies.slick({
-    swipeToSlide: true,
+    swipe: false,
     arrows: true,
     dots: true,
     slidesToShow: 1,
