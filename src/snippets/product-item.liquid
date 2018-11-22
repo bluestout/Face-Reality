@@ -49,7 +49,7 @@
     </s>
   </div>
 
-  <form class="product-item__form" action="/cart/add" method="post" enctype="multipart/form-data">
+  <form class="product-item__form d-none d-md-block" action="/cart/add" method="post" enctype="multipart/form-data">
     <select name="id" class="no-js" data-product-item-select>
       {% for variant in product-item.variants %}
         <option
@@ -104,6 +104,11 @@
         </span>
     </button>
   </form>
+
+  <div class="text-center d-block d-md-none">
+    <a href="{{ product.url }}" class="product-item__form-submit ">Learn more</a>
+  </div>
+
 
   {% unless product == empty %}
     <script type="application/json" data-product-item-json>

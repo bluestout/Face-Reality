@@ -34,8 +34,8 @@ $color-pancho: #eecea8;
 $color-sprout: #bfd8a7;
 
 // slate variables
-$color-disabled: rgba($color-black, 0.7);
-$color-disabled-border: rgba($color-black, 0.7);
+$color-disabled: $color-dove-gray;
+$color-disabled-border: $color-dusty-gray;
 $color-error: $color-red;
 $color-error-bg: rgba($color-red, 0.3);
 $color-success: $color-blue;
@@ -50,14 +50,6 @@ $color-body-text: $color-black;
 // Background colors
 $color-body: $color-white;
 
-// Placeholders
-
 // Other colors
-$color-accent: $color-calico;
+$color-accent: $color-fountain-blue;
 $color-border: $color-blumine;
-
-// $color-accent: var(--color-accent);
-// $color-border: var(--color-border);
-
-// $color-body: var(--color-main-background);
-// $color-body-text: var(--color-body-text);

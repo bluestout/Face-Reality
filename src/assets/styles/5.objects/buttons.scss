@@ -52,7 +52,8 @@
     &:disabled {
       cursor: not-allowed;
       background-color: transparent;
-      color: $color-blumine;
+      color: $color-disabled;
+      border-color: $color-disabled;
     }
   }
 
@@ -101,7 +102,7 @@
 
     &:disabled {
       cursor: not-allowed;
-      background-color: $color-blumine;
+      background-color: $color-disabled-border;
     }
   }
 }

@@ -1,36 +1,45 @@
-<div class="authorization-filter">
-  <div data-filter-set>
-    {% comment %} authorization {% endcomment %}
-    <div class="authorization-filter__wrap">
-      <input
-        id="authorization-filter-all"
-        class="authorization-filter__radio"
-        type="radio"
-        name="product-type"
-        value="authorization-all"
-        checked="checked"
-      />
-      <label for="authorization-filter-all" class="authorization-filter__label">All</label>
-    </div>
-    <div class="authorization-filter__wrap">
-      <input
-        id="authorization-filter-required"
-        class="authorization-filter__radio"
-        type="radio"
-        name="product-type"
-        value="authorization-required"
-      />
-      <label for="authorization-filter-required" class="authorization-filter__label">Needs Authorization</label>
-    </div>
-    <div class="authorization-filter__wrap">
-      <input
-        id="authorization-filter-not-required"
-        class="authorization-filter__radio"
-        type="radio"
-        name="product-type"
-        value="no-authorization"
-      />
-      <label for="authorization-filter-not-required" class="authorization-filter__label">No Authorization</label>
+<div class="authorization-filter__container" data-authorization-filter-container>
+  <div class="authorization-filter__responsive-toggle d-block d-md-none">
+    <button type="button" class="authorization-filter__responsive-button" data-responsive-filter-toggle>
+      <span class="authorization-filter__responsive-text">Filter products</span>
+      <span class="authorization-filter__responsive-icon icon-params"></span>
+    </button>
+  </div>
+
+  <div class="authorization-filter" data-authorization-filter>
+    <div data-filter-set>
+      {% comment %} TODO ? authorization {% endcomment %}
+      <div class="authorization-filter__wrap">
+        <input
+          id="authorization-filter-all"
+          class="authorization-filter__radio"
+          type="radio"
+          name="product-type"
+          value="authorization-all"
+          checked="checked"
+        />
+        <label for="authorization-filter-all" class="authorization-filter__label">All</label>
+      </div>
+      <div class="authorization-filter__wrap">
+        <input
+          id="authorization-filter-required"
+          class="authorization-filter__radio"
+          type="radio"
+          name="product-type"
+          value="authorization-required"
+        />
+        <label for="authorization-filter-required" class="authorization-filter__label">Needs Authorization</label>
+      </div>
+      <div class="authorization-filter__wrap">
+        <input
+          id="authorization-filter-not-required"
+          class="authorization-filter__radio"
+          type="radio"
+          name="product-type"
+          value="no-authorization"
+        />
+        <label for="authorization-filter-not-required" class="authorization-filter__label">No Authorization</label>
+      </div>
     </div>
   </div>
 </div>

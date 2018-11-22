@@ -2,6 +2,30 @@
   text-align: center;
   margin: 0 0 30px;
 
+  &__responsive-toggle {
+    text-align: center;
+    margin: 0 0 10px;
+  }
+
+  &__responsive-button {
+    appearance: none;
+    border: none;
+    background: transparent;
+    padding: 2px 5px;
+  }
+
+  &__responsive-text {
+    @include apercu(700);
+    @include Text(13px, 16px, $color-fountain-blue);
+  }
+
+  &__responsive-icon {
+    font-size: 16px;
+    line-height: 16px;
+    color: $color-fountain-blue;
+    margin: 0 0 0 10px;
+  }
+
   &__wrap {
     display: inline-block;
     &:not(:last-of-type) {
@@ -23,5 +47,18 @@
   &__label {
     display: inline-block;
     vertical-align: middle;
+    margin: 0 0 0 10px;
+  }
+
+  @include media-query("small-down") {
+    text-align: left;
+    margin: 0;
+
+    &__wrap {
+      display: block;
+      &:not(:last-of-type) {
+        margin: 0 0 20px 0;
+      }
+    }
   }
 }

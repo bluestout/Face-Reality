@@ -1,127 +1,138 @@
-<div class="product-filter" data-accordion-parent=false>
-  <h2 class="product-filter__main-title">Filter products</h2>
+<div class="product-filter__container" data-product-filter-container>
 
-  {% assign types = collection.all_types %}
-  {% assign c_tags = collection.tags %}
-  {% assign skin_tags_s = "" %}
-  {% assign use_tags_s = "" %}
-  {% for c_tag in c_tags %}
-    {% if c_tag contains "skin-" %}
-      {% assign skin_tags_s = skin_tags_s | append: c_tag | append: '::'  %}
-    {% elsif c_tag contains "use-" %}
-      {% assign use_tags_s = use_tags_s | append: c_tag | append: '::'  %}
-    {% endif %}
-  {% endfor %}
+  <div class="product-filter" data-accordion-parent=false>
+    <h2 class="product-filter__main-title">
+      Filter products
+      <button type="button" class="product-filter__responsive-toggle d-md-none" data-responsive-filter-toggle>
+        <span class="icon-close"></span>
+      </button>
+    </h2>
 
-  {% assign skin_tags_a = skin_tags_s | split: '::' %}
-  {% assign use_tags_a = use_tags_s | split: '::' %}
+    <div class="product-filter__responsive-content d-md-none" data-product-filter-responsive-content>
+      <button type="button" class="product-filter__responsive-reset" data-responsive-filter-reset>Clear filters</button>
+    </div>
 
-  {% if skin_tags_a.size > 1 %}
-    <div class="product-filter__filter-wrap" data-filter-set>
-      <div class="product-filter__title" data-accordion-button=true>
-        <span class="product-filter__icon icon-add"></span>
-        <span class="product-filter__title-text">By skin type</span>
-      </div>
-      <div class="product-filter__content skin-all" data-accordion-content>
-        <ul class="product-filter__list">
-          <li class="product-filter__item">
-            <input
-              id="skin-f-all"
-              class="product-filter__radio"
-              type="radio"
-              name="skin-f-tag"
-              value="skin-all"
-              checked="checked"
-            />
-            <label for="skin-f-all" class="product-filter__label">All skin types</label>
-          </li>
-          {% for skin_tag in skin_tags_a %}
+    {% assign types = collection.all_types %}
+    {% assign c_tags = collection.tags %}
+    {% assign skin_tags_s = "" %}
+    {% assign use_tags_s = "" %}
+    {% for c_tag in c_tags %}
+      {% if c_tag contains "skin-" %}
+        {% assign skin_tags_s = skin_tags_s | append: c_tag | append: '::'  %}
+      {% elsif c_tag contains "use-" %}
+        {% assign use_tags_s = use_tags_s | append: c_tag | append: '::'  %}
+      {% endif %}
+    {% endfor %}
+
+    {% assign skin_tags_a = skin_tags_s | split: '::' %}
+    {% assign use_tags_a = use_tags_s | split: '::' %}
+
+    {% if skin_tags_a.size > 1 %}
+      <div class="product-filter__filter-wrap" data-filter-set>
+        <div class="product-filter__title" data-accordion-button=true>
+          <span class="product-filter__icon icon-add"></span>
+          <span class="product-filter__title-text">By skin type</span>
+        </div>
+        <div class="product-filter__content skin-all" data-accordion-content>
+          <ul class="product-filter__list">
             <li class="product-filter__item">
               <input
-                id="skin-f-{{ skin_tag | handleize }}"
+                id="skin-f-all"
                 class="product-filter__radio"
                 type="radio"
                 name="skin-f-tag"
-                value="{{ skin_tag | handleize }}"
+                value="skin-all"
+                checked="checked"
               />
-              <label for="skin-f-{{ skin_tag | handleize }}" class="product-filter__label">{{ skin_tag | remove: 'skin-' }}</label>
+              <label for="skin-f-all" class="product-filter__label">All skin types</label>
             </li>
-          {% endfor %}
-        </ul>
+            {% for skin_tag in skin_tags_a %}
+              <li class="product-filter__item">
+                <input
+                  id="skin-f-{{ skin_tag | handleize }}"
+                  class="product-filter__radio"
+                  type="radio"
+                  name="skin-f-tag"
+                  value="{{ skin_tag | handleize }}"
+                />
+                <label for="skin-f-{{ skin_tag | handleize }}" class="product-filter__label">{{ skin_tag | remove: 'skin-' }}</label>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
       </div>
-    </div>
-  {% endif %}
+    {% endif %}
 
-  {% if types.size > 1 %}
-    <div class="product-filter__filter-wrap type-all" data-filter-set>
-      <div class="product-filter__title" data-accordion-button=true>
-        <span class="product-filter__icon icon-add"></span>
-        <span class="product-filter__title-text">By product type</span>
-      </div>
-      <div class="product-filter__content" data-accordion-content>
-        <ul class="product-filter__list">
-          <li class="product-filter__item">
-            <input
-              id="type-f-all"
-              class="product-filter__radio"
-              type="radio"
-              name="product-f-type"
-              value="type-all"
-              checked="checked"
-            />
-            <label for="type-f-all" class="product-filter__label">All product types</label>
-          </li>
-          {% for type in types %}
+    {% if types.size > 1 %}
+      <div class="product-filter__filter-wrap type-all" data-filter-set>
+        <div class="product-filter__title" data-accordion-button=true>
+          <span class="product-filter__icon icon-add"></span>
+          <span class="product-filter__title-text">By product type</span>
+        </div>
+        <div class="product-filter__content" data-accordion-content>
+          <ul class="product-filter__list">
             <li class="product-filter__item">
               <input
-                id="type-f-{{ type | handleize }}"
+                id="type-f-all"
                 class="product-filter__radio"
                 type="radio"
                 name="product-f-type"
-                value="type-{{ type | handleize }}"
+                value="type-all"
+                checked="checked"
               />
-              <label for="type-f-{{ type | handleize }}" class="product-filter__label">{{ type }}</label>
+              <label for="type-f-all" class="product-filter__label">All product types</label>
             </li>
-          {% endfor %}
-        </ul>
+            {% for type in types %}
+              <li class="product-filter__item">
+                <input
+                  id="type-f-{{ type | handleize }}"
+                  class="product-filter__radio"
+                  type="radio"
+                  name="product-f-type"
+                  value="type-{{ type | handleize }}"
+                />
+                <label for="type-f-{{ type | handleize }}" class="product-filter__label">{{ type }}</label>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
       </div>
-    </div>
-  {% endif %}
+    {% endif %}
 
-  {% if use_tags_a.size > 1 %}
-    <div class="product-filter__filter-wrap usecase-all" data-filter-set>
-      <div class="product-filter__title" data-accordion-button=true>
-        <span class="product-filter__icon icon-add"></span>
-        <span class="product-filter__title-text">By usage</span>
-      </div>
-      <div class="product-filter__content" data-accordion-content>
-        <ul class="product-filter__list">
-          <li class="product-filter__item">
-            <input
-              id="usecase-f-all"
-              class="product-filter__radio"
-              type="radio"
-              name="usecase-f-tag"
-              value="usecase-all"
-              checked="checked"
-            />
-            <label for="usecase-f-all" class="product-filter__label">All use cases</label>
-          </li>
-          {% for use_tag in use_tags_a %}
+    {% if use_tags_a.size > 1 %}
+      <div class="product-filter__filter-wrap usecase-all" data-filter-set>
+        <div class="product-filter__title" data-accordion-button=true>
+          <span class="product-filter__icon icon-add"></span>
+          <span class="product-filter__title-text">By usage</span>
+        </div>
+        <div class="product-filter__content" data-accordion-content>
+          <ul class="product-filter__list">
             <li class="product-filter__item">
               <input
-                id="usecase-f-{{ use_tag | handleize }}"
+                id="usecase-f-all"
                 class="product-filter__radio"
                 type="radio"
                 name="usecase-f-tag"
-                value="{{ use_tag | handleize }}"
+                value="usecase-all"
+                checked="checked"
               />
-              <label for="usecase-f-{{ use_tag | handleize }}" class="product-filter__label">{{ use_tag | remove: 'use-' }}</label>
+              <label for="usecase-f-all" class="product-filter__label">All use cases</label>
             </li>
-          {% endfor %}
-        </ul>
+            {% for use_tag in use_tags_a %}
+              <li class="product-filter__item">
+                <input
+                  id="usecase-f-{{ use_tag | handleize }}"
+                  class="product-filter__radio"
+                  type="radio"
+                  name="usecase-f-tag"
+                  value="{{ use_tag | handleize }}"
+                />
+                <label for="usecase-f-{{ use_tag | handleize }}" class="product-filter__label">{{ use_tag | remove: 'use-' }}</label>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
       </div>
-    </div>
-  {% endif %}
-
+    {% endif %}
+  </div>
 </div>

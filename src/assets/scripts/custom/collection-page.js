@@ -4,6 +4,11 @@ const filter = {
   item: "[data-collection-product-column]",
   authorization: "[data-authorization-filter]",
   set: "[data-filter-set]",
+  authFilterBox: "[data-authorization-filter-container]",
+  prodFilterBox: "[data-product-filter-container]",
+  responsiveToggle: "[data-responsive-filter-toggle]",
+  responsiveContent: "[data-product-filter-responsive-content]",
+  reset: "[data-responsive-filter-reset]",
 };
 
 const page = {
@@ -12,8 +17,6 @@ const page = {
   content: "[data-paginate-collection-content]",
   product: "[data-collection-product-column]",
 };
-
-$(document).on("click", `${filter.set} input`, toggleFilter);
 
 // remove falsy && empty values from array
 function cleanArray(actual) {
@@ -98,4 +101,57 @@ function loadMore(event) {
   });
 }
 
+function resetFilters() {
+  $(filter.set).each(function() {
+    $(this)
+      .removeClass()
+      .addClass("product-filter__filter-wrap")
+      .find("input")
+      .first()
+      .prop("checked", true);
+  });
+  runFilter();
+}
+
+function responsiveToggle() {
+  if (!$(".responsive-sidemenu").hasClass("active")) {
+    $(filter.prodFilterBox).toggleClass("active");
+    $("html").toggleClass("no-scroll");
+  }
+}
+
+// move the authorization filter depending on whether we're in responsive or desktop mode
+function MoveAuthorizationFilter() {
+  if (
+    $(window).width() > 767 &&
+    $(filter.authorization, filter.prodFilterBox).length > 0
+  ) {
+    $(filter.authorization)
+      .detach()
+      .appendTo($(filter.authFilterBox));
+  } else if (
+    $(window).width() <= 768 &&
+    $(filter.authorization, filter.authFilterBox).length > 0
+  ) {
+    $(filter.authorization)
+      .detach()
+      .appendTo($(filter.responsiveContent));
+  }
+}
+
+function limitResponsiveFilterHeight() {
+  const height = $(window).height();
+  $(filter.prodFilterBox).css("max-height", height);
+}
+
 $(document).on("click", page.button, loadMore);
+
+$(document).on("click", filter.responsiveToggle, responsiveToggle);
+
+$(document).on("click", filter.reset, resetFilters);
+
+$(document).on("click", `${filter.set} input`, toggleFilter);
+
+$(window).on("load resize", MoveAuthorizationFilter);
+
+$(window).on("load resize", limitResponsiveFilterHeight);

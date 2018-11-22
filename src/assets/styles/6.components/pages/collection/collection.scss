@@ -1,10 +1,4 @@
 .collection-page {
-  .collection-banner {
-    padding: 135px 0;
-    @include backgroundImage;
-    margin: 0 0 30px;
-  }
-
   .collection-banner__subtitle {
     @include apercu(700);
     @include Text(28px, 30px, $color-white);
@@ -13,8 +7,24 @@
     margin: 0 auto;
   }
 
+  .collection-banner {
+    padding: 135px 0;
+    margin: 0 0 30px;
+
+    &--bg {
+      @include backgroundImage;
+    }
+
+    &--default {
+      background-color: $color-aqua-haze;
+      .collection-banner__subtitle {
+        color: $color-black;
+      }
+    }
+  }
+
   .collection-content {
-    margin-bottom: 180px;
+    margin-bottom: 80px;
   }
 
   .collection-products {
@@ -41,6 +51,43 @@
       padding: 20px;
       font-size: 16px;
       line-height: 22px;
+    }
+  }
+
+  @include media-query("medium-down") {
+    .collection-banner {
+      padding: 80px 0;
+      margin: 0 0 30px;
+    }
+
+    .collection-banner__subtitle {
+      font-size: 20px;
+      line-height: 24px;
+    }
+
+    .collection-content {
+      margin-bottom: 0;
+    }
+
+    .collection-products {
+      &__load-more {
+        padding: 12px;
+        display: block;
+        max-width: 180px;
+        margin: 0 auto;
+      }
+
+      &__no-products {
+        padding: 10px;
+        font-size: 14px;
+        line-height: 20px;
+      }
+    }
+  }
+
+  @include media-query("small-down") {
+    .collection-banner {
+      margin: 0 0 10px;
     }
   }
 

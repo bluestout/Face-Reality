@@ -1,0 +1,69 @@
+{% assign c_found = false %}
+{% for block in section.blocks %}
+  {% assign c = collections[block.settings.collection] %}
+  {% if c.handle == collection.handle %}
+    {% assign c_found = true %}
+    {% if block.settings.title %}
+      {% assign b_title = block.settings.title %}
+    {% else %}
+      {% assign b_title = collection.title %}
+    {% endif %}
+
+    {% if block.settings.background %}
+      <div class="collection-banner collection-banner--bg lazyload" data-bgset="{% include 'responsive-bg-image', image: block.settings.background %}">
+    {% else %}
+      <div class="collection-banner">
+        <div class="container">
+          <h2 class="collection-banner__subtitle">{{ b_title }}</h2>
+        </div>
+      </div>
+    {% endif %}
+  {% endif %}
+{% endfor %}
+
+{% if c_found == false %}
+  <div class="collection-banner collection-banner--default">
+    <div class="container">
+      <h2 class="collection-banner__subtitle">{{ section.settings.title }}</h2>
+    </div>
+  </div>
+{% endif %}
+
+
+
+{% schema %}
+  {
+    "name": "Collections Banner",
+    "settings": [
+      {
+        "type": "textarea",
+        "id": "title",
+        "label": "Title"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "block",
+        "name": "Block",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "background",
+            "label": "Background",
+            "info": "1920x400"
+          },
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Title"
+          },
+          {
+            "type": "collection",
+            "id": "collection",
+            "label": "Collection"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

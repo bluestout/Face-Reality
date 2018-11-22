@@ -1,25 +1,22 @@
 <div class="collection-page">
-  <div class="collection-banner" style="background-image:url('http://via.placeholder.com/1920x400')">
-    <div class="container">
-      <h2 class="collection-banner__subtitle">The face reality products are specifically formulated for acneic skin and are guaranteed to not clog your pores.</h2>
-    </div>
-  </div>
+
+  {% section 'collection-banner' %}
 
   <div class="collection-content max-wrap">
     <div class="row no-gutters">
-      <div class="col-lg-3">
+      <div class="col-md-3">
       </div>
-      <div class="col-lg-9">
+      <div class="col-md-9">
         {% include 'authorization-filter' %}
       </div>
     </div>
     <div class="row no-gutters">
-      <div class="col-lg-3">
+      <div class="col-md-3">
 
         {% include 'product-filter' %}
 
       </div>
-      <div class="col-lg-9">
+      <div class="col-md-9">
         <div class="collection-products">
           {% if collection.products.size > 0 %}
             {% paginate collection.products by 9 %}
@@ -44,7 +41,7 @@
                   {% assign type_tag = "type-" | append: product.type | handleize %}
                   {% if condition %}
                   {% endif %}
-                  <div class="col-lg-4 col-md-6 {{ all_tags }} {{ type_tag }} {{ p_filtered_tag_classes }}" data-collection-product-column>
+                  <div class="col-lg-4 col-6 {{ all_tags }} {{ type_tag }} {{ p_filtered_tag_classes }}" data-collection-product-column>
                     {% include 'product-item' with product, index: forloop.index %}
                   </div>
                 {% endfor %}
