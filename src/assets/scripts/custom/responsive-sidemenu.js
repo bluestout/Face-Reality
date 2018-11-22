@@ -6,11 +6,13 @@ const el = {
   menuToggle: "[data-mobile-menu-toggle]",
   subNavToggle: "[data-sidemenu-subnav-toggle]",
   subNavItem: "[data-sidemenu-subnav-item]",
+  header: "[data-section-id='header']",
 };
 
 function menuToggle(event) {
   event.preventDefault();
   $(el.sidemenu).toggleClass("active");
+  $("html").toggleClass("no-scroll");
 }
 
 function subNavToggle(event) {
@@ -21,5 +23,13 @@ function subNavToggle(event) {
     .slideToggle();
 }
 
+function limitSidemenuHeight() {
+  const height = $(window).height();
+  $(el.sidemenu).css("max-height", height);
+}
+
 $(document).on("click", el.menuToggle, menuToggle);
+
 $(document).on("click", el.subNavToggle, subNavToggle);
+
+$(window).on("load resize", limitSidemenuHeight);

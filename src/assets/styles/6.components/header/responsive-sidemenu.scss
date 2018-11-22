@@ -1,6 +1,6 @@
 .responsive-sidemenu {
   position: fixed;
-  z-index: 3;
+  z-index: 4;
   top: 0;
   left: -360px;
   width: 360px;
@@ -226,6 +226,9 @@
     }
   }
 
-  @include media-query("v-small") {
+  @media (max-width: 400px) {
+    left: -100%;
+    width: 100%;
+    padding: 15px;
   }
 }
