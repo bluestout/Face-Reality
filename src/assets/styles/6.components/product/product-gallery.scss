@@ -2,7 +2,6 @@
   margin: 0 0 105px;
 
   &__image-wrapper {
-    background-color: rgba($color-fountain-blue, 0.08);
   }
 
   &__image {
@@ -18,5 +17,30 @@
   }
 
   &__thumbnail {
+  }
+
+  @include media-query("medium-down") {
+    margin: 0 0 60px;
+    background-color: rgba($color-fountain-blue, 0.08);
+
+    &__image-wrapper {
+      max-height: 400px;
+    }
+
+    &__image {
+      object-fit: scale-down;
+    }
+
+    &__thumbnails {
+    }
+
+    &__item {
+    }
+
+    &__thumbnail-link {
+    }
+
+    &__thumbnail {
+    }
   }
 }

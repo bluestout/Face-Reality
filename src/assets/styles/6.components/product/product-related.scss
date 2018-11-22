@@ -1,6 +1,6 @@
 .product-related {
   position: relative;
-  margin: 0 0 120px;
+  margin: 0 0 20px;
 
   &__title {
     @extend %title-small;
@@ -86,7 +86,7 @@
       padding: 10px 5px;
 
       &::after {
-        content: '';
+        content: "";
         display: block;
         background-color: $color-blumine;
         width: 15px;
