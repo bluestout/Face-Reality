@@ -33,10 +33,10 @@ function addToCartFail(jqXHR, textStatus, errorThrown) {
 }
 
 function addToCartSuccess() {
-  shopifyCart.getCart().done((json) => {
+  /* shopifyCart.getCart().done((json) => {
     returnCartIfNotEmpty(json);
     quickCartOpen(true);
-  });
+  }); */
 }
 
 // update the quick cart
@@ -173,8 +173,8 @@ $(document).on("click", el.qCartButton, quickCartToggle);
 
 $(document).on("click", el.add, ajaxAddToCart);
 
-$(document).ready(() => {
+/* $(document).ready(() => {
   shopifyCart.getCart().done((json) => {
     returnCartIfNotEmpty(json);
   });
-});
+}); */
