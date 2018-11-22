@@ -16,7 +16,10 @@
 @import "./cart/cart";
 @import "./collection/collection";
 
-@import "./404";
-@import "./default-page";
-@import "./clinic-order";
-@import "./challenge";
+.main-content {
+  @import "./404";
+  @import "./default-page";
+  @import "./clinic-order";
+  @import "./challenge";
+  @import "./list-collections";
+}

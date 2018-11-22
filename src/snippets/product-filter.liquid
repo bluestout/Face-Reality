@@ -16,7 +16,7 @@
   {% assign skin_tags_a = skin_tags_s | split: '::' %}
   {% assign use_tags_a = use_tags_s | split: '::' %}
 
-  {% if skin_tags_a.size > 0 %}
+  {% if skin_tags_a.size > 1 %}
     <div class="product-filter__filter-wrap" data-filter-set>
       <div class="product-filter__title" data-accordion-button=true>
         <span class="product-filter__icon icon-add"></span>
@@ -52,7 +52,7 @@
     </div>
   {% endif %}
 
-  {% if types.size > 0 %}
+  {% if types.size > 1 %}
     <div class="product-filter__filter-wrap type-all" data-filter-set>
       <div class="product-filter__title" data-accordion-button=true>
         <span class="product-filter__icon icon-add"></span>
@@ -88,7 +88,7 @@
     </div>
   {% endif %}
 
-  {% if use_tags_a.size > 0 %}
+  {% if use_tags_a.size > 1 %}
     <div class="product-filter__filter-wrap usecase-all" data-filter-set>
       <div class="product-filter__title" data-accordion-button=true>
         <span class="product-filter__icon icon-add"></span>
