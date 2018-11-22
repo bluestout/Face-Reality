@@ -49,6 +49,12 @@
         top: calc(100% + 20px);
       }
     }
+
+    &.active {
+      .primary-nav__icon {
+        transform: rotate(180deg);
+      }
+    }
   }
 
   &__icon {

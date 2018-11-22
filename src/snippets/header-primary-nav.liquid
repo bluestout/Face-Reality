@@ -3,11 +3,11 @@
     {% for link in linklists[section.settings.menu].links %}
       {% if link.links != blank %}
         <li class="primary-nav__item">
-          <a href="{{ link.url }}" class="primary-nav__link">
+          <a href="{{ link.url }}" class="primary-nav__link" data-primary-nav-link>
             {{ link.title }}
             <span class="icon-angle-down primary-nav__icon"></span>
           </a>
-          <ul class="primary-nav__sub-list">
+          <ul class="primary-nav__sub-list" data-primary-nav-sublist>
             {% for childlink in link.links %}
               <li class="primary-nav__sub-item">
                 <a href="{{ childlink.url }}" class="primary-nav__sub-link">{{ childlink.title }}</a>
