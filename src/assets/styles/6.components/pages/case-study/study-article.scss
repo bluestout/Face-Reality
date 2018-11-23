@@ -1,7 +1,7 @@
 .study-article {
   background-color: $color-white;
   padding: 30px 0 0;
-  margin:  0 0 100px;
+  margin: 0 0 100px;
 
   &__utilities {
     position: relative;
@@ -73,9 +73,8 @@
     @include Text(22px, 27px, $color-black);
   }
 
-
   &__content {
-    margin: 0 0 100px;
+    margin: 0 0 80px;
 
     p,
     li {
@@ -92,7 +91,7 @@
     }
 
     ul li::before {
-      content: '—';
+      content: "—";
       padding: 0 26.5px 0 0;
     }
 
@@ -142,6 +141,12 @@
         line-height: 30px;
         color: $color-calypso;
       }
+    }
+  }
+
+  @media print {
+    &__utilities {
+      display: none !important;
     }
   }
 }

@@ -1,10 +1,11 @@
 .case-study {
   background-color: $color-aqua-haze;
   padding: 30px 0 120px;
+  margin: 30px 0 0;
 
   .study-title {
     @include apercu(700);
-    @include Text(25px,29px,$color-black);
+    @include Text(25px, 29px, $color-black);
     margin: 0 0 15px;
     text-align: center;
   }
@@ -27,12 +28,12 @@
     }
   }
 
-
   .study-backlink {
     @include apercu;
-    @include Text(12px,18px,$color-calypso);
+    @include Text(12px, 18px, $color-calypso);
     text-decoration: none;
   }
+
   .study-backlink-icon {
     margin: 0 15px 0 0;
     font-size: 14px;
@@ -41,17 +42,32 @@
     vertical-align: middle;
   }
 
-  @import "./study-case-list";
-  @import "./study-article";
-  @import "./study-sidebar";
-
   .info-cta {
     &__title {
       text-transform: none;
     }
   }
-}
 
-.study-bottom-margin {
-  margin: 0 0 100px;
+  @import "./study-case-list";
+  @import "./study-article";
+  @import "./study-sidebar";
+
+  @media print {
+    .study-backlink {
+      display: none !important;
+    }
+  }
+
+  @include media-query("medium-down") {
+    padding: 20px 0 60px;
+    margin: 20px 0 0;
+
+    .study-title {
+      margin: 0 0 15px;
+    }
+
+    .breadcrumbs {
+      margin: 0 0 10px;
+    }
+  }
 }

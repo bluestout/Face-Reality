@@ -145,6 +145,10 @@
   @import "./primary-nav";
 
   @import "./utility-nav";
+
+  @media print {
+    display: none !important;
+  }
 }
 
 @import "./responsive-sidemenu";

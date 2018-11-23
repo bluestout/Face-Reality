@@ -28,4 +28,10 @@
     border: 10px solid transparent;
     border-left: 16px solid $color-white;
   }
+
+  @media print {
+    &-wrapper {
+      display: none !important;
+    }
+  }
 }
