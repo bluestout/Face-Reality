@@ -21,7 +21,7 @@ function footerNav() {
     });
   } else {
     $(el.link).removeClass("active");
-    $(el.list).slideUp();
+    $(el.list).slideDown();
   }
 }
 

@@ -4,4 +4,33 @@
   &__items {
     padding: 0 15px;
   }
+
+  &__more-wrap {
+    text-align: center;
+  }
+
+  &__more-button {
+    @include apercu(700);
+    @include Text(12px, 12px, rgba($color-blumine, 0.5), 3px);
+    text-transform: uppercase;
+    padding: 10px;
+    margin: 0 auto 10px;
+    background-color: transparent;
+    border: 1px solid rgba($color-blumine, 0.2);
+    max-width: 300px;
+    width: 100%;
+    display: block;
+  }
+
+  @include media-query("small-down") {
+    margin: 0 0 40px;
+
+    &__items {
+      padding: 0 10px;
+    }
+
+    [data-case-studies-row="false"] {
+      display: none;
+    }
+  }
 }

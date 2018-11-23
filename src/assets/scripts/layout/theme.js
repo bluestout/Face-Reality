@@ -29,6 +29,7 @@ import "../custom/ajax-add-to-cart";
 import "../custom/case-study-slick";
 import "../custom/responsive-sidemenu";
 import "../custom/footer";
+import "../custom/case-studies";
 
 import { focusHash, bindInPageLinks } from "@shopify/theme-a11y";
 // import { cookiesEnabled } from "@shopify/theme-cart";

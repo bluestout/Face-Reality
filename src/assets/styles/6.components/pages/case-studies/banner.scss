@@ -15,5 +15,27 @@
   &__subtitle {
     @include apercu;
     @include Text(20px, 28px, $color-black);
+    margin: 0;
+  }
+
+  @include media-query("medium-down") {
+    text-align: center;
+    margin: 0 0 40px;
+
+    .breadcrumbs {
+      padding: 20px 0;
+    }
+
+    &__title {
+      font-size: 26px;
+      line-height: 32px;
+      margin: 0 0 10px;
+    }
+
+    &__subtitle {
+      font-size: 16px;
+      line-height: 22px;
+      margin: 0;
+    }
   }
 }

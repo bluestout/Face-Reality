@@ -1,7 +1,7 @@
 .info-cta {
   @include backgroundImage;
   background-color: $color-dove-gray;
-  padding: 165px 15px;
+  padding: 165px 30px;
 
   &__title {
     @include aller(700);
@@ -52,6 +52,37 @@
     &:hover,
     &:active {
       color: $color-accent;
+    }
+  }
+
+  @include media-query("medium-down") {
+    padding: 90px 30px;
+
+    &__title {
+      font-size: 24px;
+      line-height: 30px;
+      text-transform: none;
+      margin: 0 auto 20px;
+      max-width: 460px;
+    }
+
+    &__button-wrap {
+      text-align: center;
+      margin: 0 0 20px;
+    }
+
+    &__button {
+      padding: 12px 30px;
+    }
+  }
+
+  @include media-query("v-small") {
+    padding: 90px 30px;
+
+    &__title {
+      font-size: 16px;
+      line-height: 24px;
+      max-width: 300px;
     }
   }
 }

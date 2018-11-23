@@ -14,13 +14,24 @@
 
   <div class="studies-articles">
     <div class="studies-articles__items">
-      <div class="row">
-        {% for link in linklists['case-studies'].links %}
-          <div class="col-lg-4 col-sm-6 col-12 flex">
+      {% assign first = true %}
+      {% for link in linklists['case-studies'].links %}
+        {% assign modulo = forloop.index | modulo: 3 %}
+        {% if modulo == 1 %}
+          <div class="row" data-case-studies-row={{ first }}>
+          {% assign first = false %}
+        {% endif %}
+          <div class="col-lg-4 col-12 flex">
             {% include 'case-study-item' with link %}
           </div>
-        {% endfor %}
-      </div>
+        {% if modulo == 0 or forloop.last %}
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+
+    <div class="studies-articles__more-wrap d-md-none ">
+      <button type="button" class="studies-articles__more-button" data-case-studies-load-more>Show more</button>
     </div>
   </div>
 

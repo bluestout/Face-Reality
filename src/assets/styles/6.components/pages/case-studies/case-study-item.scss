@@ -1,7 +1,8 @@
 .case-study-item {
   background-color: $color-white;
   padding: 0 0 45px;
-  margin: 0 0 30px;
+  margin: 0 auto 30px;
+  max-width: 500px;
   width: 100%;
 
   &__comparison {
@@ -30,7 +31,8 @@
     @include apercu;
     @include Text(14px, 18px, $color-black);
 
-    p, li {
+    p,
+    li {
       @include Text(14px, 18px, $color-black);
     }
 
@@ -44,16 +46,19 @@
     }
 
     ul li::before {
-      content: '—';
+      content: "—";
       padding: 0 15px 0 0;
     }
-
   }
 
   &__link {
+    @extend %no-font-size;
     text-align: center;
+    align-self: center;
+    display: block;
     text-decoration: none;
-    margin: 0 0 55px;
+    padding: 3px 20px;
+    margin: 0;
     @include transition(background-color);
 
     &:hover,
@@ -77,5 +82,53 @@
     margin: 0 0 0 20px;
     color: $color-black;
     opacity: 0.5;
+  }
+
+  @include media-query("xl-down") {
+    &__content {
+      padding: 0 30px;
+    }
+  }
+
+  @include media-query("large-down") {
+    padding: 0 0 30px;
+    margin: 0 auto 30px;
+
+    &__comparison {
+      margin: 0 0 30px;
+    }
+
+    &__content {
+      padding: 0 20px;
+      margin: 0 0 40px;
+    }
+
+    &__title {
+      margin: 0 0 20px;
+    }
+
+    &__description {
+      ul {
+        padding-inline-start: 40px;
+      }
+    }
+  }
+
+  @include media-query("medium-down") {
+    padding: 0 0 20px;
+    margin: 0 auto 20px;
+
+    &__comparison {
+      margin: 0 0 20px;
+    }
+
+    &__content {
+      padding: 0 20px;
+      margin: 0 0 30px;
+    }
+
+    &__title {
+      margin: 0 0 20px;
+    }
   }
 }
