@@ -1,64 +1,66 @@
 <nav class="breadcrumbs" role="navigation" aria-label="breadcrumbs">
   <a href="/" title="Home" class="breadcrumbs__link">Home</a>
   {% if template contains 'case-study'  %}
-    <span aria-hidden="true" class="breadcrumbs__separator">&rsaquo;</span>
-    <a href="/pages/case-studies" class="breadcrumbs__link">Case Studies</a>
-    <span aria-hidden="true" class="breadcrumbs__separator">&rsaquo;</span>
+    <span class="breadcrumbs__separator" aria-hidden="true">&rsaquo;</span>
+    <a class="breadcrumbs__link" href="/pages/case-studies">Case Studies</a>
+    <span class="breadcrumbs__separator" aria-hidden="true">&rsaquo;</span>
     <span class="breadcrumbs__current">{{ page.title }}</span>
   {% elsif template contains 'information-section' or template contains 'information-article' %}
-    <span aria-hidden="true" class="breadcrumbs__separator">&rsaquo;</span>
-    <a href="/pages/acne-information-center" class="breadcrumbs__link">Acne Information Center</a>
-    <span aria-hidden="true" class="breadcrumbs__separator">&rsaquo;</span>
+    <span class="breadcrumbs__separator" aria-hidden="true">&rsaquo;</span>
+    <a class="breadcrumbs__link" href="/pages/acne-information-center">Acne Information Center</a>
+    <span class="breadcrumbs__separator" aria-hidden="true" >&rsaquo;</span>
     <span class="breadcrumbs__current">{{ page.title }}</span>
   {% elsif template contains 'page' %}
-    <span aria-hidden="true" class="breadcrumbs__separator">&rsaquo;</span>
+    <span class="breadcrumbs__separator" aria-hidden="true" >&rsaquo;</span>
     <span class="breadcrumbs__current">{{ page.title }}</span>
   {% elsif template contains 'product' %}
-    <span aria-hidden="true" class="breadcrumbs__separator">&rsaquo;</span>
-    <a href="/collections/all" class="breadcrumbs__link">Products</a>
+    <span class="breadcrumbs__separator" aria-hidden="true" >&rsaquo;</span>
+    <a class="breadcrumbs__link" href="/collections/all">Products</a>
     {% if collection.url %}
-      <span aria-hidden="true" class="breadcrumbs__separator">&rsaquo;</span>
-      {{ collection.title | link_to: collection.url }}
+      {% unless collection.handle == 'all' or collection.handle == 'most-popular' or collection.handle == 'featured' %}
+        <span class="breadcrumbs__separator" aria-hidden="true" >&rsaquo;</span>
+        <a class="breadcrumbs__link" href="{{ collection.url }}">{{ collection.title }}</a>
+      {% endunless %}
     {% elsif product.collections.size %}
       {% for coll in product.collections %}
-        {% if coll.handle == 'all' or coll.handle == 'most-popular' %}
+        {% if coll.handle == 'all' or coll.handle == 'most-popular' or coll.handle == 'featured' %}
           {% continue %}
         {% endif %}
-        <span aria-hidden="true" class="breadcrumbs__separator">&rsaquo;</span>
-        {{ coll.title | link_to: coll.url }}
+        <span class="breadcrumbs__separator" aria-hidden="true" >&rsaquo;</span>
+        <a class="breadcrumbs__link" href="{{ coll.url }}">{{ coll.title }}</a>
         {% break %}
       {% endfor %}
     {% endif %}
-    <span aria-hidden="true" class="breadcrumbs__separator">&rsaquo;</span>
+    <span class="breadcrumbs__separator" aria-hidden="true" >&rsaquo;</span>
     <span class="breadcrumbs__current">{{ product.title }}</span>
   {% elsif template contains 'collection' and collection.handle %}
-    <span aria-hidden="true" class="breadcrumbs__separator">&rsaquo;</span>
-    <a href="/collections/all" class="breadcrumbs__link">Products</a>
-    <span aria-hidden="true" class="breadcrumbs__separator">&rsaquo;</span>
+    <span class="breadcrumbs__separator" aria-hidden="true" >&rsaquo;</span>
+    <a class="breadcrumbs__link" href="/collections/all">Products</a>
+    <span class="breadcrumbs__separator" aria-hidden="true" >&rsaquo;</span>
     {% if current_tags %}
       {% capture url %}/collections/{{ collection.handle }}{% endcapture %}
       {{ collection.title | link_to: url }}
-      <span aria-hidden="true" class="breadcrumbs__separator">&rsaquo;</span>
+      <span class="breadcrumbs__separator" aria-hidden="true" >&rsaquo;</span>
       <span class="breadcrumbs__current">{{ current_tags | join: " + " }}</span>
     {% else %}
       <span class="breadcrumbs__current">{{ collection.title }}</span>
     {% endif %}
   {% elsif template == 'blog' %}
-    <span aria-hidden="true" class="breadcrumbs__separator">&rsaquo;</span>
+    <span class="breadcrumbs__separator" aria-hidden="true" >&rsaquo;</span>
     {% if current_tags %}
       {{ blog.title | link_to: blog.url }}
-      <span aria-hidden="true" class="breadcrumbs__separator">&rsaquo;</span>
+      <span class="breadcrumbs__separator" aria-hidden="true" >&rsaquo;</span>
       <span>{{ current_tags | join: " + " }}</span>
     {% else %}
     <span class="breadcrumbs__current">{{ blog.title }}</span>
     {% endif %}
   {% elsif template == 'article' %}
-    <span aria-hidden="true" class="breadcrumbs__separator">&rsaquo;</span>
+    <span class="breadcrumbs__separator" aria-hidden="true" >&rsaquo;</span>
     {{ blog.title | link_to: blog.url }}
-    <span aria-hidden="true" class="breadcrumbs__separator">&rsaquo;</span>
+    <span class="breadcrumbs__separator" aria-hidden="true" >&rsaquo;</span>
     <span class="breadcrumbs__current">{{ article.title }}</span>
   {% else %}
-    <span aria-hidden="true" class="breadcrumbs__separator">&rsaquo;</span>
+    <span class="breadcrumbs__separator" aria-hidden="true" >&rsaquo;</span>
     <span class="breadcrumbs__current">{{ page_title }}</span>
   {% endif %}
 </nav>

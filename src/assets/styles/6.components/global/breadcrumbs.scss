@@ -19,4 +19,10 @@
     display: inline-block;
     margin: 0 6px;
   }
+
+  @include media-query("v-small") {
+    &__separator {
+      margin: 0 3px;
+    }
+  }
 }

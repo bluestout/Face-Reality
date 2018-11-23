@@ -1,18 +1,22 @@
-<div class="container">
-  <div class="row justify-content-center">
-    <div class="col-lg-8">
-      <div class="product-tabs" data-tabs-container>
-        <div class="product-tabs__header">
-          <a href="#" class="product-tabs__link active" data-tab-link="1">Benefits</a>
-          <a href="#" class="product-tabs__link" data-tab-link="2">How to use</a>
-          <a href="#" class="product-tabs__link" data-tab-link="3">Ingredients</a>
-        </div>
-        <div class="product-tabs__content">
-          <div class="product-tabs__tab active" data-tab="1"><p>Donec id est et lectus gravida feugiat. Nulla bibendum, erat vel volutpat ornare, nunc augue pretium quam, vitae malesuada tellus enim laoreet arcu. Pellentesque dapibus a mi in interdum. Quisque ex magna, placerat vel urna quis, suscipit finibus leo. Morbi lobortis nulla eget turpis sodales, ut feugiat velit accumsan. Praesent consectetur interdum vulputate. 1</p></div>
-          <div class="product-tabs__tab" data-tab="2"><p>Donec id est et lectus gravida feugiat. Nulla bibendum, erat vel volutpat ornare, nunc augue pretium quam, vitae malesuada tellus enim laoreet arcu. Pellentesque dapibus a mi in interdum. Quisque ex magna, placerat vel urna quis, suscipit finibus leo. Morbi lobortis nulla eget turpis sodales, ut feugiat velit accumsan. Praesent consectetur interdum vulputate. 2</p></div>
-          <div class="product-tabs__tab" data-tab="3"><p>Donec id est et lectus gravida feugiat. Nulla bibendum, erat vel volutpat ornare, nunc augue pretium quam, vitae malesuada tellus enim laoreet arcu. Pellentesque dapibus a mi in interdum. Quisque ex magna, placerat vel urna quis, suscipit finibus leo. Morbi lobortis nulla eget turpis sodales, ut feugiat velit accumsan. Praesent consectetur interdum vulputate. 3</p></div>
+{% assign tabs = product.metafields.tabs %}
+{% if tabs %}
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div class="product-tabs" data-tabs-container>
+          <div class="product-tabs__header">
+            {% for tab in tabs %}
+              {%- assign tab_f = tab[0] | replace: '-', ' ' | replace: '_', ' ' | capitalize -%}
+              <a href="#" class="product-tabs__link {% if forloop.index == 1 %}active{% endif %}" data-tab-link="{{ forloop.index }}">{{ tab_f }}</a>
+            {% endfor %}
+          </div>
+          <div class="product-tabs__content">
+            {% for tab in tabs %}
+              <div class="product-tabs__tab {% if forloop.index == 1 %}active{% endif %}" data-tab="{{ forloop.index }}">{{ tab[1] }}</div>
+            {% endfor %}
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
+{% endif %}

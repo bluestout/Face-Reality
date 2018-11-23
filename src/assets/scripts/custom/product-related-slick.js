@@ -2,13 +2,13 @@ import $ from "jquery";
 import "slick-carousel";
 
 function products() {
-  const $products = $(".js-related-products-slider");
+  const $products = $("[data-related-products-slider]");
   if ($products.length > 0) {
     $products.slick({
       swipeToSlide: true,
       arrows: true,
       dots: true,
-      slidesToShow: 4,
+      slidesToShow: 3,
       nextArrow:
         "<button type='button' class='slick-next slick-arrow icon-arrow-right'></button>",
       prevArrow:

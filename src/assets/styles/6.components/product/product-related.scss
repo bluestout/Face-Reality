@@ -9,17 +9,20 @@
   }
 
   &__list {
-    &:not(.slick) {
+    > .product-item:not(:first-of-type) {
+      display: none;
     }
   }
 
-  .product-item {
-    // override slick overrides...
-    display: flex !important;
-    height: 100%;
-    flex-flow: column wrap;
-    padding: 0 0 50px;
-    margin: 0;
+  .slick-slider {
+    .product-item {
+      // override slick overrides...
+      display: flex !important;
+      height: 100%;
+      flex-flow: column wrap;
+      padding: 0 0 50px;
+      margin: 0;
+    }
   }
 
   // slick-specific styling starts here
@@ -41,7 +44,7 @@
   .slick-arrow {
     position: absolute;
     z-index: 1;
-    top: 50%;
+    top: 215px;
     padding: 10px;
     background-color: transparent;
     border: none;
@@ -65,9 +68,8 @@
   }
 
   .slick-dots {
-    display: none !important;
     list-style: none;
-    margin: 0 0 40px;
+    margin: 0;
     padding: 0;
     text-align: center;
 
@@ -114,4 +116,37 @@
   }
 
   // slick-specific styling ends here
+  @include media-query("medium-up") {
+    .slick-dots {
+      display: none !important;
+    }
+  }
+
+  @include media-query("medium-down") {
+    position: relative;
+    margin: 0 0 20px;
+
+    .slick-slider {
+      .product-item {
+        padding: 0 0 35px;
+      }
+    }
+
+    .slick-arrow {
+      top: 140px;
+      &.slick-prev {
+        left: 10px;
+        &::before {
+          content: "\E907";
+        }
+      }
+
+      &.slick-next {
+        right: 10px;
+        &::before {
+          content: "\E905";
+        }
+      }
+    }
+  }
 }

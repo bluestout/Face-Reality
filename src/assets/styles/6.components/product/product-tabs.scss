@@ -32,5 +32,54 @@
 
   &__content {
     opacity: 0.85;
+    ul {
+      list-style: none;
+      padding-inline-start: 50px;
+    }
+
+    ul li {
+      text-indent: -38.5px;
+    }
+
+    ul li::before {
+      content: "—";
+      padding: 0 25px 0 0;
+    }
+  }
+
+  @include media-query("medium-down") {
+    margin: 0 0 80px;
+    &__header {
+      margin: 0 0 40px;
+    }
+
+    &__content {
+      opacity: 0.85;
+      ul {
+        list-style: none;
+        padding-inline-start: 40px;
+      }
+
+      ul li {
+        text-indent: -28.5px;
+      }
+
+      ul li::before {
+        content: "—";
+        padding: 0 15px 0 0;
+      }
+    }
+  }
+
+  @include media-query("v-small") {
+    margin: 0 0 60px;
+    &__header {
+      margin: 0 0 30px;
+    }
+
+    &__link {
+      margin: 0 5px;
+      padding: 0 5px 12px;
+    }
   }
 }

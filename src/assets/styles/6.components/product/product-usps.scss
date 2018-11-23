@@ -1,25 +1,15 @@
 .product-usps {
   text-align: center;
   margin: 0 0 40px;
-}
-
-.usp {
-  color: red;
-  &__icon {
-    @include Text(30px, 1, $color-blumine);
-    display: block;
-    margin: 0 0 10px;
-  }
-
-  &__icon--svg {
-    svg {
-      height: 40px;
-      width: 40px;
+  &__usp {
+    &-icon {
+      display: block;
+      margin: 0 auto 10px;
     }
-  }
 
-  &__text {
-    @include apercu(700);
-    @include Text(12px, 12px, $color-blumine);
+    &-text {
+      @include apercu(700);
+      @include Text(12px, 12px, $color-blumine);
+    }
   }
 }

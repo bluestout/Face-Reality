@@ -109,9 +109,9 @@
     width: 100%;
     height: 100%;
     appearance: none;
-    border-top: 1px solid #d0dce5;
-    border-left: 1px solid #d0dce5;
-    background-color: #eef2f5;
+    border-top: 1px solid $color-botticelli;
+    border-left: 1px solid $color-botticelli;
+    background-color: $color-mystic;
     outline: none;
     @include transition(background-color);
 
@@ -140,8 +140,6 @@
     border: 1px solid $bermuda-gray;
   }
 
-  // color: #6f96ae;
-
   &__quantity-button {
     width: 28px;
     height: 40px;
@@ -149,17 +147,23 @@
     @include Text(20px, 40px, $color-blumine);
     background: none;
     border: none;
-    border-left: 1px solid rgba($bermuda-gray, 0.5);
-    border-right: 1px solid rgba($bermuda-gray, 0.5);
     appearance: none;
+
+    &[data-direction="up"] {
+      border-left: 1px solid rgba($bermuda-gray, 0.5);
+    }
+    &[data-direction="down"] {
+      border-right: 1px solid rgba($bermuda-gray, 0.5);
+    }
   }
 
   &__quantity {
+    @include apercu;
     height: 40px;
     width: calc(100% - 56px);
     float: left;
     text-align-last: center;
-    @include apercu();
+    text-align: center;
     &::-webkit-inner-spin-button,
     &::-webkit-outer-spin-button {
       -webkit-appearance: none;
@@ -181,39 +185,65 @@
     @extend %button--main;
   }
 
-  &__authorization {
-    position: relative;
-    background-color: $color-pampas;
-    padding: 65px 50px 30px;
-    margin: 0 0 40px;
-  }
-
-  &__authorization-icon {
-    position: absolute;
-    top: -10px;
-    left: 50%;
-    transform: translate(-50%);
-    background-color: $color-white;
-    border-radius: 50%;
-    display: block;
-    padding: 10px;
-  }
-
-  &__authorization-content {
-    p {
-      color: $color-blumine;
-    }
-    a:not(.button):not(.product-content__button) {
-      color: $color-blumine;
-    }
-    .product-content__button {
-      color: $color-white;
-      padding: 14px 28px;
-      width: 220px;
-    }
-  }
-
   .social-sharing {
     margin: 0 0 40px;
+  }
+
+  @include media-query("medium-down") {
+    margin: 0 auto 60px;
+
+    &__title {
+      font-size: 26px;
+      line-height: 30px;
+    }
+
+    &__form {
+      margin: 0 0 45px;
+    }
+
+    &__reviews {
+      margin: 0 0 15px;
+    }
+
+    &__option-name {
+      margin: 20px 0 5px;
+    }
+
+    &__variant-label {
+      padding: 10px;
+    }
+
+    .social-sharing {
+      margin: 0 0 40px;
+    }
+  }
+
+  @include media-query("v-small") {
+    &__submit-wrap {
+      max-width: 290px;
+      margin: 0 auto;
+    }
+
+    &__input-wrap {
+      width: 100%;
+      float: none;
+    }
+
+    &__submit {
+      width: 100%;
+      float: none;
+      height: 45px;
+    }
+
+    &__quantity-button {
+      width: 50px;
+      height: 45px;
+      font-size: 30px;
+    }
+
+    &__quantity {
+      height: 45px;
+      width: calc(100% - 100px);
+    }
   }
 }

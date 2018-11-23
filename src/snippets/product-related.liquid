@@ -10,7 +10,7 @@
 {% if products.size > 0 %}
   <div class="product-related">
     <h3 class="product-related__title">Other products in this group</h3>
-    <div class="js-related-products-slider product-related__list">
+    <div class="product-related__list" data-related-products-slider>
       {% for p in collection.products limit: 6 %}
         {% unless p.handle == product.handle %}
           {% include 'product-item' with p, index: forloop.index %}
