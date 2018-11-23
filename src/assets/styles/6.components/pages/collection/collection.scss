@@ -1,7 +1,15 @@
 .collection-page {
+  .collection-banner__title {
+    @include apercu(700);
+    @include Text(30px, 36px, $color-black);
+    text-align: center;
+    max-width: 820px;
+    margin: 0 auto 20px;
+  }
+
   .collection-banner__subtitle {
     @include apercu(700);
-    @include Text(28px, 30px, $color-white);
+    @include Text(24px, 30px, $color-white);
     text-align: center;
     max-width: 820px;
     margin: 0 auto;
@@ -60,8 +68,13 @@
       margin: 0 0 30px;
     }
 
+    .collection-banner__title {
+      font-size: 24px;
+      line-height: 30px;
+    }
+
     .collection-banner__subtitle {
-      font-size: 20px;
+      font-size: 18px;
       line-height: 24px;
     }
 
@@ -88,6 +101,12 @@
   @include media-query("small-down") {
     .collection-banner {
       margin: 0 0 10px;
+    }
+  }
+
+  @include media-query("v-small") {
+    .collection-banner {
+      padding: 60px 0;
     }
   }
 
