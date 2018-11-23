@@ -1,0 +1,111 @@
+.footer-navigation {
+  &__link {
+    position: relative;
+    @include Text(12px, 14px, $color-blumine);
+    text-decoration: none;
+    opacity: 0.5;
+    margin: 0 0 30px;
+    display: inline-block;
+    @include transition(opacity);
+
+    &:hover,
+    &:active {
+      opacity: 1;
+    }
+  }
+
+  &__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  &__subitem {
+    margin: 0 0 5px;
+  }
+
+  &__sublink {
+    @include Text(12px, 14px, $color-blumine);
+    text-decoration: none;
+    display: inline-block;
+    @include transition(color);
+
+    &:hover,
+    &:active {
+      color: $color-accent;
+    }
+  }
+
+  @include media-query("small-up") {
+    &__caret {
+      display: none;
+    }
+
+    &__sub-caret {
+      display: none;
+    }
+  }
+
+  @include media-query("small-down") {
+    text-align: center;
+
+    &__caret {
+      position: absolute;
+      right: 5px;
+      top: 2px;
+      @include transition(transform);
+    }
+
+    &__sub-caret {
+      font-size: 10px;
+      line-height: 1;
+      color: rgba($color-blumine, 0.5);
+      position: absolute;
+      right: 5px;
+      top: 2px;
+      @include transition(transform);
+    }
+
+    &__link {
+      font-size: 14px;
+      line-height: 16px;
+      padding: 0 20px 25px;
+      margin: 0 0 25px;
+      width: 100%;
+      display: inline-block;
+
+      &--border {
+        border-bottom: 1px solid $color-mercury;
+      }
+
+      &.active {
+        .footer-navigation__caret {
+          transform: rotate(-180deg);
+        }
+      }
+    }
+
+    &__list {
+      padding: 0 0 40px;
+      display: none;
+    }
+
+    &__subitem {
+      position: relative;
+      font-size: 14px;
+      line-height: 18px;
+      margin: 0 0 20px;
+      width: 100%;
+    }
+
+    &__sublink {
+      text-decoration: none;
+      display: inline-block;
+
+      &:hover,
+      &:active {
+        color: $color-accent;
+      }
+    }
+  }
+}

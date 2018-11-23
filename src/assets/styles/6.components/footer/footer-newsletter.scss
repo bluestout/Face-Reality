@@ -1,0 +1,73 @@
+.footer-newsletter {
+  margin: 0 0 30px;
+
+  &__text {
+    @include Text(12.5px, 14.5px, $color-blumine);
+    margin: 0 0 15px;
+  }
+
+  &__form {
+    @include clearfix;
+    border: 1px solid $color-fountain-blue;
+  }
+
+  &__input {
+    position: relative;
+    &::placeholder {
+      opacity: 0.3;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      top: 20%;
+      height: 60px;
+      width: 1px;
+      display: block;
+      background-color: rgba($color-blumine, 0.3);
+    }
+  }
+
+  &__submit {
+    font-size: 14px;
+    font-weight: 400;
+    appearance: none;
+    background-color: transparent;
+    border-left: 1px solid $color-mercury;
+    color: $color-blumine;
+    @include transition(color);
+
+    &:hover,
+    &:active {
+      color: $color-black;
+      background-color: transparent;
+    }
+  }
+
+  @include media-query("large-down") {
+    &__form {
+      @include clearfix;
+      padding: 5px 0;
+    }
+
+    &__input {
+      padding: 10px;
+      height: 38px;
+      float: left;
+      width: calc(100% - 114px);
+    }
+
+    &__submit {
+      padding: 10px;
+      height: 38px;
+      float: left;
+      width: 114px;
+    }
+  }
+
+  @include media-query("small-down") {
+    text-align: center;
+    margin: 0 0 25px;
+  }
+}

@@ -1,0 +1,29 @@
+{%- assign footer_linklist = section.settings.footer_linklist -%}
+{% if linklists[footer_linklist].links.size > 0 %}
+  <div class="footer-navigation">
+    <div class="row">
+      {% for link in linklists[footer_linklist].links %}
+        <div class="col-md-6">
+          {% if link.links != blank %}
+            <a
+              href="{{ link.url }}"
+              class="footer-navigation__link {% unless forloop.last %}footer-navigation__link--border{% endunless %}"
+              data-footer-nav-main>
+              {{ link.title }}
+              <span class="icon-angle-down footer-navigation__caret"></span>
+            </a>
+            <ul class="footer-navigation__list" data-footer-nav-list>
+              {% for childlink in link.links %}
+                <li class="footer-navigation__subitem">
+                  <a href="{{ childlink.url }}" class="footer-navigation__sublink">{{ childlink.title }}<span class="icon-angle-right footer-navigation__sub-caret"></a>
+                </li>
+              {% endfor %}
+            </ul>
+          {% else %}
+            <a href="{{ link.url }}" class="footer-navigation__link">{{ link.title }}</a>
+          {% endif %}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+{% endif %}

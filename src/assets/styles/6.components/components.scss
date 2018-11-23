@@ -1,5 +1,11 @@
-@import './header/header';
-@import './global/global';
-@import './footer/footer';
-@import './product/product';
-@import './pages/pages';
+@import "./global/global";
+
+body {
+  // this is here just to override base styles (1 extra selector)
+
+  @import "./header/header";
+  @import "./footer/footer";
+}
+
+@import "./product/product";
+@import "./pages/pages";

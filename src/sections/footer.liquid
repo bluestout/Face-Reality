@@ -2,30 +2,10 @@
 <footer class="site-footer">
   <div class="container">
     <div class="row">
-      <div class="col-lg-4 col-md-5">
-        {%- assign footer_linklist = section.settings.footer_linklist -%}
-        {% if linklists[footer_linklist].links.size > 0 %}
-          <div class="site-footer__nav">
-            <div class="row">
-              {% for link in linklists[footer_linklist].links %}
-                <div class="col-sm-6">
-                  <a href="{{ link.url }}" class="site-footer__nav-link">{{ link.title }}</a>
-                  {% if link.links != blank %}
-                    <ul class="site-footer__nav-list">
-                      {% for childlink in link.links %}
-                        <li class="site-footer__nav-subitem">
-                          <a href="{{ childlink.url }}" class="site-footer__nav-sublink">{{ childlink.title }}</a>
-                        </li>
-                      {% endfor %}
-                    </ul>
-                  {% endif %}
-                </div>
-              {% endfor %}
-            </div>
-          </div>
-        {% endif %}
+      <div class="col-lg-4 col-md-6 order-md-2 order-lg-1 order-3">
+        {% include 'footer-navigation' %}
       </div>
-      <div class="col-lg-4 col-md-2">
+      <div class="col-lg-4 col-md-12 order-md-1 order-lg-2 order-1">
         <div class="site-footer__logo-wrap">
           <a href="/" class="site-footer__logo-link">
             {% if section.settings.logo != blank %}
@@ -41,29 +21,8 @@
           </a>
         </div>
       </div>
-      <div class="col-lg-4 col-md-5">
-        <div class="site-footer__newsletter">
-          <p class="site-footer__newsletter-text">{{ section.settings.newsletter_text }}</p>
-          <form action="#" class="site-footer__newsletter-form">
-            <input type="text" class="site-footer__newsletter-input" placeholder="Enter your email">
-            <input type="submit" class="site-footer__newsletter-submit" value="SUBSCRIBE">
-          </form>
-        </div>
-        {%- assign social_accounts = 'Facebook, Twitter, Pinterest, Instagram, Snapchat, Tumblr, YouTube, Vimeo, LinkedIn' | split: ', ' -%}
-        <div class="site-footer__socials">
-          {% for social in social_accounts %}
-            {%- assign social_handle = social | handleize -%}
-            {% capture social_link %}social_{{ social_handle }}_link{% endcapture %}
-            {% capture social_icon %}icon-{{ social_handle }}{% endcapture %}
-
-            {% if settings[social_link] != blank %}
-              <a href="{{ settings[social_link] }}" class="site-footer__social" title="{{ 'layout.footer.social_platform' | t: name: shop.name, platform: social }}">
-                <span class="site-footer__social-icon {{ social_icon }}"></span>
-              </a>
-            {% endif %}
-
-          {% endfor %}
-        </div>
+      <div class="col-lg-4 col-md-6 order-lg-3 order-md-3 order-2">
+        {% include 'footer-social' %}
       </div>
     </div>
     <p class="site-footer__copyright">&copy; {{ 'Face Reality Acne Clinic' | link_to: '/' }} 2012-{{ 'now' | date: "%Y" }} &middot; All Rights Reserved &middot; {{ powered_by_link }}</p>
