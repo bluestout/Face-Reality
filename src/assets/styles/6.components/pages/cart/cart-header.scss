@@ -22,8 +22,37 @@
     }
   }
 
+  &__return-text {
+    font-size: 13px;
+    line-height: 30px;
+  }
+
   &__return-icon {
     margin: 0 5px 0 0;
     display: inline-block;
+  }
+
+  @include media-query("v-small") {
+    margin: 0 0 20px;
+
+    &__title {
+      font-size: 23px;
+      line-height: 28px;
+    }
+
+    &__return-link {
+      display: flex;
+    }
+
+    &__return-text {
+      font-size: 10px;
+      line-height: 14px;
+      max-width: 70px;
+    }
+
+    &__return-icon {
+      margin: 0 10px 0 0;
+      align-self: center;
+    }
   }
 }

@@ -1,7 +1,15 @@
 .cart-table {
   border-spacing: 0;
 
+  &__responsive-header {
+    @include myriad(700);
+    @include Text(18px, 22px, $color-blumine);
+    text-align: center;
+    margin: 0 auto 30px;
+  }
+
   &__wrap {
+    // the strange paddings are there because the borders between products do not go full width on one side
     background-color: $color-mystic;
     padding: 60px 0 100px 70px;
     margin: 0 1px 0 0;
@@ -21,6 +29,7 @@
   &__cell {
     padding: 20px;
     width: auto;
+
     &--head {
       @include apercu;
       @include Text(13px, 20px, rgba($color-blumine, 0.5));
@@ -37,6 +46,7 @@
 
     &--last {
       padding-right: 60px;
+      width: 20%;
     }
   }
 
@@ -48,7 +58,7 @@
 
   &__product-link {
     @include apercu(700);
-    @include Text(22px, 28px, $color-blumine);
+    @include Text(18px, 22px, $color-blumine);
     text-decoration: none;
     display: inline-block;
   }
@@ -92,9 +102,13 @@
     @include Text(20px, 40px, $color-blumine);
     background: none;
     border: none;
-    border-left: 1px solid rgba($bermuda-gray, 0.5);
-    border-right: 1px solid rgba($bermuda-gray, 0.5);
     appearance: none;
+    &[data-direction="up"] {
+      border-left: 1px solid rgba($bermuda-gray, 0.5);
+    }
+    &[data-direction="down"] {
+      border-right: 1px solid rgba($bermuda-gray, 0.5);
+    }
   }
 
   &__quantity-input {
@@ -113,30 +127,149 @@
 
   &__rsp {
     &-image-wrap {
+      width: 60px;
+      margin: 0 10px 0 0;
+      display: block;
+      float: left;
     }
+
     &-content {
+      width: calc(100% - 70px);
+      display: block;
+      float: right;
     }
+
     &-title {
+      margin: 0 0 10px;
+      @include clearfix;
     }
+
     &-link {
+      @include apercu(700);
+      @include Text(16px, 22px, $color-blumine);
     }
-    &-info {
-    }
-    &-id {
-    }
-    &-option {
-    }
-    &-utility {
-    }
+
     &-price {
+      @include open-sans(400);
+      @include Text(16px, 22px, $color-blumine);
+      float: right;
     }
+
+    &-id {
+      @include apercu;
+      @include Text(11px, 13px, $color-dove-gray);
+      text-decoration: none;
+      margin: 0 0 10px;
+    }
+
+    &-option {
+      @include apercu;
+      @include Text(11px, 13px, $color-black);
+      text-decoration: none;
+      margin: 0 20px 10px;
+    }
+
     &-remove {
+      @include apercu;
+      @include Text(11px, 13px, rgba($color-blumine, 0.6));
+      text-decoration: none;
+      float: right;
+      &:hover,
+      &:active {
+        color: $color-blumine;
+      }
+    }
+  }
+
+  @include media-query("xl-down") {
+    &__update-wrap {
+      padding: 0 20px;
+    }
+    &__wrap {
+      padding: 20px 0 60px 20px;
+    }
+    &__cell {
+      padding: 10px;
+      &--head {
+        padding: 10px;
+      }
+
+      &--image {
+        padding: 10px 10px 10px 0;
+      }
+
+      &--last {
+        padding: 10px 20px 10px 10px;
+      }
+    }
+  }
+
+  @include media-query("large-down") {
+    &__update-wrap {
+      text-align: center;
+    }
+
+    &__wrap {
+      padding: 0 20px 60px;
+      margin: 0;
+    }
+
+    &__cell {
+      padding: 10px;
+
+      &--head {
+        padding: 10px;
+      }
+
+      &--image {
+        padding: 10px;
+      }
+
+      &--last {
+        padding: 10px;
+      }
     }
   }
 
   @include media-query("small-down") {
+    &__wrap {
+      padding: 0 0 60px;
+    }
+
+    &__cell {
+      width: 100%;
+      padding: 20px 15px;
+    }
+
     &__thead {
       display: none;
+    }
+
+    &__quantity {
+      max-width: 70%;
+      margin: 0 0 0 auto;
+    }
+
+    &__quantity-button {
+      width: 40px;
+      height: 35px;
+      font-size: 25px;
+      line-height: 35px;
+    }
+
+    &__quantity-input {
+      height: 35px;
+      width: calc(100% - 80px);
+    }
+
+    &__update-wrap {
+      padding: 40px 20px 0;
+    }
+  }
+
+  @include media-query("v-small") {
+    &__wrap {
+      padding: 0 0 15px;
     }
   }
 }

@@ -1,9 +1,10 @@
 <div class="cart-table__wrap">
+  <div class="cart-table__responsive-header d-xl-none">Cart content</div>
   <table class="responsive-table cart-table">
     <thead class="cart-table__thead">
       <tr>
         <th class="cart-table__cell cart-table__cell--head">{% comment %} image {% endcomment %}</th>
-        <th class="cart-table__cell cart-table__cell--head">{{ 'cart.label.product' | t }}</th>
+        <th class="cart-table__cell cart-table__cell--head text-left">{{ 'cart.label.product' | t }}</th>
         <th class="cart-table__cell cart-table__cell--head">{{ 'general.glossary.option' | t }}</th>
         <th class="cart-table__cell cart-table__cell--head">{{ 'cart.label.price' | t }}</th>
         <th class="cart-table__cell cart-table__cell--head">Qty</th>
@@ -15,7 +16,7 @@
 
         <tr class="responsive-table-row cart-table__row">
 
-          <td class="cart-table__cell cart-table__cell--image d-none d-md-table-cell {% unless forloop.last %}cart-table__cell--border{% endunless %}">
+          <td class="cart-table__cell cart-table__cell--image d-none d-md-table-cell text-left {% unless forloop.last %}cart-table__cell--border{% endunless %}">
             {% if item.image != blank %}
               <a href="{{ item.url | within: collections.all }}">
                 {{ item | img_url: '300x300' | img_tag: item.title }}
@@ -23,7 +24,7 @@
             {% endif %}
           </td>
 
-          <td class="cart-table__cell d-none d-md-table-cell {% unless forloop.last %}cart-table__cell--border{% endunless %}">
+          <td class="cart-table__cell d-none d-md-table-cell text-left {% unless forloop.last %}cart-table__cell--border{% endunless %}">
             <h3 class="cart-table__product-title">
               <a class="cart-table__product-link" href="{{ item.url }}">{{ item.product.title }}</a>
             </h3>
@@ -32,7 +33,7 @@
             <a class="cart-table__remove" href="/cart/change?line={{ forloop.index }}&amp;quantity=0">{{ 'cart.general.remove' | t }}</a>
           </td>
 
-          <td class="cart-table__cell d-none d-md-table-cell {% unless forloop.last %}cart-table__cell--border{% endunless %}">
+          <td class="cart-table__cell d-none d-md-table-cell text-center {% unless forloop.last %}cart-table__cell--border{% endunless %}">
             {% unless item.product.has_only_default_variant %}
               <div class="cart-table__option">
                 {{ item.variant.title }}
@@ -40,7 +41,7 @@
             {% endunless %}
           </td>
 
-          <td class="cart-table__cell d-none d-md-table-cell {% unless forloop.last %}cart-table__cell--border{% endunless %}">
+          <td class="cart-table__cell d-none d-md-table-cell text-center {% unless forloop.last %}cart-table__cell--border{% endunless %}">
             <div class="cart-table__price">
               {% if item.original_line_price != item.line_price %}
                 <span class="visually-hidden">{{ 'cart.label.discounted_price' | t }}</span>
@@ -66,30 +67,31 @@
               <div class="cart-table__rsp-content">
                 <h3 class="cart-table__rsp-title">
                   <a class="cart-table__rsp-link" href="{{ item.url }}">{{ item.product.title }}</a>
+                  <span class="cart-table__rsp-price">
+                    {% if item.original_line_price != item.line_price %}
+                      <span class="visually-hidden">{{ 'cart.label.discounted_price' | t }}</span>
+                      {{ item.price | money }}
+                      <span class="visually-hidden">{{ 'cart.label.original_price' | t }}</span>
+                      <s>{{ item.original_price | money }}</s>
+                    {% else %}
+                      {{ item.price | money }}
+                    {% endif %}
+                  </span>
                 </h3>
+
                 <div class="cart-table__rsp-info">
-                  <span class="cart-table__rsp-id">{{ 'cart.label.product' | t }} ID. {{ item.variant_id }} {% comment %} {{ item.sku }} {% endcomment %}</span>
                   {% unless item.product.has_only_default_variant %}
                     <span class="cart-table__rsp-option">{{ item.variant.title }}</span>
                   {% endunless %}
+                  <span class="cart-table__rsp-id">{{ 'cart.label.product' | t }} ID. {{ item.variant_id }} {% comment %} {{ item.sku }} {% endcomment %}</span>
                 </div>
-              </div>
-              <div class="cart-table__rsp-utility">
-                <span class="cart-table__rsp-price">
-                  {% if item.original_line_price != item.line_price %}
-                    <span class="visually-hidden">{{ 'cart.label.discounted_price' | t }}</span>
-                    {{ item.price | money }}
-                    <span class="visually-hidden">{{ 'cart.label.original_price' | t }}</span>
-                    <s>{{ item.original_price | money }}</s>
-                  {% else %}
-                    {{ item.price | money }}
-                  {% endif %}
-                </span>
                 <a class="cart-table__rsp-remove" href="/cart/change?line={{ forloop.index }}&amp;quantity=0">{{ 'cart.general.remove' | t }}</a>
+                <div class="clearfix"></div>
               </div>
             </div>
+            <div class="clearfix"></div>
             <div class="cart-table__quantity">
-              <button type="button" class="product-single__quantity-button" data-qty-change="[product-qty-{{ forloop.index }}]" data-direction="down">-</button>
+              <button type="button" class="cart-table__quantity-button" data-qty-change="[product-qty-{{ forloop.index }}]" data-direction="down">-</button>
               <input
                 class="cart-table__quantity-input"
                 type="number"
@@ -99,7 +101,7 @@
                 min="0"
                 aria-label="{{ 'cart.general.item_quantity' | t }}"
                 product-qty-{{ forloop.index }}/>
-              <button type="button" class="product-single__quantity-button" data-qty-change="[product-qty-{{ forloop.index }}]" data-direction="up">+</button>
+              <button type="button" class="cart-table__quantity-button" data-qty-change="[product-qty-{{ forloop.index }}]" data-direction="up">+</button>
             </div>
           </td>
         </tr>
