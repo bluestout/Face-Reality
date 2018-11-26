@@ -1,37 +1,50 @@
+{% comment %} TODO remove placeholder images {% endcomment %}
 <div class="full-w-rows">
   <div class="row no-gutters">
-    <div class="col-lg-1"></div>
-    <div class="col-lg-4 flex-col-wrap justify-content-center">
+    <div class="col-lg-1 d-none d-lg-block order-lg-1"></div>
+    <div class="col-lg-4 flex-col-wrap justify-content-center order-lg-2 order-2">
       <h3 class="full-w-rows__section-title">{{ section.settings.title_top }}</h3>
-      <p class="full-w-rows__section-content">{{ section.settings.description_top }}</p>
+      <div class="full-w-rows__section-content">{{ section.settings.description_top }}</div>
     </div>
-    <div class="col-lg-1"></div>
-    <div class="col-lg-6 flex-col-wrap justify-content-center">
-      {% include 'responsive-image' with
-        image: section.settings.image_top,
-        max_width: 1600,
-        max_height: 1600,
-        wrapper_class: 'full-w-rows__image-wrap',
-        img_class: 'full-w-rows__image'
-      %}
+    <div class="col-lg-1 d-none d-lg-block order-lg-3"></div>
+    <div class="col-lg-6 flex-col-wrap justify-content-center order-lg-4 order-1">
+      {% if section.settings.image_top %}
+        {% include 'responsive-image' with
+          image: section.settings.image_top,
+          max_width: 1600,
+          max_height: 1600,
+          wrapper_class: 'full-w-rows__image-wrap',
+          img_class: 'full-w-rows__image'
+        %}
+      {% else %}
+        <div class="full-w-rows__image-wrap">
+          <img src="http://via.placeholder.com/1000x1000" alt="" class="full-w-rows__image">
+        </div>
+      {% endif %}
     </div>
   </div>
   <div class="row no-gutters">
     <div class="col-lg-6 flex-col-wrap justify-content-center">
-      {% include 'responsive-image' with
-        image: section.settings.image_bottom,
-        max_width: 1600,
-        max_height: 1600,
-        wrapper_class: 'full-w-rows__image-wrap',
-        img_class: 'full-w-rows__image'
-      %}
+      {% if section.settings.image_bottom %}
+        {% include 'responsive-image' with
+          image: section.settings.image_bottom,
+          max_width: 1600,
+          max_height: 1600,
+          wrapper_class: 'full-w-rows__image-wrap',
+          img_class: 'full-w-rows__image'
+        %}
+      {% else %}
+        <div class="full-w-rows__image-wrap">
+          <img src="http://via.placeholder.com/1000x1000" alt="" class="full-w-rows__image">
+        </div>
+      {% endif %}
     </div>
-    <div class="col-lg-1"></div>
+    <div class="col-lg-1 d-none d-lg-block order-lg-1"></div>
     <div class="col-lg-4 flex-col-wrap justify-content-center">
       <h3 class="full-w-rows__section-title">{{ section.settings.title_bottom }}</h3>
-      <p class="full-w-rows__section-content">{{ section.settings.description_bottom }}</p>
+      <div class="full-w-rows__section-content">{{ section.settings.description_bottom }}</div>
     </div>
-    <div class="col-lg-1"></div>
+    <div class="col-lg-1 d-none d-lg-block order-lg-3"></div>
   </div>
 </div>
 

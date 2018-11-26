@@ -1,10 +1,16 @@
-<div class="how-different">
-  <div class="container">
-    <h1 class="how-different__title">{{ page.title }}</h1>
-    <h2 class="how-different__subtitle">{{ page.content | strip | strip_html }}</h2>
+<div class="max-wrap">
+  <div class="how-different">
+    <div class="container">
+      <h1 class="how-different__title">{{ page.title }}</h1>
+      <h2 class="how-different__subtitle">{{ page.content | strip | strip_html }}</h2>
+    </div>
+
+    {% section 'different-full-w-rows' %}
+
+    {% section 'different-mentions' %}
+
+    <div class="how-different__shop-wrap d-lg-none">
+      <a href="/collections/all" class="how-different__shop-link">Shop now</a>
+    </div>
   </div>
-
-  {% section 'different-full-w-rows' %}
-
-  {% section 'different-mentions' %}
 </div>

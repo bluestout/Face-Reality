@@ -1,5 +1,6 @@
 .full-w-rows {
   margin: 0 0 65px;
+
   &__section-title {
     @include apercu(700);
     @include Text(32px, 38px, $color-blumine);
@@ -7,12 +8,40 @@
     margin: 0 0 60px;
   }
 
-  &__section-content {
-  }
-
-  &__image-wrap {
-  }
-
   &__image {
+    object-fit: scale-down;
+  }
+
+  @include media-query("medium-down") {
+    margin: 0 0 40px;
+
+    &__image-wrap {
+      max-width: 600px;
+      margin: 0 auto 30px;
+    }
+
+    &__section-title {
+      font-size: 16px;
+      line-height: 22px;
+      max-width: 680px;
+      margin: 0 auto 30px;
+      padding: 0 40px;
+    }
+
+    &__section-content {
+      max-width: 680px;
+      margin: 0 auto 30px;
+      padding: 0 40px;
+    }
+  }
+
+  @include media-query("v-small") {
+    &__section-title {
+      padding: 0 30px;
+    }
+
+    &__section-content {
+      padding: 0 30px;
+    }
   }
 }
