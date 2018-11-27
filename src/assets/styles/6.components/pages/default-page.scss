@@ -9,8 +9,7 @@
   }
 
   &__title {
-    @include apercu(700);
-    @include Text(40px, 48px, $color-blumine);
+    @extend %title-main;
     text-align: center;
     margin: 0 0 120px;
 
@@ -89,6 +88,82 @@
     ul li::before {
       content: "—";
       padding: 0 15px 0 0;
+    }
+  }
+
+  @include media-query("medium-down") {
+    padding: 15px 15px 50px;
+    margin: 0;
+
+    &__inner {
+      padding: 40px 0 60px;
+    }
+
+    &__title {
+      margin: 0 0 60px;
+
+      &--shipping {
+        margin: 0 0 30px;
+      }
+    }
+
+    &__sup-title {
+      margin: 0 0 20px;
+    }
+
+    &__introduction {
+      font-size: 16px;
+      line-height: 20px;
+      margin: 0 0 30px;
+    }
+    &__cell {
+      padding: 10px;
+
+      &--head {
+        padding: 10px;
+      }
+    }
+
+    &__content {
+      h3 {
+        margin: 20px 0 30px;
+      }
+    }
+  }
+
+  @include media-query("v-small") {
+    padding: 15px 7.5px 50px;
+    margin: 0;
+
+    &__inner {
+      padding: 40px 5px;
+    }
+
+    &__title {
+      margin: 0 0 40px;
+    }
+
+    &__introduction {
+      margin: 0 0 20px;
+    }
+
+    &__content {
+      h3 {
+        margin: 30px 0 20px;
+      }
+
+      ul {
+        padding-inline-start: 35px;
+      }
+
+      ul li {
+        text-indent: -23.5px;
+      }
+
+      ul li::before {
+        content: "—";
+        padding: 0 10px 0 0;
+      }
     }
   }
 }
