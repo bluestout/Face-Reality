@@ -1,9 +1,56 @@
-<div class="page-banner lazyload" data-bgset="{% include 'responsive-bg-image', image: section.settings.bg %}">
-  <div class="page-banner__content">
+{% if height == "large" %}
+  {% assign size = "large" %}
+  {% assign img_height = 500 %}
+{% elsif height == "medium" %}
+  {% assign size = "medium" %}
+  {% assign img_height = 400 %}
+{% else %}
+  {% assign size = "small" %}
+  {% assign img_height = 350 %}
+{% endif %}
+
+{% if margin == "large" %}
+  {% assign margin_s = "margin-large" %}
+{% elsif margin == "none" %}
+  {% assign margin_s = "margin-none" %}
+{% else %}
+  {% assign margin_s = "margin-small" %}
+{% endif %}
+
+{% assign classes = "" %}
+{% if light_font %}
+  {% assign classes = classes | append: " light" %}
+{% endif %}
+
+{% if limit_width == "large" %}
+  {% assign classes = classes | append: " page-banner__content--limit-large" %}
+{% elsif limit_width == "medium" %}
+  {% assign classes = classes | append: " page-banner__content--limit-medium" %}
+{% elsif limit_width == "small" %}
+  {% assign classes = classes | append: " page-banner__content--limit-small" %}
+{% endif %}
+
+
+<div class="page-banner {{ size }} {{ margin_s }}">
+  {% if background %}
+    {% include 'responsive-image' with
+      image: background,
+      responsive: background_mobile,
+      wrapper_class: 'page-banner__bg',
+      image_class: 'page-banner__bg-image',
+      alt: banner_title
+      max_width: 1920,
+      max_height: img_height
+    %}
+  {% else %}
+    <div class="page-banner__bg">
+      <img src="http://via.placeholder.com/1920x400" alt="" class="page-banner__bg-image">
+    </div>
+  {% endif %}
+  <div class="page-banner__content {{ classes }}">
     {% if banner_suptitle %}
-      <h3 class="page-banner__suptitle">{{ banner_suptitle }}</h3>
+      <h2 class="page-banner__suptitle">{{ banner_suptitle }}</h2>
     {% endif %}
     <h1 class="page-banner__title">{{ banner_title }}</h1>
   </div>
 </div>
-

@@ -1,23 +1,23 @@
-{% assign light_font = false %}
 {% if section.settings.color == "white" %}
   {% assign light_font = true %}
+{% else %}
+  {% assign light_font = false %}
 {% endif %}
 
-{% assign b_title = page.content | strip | strip_html %}
 {% include 'page-banner' with
   background: section.settings.bg,
-  background_mobile: section.settings.bg_mobile,
+  background_mobile: section.settings.bg,
   banner_suptitle: page.title,
-  banner_title: b_title
+  banner_title: page.content | strip | strip_html
   light_font: light_font
-  height: "small"
-  margin: "small",
-  limit_width: "small"
+  height: "medium"
+  margin: "none"
+  limit_width: "large"
 %}
 
 {% schema %}
   {
-    "name": "Header Banner",
+    "name": "Banner",
     "settings": [
       {
         "type": "image_picker",
@@ -27,7 +27,7 @@
       {
         "type": "image_picker",
         "id": "bg_mobile",
-        "label": "Mobile Background"
+        "label": "Background mobile"
       },
       {
         "type": "radio",

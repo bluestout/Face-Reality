@@ -1,25 +1,4 @@
 .contact-page {
-  .contact-header {
-    text-align: center;
-    padding: 135px 15px;
-    margin: 0;
-    @include backgroundImage;
-
-    &__suptitle {
-      @include apercu(400);
-      @include Text(13.5px, 20px, $color-white);
-      max-width: 700px;
-      margin: 0 auto 25px;
-    }
-
-    &__title {
-      @include apercu(700);
-      @include Text(40px, 42px, $color-white);
-      max-width: 700px;
-      margin: 0 auto 25px;
-    }
-  }
-
   .contact-content {
     padding: 25px 25px 50px;
     background-color: $color-aqua-haze;
@@ -28,6 +7,7 @@
     }
   }
 
-  @import './contact-information';
-  @import './contact-form';
+  @import "./contact-banner";
+  @import "./contact-information";
+  @import "./contact-form";
 }
