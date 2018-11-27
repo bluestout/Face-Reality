@@ -13,13 +13,22 @@
   &__link {
     display: inline-block;
     margin: 0 0 40px;
-    text-decoration: underline;
+    text-decoration: none;
+    &:hover,
+    &:active {
+      .contact-information__icon {
+        opacity: 1;
+      }
+    }
   }
 
   &__icon {
-    @include Text(20px, 26px, $color-blumine);
+    @include Text(20px, 1, $color-blumine);
     display: inline-block;
     vertical-align: middle;
+    margin: 0 5px 0 0;
+    opacity: 0.5;
+    @include transition(opacity);
   }
 
   &__text {
@@ -27,5 +36,40 @@
     @include Text(20px, 26px, $color-blumine);
     display: inline-block;
     vertical-align: middle;
+  }
+
+  @include media-query("medium-down") {
+    padding: 60px 15px;
+
+    &__description {
+      font-size: 18px;
+      line-height: 24px;
+      margin: 0 0 40px;
+    }
+
+    &__link {
+      margin: 0 0 20px;
+    }
+  }
+
+  @include media-query("medium-down") {
+    padding: 0;
+    margin: 0 auto 30px;
+  }
+
+  @include media-query("small-down") {
+    &__description {
+      font-size: 16px;
+      line-height: 20px;
+    }
+
+    &__icon {
+      font-size: 16px;
+    }
+
+    &__text {
+      font-size: 16px;
+      line-height: 20px;
+    }
   }
 }
