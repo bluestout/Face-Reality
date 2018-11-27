@@ -23,3 +23,21 @@
     line-height: 32px;
   }
 }
+
+%title-main {
+  @include apercu(700);
+  @include Text(40px, 42px, $color-blumine);
+  @include media-query("medium-down") {
+    font-size: 24px;
+    line-height: 30px;
+  }
+}
+
+%title-main-light {
+  @include apercu(700);
+  @include Text(40px, 42px, $color-white);
+  @include media-query("medium-down") {
+    font-size: 24px;
+    line-height: 30px;
+  }
+}

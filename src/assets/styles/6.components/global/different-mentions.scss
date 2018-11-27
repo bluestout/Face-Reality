@@ -10,14 +10,22 @@
 
   &__mentions {
     @include clearfix;
+    &:not(.slick-slider) {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: center;
+      .different-mentions__mention {
+        flex: 0 1 auto;
+        margin: 0 1.5px 3px;
+        width: 300px;
+      }
+    }
   }
 
   &__mention {
     background-color: $color-white;
     text-align: center;
     padding: 30px 10px;
-    width: 310px;
-    float: left;
     justify-content: center;
   }
 
@@ -35,6 +43,7 @@
 
   &__mention-logo {
     display: inline-block;
+    object-fit: scale-down;
     max-width: 100%;
     opacity: 0.35;
     @include transition(opacity);
@@ -83,7 +92,6 @@
   }
 
   .slick-dots {
-    display: none !important;
     list-style: none;
     margin: 0 0 40px;
     padding: 0;
@@ -132,4 +140,52 @@
   }
 
   // slick-specific styling ends here
+
+  @include media-query("small-up") {
+    .slick-dots {
+      display: none !important;
+    }
+  }
+
+  @include media-query("small-down") {
+    padding: 0;
+
+    &__title {
+      margin: 0 0 20px;
+    }
+
+    &__mentions {
+      &:not(.slick-slider) {
+        .different-mentions__mention {
+          width: 200px;
+        }
+      }
+    }
+
+    &__mention {
+      padding: 20px;
+    }
+
+    .slick-arrow {
+      display: none !important;
+    }
+
+    .slick-dots {
+      margin: 0 0 20px;
+    }
+  }
+
+  @include media-query("v-small") {
+    &__mentions {
+      &:not(.slick-slider) {
+        .different-mentions__mention {
+          width: 150px;
+        }
+      }
+    }
+
+    &__mention {
+      padding: 10px;
+    }
+  }
 }

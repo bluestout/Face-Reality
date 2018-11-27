@@ -1,10 +1,10 @@
 <div class="different-mentions">
   <h2 class="different-mentions__title">{{ section.settings.title }}</h2>
-  <div class="js-different-mentions-slider different-mentions__mentions">
+  <div class="different-mentions__mentions" data-different-mentions-slick>
     {% for block in section.blocks %}
       <div class="different-mentions__mention">
         <a class="different-mentions__mention-link" href="{{ block.settings.url }}">
-          <img class="different-mentions__mention-logo" src="{{ block.settings.image | img_url: '300x' }}" alt="Logo"/>
+          <img class="different-mentions__mention-logo" src="{{ block.settings.image | img_url: '300x100' }}" alt="Logo"/>
         </a>
       </div>
     {% endfor %}

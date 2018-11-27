@@ -1,4 +1,5 @@
 .testimonials-content {
+  margin: 0 0 85px;
   &__container {
     // need to create a custom container to fit the design
     width: 100%;
@@ -9,22 +10,13 @@
   }
 
   &__row {
-    margin: 0 0 30px;
+    margin: 0 0 40px;
   }
 
   &__testimonial {
     background-color: $color-white;
     flex-flow: column wrap;
-    padding: 100px 80px 50px;
-
-    /* TODO remove the placeholder when done with development*/
-    &-separator {
-      display: block;
-      height: 10px;
-      width: 100%;
-      background-image: url("http://via.placeholder.com/51x37");
-      margin: 0 0 20px;
-    }
+    padding: 30px;
 
     &-text {
       position: relative;
@@ -52,6 +44,7 @@
     &-image {
       display: block;
       object-fit: cover;
+      margin: 0 auto;
     }
 
     &-name {
@@ -69,12 +62,13 @@
 
   &__load-wrap {
     text-align: center;
-    margin: 45px 0 85px;
+    padding: 0 15px;
   }
 
   &__load-more {
     @extend %button;
     @extend %button--wire;
+    border: 1px solid rgba($color-blumine, 0.5);
     opacity: 0.65;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -83,42 +77,67 @@
     margin: 0 auto;
   }
 
-  @media (min-width: $grid-small) {
-    &__container {
-      max-width: 540px;
-    }
+  .zig-line-separator-wrapper {
+    margin: 0 0 20px;
   }
-  @media (min-width: $grid-medium) {
-    &__container {
-      max-width: 720px;
-    }
-  }
-  @media (min-width: $grid-large) {
-    &__container {
-      max-width: 960px;
-    }
-  }
-  @media (min-width: $grid-widescreen) {
-    &__container {
-      max-width: 1140px;
-    }
 
+  @media (min-width: $grid-widescreen) {
     &__testimonial {
       padding: 60px 40px 40px;
     }
   }
+
   @media (min-width: 1500px) {
-    &__container {
+    > .container {
       max-width: 1410px;
     }
   }
+
   @media (min-width: 1600px) {
-    &__container {
+    > .container {
       max-width: 1570px;
     }
 
     &__testimonial {
       padding: 100px 80px 50px;
+    }
+  }
+
+  @include media-query("medium-down") {
+    margin: 0 0 60px;
+    &__row {
+      margin: 0 0 30px;
+    }
+
+    &__testimonial {
+      margin: 0 0 30px;
+
+      &-text {
+        margin: 0 0 20px;
+      }
+
+      &-image-wrap {
+        margin: 0 0 10px;
+      }
+
+      &-name {
+        margin: 0 10px 0 0;
+      }
+    }
+
+    .zig-line-separator-wrapper {
+      margin: 0 0 10px;
+    }
+  }
+
+  @include media-query("v-small") {
+    margin: 0 0 60px;
+    &__row {
+      margin: 0 0 5px;
+    }
+
+    &__testimonial {
+      margin: 0 0 15px;
     }
   }
 }

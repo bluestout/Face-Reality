@@ -59,10 +59,10 @@
     padding-top:{{ max_height_image | divided_by: max_width_image | times: 100}}%;
   }
 
-  {%- if picture -%}
+  {%- if responsive -%}
     @media screen and (max-width: 449px) {
       .ImageWrapper-{{ image.id }}-{{ responsive_image_counter }}::before {
-        padding-top:{{ 1 | divided_by: picture.aspect_ratio | times: 100}}%;
+        padding-top:{{ 1 | divided_by: responsive.aspect_ratio | times: 100}}%;
       }
     }
   {%- endif -%}
@@ -70,18 +70,18 @@
 
 
 {%- assign img_url = image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
-{% if picture %}
-  {%- assign mobile_img_url = picture | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+{% if responsive %}
+  {%- assign mobile_img_url = responsive | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
 {% endif %}
 {% if span %}
   <span data-image-id="{{ image.id }}" class="ImageWrapper-{{ image.id }}-{{ responsive_image_counter }} responsive-image__wrapper {{ wrapper_class }}" {{ wrapper_attributes }}>
 {% else %}
   <div data-image-id="{{ image.id }}" class="ImageWrapper-{{ image.id }}-{{ responsive_image_counter }} responsive-image__wrapper {{ wrapper_class }}" {{ wrapper_attributes }}>
 {% endif %}
-{% if picture %}
+{% if responsive %}
   <picture>
-  <source media="(min-width: 450px)" data-src="{{ img_url }}" data-widths="[1080, 1296, 1512, 1728, 1944, 2160, 2376, 2592, 2808, 3024, {{ max_width }}]">
-  <source media="(max-width: 449px)" data-src="{{ mobile_img_url }}" data-widths="[180, 360, 540, 720, 900]">
+  <source media="(min-width: 992px)" data-src="{{ img_url }}" data-widths="[1080, 1296, 1512, 1728, 1944, 2160, 2376, 2592, 2808, 3024, {{ max_width }}]">
+  <source media="(max-width: 991px)" data-src="{{ mobile_img_url }}" data-widths="[180, 360, 540, 720, 900]">
 {% endif %}
 
   <img class="Image-{{ image.id }}-{{ responsive_image_counter }} responsive-image__image {% unless no_lazy %}lazyload{% endunless %} {{ image_class }}"
@@ -103,7 +103,7 @@
     {{ image_attributes }}
   />
 
-{% if picture %}
+{% if responsive %}
   <picture>
 {% endif %}
 

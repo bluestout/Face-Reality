@@ -1,8 +1,20 @@
-{% if section.settings.bg %}
-  <div class="testimonials-banner" data-bgset="{% include 'responsive-bg-image', image: section.settings.bg %}">
-{% else %}
-  <div class="testimonials-banner">
-{% endif %}
+{% comment %} TODO remove placeholder images {% endcomment %}
+<div class="testimonials-banner">
+  {% if section.settings.bg %}
+    {% include 'responsive-image' with
+      image: section.settings.bg,
+      responsive: section.settings.bg_mobile,
+      wrapper_class: 'testimonials-banner__bg',
+      image_class: 'testimonials-banner__bg-image',
+      alt: page.title
+      max_width: 1920,
+      max_height: 400
+    %}
+  {% else %}
+    <div class="testimonials-banner__bg">
+      <img src="http://via.placeholder.com/1920x400" alt="" class="testimonials-banner__bg-image">
+    </div>
+  {% endif %}
   <h1 class="testimonials-banner__suptitle">{{ page.title }}</h1>
   <h2 class="testimonials-banner__title">{{ page.content | strip | strip_html }}</h2>
 </div>
@@ -15,6 +27,11 @@
         "type": "image_picker",
         "id": "bg",
         "label": "Background"
+      },
+      {
+        "type": "image_picker",
+        "id": "bg_mobile",
+        "label": "Mobile Background"
       }
     ]
   }

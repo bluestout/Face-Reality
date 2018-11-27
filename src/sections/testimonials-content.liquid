@@ -1,5 +1,5 @@
 <section class="testimonials-content">
-  <div class="testimonials-content__container">
+  <div class="container">
     {% comment %} assign an initial index that we will increment, to manage pagination {% endcomment %}
     {% assign index = 1 %}
     {% for block in section.blocks %}
@@ -11,7 +11,7 @@
 
       {% if split == 1 %}
         <div class="testimonials-content__row" {% if index != 1 %}style="display:none"{% endif %} data-testimonials-page-row="{{ index }}">
-          <div class="row">
+          <div class="row justify-content-center">
       {% endif %}
 
         <div class="col-lg-4 col-md-6 flex">
@@ -19,7 +19,6 @@
             <p class="testimonials-content__testimonial-text">{{ block.settings.testimonial }}</p>
             <div class="flex-shaper"></div>
             {% include 'zig-line-separator' %}
-            <div class="testimonials-content__testimonial-separator"></div>
             {% if block.settings.image %}
               {% include 'responsive-image'
                 with image: block.settings.image,
@@ -28,6 +27,11 @@
                 wrapper_class: 'testimonials-content__testimonial-image-wrap',
                 image_class: 'testimonials-content__testimonial-image lazyload'
               %}
+            {% else %}
+              {% comment %} TODO remove placegolder images {% endcomment %}
+              <div class="testimonials-content__testimonial-image-wrap">
+                <img src="http://via.placeholder.com/400x400" alt="" class="testimonials-content__testimonial-image lazyload">
+              </div>
             {% endif %}
             <div>
               <span class="testimonials-content__testimonial-name">{{ block.settings.title }}</span>
