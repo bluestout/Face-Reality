@@ -54,6 +54,16 @@
     }
   }
 
+  &__title {
+    @extend %title-section;
+    margin: 0 0 40px;
+  }
+
+  &__collection-title {
+    @extend %title-small;
+    margin: 0 0 45px;
+  }
+
   &__type {
     margin: 0 0 45px;
   }
@@ -191,6 +201,14 @@
 
   @include media-query("medium-down") {
     padding: 0 0 50px;
+
+    &__title {
+      margin: 0 0 30px;
+    }
+
+    &__collection-title {
+      margin: 0 0 10px;
+    }
 
     &__type {
       margin: 0 0 20px;

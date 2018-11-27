@@ -10,7 +10,7 @@
       {% comment %} looped the same array twice, because we can't know in what order the user will add blocks {% endcomment %}
       {% for block in section.blocks %}
         {% if block.type == 'tab-1' %}
-          <div class="col">
+          <div class="col-lg col-md-4 col-6 col-count">
             {% assign collection_block = collections[block.settings.collection] %}
             <div class="collection-by-type__visible-col index-{{ index }}">
               <div class="collection-by-type__visible-col-inner">
@@ -45,10 +45,6 @@
     </div>
   </div>
 
-  {% if section.settings.button_1_text != '' %}
-    <a class="collection-by-type__link collection-by-type__link--margin" href="{{ section.settings.button_1_url }}">{{ section.settings.button_1_text }}</a>
-  {% endif %}
-
   <h3 class="collection-by-type__collection-title">{{ section.settings.collection_2_title }}</h3>
 
   <div class="collection-by-type__type">
@@ -56,7 +52,7 @@
       {% assign index = 1 %}
       {% for block in section.blocks %}
         {% if block.type == 'tab-2' %}
-          <div class="col">
+          <div class="col-lg col-md-4 col-6 col-count">
             {% assign collection_block = collections[block.settings.collection] %}
             <div class="collection-by-type__visible-col index-{{ index }}">
               <div class="collection-by-type__visible-col-inner">
@@ -134,16 +130,6 @@
         "type": "text",
         "id": "collection_1_title",
         "label": "Collection 1 Title"
-      },
-      {
-        "type": "url",
-        "id": "button_1_url",
-        "label": "Coll. 1 Button URL"
-      },
-      {
-        "type": "text",
-        "id": "button_1_text",
-        "label": "Coll. 1 Button Text"
       },
       {
         "type": "text",

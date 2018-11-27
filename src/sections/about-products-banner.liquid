@@ -1,20 +1,42 @@
-{% if section.settings.bg %}
-  <div class="about-products-banner" data-bgset="{% include 'responsive-bg-image', image: section.settings.bg %}">
-{% else %}
-  <div class="about-products-banner">
+{% assign light_font = false %}
+{% if section.settings.color == "white" %}
+  {% assign light_font = true %}
 {% endif %}
-  <h1 class="about-products-banner__suptitle">{{ page.title }}</h1>
-  <h2 class="about-products-banner__title">{{ page.content | strip | strip_html }}</h2>
-</div>
+
+{% assign b_title = page.content | strip | strip_html %}
+{% include 'page-banner' with
+  background: section.settings.bg,
+  background_mobile: section.settings.bg_mobile,
+  banner_suptitle: page.title,
+  banner_title: b_title
+  light_font: light_font
+  height: "medium"
+  margin: "none",
+  limit_width: "large"
+%}
 
 {% schema %}
   {
-    "name": "Header Banner",
+    "name": "Banner",
     "settings": [
       {
         "type": "image_picker",
         "id": "bg",
         "label": "Background"
+      },
+      {
+        "type": "image_picker",
+        "id": "bg_mobile",
+        "label": "Mobile Background"
+      },
+      {
+        "type": "radio",
+        "id": "color",
+        "label": "Font Color",
+        "options": [
+          { "value": "black", "label": "Black" },
+          { "value": "white", "label": "White" }
+        ]
       }
     ]
   }
