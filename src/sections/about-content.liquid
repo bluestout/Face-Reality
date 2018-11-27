@@ -1,8 +1,8 @@
 <div class="about-content">
   <div class="container">
     <div class="row">
-      <div class="col-lg-3 col-sm-1 d-sm-block d-none"></div>
-      <div class="col-lg-6 col-sm-6">
+      <div class="col-xl-3 col-lg-1 d-lg-block d-none"></div>
+      <div class="col-xl-6 col-lg-6">
         <div class="about-content__page-content">
           {{ page.content }}
         </div>
@@ -10,7 +10,7 @@
           {{ section.settings.content_top }}
         </div>
       </div>
-      <div class="col-lg-3 col-sm-4">
+      <div class="col-xl-3 col-lg-4">
         {% include 'responsive-image' with
           image: section.settings.image_top,
           max_width: 400,
@@ -19,7 +19,7 @@
           img_class: 'about-content__image'
         %}
       </div>
-      <div class="col-1 d-lg-none d-md-block d-sm-block d-none"></div>
+      <div class="col-1 d-xl-none d-lg-block d-none"></div>
     </div>
     <div class="about-content__image-wrap">
       {% include 'responsive-image' with
@@ -28,12 +28,12 @@
         max_height: 560,
         wrapper_class: 'about-content__image-wrap',
         img_class: 'about-content__image'
-        internal_text: section.settings.content_middle
       %}
+      <div class="about-content__internal-text">{{ section.settings.content_middle }}</div>
     </div>
     <div class="row">
-      <div class="col-lg-3 col-sm-1 d-sm-block d-none"></div>
-      <div class="col-lg-6 col-sm-10 ">
+      <div class="col-xl-3 col-lg-1 d-lg-block d-none"></div>
+      <div class="col-xl-6 col-lg-10 ">
         <div class="about-content__content">
         {{ section.settings.content_bottom }}
         </div>
@@ -46,7 +46,7 @@
           cta_link_url: section.settings.cta_link_url
         %}
       </div>
-      <div class="col-lg-3 col-sm-1 d-sm-block d-none"></div>
+      <div class="col-xl-3 col-lg-1 d-lg-block d-none"></div>
     </div>
   </div>
 </div>

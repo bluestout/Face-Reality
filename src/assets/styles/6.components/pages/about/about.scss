@@ -1,4 +1,12 @@
 .about {
-  margin: 0 0 135px;
-  @import '/about-content';
+  margin: 0 0 35px;
+  @import "/about-content";
+
+  @include media-query("medium-down") {
+    margin: 0 0 20px;
+  }
+
+  @include media-query("v-small") {
+    margin: 0;
+  }
 }

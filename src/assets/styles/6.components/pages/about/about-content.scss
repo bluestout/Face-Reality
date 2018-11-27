@@ -2,6 +2,7 @@
   &__page-content {
     @include apercu(400);
     @include Text(20px, 30px, $color-blumine);
+    margin: 0 0 45px;
 
     p {
       @include apercu(400);
@@ -37,25 +38,89 @@
   }
 
   &__image-wrap {
+    position: relative;
     margin: 0 0 60px;
   }
-  .responsive-image__internal-text {
+
+  &__internal-text {
+    position: absolute;
     bottom: 60px;
     left: 60px;
     right: 60px;
     max-width: 520px;
     @include apercu(700);
     @include Text(23px, 28px, $color-white);
-    visibility: visible;
 
     &::before {
-      content: '';
+      content: "";
       position: relative;
       bottom: 30px;
       display: block;
       width: 140px;
       height: 8px;
       background-color: $color-white;
+    }
+  }
+
+  @include media-query("medium-down") {
+    &__page-content {
+      font-size: 16px;
+      line-height: 22px;
+      margin: 0 0 30px;
+
+      p {
+        font-size: 16px;
+        line-height: 22px;
+      }
+
+      a {
+        font-size: 16px;
+        line-height: 22px;
+      }
+    }
+
+    &__content {
+      font-size: 14px;
+      line-height: 24px;
+      p {
+        font-size: 14px;
+        line-height: 24px;
+      }
+      a {
+        font-size: 14px;
+        line-height: 24px;
+      }
+    }
+
+    &__image-wrap {
+      margin: 0 0 30px;
+    }
+
+    &__internal-text {
+      font-size: 20px;
+      line-height: 26px;
+    }
+  }
+
+  @include media-query("small-down") {
+    &__internal-text {
+      position: relative;
+      bottom: 0;
+      left: 35px;
+      right: 0;
+      font-size: 16px;
+      line-height: 22px;
+      color: $color-blumine;
+      max-width: calc(100% - 40px);
+
+      &::before {
+        position: absolute;
+        left: -35px;
+        bottom: 0;
+        width: 8px;
+        height: 100%;
+        background-color: rgba($color-blumine, 0.3);
+      }
     }
   }
 }

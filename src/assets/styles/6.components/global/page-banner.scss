@@ -90,16 +90,20 @@
   }
 
   @include media-query("medium-down") {
-    &.margin-big {
+    &.margin-large {
       margin: 0 0 60px;
     }
 
+    &.margin-small {
+      margin: 0 0 15px;
+    }
+
     &.large {
-      height: 400px;
+      height: 350px;
     }
 
     &.medium {
-      height: 350px;
+      height: 320px;
     }
 
     &.small {
@@ -127,8 +131,8 @@
   }
 
   @include media-query("v-small") {
-    &.margin-big {
-      margin: 0 0 30px;
+    &.margin-large {
+      margin: 0 0 15px;
     }
 
     &.margin-small {

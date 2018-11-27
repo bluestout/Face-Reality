@@ -36,4 +36,24 @@
     @include Text(14px, 23px, $color-blumine);
     text-decoration: none;
   }
+
+  @include media-query("small-down") {
+    padding: 40px;
+
+    &__content {
+      margin: 0 0 20px;
+    }
+
+    &__button {
+      padding: 14px;
+    }
+  }
+
+  @include media-query("v-small") {
+    padding: 30px;
+
+    &__button {
+      padding: 12px;
+    }
+  }
 }
