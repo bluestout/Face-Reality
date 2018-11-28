@@ -1,7 +1,14 @@
 .q-and-a {
   @include default-page-padding;
-  margin: 0 0 85px;
   background-color: $color-aqua-haze;
+
+  &__introduction {
+    @include apercu;
+    @include Text(20px, 30px, $color-black);
+    text-align: center;
+    margin: 0 auto 50px;
+    max-width: 770px;
+  }
 
   &__filter-wrap {
     position: relative;
@@ -32,9 +39,6 @@
     }
   }
 
-  &__q-a-pairs {
-  }
-
   &__q-a-pair {
     background-color: rgba($color-white, 0.8);
     padding: 35px 0;
@@ -56,6 +60,14 @@
 
       .q-and-a__question-text {
         color: $color-blumine;
+      }
+    }
+
+    &:hover,
+    &:active {
+      .q-and-a__q-icon,
+      .q-and-a__toggle-icon {
+        opacity: 1;
       }
     }
   }
@@ -99,7 +111,7 @@
     text-align: center;
     display: block;
     float: left;
-    @include transition(color);
+    @include transition(color, opacity);
   }
 
   &__answer {
@@ -109,49 +121,85 @@
     padding: 60px 60px 30px;
   }
 
-  &__inner {
-    background-color: $color-white;
-    padding: 100px 0 120px;
-  }
-
-  &__introduction {
-    @include apercu;
-    @include Text(20px, 30px, $color-black);
-    text-align: center;
-    margin: 0 auto 50px;
-    max-width: 770px;
-  }
-
-  &__image-wrap {
-    text-align: center;
-  }
-
-  &__image {
-    display: inline-block;
-  }
-
-  &__title {
-    @include apercu(700);
-    @include Text(22px, 27px, $color-blumine);
-    text-align: center;
-    margin: 0 0 25px;
-  }
-
-  &__content {
-    @include apercu;
-    @include Text(15px, 22px, $color-black);
-    margin: 0 0 60px;
-
-    ul {
-      padding: 0 0 0 60px;
+  @include media-query("medium-down") {
+    &__introduction {
+      font-size: 16px;
+      line-height: 22px;
+      margin: 0 auto 40px;
     }
 
-    ul li {
-      text-indent: -40px;
+    &__filter-wrap {
+      margin: 0 auto 40px;
+      &::before {
+        top: 12px;
+      }
     }
 
-    ul li::before {
-      padding: 0 26.5px 0 0;
+    &__filter {
+      padding: 10px 30px;
+    }
+    &__q-a-pair {
+      padding: 20px 0;
+    }
+
+    &__q-icon {
+      width: 24px;
+      height: 24px;
+      font-size: 14px;
+      line-height: 24px;
+    }
+
+    &__question-text {
+      font-size: 16px;
+      line-height: 22px;
+      width: calc(100% - 48px);
+      padding: 0 20px;
+    }
+
+    &__toggle-icon {
+      width: 24px;
+      height: 24px;
+      font-size: 24px;
+      line-height: 24px;
+    }
+
+    &__answer {
+      font-size: 13.5px;
+      line-height: 21px;
+      padding: 30px 44px;
+    }
+  }
+
+  @include media-query("v-small") {
+    &__introduction {
+      margin: 0 auto 30px;
+    }
+
+    &__filter-wrap {
+      margin: 0 auto 30px;
+    }
+
+    &__question-text {
+      width: calc(100% - 40px);
+      padding: 0 10px;
+    }
+
+    &__toggle-icon {
+      width: 20px;
+      height: 20px;
+      font-size: 20px;
+      line-height: 20px;
+    }
+
+    &__q-icon {
+      width: 20px;
+      height: 20px;
+      font-size: 13px;
+      line-height: 20px;
+    }
+
+    &__answer {
+      padding: 20px 30px;
     }
   }
 }
