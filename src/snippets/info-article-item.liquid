@@ -15,26 +15,26 @@
 {% endif %}
 
 
-<div class="info-article-item flex-col-wrap">
-  <div class="info-article-item__image-wrap">
+<a href="{{ info-article-item.url }}" class="info-article-item">
+  <span class="info-article-item__image-wrap">
     {% comment %} reconstruct image with proper size parameter, if it's a shopify cdn image {% endcomment %}
     {% if src_split and src_split != ''  %}
       <img src="{{ src_split[0] | append: '_450x' | append: type }}" alt="{{ info-article-item.title }}" class="info-article-item__image">
     {% elsif img_src and img_src != '' %}
       <img src="{{ img_src }}" alt="{{ info-article-item.title }}" class="info-article-item__image">
     {% endif %}
-  </div>
+  </span>
   <h3 class="info-article-item__title">{{ info-article-item.title }}</h3>
   {% if page_meta.excerpt %}
-    <div class="info-article-item__description">{{ page_meta.excerpt }}</div>
+    <span class="info-article-item__description">{{ page_meta.excerpt }}</span>
   {% else %}
-  <div class="info-article-item__description">
+  <span class="info-article-item__description">
     {{ page_object.content | strip_html | truncatewords: 10, '...' }}
-  </div>
+  </span>
   {% endif %}
-  <div class="flex-shaper"></div>
-  <a href="{{ info-article-item.url }}" class="info-article-item__link">
+  <span class="flex-shaper"></span>
+  <span class="info-article-item__link">
     <span class="info-article-item__text">Learn More</span>
     <span class="info-article-item__icon icon-angle-right"></span>
-  </a>
-</div>
+  </span>
+</a>

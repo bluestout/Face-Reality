@@ -10,7 +10,7 @@
     margin: 0 0 30px;
 
     &::before {
-      content: '\e907';
+      content: "\e907";
       display: inline-block;
       vertical-align: bottom;
       margin: 0 10px 0 0;
@@ -19,5 +19,13 @@
       line-height: 18px;
       opacity: 0.6;
     }
+  }
+
+  @include media-query("medium-down") {
+    padding: 0 15px 30px;
+  }
+
+  @include media-query("v-small") {
+    padding: 0 7.5px 10px;
   }
 }

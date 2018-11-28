@@ -47,9 +47,6 @@
     }
   }
 
-  &__topics {
-  }
-
   &__topic {
     background-color: $color-white;
     width: 100%;
@@ -61,6 +58,7 @@
   &__image-wrap {
     @extend %no-font-size;
     margin: 0 0 25px;
+    min-height: 1px;
   }
 
   &__image {
@@ -68,6 +66,8 @@
     height: 220px;
     width: 100%;
     object-fit: cover;
+    max-width: 400px;
+    margin: 0 auto;
   }
 
   &__title {
@@ -99,10 +99,29 @@
   &__subtopic {
     position: relative;
     @extend %no-font-size;
-    margin: 0 -20px 5px;
-    padding: 0 40px;
+  }
+
+  &__sublink {
+    @include apercu;
+    @include Text(14px, 22px, $color-black);
     background-color: transparent;
-    @include transition(background-color);
+    padding: 7px 40px;
+    margin: 0 0 5px;
+    text-decoration: none;
+    display: block;
+    @include transition(background-color, color);
+
+    &:hover,
+    &:active {
+      background-color: $color-aqua-haze;
+
+      &::after {
+        top: calc(50% - 10px);
+        font-size: 20px;
+        right: 20.5px;
+        opacity: 0.5;
+      }
+    }
 
     &::after {
       content: "\e905";
@@ -116,24 +135,114 @@
       opacity: 0.25;
       @include transition(top, font-size, right, opacity);
     }
+  }
 
-    &:hover,
-    &:active {
-      background-color: $color-aqua-haze;
-      &::after {
-        top: calc(50% - 10px);
-        font-size: 20px;
-        right: 20.5px;
-        opacity: 0.5;
+  &__more-wrap {
+    text-align: center;
+    margin: 20px 0 40px;
+  }
+
+  &__more-button {
+    @include apercu(700);
+    @include Text(12px, 12px, rgba($color-blumine, 0.5), 3px);
+    text-transform: uppercase;
+    margin: 0 auto;
+    padding: 10px;
+    background-color: transparent;
+    border: 1px solid rgba($color-blumine, 0.2);
+    max-width: 300px;
+    width: 100%;
+    display: block;
+  }
+
+  @include media-query("medium-down") {
+    background-color: $color-aqua-haze;
+
+    &__filter-wrap {
+      top: -34px;
+    }
+
+    &__filter-caret {
+      top: 8px;
+    }
+
+    &__filter {
+      padding: 10px 40px 10px 20px;
+    }
+
+    &__introduction {
+      margin: 0 auto;
+
+      p {
+        font-size: 16px;
+        line-height: 22px;
       }
+
+      a {
+        font-size: 16px;
+        line-height: 22px;
+      }
+    }
+
+    &__topic {
+      padding: 0 30px 40px;
+      margin: 0 0 30px;
+    }
+
+    &__image-wrap {
+      margin: 0 0 15px;
+    }
+
+    &__image {
+      height: 150px;
+    }
+
+    &__title {
+      margin: 0 0 25px;
+
+      &-primary {
+        font-size: 18px;
+        line-height: 24px;
+        margin: 0 0 5px;
+      }
+
+      &-secondary {
+        font-size: 13px;
+        line-height: 18px;
+      }
+    }
+
+    &__sublink {
+      font-size: 13.5px;
+      line-height: 21px;
+      padding: 5px 20px;
+      margin: 0 0 5px;
     }
   }
 
-  &__sublink {
-    @include apercu;
-    @include Text(14px, 22px, $color-black);
-    padding: 7px 0;
-    text-decoration: none;
-    display: block;
+  @include media-query("small-down") {
+    [data-ic-initial="false"] {
+      display: none;
+    }
+
+    &__introduction {
+      margin: 22.5px auto 0;
+      small {
+        font-size: 10px;
+        line-height: 12px;
+        opacity: 0.7;
+      }
+    }
+
+    &__topic {
+      padding: 0 20px 20px;
+      margin: 0 0 7.5px;
+    }
+
+    &__sublink {
+      font-size: 13.5px;
+      line-height: 21px;
+      padding: 5px 0;
+    }
   }
 }

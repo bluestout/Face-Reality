@@ -1,19 +1,20 @@
 <div class="information-section">
 
   <div class="info-s-banner">
+    <a href="/pages/acne-information-center" class="info-s-articles__backlink d-lg-none">Back to Acne Information Center Index</a>
     <h1 class="info-s-banner__title">{{ page.title }}</h1>
     <h2 class="info-s-banner__subtitle">{{ page.content | strip | strip_html | truncatewords: 30 }}</h2>
     {% include 'breadcrumbs' %}
   </div>
 
   <div class="info-s-articles">
-    <a href="/pages/acne-information-center" class="info-s-articles__backlink">Back to Acne Information Center Index</a>
+    <a href="/pages/acne-information-center" class="info-s-articles__backlink d-none d-lg-block">Back to Acne Information Center Index</a>
     <div class="info-s-articles__articles">
       {% for link in linklists['information-center'].links %}
         {% if link.handle == page.handle and link.links.size > 0 %}
           <div class="row">
             {% for sublink in link.links %}
-              <div class="col-xl-3 col-lg-4 col-sm-6 col-12 flex">
+              <div class="col-xl-3 col-lg-4 col-md-6 col-12 flex">
                 {% include 'info-article-item' with sublink %}
               </div>
             {% endfor %}

@@ -1,4 +1,8 @@
 .information-center {
-  @import 'banner';
-  @import 'topics';
+  margin: 40px 0 0;
+  @import "topics";
+
+  @include media-query("medium-down") {
+    margin: 10px 0 0;
+  }
 }

@@ -2,7 +2,7 @@
   margin: 45px 0 5px;
 
   &__wrap {
-    padding: 25px 25px 100px;
+    @include default-page-padding;
     background-color: $color-aqua-haze;
   }
 
@@ -61,8 +61,11 @@
   &__social {
     display: inline-block;
     text-decoration: none;
+    background: transparent;
+    border: none;
+    appearance: none;
 
-    &:not(:last-of-type) {
+    &--margin {
       margin: 0 40px 0 0;
     }
 
@@ -82,12 +85,12 @@
   .social-sharing {
     z-index: 1;
     position: absolute;
+    top: 100%;
+    right: 0;
     display: none;
     margin: 0;
-    right: 0;
-    top: 100%;
     padding: 10px;
-    background-color: rgba($color-blumine, 0.04);
+    background-color: $color-aqua-haze;
 
     &__link {
       @extend %no-font-size;
@@ -110,8 +113,7 @@
   }
 
   &__title {
-    @include apercu(700);
-    @include Text(40px, 48px, $color-blumine);
+    @extend %title-main;
     text-align: center;
     margin: 0 0 40px;
   }
@@ -198,5 +200,131 @@
     }
   }
 
-  @import "related";
+  @media print {
+    &__utilities {
+      display: none;
+    }
+
+    &__backlink {
+      display: none;
+    }
+  }
+
+  @import "./related";
+
+  @include media-query("medium-down") {
+    margin: 10px 0 0;
+
+    &__section-title {
+      font-size: 18px;
+      line-height: 24px;
+      margin: 0 0 10px;
+    }
+
+    &__navigation {
+      margin: 0 auto 20px;
+    }
+
+    .breadcrumbs {
+      padding: 0;
+    }
+
+    &__inner {
+      margin: 0 auto 60px;
+    }
+
+    &__utilities {
+      padding: 10px 0;
+      margin: 0 15px;
+    }
+
+    &__social {
+      &--margin {
+        margin: 0 20px 0 0;
+      }
+    }
+
+    &__title {
+      margin: 0 0 30px;
+    }
+
+    &__introduction {
+      font-size: 16px;
+      line-height: 24px;
+    }
+
+    &__content {
+      margin: 0 0 40px;
+      &::first-letter,
+      .initial::first-letter {
+        font-size: 30px;
+        line-height: 40px;
+      }
+
+      p {
+        font-size: 13.5px;
+        line-height: 21px;
+      }
+
+      ul {
+        padding: 0 0 0 40px;
+      }
+
+      ul li {
+        text-indent: -30px;
+      }
+
+      ul li::before {
+        padding: 0 16.5px 0 0;
+      }
+
+      h1 {
+        margin: 0 0 30px;
+      }
+
+      h2 {
+        margin: 0 0 25px;
+      }
+
+      h3 {
+        margin: 0 0 20px;
+      }
+
+      h4 {
+        margin: 0 0 20px;
+      }
+
+      h5 {
+        margin: 0 0 15px;
+      }
+
+      h6 {
+        margin: 0 0 15px;
+      }
+
+      blockquote {
+        margin: 0 auto 30px;
+
+        * {
+          font-size: 16px;
+          line-height: 26px;
+        }
+      }
+    }
+  }
+
+  @include media-query("small-down") {
+    &__backlink {
+      position: relative;
+    }
+  }
+
+  @include media-query("v-small") {
+    &__introduction {
+      margin: 0 0 30px;
+    }
+    &__inner {
+      margin: 0 auto 30px;
+    }
+  }
 }

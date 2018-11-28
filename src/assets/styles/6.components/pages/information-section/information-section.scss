@@ -1,6 +1,15 @@
 .information-section {
+  margin: 40px 0 0;
   background-color: $color-aqua-haze;
 
   @import "./banner";
   @import "./articles";
+
+  @include media-query("medium-down") {
+    margin: 10px 0 0;
+  }
+
+  @include media-query("v-small") {
+    margin: 0;
+  }
 }

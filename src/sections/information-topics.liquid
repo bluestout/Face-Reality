@@ -12,6 +12,13 @@
             {% endfor %}
           </select>
         </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container d-none d-lg-block">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
         <div class="info-topics__introduction shopify-rte">{{ page.content }}</div>
       </div>
     </div>
@@ -36,7 +43,13 @@
           {% endif %}
         {% endif %}
 
-        <div class="col-lg-4 col-md-6 flex" data-ic-topic="{{ link.handle }}">
+        {% if forloop.index <= 5 %}
+          {% assign initial_state = "data-ic-initial=true" %}
+        {% else %}
+          {% assign initial_state = "data-ic-initial=false" %}
+        {% endif %}
+
+        <div class="col-lg-4 col-md-6 flex" data-ic-topic="{{ link.handle }}" {{ initial_state }}>
           <div class="info-topics__topic">
             <div class="info-topics__image-wrap">
               {% if src_split and src_split != ''  %}
@@ -64,6 +77,16 @@
         </div>
       {% endfor %}
     </div>
+  </div>
+
+
+  <div class="container d-lg-none">
+    {% if linklists['information-center'].links.size > 5 %}
+      <div class="info-topics__more-wrap">
+        <button type="button" class="info-topics__more-button" data-info-topics-load-more>Show more</button>
+      </div>
+    {% endif %}
+    <div class="info-topics__introduction shopify-rte">{{ page.content }}</div>
   </div>
 
 </div>

@@ -4,7 +4,13 @@
 
     <div class="container">
       <div class="row justify-content-center">
-        <div class="col-lg-8 col-sm-11 static">
+        <div class="col-12 d-md-none text-left">
+          <a class="information-article__backlink" data-info-backlink>
+            <span class="information-article__backlink-icon icon-angle-left"></span>
+            <span class="information-article__backlink-text">Back
+          </a>
+        </div>
+        <div class="col-lg-8 col-sm-11 col-12 static">
           <h3 class="information-article__section-title">Acne information center</h3>
         </div>
       </div>
@@ -13,8 +19,8 @@
     <div class="information-article__navigation">
       <div class="container">
         <div class="row justify-content-center">
-          <div class="col-lg-8 col-sm-11 static">
-            <a class="information-article__backlink" data-info-backlink>
+          <div class="col-lg-8 col-sm-11 col-12 static">
+            <a class="information-article__backlink d-none d-md-block" data-info-backlink>
               <span class="information-article__backlink-icon icon-angle-left"></span>
               <span class="information-article__backlink-text">Back
             </a>
@@ -26,11 +32,10 @@
 
     <div class="information-article__inner">
       <div class="information-article__utilities">
-        <a href="#" class="information-article__social" data-info-share-toggle>
+        <button type="button" class="information-article__social information-article__social--margin" data-info-share-toggle>
           <span class="information-article__social-icon icon-share"></span>
           <span class="information-article__social-text">Share</span>
-        </a>
-        {% comment %} TODO print only the document in question? {% endcomment %}
+        </button>
         <a href="javascript:window.print()" class="information-article__social">
           <span class="information-article__social-icon icon-document"></span>
           <span class="information-article__social-text">Print</span>

@@ -10,7 +10,10 @@ const el = {
 function headerOffset() {
   const $offset = $(el.offset);
   const headerHeight = $(el.header).outerHeight();
-  $offset.css("min-height", headerHeight);
+  const currentHeight = $(el.offset).outerHeight();
+  if (headerHeight !== currentHeight) {
+    $offset.css("min-height", headerHeight);
+  }
 }
 
 function listIn(event) {
@@ -25,4 +28,4 @@ function listOut(event) {
 
 $(el.sublist).hover(listIn, listOut);
 
-$(document).ready(headerOffset);
+$(window).on("load resize", headerOffset);
