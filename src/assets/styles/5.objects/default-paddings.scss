@@ -1,0 +1,11 @@
+@mixin default-page-padding() {
+  padding: 25px 25px 50px;
+
+  @include media-query("medium-down") {
+    padding: 15px 15px 50px;
+  }
+
+  @include media-query("v-small") {
+    padding: 7.5px 7.5px 40px;
+  }
+}

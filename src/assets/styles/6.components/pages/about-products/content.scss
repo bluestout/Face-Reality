@@ -1,5 +1,5 @@
 .about-products-content {
-  padding: 25px 25px 50px;
+  @include default-page-padding;
   background-color: $color-aqua-haze;
 
   &__inner {
@@ -50,8 +50,6 @@
   }
 
   @include media-query("medium-down") {
-    padding: 15px 15px 50px;
-
     &__inner {
       padding: 60px 0;
     }
@@ -80,8 +78,6 @@
   }
 
   @include media-query("v-small") {
-    padding: 7.5px 7.5px 40px;
-
     &__inner {
       padding: 40px 0;
     }

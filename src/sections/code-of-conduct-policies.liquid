@@ -2,15 +2,15 @@
   <div class="conduct-policies__inner">
     <div class="container">
       <div class="row justify-content-center">
-        <div class="col-lg-8 col-sm-11">
+        <div class="col-lg-8 col-sm-11 col-12">
           <p class="conduct-policies__introduction">{{ section.settings.title }}</p>
           {% for block in section.blocks %}
-            <div class="conduct-policies__content">
+            <div class="conduct-policies__content-container">
               <div class="conduct-policies__image-wrap">
                 <img src="{{ block.settings.image | img_url: '100x100' }}" alt="{{ section.settings.title }}" class="conduct-policies__image"/>
               </div>
               <h3 class="conduct-policies__title">{{ block.settings.title }}</h3>
-              <p class="conduct-policies__content">{{ block.settings.content }}</p>
+              <div class="conduct-policies__content">{{ block.settings.content }}</div>
             </div>
           {% endfor %}
         </div>

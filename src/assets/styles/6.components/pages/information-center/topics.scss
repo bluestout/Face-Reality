@@ -1,5 +1,5 @@
 .info-topics {
-  padding: 25px 25px 50px;
+  @include default-page-padding;
   background-color: $color-aqua-haze;
 
   &__filter-wrap {

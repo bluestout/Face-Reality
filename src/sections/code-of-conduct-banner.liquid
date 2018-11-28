@@ -1,11 +1,19 @@
-{% if section.settings.bg %}
-  <div class="conduct-banner" data-bgset="{% include 'responsive-bg-image', image: section.settings.bg %}">
-{% else %}
-  <div class="conduct-banner">
+{% assign light_font = false %}
+{% if section.settings.color == "white" %}
+  {% assign light_font = true %}
 {% endif %}
-  <h1 class="conduct-banner__suptitle">{{ page.content | strip | strip_html }}</h1>
-  <h2 class="conduct-banner__title">{{ page.title }}</h2>
-</div>
+
+{% assign b_title = page.content | strip | strip_html %}
+{% include 'page-banner' with
+  background: section.settings.bg,
+  background_mobile: section.settings.bg_mobile,
+  banner_suptitle: b_title,
+  banner_title: page.title
+  light_font: light_font
+  height: "medium"
+  margin: "none",
+  limit_width: "medium"
+%}
 
 {% schema %}
   {
@@ -15,6 +23,20 @@
         "type": "image_picker",
         "id": "bg",
         "label": "Background"
+      },
+      {
+        "type": "image_picker",
+        "id": "bg_mobile",
+        "label": "Mobile Background"
+      },
+      {
+        "type": "radio",
+        "id": "color",
+        "label": "Font Color",
+        "options": [
+          { "value": "black", "label": "Black" },
+          { "value": "white", "label": "White" }
+        ]
       }
     ]
   }

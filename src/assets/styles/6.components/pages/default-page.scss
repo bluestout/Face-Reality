@@ -1,5 +1,5 @@
 .default-page {
-  padding: 25px 25px 50px;
+  @include default-page-padding;
   margin: 0 0 20px;
   background-color: $color-aqua-haze;
 
@@ -92,7 +92,6 @@
   }
 
   @include media-query("medium-down") {
-    padding: 15px 15px 50px;
     margin: 0;
 
     &__inner {
@@ -132,7 +131,6 @@
   }
 
   @include media-query("v-small") {
-    padding: 15px 7.5px 50px;
     margin: 0;
 
     &__inner {

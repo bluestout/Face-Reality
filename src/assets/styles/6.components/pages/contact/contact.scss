@@ -1,6 +1,6 @@
 .contact-page {
   .contact-content {
-    padding: 25px 25px 50px;
+    @include default-page-padding;
     background-color: $color-aqua-haze;
     &__inner {
       background-color: $color-white;
@@ -13,8 +13,6 @@
 
   @include media-query("small-down") {
     .contact-content {
-      padding: 15px;
-
       &__inner {
         padding: 30px;
       }
@@ -23,8 +21,6 @@
 
   @include media-query("v-small") {
     .contact-content {
-      padding: 7.5px 7.5px 50px;
-
       &__inner {
         padding: 30px 15px;
       }

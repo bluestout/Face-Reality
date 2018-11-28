@@ -1,5 +1,5 @@
 .q-and-a {
-  padding: 25px 25px 50px;
+  @include default-page-padding;
   margin: 0 0 85px;
   background-color: $color-aqua-haze;
 
@@ -10,7 +10,7 @@
     width: 100%;
 
     &::before {
-      content: '\e904';
+      content: "\e904";
       position: absolute;
       left: 5px;
       top: 16px;
@@ -50,7 +50,7 @@
         opacity: 0.85;
 
         &::before {
-          content: '\e90f';
+          content: "\e90f";
         }
       }
 
