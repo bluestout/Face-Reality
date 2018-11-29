@@ -78,4 +78,68 @@
     @include Text(18px, 22px, $color-blumine);
     margin: 0 0 10px;
   }
+
+  @include media-query("medium-down") {
+    padding: 0 15px;
+
+    .order-history__title {
+      margin: 0 0 20px;
+    }
+
+    &__return {
+      margin: 0 0 20px;
+    }
+
+    &__item {
+      margin: 0 0 60px;
+    }
+
+    &__title {
+      font-size: 16px;
+      line-height: 22px;
+    }
+
+    &__date {
+      font-size: 13.5px;
+      line-height: 18px;
+      margin: 0 0 10px;
+    }
+
+    &__note {
+      margin: 0 0 5px;
+    }
+
+    &__table {
+      margin: 0 0 30px;
+    }
+
+    &__cell {
+      font-size: 13.5px;
+      line-height: 18px;
+      padding: 10px;
+
+      &--head {
+        font-size: 12px;
+        line-height: 16px;
+        padding: 10px;
+      }
+
+      &--foot {
+        font-size: 12px;
+        line-height: 16px;
+        padding: 10px;
+      }
+    }
+
+    &__note-title {
+      font-size: 14px;
+      line-height: 18px;
+    }
+  }
+
+  @include media-query("v-small") {
+    &__item {
+      margin: 0 0 30px;
+    }
+  }
 }

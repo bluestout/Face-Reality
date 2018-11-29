@@ -22,4 +22,18 @@
       opacity: 1;
     }
   }
+
+  @include media-query("small-down") {
+    margin: 0 0 5px;
+    padding: 0 15px;
+    text-align: center;
+
+    .account-sidebar__title {
+      margin: 0 0 15px;
+    }
+
+    .account-sidebar__link {
+      margin: 0 0 15px;
+    }
+  }
 }

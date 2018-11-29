@@ -3,9 +3,17 @@
   text-align: center;
 
   &__link {
+    font-size: 22px;
+    line-height: 1;
+    color: $color-blumine;
     padding: 5px;
     margin: 0 5px;
     text-decoration: none;
     display: inline-block;
+
+    &:hover,
+    &:active {
+      color: $color-accent;
+    }
   }
 }

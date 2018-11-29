@@ -9,14 +9,13 @@
   user-select: none;
   appearance: none;
 
-  /* this is so the input default is overridden */
   &%button--wire {
     @extend %paragraph-blue;
     @include transition(background-color, color);
     text-align: center;
     text-decoration: none;
     font-weight: 400;
-    padding: 14.5px 53px;
+    padding: 11px 25px;
     background-color: transparent;
     border: 1px solid $color-blumine;
     border-radius: 0;
@@ -57,7 +56,6 @@
     }
   }
 
-  /* this is so the input default is overridden */
   &%button--main {
     @include myriad(400);
     @extend %paragraph-white;

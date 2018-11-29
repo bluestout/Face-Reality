@@ -1,8 +1,30 @@
+{% if product.tags contains "authorization" %}
+  {% assign needs_authorization = true %}
+{% else %}
+  {% assign needs_authorization = false %}
+{% endif %}
+
+{% if customer and customer.tags contains "has_authorization" %}
+  {% assign has_authorization = true %}
+{% else %}
+  {% assign has_authorization = false %}
+{% endif %}
+
+{% assign can_buy = false %}
+
+{% if needs_authorization %}
+  {% if has_authorization %}
+    {% assign can_buy = true %}
+  {% endif %}
+{% else %}
+  {% assign can_buy = true %}
+{% endif %}
+
 {% comment %} TODO reviews {% endcomment %}
 <article class="product-content" data-section-id="{{ section.id }}" data-section-type="product" data-enable-history-state="true">
   {%- assign current_variant = product.selected_or_first_available_variant -%}
 
-  {% if product.tags contains "authorization" %}
+  {% if needs_authorization %}
     <div class="product-content__authorization-tag">Needs authorization</div>
   {% endif %}
 
@@ -17,102 +39,96 @@
     {{ product.description }}
   </div>
 
-  {% comment %}
-  TODO
-  {% if "customer has authorization" %}
-  show form
-  {% else %}
-  show authorization snippet
-  {% endif %}
-  {% endcomment %}
+  {% if can_buy %}
+    <form class="product-content__form" action="/cart/add" method="post" enctype="multipart/form-data">
 
-  <form class="product-content__form" action="/cart/add" method="post" enctype="multipart/form-data">
+      <div class="product-content__price" data-price-wrapper>
+        <span data-product-price>
+          {{ current_variant.price | money }}
+        </span>
 
-    <div class="product-content__price" data-price-wrapper>
-      <span data-product-price>
-        {{ current_variant.price | money }}
-      </span>
-
-      {% if product.compare_at_price_max > product.price %}
-        <s data-compare-price>
-          {% if current_variant.compare_at_price > current_variant.price %}
-            {{ current_variant.compare_at_price | money }}
-          {% endif %}
-        </s>
-      {% endif %}
-    </div>
-
-    {% assign var_selected = false %}
-    {% unless product.has_only_default_variant %}
-      {% for option in product.options_with_values %}
-        <div class="product-content__option-name">{{ option.name }}</div>
-        <div class="product-content__variants-wrap">
-          {% for value in option.values %}
-            <div class="product-content__variant-wrap">
-              <input
-                class="product-content__variant"
-                type="radio"
-                name="variation-radio-{{ option.name | handleize }}"
-                value="{{ value | escape }}"
-                data-single-option-selector
-                data-index="option{{ option.position }}"
-                {% if product.available %}
-                  {% if forloop.index == 1 %}
-                    checked="checked"
-                  {% endif %}
-                {% endif %}
-                />
-              <label class="product-content__variant-label">{{ value }}</label>
-            </div>
-          {% endfor %}
-        </div>
-      {% endfor %}
-    {% endunless %}
-
-    <select name="id" class="no-js" data-product-select>
-      {% for variant in product.variants %}
-        <option
-          {% if variant == current_variant %}selected="selected"{% endif %}
-          {% unless variant.available %}disabled="disabled"{% endunless %}
-          value="{{ variant.id }}">
-            {{ variant.title }}
-        </option>
-      {% endfor %}
-    </select>
-
-    <div class="product-content__submit-wrap">
-      <div class="product-content__input-wrap">
-        <button type="button" class="product-content__quantity-button" data-qty-change="#Quantity" data-direction="down">-</button>
-        <input class="product-content__quantity" type="number" id="Quantity" name="quantity" value="1" min="1">
-        <button type="button" class="product-content__quantity-button" data-qty-change="#Quantity" data-direction="up">+</button>
-      </div>
-      <button
-        class="product-content__submit"
-        type="submit"
-        name="add"
-        data-add-to-cart
-        {% unless current_variant.available %}disabled="disabled"{% endunless %}>
-          <span data-add-to-cart-text>
-            {% if current_variant.available %}
-              {{ 'products.product.add_to_cart' | t }}
-            {% else %}
-              {{ 'products.product.sold_out' | t }}
+        {% if product.compare_at_price_max > product.price %}
+          <s data-compare-price>
+            {% if current_variant.compare_at_price > current_variant.price %}
+              {{ current_variant.compare_at_price | money }}
             {% endif %}
-          </span>
-      </button>
-    </div>
-  </form>
+          </s>
+        {% endif %}
+      </div>
 
-  {% include 'product-authorization' %}
+      {% assign var_selected = false %}
+      {% unless product.has_only_default_variant %}
+        {% for option in product.options_with_values %}
+          <div class="product-content__option-name">{{ option.name }}</div>
+          <div class="product-content__variants-wrap">
+            {% for value in option.values %}
+              <div class="product-content__variant-wrap">
+                <input
+                  class="product-content__variant"
+                  type="radio"
+                  name="variation-radio-{{ option.name | handleize }}"
+                  value="{{ value | escape }}"
+                  data-single-option-selector
+                  data-index="option{{ option.position }}"
+                  {% if product.available %}
+                    {% if forloop.index == 1 %}
+                      checked="checked"
+                    {% endif %}
+                  {% endif %}
+                  />
+                <label class="product-content__variant-label">{{ value }}</label>
+              </div>
+            {% endfor %}
+          </div>
+        {% endfor %}
+      {% endunless %}
+
+      <select name="id" class="no-js" data-product-select>
+        {% for variant in product.variants %}
+          <option
+            {% if variant == current_variant %}selected="selected"{% endif %}
+            {% unless variant.available %}disabled="disabled"{% endunless %}
+            value="{{ variant.id }}">
+              {{ variant.title }}
+          </option>
+        {% endfor %}
+      </select>
+
+      <div class="product-content__submit-wrap">
+        <div class="product-content__input-wrap">
+          <button type="button" class="product-content__quantity-button" data-qty-change="#Quantity" data-direction="down">-</button>
+          <input class="product-content__quantity" type="number" id="Quantity" name="quantity" value="1" min="1">
+          <button type="button" class="product-content__quantity-button" data-qty-change="#Quantity" data-direction="up">+</button>
+        </div>
+        <button
+          class="product-content__submit"
+          type="submit"
+          name="add"
+          data-add-to-cart
+          {% unless current_variant.available %}disabled="disabled"{% endunless %}>
+            <span data-add-to-cart-text>
+              {% if current_variant.available %}
+                {{ 'products.product.add_to_cart' | t }}
+              {% else %}
+                {{ 'products.product.sold_out' | t }}
+              {% endif %}
+            </span>
+        </button>
+      </div>
+    </form>
+  {% else %}
+    {% include 'product-authorization' %}
+  {% endif %}
 
   <div class="product-content__description d-lg-none">
     {{ product.description }}
   </div>
 
-  {% include 'usp-triple-icons' %}
-
-  {% if section.settings.show_share_buttons %}
-    {% include 'social-sharing', share_title: product.title, share_permalink: product.url, share_image: product %}
+  {% if can_buy %}
+    {% include 'usp-triple-icons' %}
+    {% if section.settings.show_share_buttons %}
+      {% include 'social-sharing', share_title: product.title, share_permalink: product.url, share_image: product %}
+    {% endif %}
   {% endif %}
 
   {% unless product == empty %}

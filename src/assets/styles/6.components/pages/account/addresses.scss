@@ -1,5 +1,6 @@
 .addresses {
   padding: 0 30px;
+
   &__title {
     @include Text(18px, 24px, $color-black);
     font-weight: 700;
@@ -39,12 +40,10 @@
   &__edit-open {
     @extend %button;
     @extend %button--main;
-    @extend %button--tiny;
   }
   &__edit-delete {
     @extend %button;
     @extend %button--main;
-    @extend %button--tiny;
   }
 
   &__edit-form {
@@ -54,38 +53,41 @@
     margin: 0 0 8px;
     @extend %button;
     @extend %button--main;
-    @extend %button--tiny;
   }
   &__edit-cancel {
     @extend %button;
     @extend %button--wire;
-    @extend %button--tiny;
     margin: 0 0 8px;
   }
   &__add-new-form {
     margin: 0 0 30px;
+    @include clearfix;
   }
   &__add-new-cancel {
+    margin: 0 0 0 20px;
     @extend %button;
     @extend %button--wire;
-    @extend %button--tiny;
+    float: left;
   }
   &__add-new-open {
     margin: 0 0 30px;
     @extend %button;
     @extend %button--main;
   }
+
   &__add-new-submit {
     margin: 0 0 30px;
     @extend %button;
     @extend %button--main;
-    @extend %button--tiny;
+    float: left;
   }
+
   &__cancel {
     @include Text(14px, 20px, $color-blumine);
     font-weight: 400;
     text-decoration: none;
   }
+
   &__label {
     @include Text(14px, 16px, $color-blumine);
     display: block;

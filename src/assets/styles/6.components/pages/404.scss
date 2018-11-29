@@ -1,6 +1,6 @@
 .page-404 {
   @include backgroundImage;
-  margin: 0 0 110px;
+  margin: 40px 0 10px;
   padding: 85px 0 120px;
   text-align: center;
 
@@ -72,6 +72,69 @@
 
     &::before {
       top: calc(100% + 2px);
+    }
+  }
+
+  @include media-query("medium-down") {
+    margin: 10px 0;
+    padding: 30px 30px 90px;
+
+    &__banner {
+      padding: 40px 60px 100px;
+    }
+
+    &__image {
+      margin: 0 0 30px;
+    }
+
+    &__title {
+      font-size: 24px;
+      line-height: 32px;
+      margin: 0 auto 10px;
+      max-width: 340px;
+    }
+
+    &__alias {
+      font-size: 13.5px;
+      line-height: 18px;
+      margin: 0 auto 35px;
+    }
+
+    &__text {
+      font-size: 13.5px;
+      line-height: 21px;
+      margin: 0 auto 30px;
+      max-width: 400px;
+    }
+
+    &__link {
+      max-width: 240px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 12px;
+      display: block;
+    }
+
+    &__or {
+      margin: 20px 0;
+
+      &::before,
+      &::after {
+        content: none;
+      }
+    }
+  }
+
+  @include media-query("v-small") {
+    padding: 15px 15px 60px;
+
+    &__banner {
+      padding: 30px 40px 60px;
+    }
+
+    &__title {
+      font-size: 18px;
+      line-height: 24px;
     }
   }
 }
