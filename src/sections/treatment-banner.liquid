@@ -1,28 +1,38 @@
-{% if section.settings.bg %}
-  <div class="treatment-banner lazyload" data-bgset="{% include 'responsive-bg-image', image: section.settings.bg %}">
-{% else %}
-  {% comment %} TODO remove the placeholder when done with development {% endcomment %}
-  <div class="treatment-banner lazyload" style="background-image: url('http://via.placeholder.com/1920x500')">
-{% endif %}
-  <div class="treatment-banner__content max-wrap">
-    <h1 class="treatment-banner__suptitle">{{ page.title }}</h1>
-    <h2 class="treatment-banner__title shopify-rte">{{ page.content }}</h2>
-    {% if section.settings.image %}
-      {% include 'responsive-image' with
-        image: section.settings.image,
-        wrapper_class: 'treatment-banner__badge-wrap',
-        image_class: 'treatment-banner__badge',
-        alt: page.title
-        max_width: 180,
-        max_height: 180
-      %}
-    {% else %}
-      <div class="treatment-banner__badge-wrap">
-        {% comment %} TODO remove the placeholder when done with development {% endcomment %}
-        <img src="http://via.placeholder.com/180x180" alt="{{ page.title }}" class="treatment-banner__badge"/>
-      </div>
-    {% endif %}
+<div class="treatment-banner">
+  {% if sections.settings.bg %}
+    {% include 'responsive-image' with
+      image: sections.settings.bg,
+      responsive: sections.settings.bg_mobile,
+      wrapper_class: 'treatment-banner__bg',
+      image_class: 'treatment-banner__bg-image',
+      alt: banner_title
+      max_width: 1920,
+      max_height: img_height
+    %}
+  {% else %}
+    <div class="treatment-banner__bg">
+      <img src="http://via.placeholder.com/1920x400" alt="" class="treatment-banner__bg-image">
+    </div>
+  {% endif %}
+  <div class="treatment-banner__content {{ classes }}">
+    <h2 class="treatment-banner__suptitle">{{ page.title }}</h2>
+    <h1 class="treatment-banner__title">{{ page.content | strip | strip_html  }}</h1>
   </div>
+  {% if section.settings.image %}
+    {% include 'responsive-image' with
+      image: section.settings.image,
+      wrapper_class: 'treatment-banner__badge-wrap',
+      image_class: 'treatment-banner__badge',
+      alt: page.title
+      max_width: 180,
+      max_height: 180
+    %}
+  {% else %}
+    <div class="treatment-banner__badge-wrap">
+      {% comment %} TODO remove the placeholder when done with development {% endcomment %}
+      <img src="http://via.placeholder.com/180x180" alt="{{ page.title }}" class="treatment-banner__badge"/>
+    </div>
+  {% endif %}
 </div>
 
 {% schema %}
@@ -33,6 +43,11 @@
         "type": "image_picker",
         "id": "bg",
         "label": "Background"
+      },
+      {
+        "type": "image_picker",
+        "id": "bg_mobile",
+        "label": "Mobile Background"
       },
       {
         "type": "image_picker",

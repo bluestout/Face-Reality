@@ -1,0 +1,45 @@
+.usp-triple-icons {
+  text-align: center;
+  margin: 0 0 80px;
+
+  &__usp {
+    display: inline-block;
+    vertical-align: top;
+    margin: 0 25px;
+  }
+
+  &__usp-icon {
+    object-fit: scale-down;
+  }
+
+  &__usp-text {
+    @include apercu(700);
+    @include Text(13.5px, 14px, $color-blumine);
+    display: block;
+    margin: 15px auto 0;
+    max-width: 110px;
+  }
+
+  @include media-query("medium-down") {
+    margin: 0 0 40px;
+
+    &__usp {
+      margin: 0 20px;
+    }
+
+    &__usp-text {
+      margin: 5px auto 0;
+    }
+  }
+
+  @include media-query("v-small") {
+    &__usp {
+      margin: 0 7px;
+    }
+
+    &__usp-text {
+      font-size: 10px;
+      max-width: 80px;
+    }
+  }
+}

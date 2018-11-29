@@ -4,20 +4,9 @@
       <div class="row justify-content-center">
         <div class="col-lg-8 col-sm-11">
           <p class="about-products-content__title">{{ section.settings.title }}</p>
-          <div class="about-products-content__icons">
-            <span class="about-products-content__icon">
-              <img class="about-products-content__icon-image" src="{{ '../assets/images/icon-formulations.png' | asset_img_url: '40x' }}" alt="Premium formulations"/>
-              <span class="about-products-content__icon-text">Premium formulations</span>
-            </span>
-            <span class="about-products-content__icon">
-              <img class="about-products-content__icon-image" src="{{ '../assets/images/icon-calendar.png' | asset_img_url: '40x' }}" alt="Fast solutions"/>
-              <span class="about-products-content__icon-text">Clear skin in 3-4 months</span>
-            </span>
-            <span class="about-products-content__icon">
-              <img class="about-products-content__icon-image" src="{{ '../assets/images/icon-successrate.png' | asset_img_url: '40x' }}" alt="High Success rate"/>
-              <span class="about-products-content__icon-text">Success rate</span>
-            </span>
-          </div>
+
+          {% include 'usp-triple-icons' %}
+
           <div class="about-products-content__content">
             {{ section.settings.content }}
           </div>

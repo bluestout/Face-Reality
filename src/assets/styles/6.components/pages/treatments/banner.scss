@@ -1,9 +1,29 @@
 .treatment-banner {
-  @include backgroundImage;
+  position: relative;
+  text-align: center;
+  padding: 15px;
+  display: flex;
+  flex-flow: column wrap;
+  height: 300px;
   margin: 0 0 75px;
 
+  &__bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__bg-image {
+    display: block;
+    height: 100%;
+    object-fit: cover;
+  }
+
   &__content {
-    padding: 110px 0;
+    position: relative;
+    margin: auto;
     text-align: center;
   }
 
@@ -15,18 +35,45 @@
 
   &__title {
     @include apercu(700);
-    @include Text(40px, 48px, $color-blumine);
+    @extend %title-main;
   }
 
   &__badge-wrap {
     position: absolute;
     right: 15px;
-    top: calc(100% - 145px);
+    bottom: -35px;
     max-width: 180px;
   }
 
   &__badge {
     display: block;
     object-fit: scale-down;
+  }
+
+  @include media-query("medium-down") {
+    height: 250px;
+    margin: 0 0 50px;
+
+    &__title {
+      max-width: 250px;
+    }
+
+    &__badge-wrap {
+      position: absolute;
+      right: 15px;
+      bottom: -15px;
+      max-width: 90px;
+    }
+  }
+
+  @include media-query("v-small") {
+    height: 200px;
+    margin: 0 0 30px;
+  }
+
+  @media (max-width: 400px) {
+    &__badge-wrap {
+      max-width: 70px;
+    }
   }
 }

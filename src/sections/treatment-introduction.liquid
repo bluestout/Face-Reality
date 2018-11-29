@@ -3,16 +3,7 @@
     <div class="row justify-content-center">
       <div class="col-lg-8 col-sm-11">
         <div class="introduction__text">{{ section.settings.title }}</div>
-        <div class="introduction__icons">
-          {% for block in section.blocks %}
-            <div class="introduction__icon-wrap">
-              {% if block.settings.icon %}
-                <img src="{{ block.settings.icon | img_url: '80x80' }}" alt="{{ block.settings.title }}" class="introduction__icon"/>
-              {% endif %}
-              <h3 class="introduction__icon-title">{{ block.settings.title }}</h3>
-            </div>
-          {% endfor %}
-        </div>
+        {% include 'usp-triple-icons' %}
       </div>
     </div>
   </div>
@@ -26,24 +17,6 @@
         "type": "textarea",
         "id": "title",
         "label": "Introduction Text"
-      }
-    ],
-    "blocks": [
-      {
-        "type": "block",
-        "name": "Icon",
-        "settings": [
-          {
-            "type": "image_picker",
-            "id": "icon",
-            "label": "USP Icon"
-          },
-          {
-            "type": "textarea",
-            "id": "title",
-            "label": "USP Title"
-          }
-        ]
       }
     ]
   }

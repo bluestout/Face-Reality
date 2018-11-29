@@ -9,24 +9,17 @@
     max-width: 800px;
   }
 
-  &__icons {
+  @include media-query("medium-down") {
+    text-align: center;
+    margin: 0 auto 20px;
+
+    &__text {
+      font-size: 16px;
+      line-height: 24px;
+    }
   }
 
-  &__icon-wrap {
-    margin: 0 25px;
-    width: 120px;
-    display: inline-block;
-    vertical-align: top;
-  }
-
-  &__icon {
-    margin: 0 0 5px;
-  }
-
-  &__icon-title {
-    @include apercu(700);
-    @include Text(12.5px, 14px, $color-blumine);
-    max-width: 120px;
-    margin: 0 auto;
+  @include media-query("v-small") {
+    margin: 0;
   }
 }
