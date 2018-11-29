@@ -7,14 +7,17 @@
     position: relative;
     padding: 0;
     text-align: right;
-    margin: 0 45px 5px;
+    margin: 0 40px 5px;
   }
 
   &__social {
     display: inline-block;
     text-decoration: none;
+    background: transparent;
+    border: none;
+    appearance: none;
 
-    &:not(:last-of-type) {
+    &--margin {
       margin: 0 40px 0 0;
     }
 
@@ -34,12 +37,12 @@
   .social-sharing {
     z-index: 1;
     position: absolute;
-    display: none;
-    margin: 0;
     right: 0;
     top: 100%;
+    display: none;
+    margin: 0;
     padding: 10px;
-    background-color: rgba($color-blumine, 0.04);
+    background-color: $color-aqua-haze;
 
     &__link {
       @extend %no-font-size;
@@ -62,19 +65,20 @@
   }
 
   &__title {
-    @include apercu(700);
-    @include Text(40px, 48px, $color-black);
+    @extend %title-main;
     text-align: center;
     margin: 0 0 50px;
   }
 
   &__introduction {
     @include apercu(700);
-    @include Text(22px, 27px, $color-black);
+    @include Text(22px, 27px, $color-blumine);
+    padding: 0 30px;
   }
 
   &__content {
     margin: 0 0 80px;
+    padding: 0 30px;
 
     p,
     li {
@@ -147,6 +151,107 @@
   @media print {
     &__utilities {
       display: none !important;
+    }
+  }
+
+  @include media-query("medium-down") {
+    padding: 15px 0 0;
+    margin: 0 0 40px;
+
+    &__utilities {
+      margin: 0 20px 5px;
+    }
+
+    &__social {
+      &--margin {
+        margin: 0 20px 0 0;
+      }
+
+      &__icon {
+        font-size: 20px;
+      }
+    }
+
+    &__title {
+      margin: 0 0 20px;
+      padding: 0 15px;
+    }
+
+    &__introduction {
+      font-size: 18px;
+      line-height: 24px;
+      padding: 0 15px;
+    }
+
+    &__content {
+      margin: 0 0 40px;
+      padding: 0 15px;
+
+      p,
+      li {
+        font-size: 13.5px;
+        line-height: 21px;
+      }
+
+      ul {
+        list-style: none;
+        padding: 0 0 0 40px;
+      }
+
+      ul li {
+        text-indent: -30px;
+      }
+
+      ul li::before {
+        content: "—";
+        padding: 0 16.5px 0 0;
+      }
+
+      h1 {
+        margin: 0 0 30px;
+      }
+
+      h2 {
+        margin: 0 0 25px;
+      }
+
+      h3 {
+        margin: 0 0 20px;
+      }
+
+      h4 {
+        margin: 0 0 20px;
+      }
+
+      h5 {
+        margin: 0 0 15px;
+      }
+
+      h6 {
+        margin: 0 0 15px;
+      }
+
+      blockquote {
+        margin: 0 auto 30px;
+
+        * {
+          font-size: 16px;
+          line-height: 24px;
+        }
+      }
+    }
+  }
+
+  @include media-query("v-small") {
+    margin: 0 0 30px;
+
+    &__introduction {
+      font-size: 16px;
+      line-height: 22px;
+    }
+
+    &__content {
+      margin: 0 0 30px;
     }
   }
 }

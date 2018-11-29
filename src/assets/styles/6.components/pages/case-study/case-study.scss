@@ -5,7 +5,7 @@
 
   .study-title {
     @include apercu(700);
-    @include Text(25px, 29px, $color-black);
+    @include Text(25px, 29px, $color-blumine);
     margin: 0 0 15px;
     text-align: center;
   }
@@ -14,18 +14,6 @@
     text-align: center;
     padding: 0;
     margin: 0 0 30px;
-    opacity: 0.55;
-    &__link {
-      color: $color-black;
-    }
-
-    &__current {
-      color: $color-black;
-    }
-
-    &__separator {
-      color: $color-black;
-    }
   }
 
   .study-backlink {
@@ -60,9 +48,42 @@
 
   @include media-query("medium-down") {
     padding: 20px 0 60px;
-    margin: 20px 0 0;
+    margin: 10px 0 0;
 
     .study-title {
+      font-size: 18px;
+      line-height: 24px;
+      margin: 0 0 15px;
+    }
+
+    .breadcrumbs {
+      margin: 0 0 10px;
+    }
+  }
+
+  @include media-query("v-small") {
+    padding: 7.5px 0 40px;
+    margin: 0;
+    overflow: hidden;
+
+    .container {
+      padding-left: 7.5px;
+      padding-right: 7.5px;
+    }
+
+    .row {
+      margin-left: -7.5px;
+      margin-right: -7.5px;
+    }
+
+    [class*="col-"] {
+      padding-left: 7.5px;
+      padding-right: 7.5px;
+    }
+
+    .study-title {
+      font-size: 18px;
+      line-height: 24px;
       margin: 0 0 15px;
     }
 

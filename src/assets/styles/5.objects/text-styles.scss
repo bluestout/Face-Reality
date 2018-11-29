@@ -31,6 +31,11 @@
     font-size: 24px;
     line-height: 30px;
   }
+
+  @include media-query("v-small") {
+    font-size: 18px;
+    line-height: 24px;
+  }
 }
 
 %title-main-light {
@@ -39,5 +44,10 @@
   @include media-query("medium-down") {
     font-size: 24px;
     line-height: 30px;
+  }
+
+  @include media-query("v-small") {
+    font-size: 18px;
+    line-height: 24px;
   }
 }

@@ -14,6 +14,7 @@
     @extend %no-font-size;
     padding: 0 60px;
     margin: 0 0 60px;
+    display: block;
     &--center {
       text-align: center;
     }
@@ -30,6 +31,7 @@
   &__description {
     @include apercu;
     @include Text(14px, 18px, $color-black);
+    display: block;
 
     p,
     li {
@@ -49,6 +51,12 @@
       content: "—";
       padding: 0 15px 0 0;
     }
+  }
+
+  &__block-link {
+    @extend %no-font-size;
+    display: block;
+    text-decoration: none;
   }
 
   &__link {
@@ -129,6 +137,30 @@
 
     &__title {
       margin: 0 0 20px;
+      font-size: 18px;
+      line-height: 24px;
+    }
+  }
+
+  @include media-query("v-small") {
+    padding: 0 0 15px;
+    margin: 0 auto 15px;
+
+    &__comparison {
+      margin: 0 0 15px;
+    }
+
+    &__content {
+      padding: 0 15px;
+      margin: 0 0 20px;
+    }
+
+    &__title {
+      margin: 0 0 15px;
+    }
+
+    &__link {
+      padding: 3px 15px;
     }
   }
 }

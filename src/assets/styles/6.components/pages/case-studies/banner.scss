@@ -7,8 +7,7 @@
   }
 
   &__title {
-    @include apercu(700);
-    @include Text(40px, 48px, $color-blumine);
+    @extend %title-main;
     margin: 0 0 15px;
   }
 
@@ -27,8 +26,6 @@
     }
 
     &__title {
-      font-size: 26px;
-      line-height: 32px;
       margin: 0 0 10px;
     }
 

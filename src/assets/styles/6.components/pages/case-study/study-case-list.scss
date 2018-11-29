@@ -9,12 +9,12 @@
 
   &__client {
     @include apercu(700);
-    @include Text(22px, 27px, $color-black);
+    @include Text(22px, 27px, $color-blumine);
   }
 
   &__age {
     @include apercu(700);
-    @include Text(22px, 27px, $color-black);
+    @include Text(22px, 27px, $color-blumine);
   }
 
   &__comparison {
@@ -32,7 +32,7 @@
 
     &-title {
       @include apercu(700);
-      @include Text(22px, 27px, $color-black);
+      @include Text(22px, 27px, $color-blumine);
       margin: 25px 0 15px;
     }
 
@@ -46,7 +46,7 @@
   &__testimonial {
     &-title {
       @include apercu(700);
-      @include Text(22px, 27px, $color-black);
+      @include Text(22px, 27px, $color-blumine);
       margin: 0 0 15px;
     }
 
@@ -102,6 +102,52 @@
 
     &__notes {
       margin: 0 0 30px;
+      &-title {
+        font-size: 18px;
+        line-height: 24px;
+      }
+
+      &-content {
+        font-size: 13.5px;
+        line-height: 21px;
+      }
+    }
+
+    &__client {
+      font-size: 16px;
+      line-height: 22px;
+    }
+
+    &__age {
+      font-size: 16px;
+      line-height: 22px;
+    }
+
+    &__testimonial {
+      &-title {
+        font-size: 16px;
+        line-height: 22px;
+        margin: 0 0 15px;
+      }
+
+      &-content {
+        font-size: 13.5px;
+        line-height: 21px;
+      }
+    }
+  }
+
+  @include media-query("v-small") {
+    &__client-title {
+      padding: 0 15px;
+    }
+
+    &__notes {
+      padding: 0 15px;
+    }
+
+    &__testimonial {
+      padding: 0 15px;
     }
   }
 }

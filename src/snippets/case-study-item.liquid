@@ -26,14 +26,16 @@
     -%}
   </div>
 
-  <h3 class="case-study-item__title">{{ case-study-item.title }}</h3>
-  <div class="case-study-item__content">
-    {% if page_meta.excerpt %}
-      <div class="case-study-item__description">{{ page_meta.excerpt }}</div>
-    {% else %}
-      <div class="case-study-item__description">{{ page_object.content }}</div>
-    {% endif %}
-  </div>
+  <a class="case-study-item__block-link" href="{{ case-study-item.url }}">
+    <h3 class="case-study-item__title">{{ case-study-item.title }}</h3>
+    <span class="case-study-item__content">
+      {% if page_meta.excerpt %}
+        <span class="case-study-item__description">{{ page_meta.excerpt }}</span>
+      {% else %}
+        <span class="case-study-item__description">{{ page_object.content }}</span>
+      {% endif %}
+    </span>
+  </a>
   <div class="flex-shaper"></div>
   <a href="{{ case-study-item.url }}" class="case-study-item__link">
     <span class="case-study-item__text">View Case Study</span>

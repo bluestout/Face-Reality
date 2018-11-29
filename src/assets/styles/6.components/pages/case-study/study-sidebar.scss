@@ -1,7 +1,7 @@
 .study-sidebar {
   &__title {
     @include apercu(700);
-    @include Text(22px, 27px, $color-black);
+    @include Text(22px, 27px, $color-blumine);
     margin: 0 0 20px;
   }
   &__description {
@@ -31,6 +31,7 @@
     @include aller(700);
     text-transform: uppercase;
     align-self: center;
+    flex: auto;
   }
 
   &__link-icon {
@@ -42,5 +43,38 @@
 
   @media print {
     display: none !important;
+  }
+
+  @include media-query("xl") {
+    &__link {
+      padding: 30px 25px;
+    }
+  }
+
+  @include media-query("large-down") {
+    &__link {
+      padding: 20px 15px;
+    }
+
+    &__link-text {
+      font-size: 14px;
+      line-height: 16px;
+    }
+  }
+
+  @include media-query("medium-down") {
+    &__title {
+      font-size: 18px;
+      line-height: 24px;
+      margin: 0 0 15px;
+    }
+
+    &__link {
+      padding: 20px;
+    }
+
+    &__link-text {
+      text-transform: none;
+    }
   }
 }
