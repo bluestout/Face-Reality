@@ -67,7 +67,7 @@
 }
 
 // Hide outline on focus for elements which are given focus by JS
-[tabindex='-1']:focus {
+[tabindex="-1"]:focus {
   outline: none;
 }
 
@@ -87,12 +87,12 @@
 
 // no-gutter class, this one keeps row margins so content takes 100% width (good for container-fluid content)
 // bootstrap no-gutters class removes row margins, so only column content has no padding (good for container content)
-.row.no-gutter > [class*='col'] {
+.row.no-gutter > [class*="col"] {
   padding-right: 0;
   padding-left: 0;
 }
 
-.row.no-gutter-nested [class*='col'] {
+.row.no-gutter-nested [class*="col"] {
   padding-right: 0;
   padding-left: 0;
 }
@@ -111,10 +111,6 @@
 
 .text-center {
   text-align: center;
-}
-
-.responsive-table {
-  overflow: scroll;
 }
 
 %no-font-size {

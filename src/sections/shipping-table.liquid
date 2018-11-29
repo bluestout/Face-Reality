@@ -1,23 +1,25 @@
-<table class="default-page__table">
-  <thead>
-    <tr>
-      <th class="default-page__cell default-page__cell--left default-page__cell--head">{{ section.settings.method_head }}</th>
-      <th class="default-page__cell default-page__cell--head">{{ section.settings.rate_head }}</th>
-      <th class="default-page__cell default-page__cell--head">{{ section.settings.time_head }}</th>
-      <th class="default-page__cell default-page__cell--head">{{ section.settings.carrier_head }}</th>
-    </tr>
-  </thead>
-  <tbody>
-    {% for block in section.blocks %}
+<div class="responsive-table">
+  <table>
+    <thead>
       <tr>
-        <td class="default-page__cell default-page__cell--left">{{ block.settings.method }}</td>
-        <td class="default-page__cell">{{ block.settings.rate }}</td>
-        <td class="default-page__cell">{{ block.settings.time }}</td>
-        <td class="default-page__cell">{{ block.settings.carrier }}</td>
+        <th>{{ section.settings.method_head }}</th>
+        <th>{{ section.settings.rate_head }}</th>
+        <th>{{ section.settings.time_head }}</th>
+        <th>{{ section.settings.carrier_head }}</th>
       </tr>
-    {% endfor %}
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      {% for block in section.blocks %}
+        <tr>
+          <td>{{ block.settings.method }}</td>
+          <td>{{ block.settings.rate }}</td>
+          <td>{{ block.settings.time }}</td>
+          <td>{{ block.settings.carrier }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
 
 {% schema %}
   {

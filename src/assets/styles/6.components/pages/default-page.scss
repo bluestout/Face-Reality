@@ -32,7 +32,7 @@
     margin: 0 0 100px;
   }
 
-  &__table {
+  /* &__table {
     border-spacing: 0;
   }
 
@@ -55,6 +55,31 @@
       padding: 10px 20px;
       background-color: transparent;
     }
+  } */
+
+  table {
+    border-spacing: 0;
+  }
+
+  table td {
+    @include myriad;
+    @include Text(13.5px, 20px, $color-black);
+    border-bottom: 1px solid $color-white;
+    background-color: $color-aqua-haze;
+    text-align: center;
+    padding: 20px;
+  }
+
+  table td:first-of-type {
+    text-align: left;
+  }
+
+  table th {
+    @include apercu;
+    @include Text(12px, 17px, $color-black);
+    opacity: 0.5;
+    padding: 10px 20px;
+    background-color: transparent;
   }
 
   &__content {
@@ -115,12 +140,13 @@
       line-height: 20px;
       margin: 0 0 30px;
     }
-    &__cell {
-      padding: 10px;
 
-      &--head {
-        padding: 10px;
-      }
+    table td {
+      padding: 10px;
+    }
+
+    table th {
+      padding: 10px;
     }
 
     &__content {

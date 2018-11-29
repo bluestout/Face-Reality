@@ -1,13 +1,11 @@
-@include media-query($small) {
+@include media-query("small-down") {
   .responsive-table {
     width: 100%;
+    overflow-y: auto;
+    overflow-x: auto;
 
-    // IE9 table layout fixes
-    tr,
-    td {
-      float: left;
-      clear: both;
-      width: 100%;
+    table {
+      white-space: nowrap;
     }
   }
 }
