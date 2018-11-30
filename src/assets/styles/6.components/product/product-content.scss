@@ -172,9 +172,9 @@
   }
 
   &__submit {
+    @include button(main);
     width: 70%;
     float: left;
-    @include button(main);
     font-weight: 700;
     height: 42px;
   }

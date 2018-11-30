@@ -1,4 +1,3 @@
-{% comment %} TODO - convert to ajax {% endcomment %}
 <div class="cart max-wrap">
   {% include 'cart-header' %}
 
@@ -16,13 +15,7 @@
         </div>
       </form>
     {% else %}
-      <div class="supports-cookies">
-        <p>{{ 'cart.general.empty' | t }}</p>
-      </div>
-
-      <div class="supports-no-cookies">
-        <p>{{ 'cart.general.cookies_required' | t }}</p>
-      </div>
+      <p class="cart-content__cart-empty">{{ 'cart.general.empty' | t }}</p>
     {% endif %}
   </div>
 

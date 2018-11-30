@@ -1,5 +1,4 @@
-import * as shopifyCart from "@shopify/theme-cart";
-import { formatMoney } from "@shopify/theme-currency";
+// import { formatMoney } from "@shopify/theme-currency";
 import $ from "jquery";
 
 const el = {
@@ -8,6 +7,8 @@ const el = {
   qCartContent: "[data-quick-cart-content]",
   overlay: "[data-quick-cart-overlay]",
   qCartButton: "[data-quick-cart-toggle]",
+  addedContainer: "[data-item-added-container]",
+  addedMessage: "[data-item-added-message]",
 };
 
 function ajaxAddToCart(event) {
@@ -22,7 +23,7 @@ function ajaxAddToCart(event) {
     data: $form.serialize(),
     dataType: "json",
     error: addToCartFail,
-    success: addToCartSuccess,
+    success: addToCartSuccess($form.serializeArray()),
     cache: false,
   });
 }
@@ -32,13 +33,38 @@ function addToCartFail(jqXHR, textStatus, errorThrown) {
   console.log(response, errorThrown, textStatus);
 }
 
-function addToCartSuccess() {
-  /* shopifyCart.getCart().done((json) => {
-    returnCartIfNotEmpty(json);
-    quickCartOpen(true);
-  }); */
+function addToCartSuccess(formArray) {
+  let title = "";
+  let qty = 0;
+  for (let i = 0; i < formArray.length; i++) {
+    const element = formArray[i];
+    if (element.name === "product-title") {
+      title = element.value;
+    }
+    if (element.name === "quantity") {
+      qty = element.value;
+    }
+  }
+  itemAddedMessage(title, qty);
 }
 
+let eventHolder = null;
+function itemAddedMessage(title, qty) {
+  if (!title && !qty) {
+    return false;
+  } else {
+    clearTimeout(eventHolder);
+    const verb = qty > 1 ? "have" : "has";
+    $(el.addedMessage).html(`${qty} of ${title} ${verb} been added to cart.`);
+    $(el.addedContainer).addClass("active");
+    eventHolder = setTimeout(() => {
+      $(el.addedContainer).removeClass("active");
+    }, 4500);
+    return eventHolder;
+  }
+}
+
+/*
 // update the quick cart
 function updateQuickCart(cart) {
   const $quickCart = $(el.qCartContent);
@@ -138,7 +164,9 @@ function updateQuickCart(cart) {
   // replace the cart content
   return $quickCart.html(form);
 }
+*/
 
+/*
 function returnCartIfNotEmpty(json) {
   // if json has items, update cart. If not, return empty
   if (json.item_count > 0) {
@@ -149,7 +177,9 @@ function returnCartIfNotEmpty(json) {
     // updateQuickCartCount(json);
   }
 }
+*/
 
+/*
 // open the quickcart after an item has been added to cart
 function quickCartOpen(open) {
   if (open) {
@@ -159,7 +189,9 @@ function quickCartOpen(open) {
     $(el.qCart).removeClass("open");
   }
 }
+ */
 
+/*
 // show/hide the quickcart
 function quickCartToggle(event) {
   if (typeof event !== "undefined") {
@@ -168,13 +200,8 @@ function quickCartToggle(event) {
   $(el.qCart).toggleClass("open");
   $(el.overlay).toggleClass("active");
 }
+ */
 
-$(document).on("click", el.qCartButton, quickCartToggle);
+// $(document).on("click", el.qCartButton, quickCartToggle);
 
 $(document).on("click", el.add, ajaxAddToCart);
-
-/* $(document).ready(() => {
-  shopifyCart.getCart().done((json) => {
-    returnCartIfNotEmpty(json);
-  });
-}); */

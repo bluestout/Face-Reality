@@ -50,6 +50,8 @@
   </div>
 
   <form class="product-item__form d-none d-md-block" action="/cart/add" method="post" enctype="multipart/form-data">
+    <input type="hidden" name="product-id" value="{{ product.id }}"/>
+    <input type="hidden" name="product-title" value="{{ product.title }}"/>
     <select name="id" class="no-js" data-product-item-select>
       {% for variant in product-item.variants %}
         <option

@@ -42,6 +42,9 @@
   {% if can_buy %}
     <form class="product-content__form" action="/cart/add" method="post" enctype="multipart/form-data">
 
+      <input type="hidden" name="product-id" value="{{ product.id }}"/>
+      <input type="hidden" name="product-title" value="{{ product.title }}"/>
+
       <div class="product-content__price" data-price-wrapper>
         <span data-product-price>
           {{ current_variant.price | money }}

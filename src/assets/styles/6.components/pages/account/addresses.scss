@@ -38,10 +38,10 @@
     margin: 0 0 30px;
   }
   &__edit-open {
-    @include button(main);
+    @include button(main, small);
   }
   &__edit-delete {
-    @include button(main);
+    @include button(main, small);
   }
 
   &__edit-form {
@@ -49,10 +49,10 @@
   }
   &__edit-submit {
     margin: 0 0 8px;
-    @include button(main);
+    @include button(main, tiny);
   }
   &__edit-cancel {
-    @include button(wire);
+    @include button(wire, tiny);
     margin: 0 0 8px;
   }
   &__add-new-form {

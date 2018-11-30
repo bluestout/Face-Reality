@@ -1,0 +1,24 @@
+.item-added-message {
+  position: fixed;
+  z-index: 5;
+  top: -200px;
+  opacity: 0;
+  left: 0;
+  text-align: center;
+  width: 100%;
+  padding: 10px;
+  background-color: $color-aqua-haze;
+  @include transition(top 500ms, opacity 700ms);
+
+  &__message {
+    @include Text(20px, 30px, $color-blumine);
+    @include apercu(bold);
+    padding: 10px;
+    background-color: $color-white;
+  }
+
+  &.active {
+    top: 0;
+    opacity: 1;
+  }
+}
