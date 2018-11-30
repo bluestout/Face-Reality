@@ -55,8 +55,7 @@
   }
 
   &__load-more {
-    @extend %button;
-    @extend %button--main;
+    @include button(main);
   }
 
   &__no-orders {

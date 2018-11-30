@@ -47,8 +47,7 @@
   }
 
   &__submit {
-    @extend %button;
-    @extend %button--main;
+    @include button(main);
     height: 42px;
     width: 100%;
     max-width: 210px;

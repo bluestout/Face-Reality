@@ -38,12 +38,10 @@
     margin: 0 0 30px;
   }
   &__edit-open {
-    @extend %button;
-    @extend %button--main;
+    @include button(main);
   }
   &__edit-delete {
-    @extend %button;
-    @extend %button--main;
+    @include button(main);
   }
 
   &__edit-form {
@@ -51,12 +49,10 @@
   }
   &__edit-submit {
     margin: 0 0 8px;
-    @extend %button;
-    @extend %button--main;
+    @include button(main);
   }
   &__edit-cancel {
-    @extend %button;
-    @extend %button--wire;
+    @include button(wire);
     margin: 0 0 8px;
   }
   &__add-new-form {
@@ -65,20 +61,17 @@
   }
   &__add-new-cancel {
     margin: 0 0 0 20px;
-    @extend %button;
-    @extend %button--wire;
+    @include button(wire);
     float: left;
   }
   &__add-new-open {
     margin: 0 0 30px;
-    @extend %button;
-    @extend %button--main;
+    @include button(main);
   }
 
   &__add-new-submit {
     margin: 0 0 30px;
-    @extend %button;
-    @extend %button--main;
+    @include button(main);
     float: left;
   }
 

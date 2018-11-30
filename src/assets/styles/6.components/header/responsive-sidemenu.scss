@@ -55,7 +55,7 @@
   }
 
   &__big-button {
-    @extend %button;
+    @include button;
   }
 
   &__big-button--solid {

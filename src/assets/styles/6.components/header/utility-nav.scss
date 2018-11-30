@@ -8,7 +8,7 @@
     background: transparent;
     border: none;
     padding: 0;
-    @extend %no-font-size;
+    @include no-font-size;
   }
 
   &__icon {
@@ -22,8 +22,7 @@
   }
 
   &__big-button {
-    @extend %button;
-    @extend %button--main;
+    @include button(main);
     text-align: center;
     vertical-align: middle;
     padding: 12px;

@@ -1,7 +1,7 @@
 .blog-stories {
   margin: 0 auto 85px;
   &__title {
-    @extend %title-small;
+    @include title-small;
     margin: 0 0 30px;
     text-align: center;
   }
@@ -80,7 +80,7 @@
     text-align: right;
     display: flex;
     flex: 1 0 20%;
-    @extend %no-font-size;
+    @include no-font-size;
   }
 
   &__icon {
@@ -142,8 +142,7 @@
   }
 
   &__inline-link {
-    @extend %button;
-    @extend %button--wire;
+    @include button(wire);
   }
 
   @include media-query("large-down") {

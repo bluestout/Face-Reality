@@ -3,14 +3,14 @@
   padding: 100px 0;
 
   &__suptitle {
-    @extend %title-small;
+    @include title-small;
     text-align: center;
     max-width: 700px;
     margin: 0 auto 25px;
   }
 
   &__title {
-    @extend %title-section;
+    @include title-section;
     text-align: center;
     max-width: 700px;
     margin: 0 auto 65px;

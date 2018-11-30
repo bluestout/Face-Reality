@@ -42,8 +42,7 @@
     }
 
     &__load-more {
-      @extend %button;
-      @extend %button--wire;
+      @include button(wire);
       opacity: 0.65;
       padding: 16px 150px;
       text-transform: uppercase;

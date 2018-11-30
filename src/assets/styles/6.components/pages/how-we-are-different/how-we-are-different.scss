@@ -7,7 +7,7 @@
   }
 
   &__subtitle {
-    @extend %title-main;
+    @include title-main;
     text-align: center;
     margin: 0 0 85px;
   }
@@ -19,8 +19,7 @@
   }
 
   &__shop-link {
-    @extend %button;
-    @extend %button--main;
+    @include button(main);
     width: 180px;
     max-width: 100%;
   }

@@ -1,4 +1,9 @@
-%button {
+// usage: @include button(type, size);
+// types: main, wire, none
+// sizes: normal(any), big, small, tiny
+// defaults go to button framework
+
+@mixin button($type: none, $size: none) {
   display: inline-block;
   vertical-align: middle;
   width: auto;
@@ -9,56 +14,9 @@
   user-select: none;
   appearance: none;
 
-  &%button--wire {
-    @extend %paragraph-blue;
-    @include transition(background-color, color);
-    text-align: center;
-    text-decoration: none;
-    font-weight: 400;
-    padding: 11px 25px;
-    background-color: transparent;
-    border: 1px solid $color-blumine;
-    border-radius: 0;
-    height: auto;
-    display: inline-block;
-
-    &:not(:disabled) {
-      &:hover,
-      &:active,
-      &:focus {
-        background-color: $color-blumine;
-        color: $color-white;
-      }
-    }
-
-    &%button--big {
-      font-size: 14px;
-      padding-top: 19px;
-      padding-bottom: 19px;
-    }
-
-    &%button--small {
-      padding-top: 9px;
-      padding-bottom: 9px;
-      font-size: 12px;
-    }
-
-    &%button--tiny {
-      padding: 5px 20px;
-      font-size: 12px;
-    }
-
-    &:disabled {
-      cursor: not-allowed;
-      background-color: transparent;
-      color: $color-disabled;
-      border-color: $color-disabled;
-    }
-  }
-
-  &%button--main {
+  @if $type == main {
     @include myriad(400);
-    @extend %paragraph-white;
+    @include Text(12.5px, 14px, $color-white);
     @include transition(background-color);
     text-align: center;
     text-decoration: none;
@@ -81,26 +39,63 @@
       }
     }
 
-    &%button--big {
+    &:disabled {
+      cursor: not-allowed;
+      background-color: $color-disabled-border;
+    }
+
+    @if $size == big {
       font-size: 14px;
       padding-top: 20px;
       padding-bottom: 20px;
-    }
-
-    &%button--small {
+    } @else if $size == small {
       padding-top: 10px;
       padding-bottom: 10px;
       font-size: 12px;
-    }
-
-    &%button--tiny {
+    } @else if $size == tiny {
       padding: 6px 20px;
       font-size: 12px;
+    }
+  } @else if $type == wire {
+    @include Text(12.5px, 14px, $color-blumine);
+    @include transition(background-color, color);
+    text-align: center;
+    text-decoration: none;
+    font-weight: 400;
+    padding: 11px 25px;
+    background-color: transparent;
+    border: 1px solid $color-blumine;
+    border-radius: 0;
+    height: auto;
+    display: inline-block;
+
+    &:not(:disabled) {
+      &:hover,
+      &:active,
+      &:focus {
+        background-color: $color-blumine;
+        color: $color-white;
+      }
     }
 
     &:disabled {
       cursor: not-allowed;
-      background-color: $color-disabled-border;
+      background-color: transparent;
+      color: $color-disabled;
+      border-color: $color-disabled;
+    }
+
+    @if $size == big {
+      font-size: 14px;
+      padding-top: 19px;
+      padding-bottom: 19px;
+    } @else if $size == small {
+      padding-top: 9px;
+      padding-bottom: 9px;
+      font-size: 12px;
+    } @else if $size == tiny {
+      padding: 5px 20px;
+      font-size: 12px;
     }
   }
 }

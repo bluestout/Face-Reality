@@ -1,21 +1,9 @@
-%paragraph-black {
-  @include Text(12.5px, 14px, $color-black);
-}
-
-%paragraph-white {
-  @include Text(12.5px, 14px, $color-white);
-}
-
-%paragraph-blue {
-  @include Text(12.5px, 14px, $color-blumine);
-}
-
-%title-small {
+@mixin title-small {
   @include apercu(400);
   @include Text(13.5px, 20px, $color-fountain-blue);
 }
 
-%title-section {
+@mixin title-section {
   @include apercu(700);
   @include Text(36.5px, 40px, $color-blumine);
   @include media-query("medium-down") {
@@ -24,23 +12,9 @@
   }
 }
 
-%title-main {
+@mixin title-main {
   @include apercu(700);
   @include Text(40px, 42px, $color-blumine);
-  @include media-query("medium-down") {
-    font-size: 24px;
-    line-height: 30px;
-  }
-
-  @include media-query("v-small") {
-    font-size: 18px;
-    line-height: 24px;
-  }
-}
-
-%title-main-light {
-  @include apercu(700);
-  @include Text(40px, 42px, $color-white);
   @include media-query("medium-down") {
     font-size: 24px;
     line-height: 30px;

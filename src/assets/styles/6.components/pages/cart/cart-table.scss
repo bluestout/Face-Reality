@@ -17,8 +17,7 @@
   }
 
   &__update {
-    @extend %button;
-    @extend %button--wire;
+    @include button(wire);
   }
 
   &__update-wrap {

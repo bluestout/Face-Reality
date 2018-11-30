@@ -174,15 +174,13 @@
   &__submit {
     width: 70%;
     float: left;
-    @extend %button;
-    @extend %button--main;
+    @include button(main);
     font-weight: 700;
     height: 42px;
   }
 
   &__button {
-    @extend %button;
-    @extend %button--main;
+    @include button(main);
   }
 
   .social-sharing {

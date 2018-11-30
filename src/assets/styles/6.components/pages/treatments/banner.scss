@@ -35,7 +35,7 @@
 
   &__title {
     @include apercu(700);
-    @extend %title-main;
+    @include title-main;
   }
 
   &__badge-wrap {

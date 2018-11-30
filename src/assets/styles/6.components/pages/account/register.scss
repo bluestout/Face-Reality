@@ -103,14 +103,13 @@
   }
 
   &__submit {
-    @extend %button;
-    @extend %button--main;
+    @include button(main);
     display: block;
     width: 100%;
     height: 50px;
 
     &--alternate {
-      @extend %button--wire;
+      @include button(wire);
     }
   }
 

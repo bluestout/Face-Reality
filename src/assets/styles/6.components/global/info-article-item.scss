@@ -8,7 +8,7 @@
   flex-flow: column nowrap;
   text-decoration: none;
   @include clearfix;
-  @extend %no-font-size;
+  @include no-font-size;
 
   &__image-wrap {
     min-height: 1px;

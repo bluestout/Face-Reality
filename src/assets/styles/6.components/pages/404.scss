@@ -39,8 +39,7 @@
   }
 
   &__link {
-    @extend %button;
-    @extend %button--main;
+    @include button(main);
     width: 240px;
     padding: 14px 28px;
   }

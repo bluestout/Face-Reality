@@ -3,7 +3,7 @@
   padding: 0 60px;
 
   &__title {
-    @extend %title-small;
+    @include title-small;
     text-align: center;
     margin: 0 0 25px;
   }
@@ -31,7 +31,7 @@
 
   &__mention-link {
     display: inline-block;
-    @extend %no-font-size;
+    @include no-font-size;
 
     &:hover,
     &:active {

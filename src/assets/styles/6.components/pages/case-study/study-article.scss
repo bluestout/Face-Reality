@@ -45,7 +45,7 @@
     background-color: $color-aqua-haze;
 
     &__link {
-      @extend %no-font-size;
+      @include no-font-size;
       margin: 0 15px;
       display: inline-block;
       &:hover,
@@ -65,7 +65,7 @@
   }
 
   &__title {
-    @extend %title-main;
+    @include title-main;
     text-align: center;
     margin: 0 0 50px;
   }

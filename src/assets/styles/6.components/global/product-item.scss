@@ -137,8 +137,7 @@
     padding: 0 1px;
 
     &-submit {
-      @extend %button;
-      @extend %button--main;
+      @include button(main);
       padding: 16px;
       width: 180px;
     }

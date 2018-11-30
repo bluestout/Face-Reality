@@ -18,7 +18,7 @@
   }
 
   &__button {
-    @extend %button;
+    @include button;
     @include myriad;
     @include Text(14px, 16px, $color-dove-gray);
     @include transition(background-color, color);

@@ -2,7 +2,7 @@
   max-width: $grid-max;
   margin: 0 auto;
   &__title {
-    @extend %title-small;
+    @include title-small;
     text-align: center;
     margin: 0 0 30px;
   }

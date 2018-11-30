@@ -2,7 +2,7 @@
   position: relative;
 
   &__overflow-wrap {
-    @extend %no-font-size;
+    @include no-font-size;
     position: relative;
     overflow: hidden;
   }
@@ -95,12 +95,12 @@
     }
 
     &::before {
-      content: '\e907';
+      content: "\e907";
       left: 7px;
     }
 
     &::after {
-      content: '\e905';
+      content: "\e905";
       right: 7px;
     }
   }

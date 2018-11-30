@@ -7,7 +7,7 @@
   }
 
   &__title {
-    @extend %title-main;
+    @include title-main;
     margin: 0 0 15px;
   }
 

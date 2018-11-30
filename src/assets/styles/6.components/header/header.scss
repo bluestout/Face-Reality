@@ -19,7 +19,7 @@
   }
 
   &__announcement-text {
-    @extend %paragraph-white;
+    @include Text(12.5px, 14px, $color-white);
     padding: 8px;
     margin: 0;
     a {
@@ -34,7 +34,7 @@
     @include clearfix;
 
     &-link {
-      @extend %paragraph-black;
+      @include Text(12.5px, 14px, $color-black);
       @include apercu(400);
       display: inline-block;
       vertical-align: middle;
@@ -48,7 +48,7 @@
     }
 
     &-button {
-      @extend %paragraph-blue;
+      @include Text(12.5px, 14px, $color-blumine);
       text-align: center;
       text-decoration: none;
       padding: 11px 20px;
@@ -78,19 +78,19 @@
     }
 
     &-logo-link {
-      @extend %no-font-size;
+      @include no-font-size;
       display: none;
       float: left;
     }
   }
 
   &__logo-wrap {
-    @extend %no-font-size;
+    @include no-font-size;
   }
 
   &__logo-link {
     display: block;
-    @extend %no-font-size;
+    @include no-font-size;
   }
 
   &__logo {

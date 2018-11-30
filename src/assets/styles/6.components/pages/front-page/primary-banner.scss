@@ -15,8 +15,7 @@
   }
 
   &__link-button {
-    @extend %button;
-    @extend %button--main;
+    @include button(main);
     padding: 16px 75px;
     margin: 0 0 15px;
   }

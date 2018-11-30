@@ -34,7 +34,7 @@
 
   &__icon-wrap {
     margin: 0 0 25px;
-    @extend %no-font-size;
+    @include no-font-size;
   }
 
   &__button-wrap {
@@ -50,9 +50,7 @@
     transform: translate(-50%, -50%);
     font-size: 14px;
     padding: 20px;
-    @extend %button;
-    @extend %button--main;
-    @extend %button--big;
+    @include button(main, big);
     width: 240px;
   }
 

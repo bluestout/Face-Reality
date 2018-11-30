@@ -29,7 +29,7 @@
 
   &__tabs-link {
     position: relative;
-    @extend %title-small;
+    @include title-small;
     text-align: center;
     display: block;
     text-decoration: none;
@@ -55,12 +55,12 @@
   }
 
   &__title {
-    @extend %title-section;
+    @include title-section;
     margin: 0 0 40px;
   }
 
   &__collection-title {
-    @extend %title-small;
+    @include title-small;
     margin: 0 0 45px;
   }
 
@@ -174,8 +174,7 @@
     text-align: center;
   }
   &__link {
-    @extend %button;
-    @extend %button--wire;
+    @include button(wire);
     font-weight: 700;
   }
 
