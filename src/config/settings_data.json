@@ -56,7 +56,7 @@
         "settings": {
           "footer_linklist": "footer",
           "newsletter_text": "Sign up for Face Reality Newsletter and\u0003 receive promotions, announcements in your inbox",
-          "logo": ""
+          "logo": "shopify://shop_images/face-reality-logo.png"
         }
       },
       "1538382507930": {
@@ -325,8 +325,8 @@
         "type": "about-content",
         "settings": {
           "content_top": "<p>In her mid-thirties, she finally found an esthetician who got her skin clear. She immediately felt compelled to help others as she had been helped. After all, she knew first-hand how adversely it had affected her life; and she wanted to spare others the agony of dealing with acne.</p>\n<p><br>She became a California state-licensed esthetician in 1990 and set out to learn everything about acne that she could. After having been a sole practitioner for many years, her dream of opening an acne-only clinic came true in 2005. As a result of her astounding results with acne, other&nbsp;estheticians started demanding classes to learn her protocol. Out of this was born her comprehensive Acne Specialist training and she has certified over 400 skin care professionals, including nurses and doctors, around the United States.&nbsp;</p>",
-          "image_top": "",
-          "image_middle": "",
+          "image_top": "shopify://shop_images/laura-thumbnail.min.png",
+          "image_middle": "shopify://shop_images/iStock-908578294.jpg",
           "content_middle": "After all, Laura knew first-hand how adversely it had affected her life; and she wanted to spare others the agony of dealing with acne.",
           "content_bottom": "<p>She organized the first U.S. conference for acne specialists in September 2014, and continues to write articles about acne and acne treatment in several skin care industry publications. She is continually doing research and testing products to increase her understanding of the disease known as retention hyperkeratosis, aka acne.</p>\n<p></p>\n<p></p>",
           "cta_content": "Learn more about Face Reality Clinic, and why we can help you when nobody else can.",
@@ -408,7 +408,9 @@
       "testimonials-banner": {
         "type": "testimonials-banner",
         "settings": {
-          "bg": ""
+          "bg": "",
+          "bg_mobile": "",
+          "color": "white"
         }
       },
       "testimonials-content": {
@@ -500,16 +502,15 @@
       "about-products-banner": {
         "type": "about-products-banner",
         "settings": {
-          "bg": ""
+          "bg": "",
+          "bg_mobile": "",
+          "color": "black"
         }
       },
       "about-products-content": {
         "type": "about-products-content",
         "settings": {
           "title": "The Face Reality products that are available for purchase are specifically formulated for acneic skin and are guaranteed to not clog your pores.",
-          "icon_1_text": "Premium formulations",
-          "icon_2_text": "Clear skin in 3-4 months",
-          "icon_3_text": "Success rate",
           "content": "<p>If you would like to get the other products in our product line that are strong enough to help you get your skin clear, you should make an appointment with us if you are local, so that we can examine and test your skin.<br>If you do not live locally, you can contact us to find a Face Reality Certified Acne Specialist in your area, by clicking here.<br>If you are currently using Face Reality products that you have purchased from one of our Face Reality Certified Acne Specialist, please contact that esthetician directly to order your products. We do not sell any of our products with active ingredients to anyone who is not a client at our clinic in San Leandro, CA.</p>",
           "small_print": "We only ship these products in the United States."
         }
@@ -607,8 +608,6 @@
         "settings": {
           "title": "Explore our products",
           "collection_1_title": "Browse by skin type",
-          "button_1_url": "#",
-          "button_1_text": "Browse all products",
           "collection_2_title": "Browse by product type",
           "button_2_url": "#",
           "button_2_text": "Browse all products"
@@ -617,7 +616,9 @@
       "code-of-conduct-banner": {
         "type": "code-of-conduct-banner",
         "settings": {
-          "bg": ""
+          "bg": "",
+          "bg_mobile": "",
+          "color": "white"
         }
       },
       "code-of-conduct-policies": {
@@ -714,7 +715,9 @@
       "faq-banner": {
         "type": "faq-banner",
         "settings": {
-          "bg": ""
+          "bg": "",
+          "bg_mobile": "",
+          "color": "white"
         }
       },
       "faq-q-a": {
@@ -780,7 +783,9 @@
         "type": "information-banner",
         "settings": {
           "bg": "",
-          "subtitle": "Learn all about Acne"
+          "bg_mobile": "",
+          "subtitle": "Learn all about Acne",
+          "color": "white"
         }
       },
       "information-topics": {
@@ -802,35 +807,12 @@
         "type": "treatment-banner",
         "settings": {
           "bg": "",
+          "bg_mobile": "",
           "badge": ""
         }
       },
       "treatment-introduction": {
         "type": "treatment-introduction",
-        "blocks": {
-          "1539789397886": {
-            "type": "block",
-            "settings": {
-              "icon": "",
-              "title": "Premium\u0003 formulations"
-            }
-          },
-          "1539789433672": {
-            "type": "block",
-            "settings": {
-              "icon": "",
-              "title": "Clear skin in 3-4 months"
-            }
-          },
-          "1539789462389": {
-            "type": "block",
-            "settings": {
-              "icon": "",
-              "title": "Success rate"
-            }
-          }
-        },
-        "block_order": ["1539789397886", "1539789433672", "1539789462389"],
         "settings": {
           "title": "Our clinic offers a complete acne treatment services, from consultation and face and body treatments to more advanced treatments. We are proud of +90% success rate we have helping hundreds of clients improve their life."
         }
@@ -937,6 +919,20 @@
         "type": "collection-banner",
         "settings": {
           "title": "The face reality products are specifically formulated for acneic skin and are guaranteed to not clog your pores."
+        }
+      },
+      "contact-banner": {
+        "type": "contact-banner",
+        "settings": {
+          "bg": "",
+          "bg_mobile": "",
+          "color": "white"
+        }
+      },
+      "contact-form": {
+        "type": "contact-form",
+        "settings": {
+          "script": ""
         }
       }
     },

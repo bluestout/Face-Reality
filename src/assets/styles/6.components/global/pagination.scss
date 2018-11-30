@@ -1,0 +1,53 @@
+.pagination {
+  padding: 20px 0;
+  span {
+    &:not(:last-of-type) {
+      margin: 0 5px 0 0;
+    }
+  }
+  .page {
+    padding: 0;
+    display: inline-block;
+    &.current {
+      text-align: center;
+      padding: 5px;
+      width: 30px;
+      color: $color-blumine;
+    }
+    a {
+      @include Text(13.5, 21px, $color-white);
+      font-weight: 700;
+      padding: 5px;
+      width: 30px;
+      text-align: center;
+      background-color: $color-blumine;
+      text-decoration: none;
+      display: inline-block;
+      opacity: 1;
+      @include transition(background-color);
+      &:hover,
+      &:active {
+        background-color: $color-accent;
+        color: $color-white;
+      }
+    }
+  }
+  .next,
+  .prev {
+    display: inline-block;
+    a {
+      @include Text(13.5, 21px, $color-white);
+      font-weight: 700;
+      padding: 5px 10px;
+      background-color: $color-blumine;
+      text-decoration: none;
+      display: inline-block;
+      @include transition(background-color);
+      &:hover,
+      &:active {
+        background-color: $color-accent;
+        color: $color-white;
+      }
+    }
+  }
+}

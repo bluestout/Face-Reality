@@ -81,7 +81,7 @@
     display: flex;
     flex-flow: row wrap;
     margin: 0 0 15px;
-    border: 1px solid $bermuda-gray;
+    border: 1px solid $color-bermuda-gray;
   }
 
   &__variant-wrap {
@@ -137,7 +137,7 @@
     @include clearfix;
     width: 30%;
     float: left;
-    border: 1px solid $bermuda-gray;
+    border: 1px solid $color-bermuda-gray;
   }
 
   &__quantity-button {
@@ -150,10 +150,10 @@
     appearance: none;
 
     &[data-direction="up"] {
-      border-left: 1px solid rgba($bermuda-gray, 0.5);
+      border-left: 1px solid rgba($color-bermuda-gray, 0.5);
     }
     &[data-direction="down"] {
-      border-right: 1px solid rgba($bermuda-gray, 0.5);
+      border-right: 1px solid rgba($color-bermuda-gray, 0.5);
     }
   }
 

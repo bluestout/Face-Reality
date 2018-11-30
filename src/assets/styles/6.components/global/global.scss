@@ -13,8 +13,10 @@
   @import "./zig-line-separator";
   @import "./linear-loader";
   @import "./usp-triple-icons";
+  @import "./pagination";
 }
 body {
   // this is here just to override base styles - more generic than maincontent
   @import "./quick-cart";
+  @import "./ajax-search-results";
 }

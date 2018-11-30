@@ -131,6 +131,10 @@
   }
 
   @include media-query("v-small") {
+    .utility-col {
+      position: static;
+    }
+
     &__logo {
       max-width: 100%;
     }

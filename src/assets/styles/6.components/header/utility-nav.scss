@@ -9,6 +9,12 @@
     border: none;
     padding: 0;
     @include no-font-size;
+    @include transition(color);
+
+    &:hover,
+    &:active {
+      color: $color-accent;
+    }
   }
 
   &__icon {
@@ -16,9 +22,47 @@
   }
 
   &__searchform {
+    position: absolute;
+    right: 0;
+    top: 100%;
+    width: 400px;
+    height: 60px;
+    display: none;
+    padding: 10px;
+    margin: 0;
+    background-color: $color-white;
+    box-shadow: 0 5px 10px 5px rgba($color-black, 0.05);
+    @include clearfix;
+  }
+
+  &__search-button {
+    appearance: none;
+    margin: 0;
+    text-decoration: none;
+    background: transparent;
+    height: 40px;
+    width: 40px;
+    float: left;
+    border: 1px solid $color-aqua-haze;
+    border-left: none;
+    @include no-font-size;
   }
 
   &__input {
+    padding: 10px;
+    height: 40px;
+    float: left;
+    width: calc(100% - 40px);
+    border: 1px solid $color-aqua-haze;
+    border-right: none;
+  }
+
+  .search-results {
+    position: absolute;
+    right: 0;
+    top: calc(100% + 60px);
+    width: 400px;
+    box-shadow: 0 5px 10px 5px rgba($color-black, 0.05);
   }
 
   &__big-button {
@@ -46,6 +90,14 @@
   @include media-query("v-small") {
     &__icon {
       font-size: 17px;
+    }
+
+    &__searchform {
+      width: 100%;
+    }
+
+    .search-results {
+      width: 100%;
     }
   }
 }

@@ -1,0 +1,80 @@
+.search-page {
+  @include default-page-padding;
+  margin: 0 0 20px;
+  background-color: $color-aqua-haze;
+
+  &__inner {
+    background-color: $color-white;
+    padding: 100px 0 200px;
+  }
+
+  &__title {
+    @include title-main;
+    text-align: center;
+    margin: 0 0 60px;
+  }
+
+  &__content {
+  }
+
+  &__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    padding-inline-start: 0;
+  }
+
+  &__item {
+    padding: 10px 0;
+    border-bottom: 1px solid $color-mercury;
+    &::before {
+      content: none;
+    }
+  }
+
+  &__link {
+    display: inline-block;
+    text-decoration: none;
+    &:hover,
+    &:active {
+      .search-page__item-title {
+        color: $color-accent;
+      }
+    }
+  }
+
+  &__item-title {
+    color: $color-blumine;
+    margin: 0 0 10px;
+    @include transition(color);
+  }
+
+  &__price {
+    margin: 0;
+  }
+
+  &__excerpt {
+    margin: 0;
+  }
+
+  @include media-query("medium-down") {
+    margin: 0;
+
+    &__inner {
+      padding: 40px 0 60px;
+    }
+
+    &__title {
+      margin: 0 0 40px;
+    }
+  }
+
+  @include media-query("v-small") {
+    margin: 0;
+    text-align: center;
+
+    &__inner {
+      padding: 40px 5px;
+    }
+  }
+}

@@ -30,6 +30,7 @@ import "../custom/case-study-slick";
 import "../custom/responsive-sidemenu";
 import "../custom/footer";
 import "../custom/case-studies";
+import "../custom/search";
 
 import { focusHash, bindInPageLinks } from "@shopify/theme-a11y";
 // import { cookiesEnabled } from "@shopify/theme-cart";

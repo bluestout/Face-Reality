@@ -1,0 +1,54 @@
+.search-results {
+  height: auto;
+  display: none;
+  padding: 10px;
+  margin: 0;
+  background-color: $color-white;
+  @include clearfix;
+
+  &__item {
+    display: block;
+    padding: 5px 0;
+    border-bottom: 1px solid $color-aqua-haze;
+  }
+
+  &__link {
+    display: flex;
+    width: 100%;
+    text-decoration: none;
+    min-height: 30px;
+    &:hover,
+    &:active {
+      .search-results__title {
+        color: $color-accent;
+      }
+    }
+  }
+
+  &__image-wrap {
+    max-width: 60px;
+    margin: 0 20px 0 0;
+    align-self: center;
+  }
+
+  &__image {
+    display: block;
+    object-fit: scale-down;
+  }
+
+  &__title {
+    @include Text(14px, 18px, $color-blumine);
+    align-self: center;
+    @include transition(color);
+  }
+
+  &__more {
+    display: block;
+    text-align: left;
+    margin: 20px 0 0;
+  }
+
+  &__more-link {
+    @include button(main);
+  }
+}
