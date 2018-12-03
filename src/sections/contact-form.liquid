@@ -1,4 +1,3 @@
-{% comment %} TODO {% endcomment %}
 <div class="contact-form-wrap">
   {% if section.settings.script != '' %}
     {{ script }}
@@ -46,7 +45,9 @@
           id="ContactFormPhone"
         >
           <option value="" disabled selected>Reason for contact</option>
-          <option value=""></option>
+          {% for block in section.blocks %}
+            <option value="{{ block.settings.reason }}">{{ block.settings.reason }}</option>
+          {% endfor %}
         </select>
       </div>
 
@@ -75,7 +76,7 @@
 
 {% schema %}
   {
-    "name": "Contact Information",
+    "name": "Contact Form",
     "settings": [
       {
         "type": "html",
