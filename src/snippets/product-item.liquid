@@ -1,7 +1,27 @@
-{% comment %} TODO authorization {% endcomment %}
 {% assign modulo = index | modulo: 2 %}
 {% assign p_tags = product-item.tags %}
 {%- assign current_p_i_variant = product.selected_or_first_available_variant -%}
+
+{% if product-item.tags contains "authorization" %}
+  {% assign needs_authorization = true %}
+{% else %}
+  {% assign needs_authorization = false %}
+{% endif %}
+
+{% if customer and customer.tags contains "has_authorization" %}
+  {% assign has_authorization = true %}
+{% else %}
+  {% assign has_authorization = false %}
+{% endif %}
+
+{% assign can_buy = false %}
+{% if needs_authorization %}
+  {% if has_authorization %}
+    {% assign can_buy = true %}
+  {% endif %}
+{% else %}
+  {% assign can_buy = true %}
+{% endif %}
 
 <div class="product-item {% if modulo == 0 %}product-item--even{% else %}product-item--odd{% endif %}" itemscope itemtype="http://schema.org/Product" data-product-item>
   <meta itemprop="name" content="{{ prod.title }}">
@@ -49,63 +69,69 @@
     </s>
   </div>
 
-  <form class="product-item__form d-none d-md-block" action="/cart/add" method="post" enctype="multipart/form-data">
-    <input type="hidden" name="product-id" value="{{ product.id }}"/>
-    <input type="hidden" name="product-title" value="{{ product.title }}"/>
-    <select name="id" class="no-js" data-product-item-select>
-      {% for variant in product-item.variants %}
-        <option
-          {% if variant == current_variant %}selected="selected"{% endif %}
-          {% unless variant.available %}disabled="disabled"{% endunless %}
-          value="{{ variant.id }}">
-            {{ variant.title }}
-        </option>
-      {% endfor %}
-    </select>
+  {% if can_buy %}
+    <form class="product-item__form d-none d-md-block" action="/cart/add" method="post" enctype="multipart/form-data">
+      <input type="hidden" name="product-id" value="{{ product.id }}"/>
+      <input type="hidden" name="product-title" value="{{ product.title }}"/>
+      <select name="id" class="no-js" data-product-item-select>
+        {% for variant in product-item.variants %}
+          <option
+            {% if variant == current_variant %}selected="selected"{% endif %}
+            {% unless variant.available %}disabled="disabled"{% endunless %}
+            value="{{ variant.id }}">
+              {{ variant.title }}
+          </option>
+        {% endfor %}
+      </select>
 
-    {% assign var_selected = false %}
-    {% unless product-item.has_only_default_variant %}
-      {% for option in product-item.options_with_values %}
-        <div class="product-item__option-name">{{ option.name }}</div>
-        <div class="product-item__variants-wrap {% if forloop.last %}product-item__variants-wrap--last{% endif %}" data-product-item-option>
-          {% for value in option.values %}
-            <div class="product-item__variant-wrap">
-              <input
-                class="product-item__variant"
-                type="radio"
-                name="variation-radio-{{ option.name | handleize }}"
-                value="{{ value | escape }}"
-                data-product-item-option-input
-                data-index="option{{ option.position }}"
-                {% if product-item.available %}
-                  {% if forloop.index == 1 %}
-                    checked="checked"
+      {% assign var_selected = false %}
+      {% unless product-item.has_only_default_variant %}
+        {% for option in product-item.options_with_values %}
+          <div class="product-item__option-name">{{ option.name }}</div>
+          <div class="product-item__variants-wrap {% if forloop.last %}product-item__variants-wrap--last{% endif %}" data-product-item-option>
+            {% for value in option.values %}
+              <div class="product-item__variant-wrap">
+                <input
+                  class="product-item__variant"
+                  type="radio"
+                  name="variation-radio-{{ option.name | handleize }}"
+                  value="{{ value | escape }}"
+                  data-product-item-option-input
+                  data-index="option{{ option.position }}"
+                  {% if product-item.available %}
+                    {% if forloop.index == 1 %}
+                      checked="checked"
+                    {% endif %}
                   {% endif %}
-                {% endif %}
-                />
-              <label class="product-item__variant-label">{{ value }}</label>
-            </div>
-          {% endfor %}
-        </div>
-      {% endfor %}
-    {% endunless %}
+                  />
+                <label class="product-item__variant-label">{{ value }}</label>
+              </div>
+            {% endfor %}
+          </div>
+        {% endfor %}
+      {% endunless %}
 
-    <button
-      class="product-item__form-submit"
-      type="submit"
-      name="add"
-      data-add-to-cart
-      data-product-item-add-button
-      {% unless product-item.available %}disabled="disabled"{% endunless %}>
-        <span data-add-button-text>
-          {% if product-item.available %}
-            {{ 'products.product.add_to_cart' | t }}
-          {% else %}
-            {{ 'products.product.sold_out' | t }}
-          {% endif %}
-        </span>
-    </button>
-  </form>
+      <button
+        class="product-item__form-submit"
+        type="submit"
+        name="add"
+        data-add-to-cart
+        data-product-item-add-button
+        {% unless product-item.available %}disabled="disabled"{% endunless %}>
+          <span data-add-button-text>
+            {% if product-item.available %}
+              {{ 'products.product.add_to_cart' | t }}
+            {% else %}
+              {{ 'products.product.sold_out' | t }}
+            {% endif %}
+          </span>
+      </button>
+    </form>
+  {% else %}
+    <div class="text-center d-none d-md-block">
+      <a href="{{ product.url }}" class="product-item__form-submit ">Learn more</a>
+    </div>
+  {% endif %}
 
   <div class="text-center d-block d-md-none">
     <a href="{{ product.url }}" class="product-item__form-submit ">Learn more</a>
