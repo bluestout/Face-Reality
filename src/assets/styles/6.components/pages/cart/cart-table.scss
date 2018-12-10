@@ -50,8 +50,7 @@
   }
 
   &__product-title {
-    @include apercu(700);
-    @include Text(22px, 28px, $color-blumine);
+    @include no-font-size;
     margin: 0 0 10px;
   }
 
@@ -66,13 +65,15 @@
     @include apercu;
     @include Text(12px, 16px, $color-dove-gray);
     text-decoration: none;
-    margin: 0 0 20px;
+    margin: 0 20px 20px 0;
   }
 
   &__remove {
     @include apercu;
     @include Text(12px, 16px, rgba($color-blumine, 0.6));
     text-decoration: none;
+    float: left;
+
     &:hover,
     &:active {
       color: $color-blumine;
@@ -125,6 +126,12 @@
   }
 
   &__rsp {
+    &-info {
+      float: left;
+      width: calc(100% - 60px);
+      margin: 0 18px 0 0;
+    }
+
     &-image-wrap {
       width: 60px;
       margin: 0 10px 0 0;
@@ -146,18 +153,23 @@
     &-link {
       @include apercu(700);
       @include Text(16px, 22px, $color-blumine);
+      float: left;
+      width: calc(100% - 70px);
     }
 
     &-price {
       @include open-sans(400);
       @include Text(16px, 22px, $color-blumine);
-      float: right;
+      text-align: right;
+      float: left;
+      width: 70px;
     }
 
     &-id {
       @include apercu;
       @include Text(11px, 13px, $color-dove-gray);
       text-decoration: none;
+      display: inline-block;
       margin: 0 0 10px;
     }
 
@@ -172,7 +184,8 @@
       @include apercu;
       @include Text(11px, 13px, rgba($color-blumine, 0.6));
       text-decoration: none;
-      float: right;
+      float: left;
+      width: 42px;
       &:hover,
       &:active {
         color: $color-blumine;

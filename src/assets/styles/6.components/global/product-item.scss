@@ -246,5 +246,12 @@
     height: calc(100% - 30px);
     margin: 0 0 30px;
     padding: 0 5px;
+
+    &__form {
+      &-submit {
+        padding: 12px;
+        width: auto;
+      }
+    }
   }
 }

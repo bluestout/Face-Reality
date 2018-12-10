@@ -12,3 +12,4 @@ import "./ajax-add-to-cart";
 import "./case-study-slick";
 import "./responsive-sidemenu";
 import "./search";
+import "./home-stories";

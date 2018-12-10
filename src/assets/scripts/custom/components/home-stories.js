@@ -96,6 +96,4 @@ function getWpBlogs() {
   }
 }
 
-$(document).ready(() => {
-  getWpBlogs();
-});
+$(document).ready(getWpBlogs);
