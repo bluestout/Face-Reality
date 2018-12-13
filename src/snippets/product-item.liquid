@@ -1,6 +1,6 @@
 {% assign modulo = index | modulo: 2 %}
 {% assign p_tags = product-item.tags %}
-{%- assign current_p_i_variant = product.selected_or_first_available_variant -%}
+{%- assign current_p_i_variant = product-item.selected_or_first_available_variant -%}
 
 {% if product-item.tags contains "authorization" %}
   {% assign needs_authorization = true %}
@@ -70,17 +70,17 @@
     <span data-product-item-price>
       {{ current_p_i_variant.price | money }}
     </span>
-    <s data-product-item-compare-price>
-      {% if current_p_i_variant.compare_at_price > current_p_i_variant.price %}
+    {% if current_p_i_variant.compare_at_price > current_p_i_variant.price %}
+      <s data-product-item-compare-price>
         {{ current_p_i_variant.compare_at_price | money }}
-      {% endif %}
-    </s>
+      </s>
+    {% endif %}
   </div>
 
   {% if can_buy %}
     <form class="product-item__form d-none d-md-block" action="/cart/add" method="post" enctype="multipart/form-data">
-      <input type="hidden" name="product-id" value="{{ product.id }}"/>
-      <input type="hidden" name="product-title" value="{{ product.title }}"/>
+      <input type="hidden" name="product-id" value="{{ product-item.id }}"/>
+      <input type="hidden" name="product-title" value="{{ product-item.title }}"/>
       <select name="id" class="no-js" data-product-item-select>
         {% for variant in product-item.variants %}
           <option
@@ -137,12 +137,12 @@
     </form>
   {% else %}
     <div class="text-center d-none d-md-block">
-      <a href="{{ product.url }}" class="product-item__form-submit ">Learn more</a>
+      <a href="{{ product-item.url }}" class="product-item__form-submit ">Learn more</a>
     </div>
   {% endif %}
 
   <div class="text-center d-block d-md-none">
-    <a href="{{ product.url }}" class="product-item__form-submit ">Learn more</a>
+    <a href="{{ product-item.url }}" class="product-item__form-submit ">Learn more</a>
   </div>
 
 

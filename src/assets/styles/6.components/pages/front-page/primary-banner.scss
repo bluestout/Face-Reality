@@ -35,6 +35,9 @@
     bottom: 11px;
   }
 
+  &__badge-image {
+  }
+
   @include media-query("xl-down") {
     &__title {
       font-size: 38px;

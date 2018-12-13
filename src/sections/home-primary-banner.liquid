@@ -1,8 +1,7 @@
-{% comment %} TODO remove the placeholder when done with development {% endcomment %}
 {% if section.settings.background %}
   <section class="primary-banner primary-banner--bg lazyload" data-bgset="{% include 'responsive-bg-image', image: section.settings.background %}">
 {% else %}
-  <section class="primary-banner primary-banner--bg" style="background-image:url('http://via.placeholder.com/1920x600')">
+  <section class="primary-banner">
 {% endif %}
   <div class="container">
     <div class="row">
@@ -22,14 +21,9 @@
       </div>
     </div>
   </div>
-  {% comment %} TODO remove the placeholder when done with development {% endcomment %}
   {% if section.settings.badge %}
     <div class="primary-banner__badge">
-      {% include 'responsive-image' with image: block.settings.badge, max_width: 170, max_height: 170 %}
-    </div>
-  {% else %}
-      <div class="primary-banner__badge">
-        <img src="http://via.placeholder.com/170x170" alt="">
+      <img class="primary-banner__badge-image" src="{{ section.settings.badge | img_url: '170x170'  }}" alt="High success rate" />
     </div>
   {% endif %}
 </section>
