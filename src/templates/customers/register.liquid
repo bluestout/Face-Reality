@@ -13,8 +13,7 @@
           %}
         {% else %}
           <div class="register__image-wrap">
-            {% comment %} TODO remove the placeholder when done with development {% endcomment %}
-            <img src="http://via.placeholder.com/1024x1024" alt="" class="register__image">
+            <img src="{{ '../../assets/images/signupbg.png' | asset_img_url: '1024x1024' }}" alt="Register" class="register__image"/>
           </div>
         {% endif %}
       </div>
@@ -39,28 +38,6 @@
                   {% if form.first_name %}value="{{ form.name }}"{% endif %}
                   data-register-name/>
               </div>
-
-              {% comment %}
-              <label for="FirstName" class="label-hidden">
-                {{ 'customer.register.first_name' | t }}
-              </label>
-              <input type="text"
-                name="customer[first_name]"
-                id="FirstName"
-                placeholder="{{ 'customer.register.first_name' | t }}"
-                autofocus
-                {% if form.first_name %}value="{{ form.first_name }}"{% endif %}/>
-
-              <label for="LastName" class="label-hidden">
-                {{ 'customer.register.last_name' | t }}
-              </label>
-              <input type="text"
-                name="customer[last_name]"
-                id="LastName"
-                placeholder="{{ 'customer.register.last_name' | t }}"
-                {% if form.last_name %}value="{{ form.last_name }}"{% endif %}/>
-                {% endcomment %}
-
 
               <div class="register__input-wrap register__input-wrap--margin">
                 <label for="Email" class="label-hidden">{{ 'customer.register.email' | t }}</label>

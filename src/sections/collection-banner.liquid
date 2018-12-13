@@ -5,12 +5,16 @@
     {% assign c_found = true %}
     {% if block.settings.title %}
       {% assign b_title = block.settings.title %}
+    {% elsif section.settings.title %}
+      {% assign b_title = section.settings.title %}
     {% else %}
       {% assign b_title = collection.title %}
     {% endif %}
 
     {% if block.settings.background %}
       <div class="collection-banner collection-banner--bg lazyload" data-bgset="{% include 'responsive-bg-image', image: block.settings.background %}">
+    {% elsif section.settings.background %}
+      <div class="collection-banner collection-banner--bg lazyload" data-bgset="{% include 'responsive-bg-image', image: section.settings.background %}">
     {% else %}
       <div class="collection-banner">
         <div class="container">
@@ -22,14 +26,20 @@
 {% endfor %}
 
 {% if c_found == false %}
-  <div class="collection-banner collection-banner--default">
+  {% if section.settings.background %}
+    <div class="collection-banner collection-banner--bg lazyload" data-bgset="{% include 'responsive-bg-image', image: section.settings.background %}">
+  {% else %}
+    <div class="collection-banner collection-banner--default">
+  {% endif %}
     <div class="container">
       {% if collection.handle == "all" or collection.handle == "products" %}
         <h1 class="collection-banner__title">All products</h1>
+      {% elsif section.settings.title != "" %}
+        <h1 class="collection-banner__title">{{ section.settings.title }}</h1>
       {% else %}
         <h1 class="collection-banner__title">{{ collection.title }}</h1>
       {% endif %}
-      <h2 class="collection-banner__subtitle">{{ section.settings.title }}</h2>
+      {% comment %} <h2 class="collection-banner__subtitle">{{ section.settings.title }}</h2> {% endcomment %}
     </div>
   </div>
 {% endif %}
@@ -43,7 +53,14 @@
       {
         "type": "textarea",
         "id": "title",
-        "label": "Title"
+        "label": "Title",
+        "info": "These are defaults to be used on every collection."
+      },
+      {
+        "type": "image_picker",
+        "id": "background",
+        "label": "Background",
+        "info": "1920x400"
       }
     ],
     "blocks": [
@@ -52,15 +69,16 @@
         "name": "Block",
         "settings": [
           {
+            "type": "textarea",
+            "id": "title",
+            "label": "Title",
+            "info": "These are collection-specific titles and banner."
+          },
+          {
             "type": "image_picker",
             "id": "background",
             "label": "Background",
             "info": "1920x400"
-          },
-          {
-            "type": "text",
-            "id": "title",
-            "label": "Title"
           },
           {
             "type": "collection",

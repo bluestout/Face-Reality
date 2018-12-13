@@ -66,7 +66,8 @@
         position: relative;
         height: 37px;
         width: 50px;
-        background-image: url("http://via.placeholder.com/51x37");
+        background-image: url("//cdn.shopify.com/s/files/1/0019/3603/1842/files/quote-icon.png?2706203097245825729");
+        background-repeat: no-repeat;
         opacity: 0.3;
         display: inline-block;
         margin: 0 10px 0 0;
@@ -262,7 +263,7 @@
 
       &-image-wrap {
         order: 1;
-        margin: 0 0 10px;
+        margin: 0 auto 10px;
       }
 
       .flex-shaper {
