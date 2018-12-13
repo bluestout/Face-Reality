@@ -32,6 +32,12 @@
   <meta itemprop="price" content="{{ prod.price | divided_by: 100.00 }}">
   <link itemprop="availability" href="http://schema.org/{% if prod.available %}InStock{% else %}OutOfStock{% endif %}">
   <div class="product-item__background"></div>
+
+  {% include 'swym-product-view', product: product-item %}
+  <button class="product-item__wishlist-link product_{{ product-item.id }}" data-swaction="addToWishlist" data-product-id="{{ product-item.id | json }}">
+    <span class="icon-heart product-item__wishlist-icon"></span>
+  </button>
+
   <a href="{{ product-item.url | within: collection }}" class="product-item__link">
     <span class="product-item__tag-wrap">
       {% include 'product-tags' with product-item %}
