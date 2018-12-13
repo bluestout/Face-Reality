@@ -1,0 +1,40 @@
+{% assign studies = section.settings.case_studies_links %}
+<div class="studies-articles">
+  <div class="studies-articles__items">
+    {% assign first = true %}
+    {% if linklists[studies].links.size > 0 %}
+      {% for link in linklists[studies].links %}
+        {% assign modulo = forloop.index | modulo: 3 %}
+        {% if modulo == 1 %}
+          <div class="row" data-case-studies-row={{ first }}>
+          {% assign first = false %}
+        {% endif %}
+          <div class="col-lg-4 col-12 flex">
+            {% include 'case-study-item' with link %}
+          </div>
+        {% if modulo == 0 or forloop.last %}
+          </div>
+        {% endif %}
+      {% endfor %}
+    {% endif %}
+  </div>
+
+  <div class="studies-articles__more-wrap d-md-none ">
+    <button type="button" class="studies-articles__more-button" data-case-studies-load-more>Show more</button>
+  </div>
+</div>
+
+
+
+{% schema %}
+  {
+    "name": "Case studies links",
+    "settings": [
+      {
+        "type": "link_list",
+        "id": "case_studies_links",
+        "label": "Case studies links"
+      }
+    ]
+  }
+{% endschema %}

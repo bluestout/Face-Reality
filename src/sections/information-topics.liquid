@@ -1,16 +1,20 @@
+{% assign center = section.settings.info_center_links %}
 <div class="info-topics">
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-lg-8 col-sm-11">
         <div class="info-topics__filter-wrap">
-          <span class="info-topics__filter-caret icon-angle-down"></span>
-          <select name="info-center-filter" class="info-topics__filter" type="text" data-infocenter-filter>
-            <option value="" disabled selected>Quick filter topics</option>
-            <option value="all">All topics</option>
-            {% for link in linklists['information-center'].links %}
-              <option value="{{ link.handle }}">{{ link.title }}</option>
-            {% endfor %}
-          </select>
+          {% if linklists[center].links.size > 0 %}
+            <span class="info-topics__filter-caret icon-angle-down"></span>
+            <select name="info-center-filter" class="info-topics__filter" type="text" data-infocenter-filter>
+              <option value="" disabled selected>Quick filter topics</option>
+              <option value="all">All topics</option>
+
+                {% for link in linklists[center].links %}
+                  <option value="{{ link.handle }}">{{ link.title }}</option>
+                {% endfor %}
+            </select>
+          {% endif %}
         </div>
       </div>
     </div>
@@ -25,68 +29,81 @@
   </div>
 
   <div class="info-topics__topics max-wrap">
-    <div class="row">
-      {% for link in linklists['information-center'].links %}
-        {% comment %} split shopify cdn image src {% endcomment %}
-        {%- assign page_object = link.object -%}
-        {%- assign page_meta = page_object.metafields.info_center -%}
-        {% assign img_src = '' %}
-        {% assign src_split = '' %}
-        {% if page_meta.image and page_meta.image != '' %}
-          {% assign img_src = page_object.metafields.info_center.image %}
-          {% if img_src contains '.jpg' and img_src contains 'cdn.shopify' %}
-            {% assign src_split = img_src | split: '.jpg' %}
-            {% assign type = '.jpg' %}
-          {% elsif img_src contains '.png' and img_src contains 'cdn.shopify' %}
-            {% assign src_split = img_src | split: '.png' %}
-            {% assign type = '.png' %}
+    {% if linklists[center].links.size > 0 %}
+      <div class="row">
+        {% for link in linklists['information-center'].links %}
+          {% comment %} split shopify cdn image src {% endcomment %}
+          {%- assign page_object = link.object -%}
+          {%- assign page_meta = page_object.metafields.info_center -%}
+          {% assign img_src = '' %}
+          {% assign src_split = '' %}
+          {% if page_meta.image and page_meta.image != '' %}
+            {% assign img_src = page_object.metafields.info_center.image %}
+            {% if img_src contains '.jpg' and img_src contains 'cdn.shopify' %}
+              {% assign src_split = img_src | split: '.jpg' %}
+              {% assign type = '.jpg' %}
+            {% elsif img_src contains '.png' and img_src contains 'cdn.shopify' %}
+              {% assign src_split = img_src | split: '.png' %}
+              {% assign type = '.png' %}
+            {% endif %}
           {% endif %}
-        {% endif %}
 
-        {% if forloop.index <= 5 %}
-          {% assign initial_state = "data-ic-initial=true" %}
-        {% else %}
-          {% assign initial_state = "data-ic-initial=false" %}
-        {% endif %}
+          {% if forloop.index <= 5 %}
+            {% assign initial_state = "data-ic-initial=true" %}
+          {% else %}
+            {% assign initial_state = "data-ic-initial=false" %}
+          {% endif %}
 
-        <div class="col-lg-4 col-md-6 flex" data-ic-topic="{{ link.handle }}" {{ initial_state }}>
-          <div class="info-topics__topic">
-            <div class="info-topics__image-wrap">
-              {% if src_split and src_split != ''  %}
-                <img src="{{ src_split[0] | append: '_450x' | append: type }}" alt="{{ info-article-item.title }}" class="info-topics__image">
-              {% elsif img_src and img_src != '' %}
-                <img src="{{ img_src }}" alt="{{ info-article-item.title }}" class="info-topics__image">
+          <div class="col-lg-4 col-md-6 flex" data-ic-topic="{{ link.handle }}" {{ initial_state }}>
+            <div class="info-topics__topic">
+              <div class="info-topics__image-wrap">
+                {% if src_split and src_split != ''  %}
+                  <img src="{{ src_split[0] | append: '_450x' | append: type }}" alt="{{ info-article-item.title }}" class="info-topics__image">
+                {% elsif img_src and img_src != '' %}
+                  <img src="{{ img_src }}" alt="{{ info-article-item.title }}" class="info-topics__image">
+                {% endif %}
+              </div>
+              <a href="{{ link.url }}" target="_blank" class="info-topics__title">
+                <span class="info-topics__title-primary">{{ link.title }}</span>
+                {% if page_meta.section_subtitle %}
+                  <span class="info-topics__title-secondary">{{ page_meta.section_subtitle }}</span>
+                {% endif %}
+              </a>
+              {% if link.links %}
+                <ul class="info-topics__subtopics">
+                  {% for sublink in link.links %}
+                    <li class="info-topics__subtopic">
+                      <a href="{{ sublink.url }}" target="_blank" class="info-topics__sublink">{{ sublink.title }}</a>
+                    </li>
+                  {% endfor %}
+                </ul>
               {% endif %}
             </div>
-            <a href="{{ link.url }}" target="_blank" class="info-topics__title">
-              <span class="info-topics__title-primary">{{ link.title }}</span>
-              {% if page_meta.section_subtitle %}
-                <span class="info-topics__title-secondary">{{ page_meta.section_subtitle }}</span>
-              {% endif %}
-            </a>
-            {% if link.links %}
-              <ul class="info-topics__subtopics">
-                {% for sublink in link.links %}
-                  <li class="info-topics__subtopic">
-                    <a href="{{ sublink.url }}" target="_blank" class="info-topics__sublink">{{ sublink.title }}</a>
-                  </li>
-                {% endfor %}
-              </ul>
-            {% endif %}
           </div>
-        </div>
-      {% endfor %}
-    </div>
+        {% endfor %}
+      </div>
+    {% endif %}
   </div>
 
-
   <div class="container d-lg-none">
-    {% if linklists['information-center'].links.size > 5 %}
+    {% if linklists[center].links.size > 5 %}
       <div class="info-topics__more-wrap">
         <button type="button" class="info-topics__more-button" data-info-topics-load-more>Show more</button>
       </div>
     {% endif %}
     <div class="info-topics__introduction shopify-rte">{{ page.content }}</div>
   </div>
-
 </div>
+
+{% schema %}
+  {
+    "name": "Information center links",
+    "settings": [
+      {
+        "type": "link_list",
+        "id": "info_center_links",
+        "label": "Information center links"
+      }
+    ]
+  }
+{% endschema %}

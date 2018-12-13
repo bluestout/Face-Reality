@@ -26,11 +26,14 @@
     background-color: $color-white;
     text-align: center;
     padding: 30px 10px;
+    height: 100%;
     justify-content: center;
+    display: flex !important;
   }
 
   &__mention-link {
     display: inline-block;
+    vertical-align: middle;
     @include no-font-size;
 
     &:hover,
@@ -43,8 +46,10 @@
 
   &__mention-logo {
     display: inline-block;
+    vertical-align: middle;
     object-fit: scale-down;
     max-width: 100%;
+    height: 100%;
     opacity: 0.7;
     @include transition(opacity);
   }

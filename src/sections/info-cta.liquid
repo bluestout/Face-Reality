@@ -1,5 +1,5 @@
 {% unless section.settings.title == '' and section.settings.button_text == '' %}
-  <div class="info-cta" {% if section.settings.bg %}data-bgset="{% include 'responsive-bg-image', image: section.settings.bg %}"{% endif %}>
+  <div class="info-cta lazyload" {% if section.settings.bg %}data-bgset="{% include 'responsive-bg-image', image: section.settings.bg %}"{% endif %}>
     <h2 class="info-cta__title">{{ section.settings.title }}</h2>
     {% unless section.settings.button_text == '' %}
       <div class="info-cta__button-wrap">

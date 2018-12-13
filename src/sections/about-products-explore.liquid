@@ -14,18 +14,19 @@
             {% assign collection_block = collections[block.settings.collection] %}
             <div class="collection-by-type__visible-col index-{{ index }}">
               <div class="collection-by-type__visible-col-inner">
-                <h3 class="collection-by-type__col-title">
-                  {{ collection_block.title }}
-                  <span class="collection-by-type__visible-col-arrow icon-angle-right"></span>
-                </h3>
+                <h3 class="collection-by-type__col-title">{{ collection_block.title }}</h3>
+                <span class="collection-by-type__visible-col-arrow icon-angle-right"></span>
               </div>
             </div>
             <a href="{{ collection_block.url }}" class="collection-by-type__hover-col">
               <span class="collection-by-type__hover-col-header">
                 <h3 class="collection-by-type__col-title">{{ collection_block.title }}</h3>
               </span>
+              {% if collection_block.image != blank or collection_block.products.first != blank %}
+                {%- assign image_object = collection_block.image | default: collection_block.products.first.featured_image -%}
+              {% endif %}
               {% include 'responsive-image' with
-                image: collection_block.image,
+                image: image_object,
                 wrapper_class: 'collection-by-type__hover-col-image-wrap',
                 image_class: 'collection-by-type__hover-col-image',
                 alt: collection_block.title
@@ -56,10 +57,8 @@
             {% assign collection_block = collections[block.settings.collection] %}
             <div class="collection-by-type__visible-col index-{{ index }}">
               <div class="collection-by-type__visible-col-inner">
-                <h3 class="collection-by-type__col-title">
-                  {{ collection_block.title }}
-                  <span class="collection-by-type__visible-col-arrow icon-angle-right"></span>
-                </h3>
+                <h3 class="collection-by-type__col-title">{{ collection_block.title }}</h3>
+                <span class="collection-by-type__visible-col-arrow icon-angle-right"></span>
               </div>
             </div>
             <a href="{{ collection_block.url }}" class="collection-by-type__hover-col">

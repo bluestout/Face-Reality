@@ -15,11 +15,8 @@
         {% if block.type == 'usp-text' %}
           <div class="usp-4up__col usp-4up__col--text {{ even_odd }} {{ is_last }}">
             <p class="usp-4up__text">
-              {% if section.settings.badge %}
-                <img class="usp-4up__image" src="{{ section.settings.badge }}" alt="Face reality" />
-              {% else %}
-                {% comment %} TODO remove the placeholder when done with development {% endcomment %}
-                <img class="usp-4up__image" src="http://via.placeholder.com/170x170" alt="Face reality" />
+              {% if block.settings.badge %}
+                <img class="usp-4up__image" src="{{ block.settings.badge | img_url: '170x170'  }}" alt="Face reality" />
               {% endif %}
               {{ block.settings.text }}
             </p>

@@ -149,6 +149,10 @@
     margin: 0 auto 20px;
   }
 
+  &__hover-col-image {
+    object-fit: scale-down;
+  }
+
   &__hover-col-content {
     padding: 0 30px 25px;
     display: block;
