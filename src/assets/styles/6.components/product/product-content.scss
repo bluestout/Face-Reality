@@ -29,15 +29,12 @@
 
   &__reviews {
     margin: 0 0 30px;
+  }
 
-    .spr-icon {
-      color: #fac903;
-    }
-
-    .spr-badge-caption {
-      @include Text(11px, 18px, $color-blumine);
-      margin: 0 0 0 5px;
-    }
+  &__reviews-link {
+    @include Text(11px, 18px, $color-blumine);
+    margin: 0 0 0 5px;
+    text-decoration: none;
   }
 
   &__description {

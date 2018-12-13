@@ -1,101 +1,14 @@
 .product-reviews {
   background-color: $color-aqua-haze;
+  padding: 60px 0;
+
+  &__suptitle {
+    @include title-small;
+    text-align: center;
+    margin: 0 0 20px;
+  }
 }
 
 .spr-container {
   border: none;
-}
-.spr-header {
-}
-.spr-header-title {
-}
-.spr-summary {
-}
-.spr-starrating {
-}
-.spr-summary-starrating {
-}
-.spr-icon {
-}
-.spr-icon-star {
-}
-.spr-summary-caption {
-}
-.spr-summary-actions-togglereviews {
-}
-.spr-summary-actions {
-}
-.spr-summary-actions-newreview {
-}
-.spr-content {
-}
-.spr-form {
-}
-.new-review-form {
-}
-.spr-form-title {
-}
-.spr-form-contact {
-}
-.spr-form-contact-name {
-}
-.spr-form-label {
-}
-.spr-form-input {
-}
-.spr-form-input-text {
-}
-.spr-form-contact-email {
-}
-.spr-form-input-email {
-}
-.spr-form-review {
-}
-.spr-form-review-rating {
-}
-.spr-icon-star-empty {
-}
-.spr-form-review-title {
-}
-.spr-form-review-body {
-}
-.spr-form-review-body-charactersremaining {
-}
-.spr-form-input-textarea {
-}
-.spr-form-actions {
-}
-.spr-button {
-}
-.spr-button-primary {
-}
-.button {
-}
-.button-primary {
-}
-.btn {
-}
-.btn-primary {
-}
-.spr-reviews {
-}
-.spr-review {
-}
-.spr-review-header {
-}
-.spr-starratings {
-}
-.spr-review-header-starratings {
-}
-.spr-review-header-title {
-}
-.spr-review-header-byline {
-}
-.spr-review-content {
-}
-.spr-review-content-body {
-}
-.spr-review-footer {
-}
-.spr-review-reportreview {
 }

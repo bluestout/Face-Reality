@@ -1,5 +1,12 @@
 <section class="product-reviews">
   <div class="container">
-    <div id="shopify-product-reviews" data-id="{{ product.id }}">{{ product.metafields.spr.reviews }}</div>
+    <h3 class="product-reviews__suptitle">Product Reviews</h3>
+    <div id="shopify-product-reviews" data-id="{{ product.id }}">
+      {{ product.metafields.spr.reviews }}
+    </div>
+
+    {% if section.settings.show_share_buttons %}
+      {% include 'social-sharing', share_title: product.title, share_permalink: product.url, share_image: product %}
+    {% endif %}
   </div>
 </section>

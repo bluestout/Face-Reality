@@ -1,0 +1,163 @@
+.spr-icon {
+  color: #fac903;
+}
+
+.spr-badge-caption {
+  @include Text(11px, 18px, $color-blumine);
+  margin: 0 0 0 3px;
+}
+
+.spr-badge {
+  display: inline-block;
+}
+
+#shopify-product-reviews {
+  margin: 0;
+}
+
+.spr-header {
+  margin: 0 0 50px;
+}
+
+.spr-header-title {
+  @include title-main($color-black);
+  text-align: center;
+}
+
+.spr-summary-actions-newreview {
+  @include button(main);
+}
+
+.spr-review {
+  padding: 20px 40px;
+  background-color: $color-white;
+  margin: 0 0 10px;
+}
+
+.spr-review-header {
+  float: left;
+  width: 40%;
+  padding: 20px 5%;
+}
+
+.spr-review-content {
+  float: left;
+  width: 60%;
+  padding: 20px 5%;
+}
+
+.spr-review-content-body {
+  @include Text(15px, 22px, $color-black);
+}
+
+.spr-review-reply {
+  float: right;
+  width: 60%;
+  padding: 20px 5%;
+}
+
+.spr-review-footer {
+  clear: both;
+  display: block;
+}
+
+.spr-review-reportreview {
+  @include button(wire);
+}
+
+.spr-pagination {
+  border: none;
+}
+
+.spr-pagination-page {
+  display: inline-block;
+  font-size: 15px;
+  line-height: 20px;
+  width: 30px;
+  padding: 5px;
+  vertical-align: middle;
+
+  a {
+    font-size: 15px;
+    line-height: 20px;
+    @include button;
+    display: inline-block;
+    text-decoration: none;
+    vertical-align: middle;
+  }
+}
+
+.spr-pagination-prev,
+.spr-pagination-next {
+  display: inline-block;
+}
+
+.spr-pagination-next a,
+.spr-pagination-prev a {
+  @include button(main);
+  display: inline-block;
+  padding: 9px 20px;
+}
+
+@include media-query("medium-down") {
+  .spr-header {
+    margin: 0 0 30px;
+  }
+
+  .spr-review {
+    padding: 15px 30px;
+  }
+
+  .spr-review-header {
+    float: none;
+    width: 100%;
+    padding: 15px;
+  }
+
+  .spr-review-content {
+    float: none;
+    width: 100%;
+    padding: 15px;
+  }
+
+  .spr-review-content-body {
+    font-size: 13.5px;
+    line-height: 18px;
+  }
+
+  .spr-review-reply {
+    float: none;
+    width: 100%;
+    padding: 15px;
+  }
+}
+
+@include media-query("v-small") {
+  .spr-header {
+    margin: 0 0 20px;
+  }
+
+  .spr-summary-starrating,
+  .spr-summary-caption {
+    margin: 0 0 10px;
+    display: inline-block;
+  }
+
+  .spr-review {
+    padding: 15px;
+  }
+
+  .spr-review-header {
+    padding: 0;
+    margin: 0 0 15px;
+  }
+
+  .spr-review-content {
+    padding: 0;
+    margin: 0 0 15px;
+  }
+
+  .spr-review-reply {
+    padding: 7.5px;
+  }
+}

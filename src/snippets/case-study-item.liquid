@@ -1,29 +1,42 @@
 {% comment %} split shopify cdn image src {% endcomment %}
 {%- assign page_object = case-study-item.object -%}
 {%- assign page_meta = page_object.metafields.info_center -%}
-{% if page_meta.image and page_meta.image != '' %}
-  {% assign img_src = '' %}
-  {% assign img_src = page_meta.image %}
-  {% assign src_split = '' %}
-  {% if img_src contains '.jpg' and img_src contains 'cdn.shopify' %}
-    {% assign src_split = img_src | split: '.jpg' %}
+{% assign img_src_after = "" %}
+{% assign img_src_before = "" %}
+{% if page_meta.before and page_meta.before != '' and page_meta.after and page_meta.after != '' %}
+  {% assign img_src_before = page_meta.before %}
+  {% if img_src_before contains '.jpg' and img_src_before contains 'cdn.shopify' %}
+    {% assign src_split = img_src_before | split: '.jpg' %}
     {% assign type = '.jpg' %}
-  {% elsif img_src contains '.png' and img_src contains 'cdn.shopify' %}
-    {% assign src_split = img_src | split: '.png' %}
+  {% elsif img_src_before contains '.png' and img_src_before contains 'cdn.shopify' %}
+    {% assign src_split = img_src_before | split: '.png' %}
     {% assign type = '.png' %}
   {% endif %}
+  {% assign img_src_before = src_split[0] | append: '_500x' | append: type %}
+
+  {% assign img_src_after = page_meta.after %}
+  {% assign src_split = "" %}
+  {% if img_src_after contains '.jpg' and img_src_after contains 'cdn.shopify' %}
+    {% assign type = '.jpg' %}
+    {% assign src_split = img_src_after | split: '.jpg' %}
+  {% elsif img_src_after contains '.png' and img_src_after contains 'cdn.shopify' %}
+    {% assign type = '.png' %}
+    {% assign src_split = img_src_after | split: '.png' %}
+  {% endif %}
+  {% assign img_src_after = src_split[0] | append: '_500x' | append: type %}
+{% else %}
 {% endif %}
 
 <div class="case-study-item flex-col-wrap">
-  {% comment %} TODO remove the placeholder when done with development {% endcomment %}
-
   <div class="case-study-item__comparison">
-    {%- include 'image-compare'
-      with before: "http://via.placeholder.com/800x600",
-      after:"http://via.placeholder.com/400x300",
-      initial: 50,
-      indicators: true
-    -%}
+    {% if img_src_before != '' and img_src_after != '' %}
+      {%- include 'image-compare'
+        with before: img_src_before,
+        after: img_src_after,
+        initial: 50,
+        indicators: true
+      -%}
+    {% endif %}
   </div>
 
   <a class="case-study-item__block-link" href="{{ case-study-item.url }}">

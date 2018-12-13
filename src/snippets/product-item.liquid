@@ -51,9 +51,11 @@
         max_height: 370,
         span: true,
       %}
+    {% else %}
+      <span class="product-item__image-wrap"></span>
     {% endif %}
     <h4 class="product-item__title">{{ product-item.title }}</h4>
-    <div class="product-item__description">{{ product-item.description | strip_html | truncatewords: 15 }}</div>
+    <span class="product-item__description">{{ product-item.description | strip_html | truncatewords: 15 }}</span>
     {% if p_tags contains "authorization" %}
       <div class="product-item__authorization">Needs authorization</div>
       <span class="hide" data-authorization-required=true></span>
