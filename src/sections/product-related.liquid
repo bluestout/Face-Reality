@@ -1,0 +1,79 @@
+{% assign found = false %}
+{% for block in section.blocks %}
+  {%- assign section_p = all_products[block.settings.product] -%}
+  {% if section_p.handle == product.handle %}
+    {% if block.settings.collection %}
+      {% assign found = true %}
+      {% assign products = collections[block.settings.collection].products %}
+    {% endif %}
+  {% endif %}
+{% endfor %}
+
+{% if section.settings.collection and found == false  %}
+  {% assign products = collections[section.settings.collection].products %}
+  {% assign found = true %}
+{% endif %}
+
+{% if found == false %}
+  {% for c in product.collections %}
+    {% if found == false and c.all_products_count > 1 %}
+      {% assign found = true %}
+      {% assign collection = c %}
+      {% assign products = collection.products %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{% if products.size > 0 %}
+  <div class="product-related">
+    <h3 class="product-related__title">{{ section.settings.title }}</h3>
+    <div class="product-related__list" data-related-products-slider>
+      {% for p in products limit: 6 %}
+        {% unless p.handle == product.handle %}
+          {% include 'product-item' with p, index: forloop.index %}
+        {% endunless %}
+      {% endfor %}
+    </div>
+  </div>
+{% endif %}
+
+
+{% schema %}
+  {
+    "name": "Related products",
+    "settings": [
+      {
+        "type": "textarea",
+        "id": "title",
+        "label": "Title",
+        "default": "Other products in this group"
+      },
+      {
+        "type": "collection",
+        "id": "collection",
+        "label": "Collection",
+        "info": "Select a collection of products to show as related (set for all products)"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "block",
+        "name": "Block",
+        "settings": [
+          {
+            "type": "product",
+            "id": "product",
+            "label": "Product",
+            "info": "Select a specific product for which you want to set different related products"
+          },
+          {
+            "type": "collection",
+            "id": "collection",
+            "label": "Collection",
+            "info": "Select a collection of related products to show on this product"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}
