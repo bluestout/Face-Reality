@@ -121,7 +121,7 @@
       </div>
     </form>
   {% else %}
-    {% include 'product-authorization' %}
+    {% include 'product-authorization' with auth_note: section.settings.authorization_text, auth_link: section.settings.authorization_url, auth_l_text: section.settings.authorization_link_text  %}
   {% endif %}
 
   <div class="product-content__description d-lg-none">
@@ -151,6 +151,23 @@
         "id": "show_share_buttons",
         "label": "Show social sharing buttons",
         "default": true
+      },
+      {
+        "type": "textarea",
+        "id": "authorization_text",
+        "label": "Authorization note",
+        "default": "To be able to buy this product you need to be authorized. Please see your nearest Face Reality clinic to get authorization."
+      },
+      {
+        "type": "url",
+        "id": "authorization_url",
+        "label": "Authorization link url"
+      },
+      {
+        "type": "text",
+        "id": "authorization_link_text",
+        "label": "Authorization link text",
+        "default": "Why can't I buy?"
       }
     ]
   }
