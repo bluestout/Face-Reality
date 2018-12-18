@@ -1,5 +1,5 @@
 <nav class="breadcrumbs" role="navigation" aria-label="breadcrumbs">
-  <a href="/" title="Home" class="breadcrumbs__link">Home</a>
+  <a class="breadcrumbs__link" href="/" title="Home" >Home</a>
   {% if template contains 'case-studies'  %}
     <span class="breadcrumbs__separator" aria-hidden="true">&rsaquo;</span>
     <span class="breadcrumbs__current">Case Studies</span>
@@ -51,7 +51,7 @@
   {% elsif template == 'blog' %}
     <span class="breadcrumbs__separator" aria-hidden="true" >&rsaquo;</span>
     {% if current_tags %}
-      {{ blog.title | link_to: blog.url }}
+      <a class="breadcrumbs__link" href="{{ blog.url }}">{{ blog.title }}</a>
       <span class="breadcrumbs__separator" aria-hidden="true" >&rsaquo;</span>
       <span>{{ current_tags | join: " + " }}</span>
     {% else %}
@@ -59,7 +59,7 @@
     {% endif %}
   {% elsif template == 'article' %}
     <span class="breadcrumbs__separator" aria-hidden="true" >&rsaquo;</span>
-    {{ blog.title | link_to: blog.url }}
+    <a class="breadcrumbs__link" href="{{ blog.url }}">{{ blog.title }}</a>
     <span class="breadcrumbs__separator" aria-hidden="true" >&rsaquo;</span>
     <span class="breadcrumbs__current">{{ article.title }}</span>
   {% else %}

@@ -1,0 +1,175 @@
+.blog-comments {
+  margin: 30px 0 0;
+
+  &__title {
+    @include apercu(700);
+    @include Text(20px, 26px, $color-blumine);
+    margin: 0 0 15px;
+    text-align: center;
+  }
+
+  &__container {
+  }
+
+  &__message {
+    @include apercu(700);
+    @include Text(15px, 22px, $color-black);
+    margin: 0 0 15px;
+    text-align: center;
+    padding: 0 20px;
+  }
+
+  &__list {
+    list-style: none;
+    margin: 0 0 20px;
+    padding: 0;
+  }
+
+  &__comment {
+    padding: 20px;
+    margin: 0 0 20px;
+    background-color: $color-wild-sand;
+  }
+
+  &__content {
+    @include Text(15px, 22px, $color-black);
+    p {
+      @include Text(15px, 22px, $color-black);
+    }
+  }
+
+  &__meta {
+    @include open-sans(700, italic);
+    @include Text(13px, 20px, $color-black);
+    text-align: right;
+  }
+
+  &__input {
+    width: 100%;
+    margin: 0 0 10px;
+    border-bottom: 1px solid $color-fountain-blue;
+    background-color: transparent;
+
+    &--first {
+      width: 48%;
+      margin: 0 2% 10px 0;
+      float: left;
+    }
+
+    &--second {
+      width: 48%;
+      margin: 0 0 10px 2%;
+      float: left;
+    }
+
+    &--textarea {
+      clear: both;
+      float: none;
+      width: 100%;
+    }
+
+    &.input-error {
+      box-shadow: inset 0 0 1px 1px $color-error-bg;
+    }
+  }
+
+  .comment-form {
+    @include clearfix;
+  }
+
+  &__submit {
+    float: right;
+  }
+
+  .errors {
+    li {
+      @include Text(15px, 22px, $color-black);
+      font-weight: 700;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0 0 0 60px;
+    }
+
+    ul li {
+      text-indent: -40px;
+    }
+
+    ul li::before {
+      content: "—";
+      padding: 0 26.5px 0 0;
+    }
+  }
+
+  @include media-query("medium-down") {
+    margin: 20px 0 0;
+
+    &__title {
+      font-size: 18px;
+      line-height: 24px;
+    }
+
+    &__message {
+      font-size: 13.5px;
+      line-height: 21px;
+      margin: 0 0 10px;
+    }
+
+    &__list {
+      margin: 0 0 15px;
+    }
+
+    &__comment {
+      padding: 15px;
+    }
+
+    &__content {
+      font-size: 13.5px;
+      line-height: 18px;
+      p {
+        font-size: 13.5px;
+        line-height: 18px;
+      }
+    }
+
+    &__meta {
+      font-size: 11px;
+      line-height: 14px;
+      margin: 0 0 10px;
+    }
+
+    &__input {
+      &--first {
+        width: 100%;
+        margin: 0 0 10px;
+        float: none;
+      }
+
+      &--second {
+        width: 100%;
+        margin: 0 0 10px;
+        float: none;
+      }
+    }
+
+    .errors {
+      li {
+        font-size: 13.5px;
+        line-height: 21px;
+      }
+
+      ul {
+        padding-inline-start: 35px;
+      }
+
+      ul li {
+        text-indent: -23.5px;
+      }
+
+      ul li::before {
+        padding: 0 10px 0 0;
+      }
+    }
+  }
+}

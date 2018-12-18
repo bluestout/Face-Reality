@@ -1,0 +1,33 @@
+<div class="blog-sidebar">
+
+  <h2 class="blog-sidebar__title blog-sidebar__title--first">Recent</h2>
+  <div class="blog-sidebar__items">
+    {% for article_recent in blog.articles %}
+      <div class="blog-sidebar__item">
+        <a href="{{ article_recent.url }}" class="blog-sidebar__article-link">
+          <span class="blog-sidebar__article-text">{{ article_recent.title }}</span>
+          <span class="blog-sidebar__link-icon icon-angle-right"></span>
+        </a>
+      </div>
+    {% endfor %}
+  </div>
+
+  <h2 class="blog-sidebar__title">Blogs</h2>
+  <div class="blog-sidebar__items">
+    {% assign all_tags = "" %}
+    {% for item in linklists['blogs'].links %}
+      {% assign blog_item = item.object %}
+      {% if blog_item.articles.size > 0 %}
+        <div class="blog-sidebar__item">
+          <a href="{{ blog_item.url }}" class="blog-sidebar__link">
+            <span class="blog-sidebar__link-text">{{ blog_item.title }}</span>
+            <span class="blog-sidebar__link-icon icon-angle-right"></span>
+          </a>
+        </div>
+        {% for tag in blog_item.all_tags %}
+          {% assign all_tags = all_tags | append: tag | append: '::' %}
+        {% endfor %}
+      {% endif %}
+    {% endfor %}
+  </div>
+</div>

@@ -29,7 +29,7 @@
 }
 
 .spr-review {
-  padding: 20px 40px;
+  padding: 20px 40px 0;
   background-color: $color-white;
   margin: 0 0 10px;
 }
@@ -59,6 +59,7 @@
 .spr-review-footer {
   clear: both;
   display: block;
+  padding: 0 0 20px;
 }
 
 .spr-review-reportreview {

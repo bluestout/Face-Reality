@@ -86,6 +86,8 @@
     {% comment %} TODO when do we show breadcrumbs and when not? {% endcomment %}
     {% unless template == 'index'
       or template == 'cart'
+      or template == 'article'
+      or template == 'blog'
       or template == 'list-collections'
       or template contains 'information'
       or template contains 'case-'

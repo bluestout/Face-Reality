@@ -1,0 +1,85 @@
+.blog-sidebar {
+  &__title {
+    @include apercu(700);
+    @include Text(22px, 27px, $color-blumine);
+    margin: 0 0 20px;
+
+    &--first {
+      min-height: 50px;
+      margin: 0;
+    }
+  }
+
+  &__items {
+    margin: 0 0 30px;
+  }
+
+  &__item {
+    margin: 0 0 4px;
+  }
+
+  &__article-link {
+    @include no-font-size;
+    padding: 15px 25px;
+    background-color: $color-white;
+    text-decoration: none;
+    display: flex;
+  }
+
+  &__article-text {
+    @include Text(13.5px, 16px, $color-blumine);
+    @include aller(400);
+    align-self: center;
+    flex: auto;
+  }
+
+  &__link {
+    @include no-font-size;
+    padding: 20px 30px;
+    background-color: $color-white;
+    text-decoration: none;
+    display: flex;
+  }
+
+  &__link-text {
+    @include Text(16px, 16px, $color-blumine);
+    @include aller(700);
+    text-transform: uppercase;
+    align-self: center;
+    flex: auto;
+  }
+
+  &__tag {
+    @include Text(14px, 20px, $color-blumine);
+    padding: 2px 5px;
+    background-color: $color-white;
+  }
+
+  &__link-icon {
+    @include Text(10px, 16px, $color-blumine);
+    text-align: right;
+    align-self: center;
+    margin: 0 0 0 20px;
+  }
+
+  @media print {
+    display: none !important;
+  }
+
+  @include media-query("large-down") {
+    &__link-text {
+      font-size: 14px;
+      line-height: 16px;
+    }
+  }
+
+  @include media-query("medium-down") {
+    &__link {
+      padding: 15px;
+    }
+
+    &__link-text {
+      text-transform: none;
+    }
+  }
+}

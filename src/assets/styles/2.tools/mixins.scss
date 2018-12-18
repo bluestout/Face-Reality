@@ -58,7 +58,7 @@
  */
 @mixin clearfix() {
   &::after {
-    content: '';
+    content: "";
     display: table;
     clear: both;
   }
@@ -108,7 +108,6 @@
   clip: auto;
 }
 
-
 @mixin backgroundImage() {
   background-color: #eeeeee;
   background-repeat: no-repeat;
@@ -116,14 +115,13 @@
   background-position: center center;
 }
 
-
 @mixin backgroundImageOnly() {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
 }
 
-@mixin Text($size:15px, $line:1.25, $colour:initial, $spacing:normal) {
+@mixin Text($size: 15px, $line: 1.25, $colour: initial, $spacing: normal) {
   font-size: $size;
   line-height: $line;
   color: $colour;
@@ -141,4 +139,14 @@
   text-transform: none;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+@mixin hide-print {
+  @media print {
+    display: none !important;
+  }
+}
+
+.hide-print {
+  @include hide-print;
 }
