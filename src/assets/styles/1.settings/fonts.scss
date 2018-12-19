@@ -1,6 +1,6 @@
 @mixin open-sans($weight: normal, $style: normal) {
   font: {
-    family: 'Open Sans', sans-serif;
+    family: "Open Sans", sans-serif;
     weight: $weight;
     style: $style;
   }
@@ -8,11 +8,9 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* TODO - change fonts to appropriate family! */
-
 @mixin apercu($weight: normal, $style: normal) {
   font: {
-    family: 'Open Sans', sans-serif;
+    family: "Open Sans", sans-serif;
     weight: $weight;
     style: $style;
   }
@@ -22,7 +20,7 @@
 
 @mixin myriad($weight: normal, $style: normal) {
   font: {
-    family: 'Open Sans', sans-serif;
+    family: "Open Sans", sans-serif;
     weight: $weight;
     style: $style;
   }
@@ -32,7 +30,7 @@
 
 @mixin aller($weight: normal, $style: normal) {
   font: {
-    family: 'Open Sans', sans-serif;
+    family: "Open Sans", sans-serif;
     weight: $weight;
     style: $style;
   }

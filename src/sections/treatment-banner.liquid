@@ -9,11 +9,6 @@
       max_width: 1920,
       max_height: img_height
     %}
-  {% else %}
-    <div class="treatment-banner__bg">
-      {% comment %} TODO remove the placeholder when done with development {% endcomment %}
-      <img src="http://via.placeholder.com/1920x400" alt="" class="treatment-banner__bg-image">
-    </div>
   {% endif %}
   <div class="treatment-banner__content {{ classes }}">
     <h2 class="treatment-banner__suptitle">{{ page.title }}</h2>
@@ -28,11 +23,6 @@
       max_width: 180,
       max_height: 180
     %}
-  {% else %}
-    <div class="treatment-banner__badge-wrap">
-      {% comment %} TODO remove the placeholder when done with development {% endcomment %}
-      <img src="http://via.placeholder.com/180x180" alt="{{ page.title }}" class="treatment-banner__badge"/>
-    </div>
   {% endif %}
 </div>
 

@@ -55,7 +55,6 @@
       @include Text(15px, 22px, $color-black);
       position: relative;
 
-      /* TODO remove the placeholder when done with development */
       &::before {
         content: "";
         position: relative;

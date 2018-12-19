@@ -27,11 +27,6 @@
                 wrapper_class: 'testimonials-content__testimonial-image-wrap',
                 image_class: 'testimonials-content__testimonial-image lazyload'
               %}
-            {% else %}
-              {% comment %} TODO remove placegolder images {% endcomment %}
-              <div class="testimonials-content__testimonial-image-wrap">
-                <img src="http://via.placeholder.com/400x400" alt="" class="testimonials-content__testimonial-image lazyload">
-              </div>
             {% endif %}
             <div>
               <span class="testimonials-content__testimonial-name">{{ block.settings.title }}</span>

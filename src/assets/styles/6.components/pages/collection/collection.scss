@@ -4,6 +4,7 @@
     @include Text(30px, 36px, $color-white);
     text-align: center;
     max-width: 820px;
+    margin: 0 auto;
   }
 
   .collection-banner__subtitle {
@@ -24,6 +25,11 @@
 
     &--default {
       background-color: $color-aqua-haze;
+
+      .collection-banner__title {
+        color: $color-black;
+      }
+
       .collection-banner__subtitle {
         color: $color-black;
       }

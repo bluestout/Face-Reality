@@ -29,7 +29,6 @@
               <a class="cart-table__product-link" href="{{ item.url }}">{{ item.product.title }}</a>
             </h3>
             <div class="cart-table__product-id">{{ 'cart.label.product' | t }} ID. {{ item.variant_id }} {% comment %} {{ item.sku }} {% endcomment %}</div>
-            {% comment %} TODO - reviews {% endcomment %}
             <a class="cart-table__remove" href="/cart/change?line={{ forloop.index }}&amp;quantity=0">{{ 'cart.general.remove' | t }}</a>
           </td>
 
