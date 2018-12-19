@@ -14,3 +14,4 @@ import "./case-study-slick";
 import "./responsive-sidemenu";
 import "./search";
 import "./home-stories";
+import "./sticky-sidebar";

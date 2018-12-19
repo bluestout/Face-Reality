@@ -161,7 +161,11 @@ function MoveAuthorizationFilter() {
 
 function limitResponsiveFilterHeight() {
   const height = $(window).height();
-  $(filter.prodFilterBox).css("max-height", height);
+  if ($(window).width() > 992) {
+    $(filter.prodFilterBox).css("max-height", "100%");
+  } else {
+    $(filter.prodFilterBox).css("max-height", height);
+  }
 }
 
 // initialize the functionality for each product-item present on the page
@@ -170,7 +174,6 @@ function productItemInit() {
     .not(".script-loaded")
     .each(function() {
       const $this = $(this);
-      console.log($this);
       $this.addClass("script-loaded");
       const $options = $(el.optionInput, $this);
 

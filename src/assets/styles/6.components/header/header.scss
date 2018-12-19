@@ -1,8 +1,16 @@
 .site-header {
-  position: absolute;
-  z-index: 1;
+  @include transition(background-color, box-shadow);
+  position: fixed;
+  z-index: 4;
   background-color: transparent;
   width: 100%;
+  padding: 0 0 10px;
+  box-shadow: none;
+
+  &.scrolled {
+    background-color: $color-white;
+    box-shadow: 0 0 1px 1px rgba($color-black, 0.05);
+  }
 
   &__primary-nav-wrap {
     position: relative;

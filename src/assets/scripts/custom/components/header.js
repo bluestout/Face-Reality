@@ -26,6 +26,30 @@ function listOut(event) {
   $this.siblings(el.link).removeClass("active");
 }
 
+function isHeaderScrolled(scroll) {
+  if (scroll > 5) {
+    $(el.header).addClass("scrolled");
+  } else {
+    $(el.header).removeClass("scrolled");
+  }
+}
+
 $(el.sublist).hover(listIn, listOut);
+
+let lastKnownScrollPos = 0;
+let ticking = false;
+
+window.addEventListener("scroll", () => {
+  lastKnownScrollPos = window.scrollY;
+
+  if (!ticking) {
+    window.requestAnimationFrame(() => {
+      isHeaderScrolled(lastKnownScrollPos);
+      ticking = false;
+    });
+
+    ticking = true;
+  }
+});
 
 $(window).on("load resize", headerOffset);

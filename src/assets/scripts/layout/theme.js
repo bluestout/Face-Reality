@@ -8,8 +8,8 @@ import "lazysizes/plugins/respimg/ls.respimg";
 import "../../styles/theme.scss";
 import "../../styles/theme.scss.liquid";
 
-import "../custom/pages/pages-index";
-import "../custom/components/components-index";
+import "../custom/pages/index";
+import "../custom/components/index";
 
 import { focusHash, bindInPageLinks } from "@shopify/theme-a11y";
 

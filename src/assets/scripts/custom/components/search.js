@@ -39,7 +39,6 @@ function searchInit() {
                 "href",
                 item.url,
               );
-              console.log(item);
               if (!item.thumbnail.includes("no-image")) {
                 $link.append(
                   `<span class="search-results__image-wrap"><img class="search-results__image" src="${

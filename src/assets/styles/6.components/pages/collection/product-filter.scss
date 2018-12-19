@@ -45,7 +45,7 @@
   &__item {
     font-size: 0;
     line-height: 0;
-    padding: 5px 0 15px;
+    padding: 5px 0;
     margin: 0;
     @include clearfix;
   }
@@ -58,7 +58,7 @@
   }
 
   &__label {
-    @include Text(13.5px, 21px, $color-black);
+    @include Text(12px, 18px, $color-black);
     display: block;
     float: left;
     width: calc(100% - 30px);
