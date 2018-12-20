@@ -12,7 +12,20 @@
           </div>
           <div class="product-tabs__content">
             {% for tab in tabs %}
-              <div class="product-tabs__tab {% if forloop.index == 1 %}active{% endif %}" data-tab="{{ forloop.index }}">{{ tab[1] }}</div>
+              <div class="product-tabs__tab {% if forloop.index == 1 %}active{% endif %}" data-tab="{{ forloop.index }}">
+                {% if tab[1] contains "--SPLIT--" %}
+                  {% assign tab_content = tab[1] | split: '--SPLIT--' %}
+                  <div class="row">
+                    {% for sub_tab in tab_content %}
+                      <div class="col-md-6">
+                        {{ sub_tab }}
+                      </div>
+                    {% endfor %}
+                  </div>
+                {% else %}
+                  {{ tab[1] }}
+                {% endif %}
+              </div>
             {% endfor %}
           </div>
         </div>

@@ -31,7 +31,36 @@
   }
 
   &__content {
+    @include Text(13.5px, 21px, $color-black);
+    font-weight: 400;
+    margin: 0 0 21px;
+    word-break: break-word;
     opacity: 0.85;
+
+    h1 {
+      margin: 0 0 30px;
+    }
+
+    h2 {
+      margin: 0 0 30px;
+    }
+
+    h3 {
+      margin: 0 0 20px;
+    }
+
+    h4 {
+      margin: 0 0 20px;
+    }
+
+    h5 {
+      margin: 0 0 15px;
+    }
+
+    h6 {
+      margin: 0 0 15px;
+    }
+
     ul {
       list-style: none;
       padding-inline-start: 50px;
