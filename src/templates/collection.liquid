@@ -22,11 +22,14 @@
             {% paginate collection.products by 9 %}
               <div class="row no-gutters" data-paginate-collection-content>
                 {% for product in collection.products %}
+                  {% assign hide_product = false %}
                   {% assign filtered_tags_s = "" %}
                   {% for p_tag in product.tags %}
                     {% if p_tag contains "skin-" or p_tag contains "use-" %}
                       {% assign p_tag_h = p_tag | handleize %}
                       {% assign filtered_tags_s = filtered_tags_s | append: p_tag_h | append: '::'  %}
+                    {% elsif p_tag == "hidden-product" %}
+                      {% assign hide_product = true %}
                     {% endif %}
                   {% endfor %}
                   {% if product.tags contains "authorization" %}
@@ -41,9 +44,11 @@
                   {% assign type_tag = "type-" | append: product.type | handleize %}
                   {% if condition %}
                   {% endif %}
-                  <div class="col-lg-4 col-6 {{ all_tags }} {{ type_tag }} {{ p_filtered_tag_classes }}" data-collection-product-column>
-                    {% include 'product-item' with product, index: forloop.index %}
-                  </div>
+                  {% unless hide_product  %}
+                    <div class="col-lg-4 col-6 {{ all_tags }} {{ type_tag }} {{ p_filtered_tag_classes }}" data-collection-product-column>
+                      {% include 'product-item' with product, index: forloop.index %}
+                    </div>
+                  {% endunless %}
                 {% endfor %}
               </div>
               {% if paginate.pages > 1 %}

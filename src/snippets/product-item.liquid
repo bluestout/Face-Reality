@@ -2,6 +2,12 @@
 {% assign p_tags = product-item.tags %}
 {%- assign current_p_i_variant = product-item.selected_or_first_available_variant -%}
 
+{% comment %} obscured product - when we show the product, but cannot allow adding it to cart {% endcomment %}
+{% assign obscured_product = false %}
+{% if p_tags contains "obscured-product" %}
+  {% assign obscured_product = true %}
+{% endif %}
+
 {% if product-item.tags contains "authorization" %}
   {% assign needs_authorization = true %}
 {% else %}
@@ -66,80 +72,82 @@
 
   <div class="flex-shaper"></div>
 
-  <div class="product-item__price" data-product-item-price-wrapper>
-    <span data-product-item-price>
-      {{ current_p_i_variant.price | money }}
-    </span>
-    {% if current_p_i_variant.compare_at_price > current_p_i_variant.price %}
-      <s data-product-item-compare-price>
-        {{ current_p_i_variant.compare_at_price | money }}
-      </s>
-    {% endif %}
-  </div>
-
-  {% if can_buy %}
-    <form class="product-item__form d-none d-md-block" action="/cart/add" method="post" enctype="multipart/form-data">
-      <input type="hidden" name="product-id" value="{{ product-item.id }}"/>
-      <input type="hidden" name="product-title" value="{{ product-item.title }}"/>
-      <select name="id" class="no-js" data-product-item-select>
-        {% for variant in product-item.variants %}
-          <option
-            {% if variant == current_variant %}selected="selected"{% endif %}
-            {% unless variant.available %}disabled="disabled"{% endunless %}
-            value="{{ variant.id }}">
-              {{ variant.title }}
-          </option>
-        {% endfor %}
-      </select>
-
-      {% assign var_selected = false %}
-      {% unless product-item.has_only_default_variant %}
-        {% for option in product-item.options_with_values %}
-          <div class="product-item__option-name">{{ option.name }}</div>
-          <div class="product-item__variants-wrap {% if forloop.last %}product-item__variants-wrap--last{% endif %}" data-product-item-option>
-            {% for value in option.values %}
-              <div class="product-item__variant-wrap">
-                <input
-                  class="product-item__variant"
-                  type="radio"
-                  name="variation-radio-{{ option.name | handleize }}"
-                  value="{{ value | escape }}"
-                  data-product-item-option-input
-                  data-index="option{{ option.position }}"
-                  {% if product-item.available %}
-                    {% if forloop.index == 1 %}
-                      checked="checked"
-                    {% endif %}
-                  {% endif %}
-                  />
-                <label class="product-item__variant-label">{{ value }}</label>
-              </div>
-            {% endfor %}
-          </div>
-        {% endfor %}
-      {% endunless %}
-
-      <button
-        class="product-item__form-submit"
-        type="submit"
-        name="add"
-        data-add-to-cart
-        data-product-item-add-button
-        {% unless product-item.available %}disabled="disabled"{% endunless %}>
-          <span data-add-button-text>
-            {% if product-item.available %}
-              {{ 'products.product.add_to_cart' | t }}
-            {% else %}
-              {{ 'products.product.sold_out' | t }}
-            {% endif %}
-          </span>
-      </button>
-    </form>
-  {% else %}
-    <div class="text-center d-none d-md-block">
-      <a href="{{ product-item.url }}" class="product-item__form-submit ">Learn more</a>
+  {% unless obscured_product %}
+    <div class="product-item__price" data-product-item-price-wrapper>
+      <span data-product-item-price>
+        {{ current_p_i_variant.price | money }}
+      </span>
+      {% if current_p_i_variant.compare_at_price > current_p_i_variant.price %}
+        <s data-product-item-compare-price>
+          {{ current_p_i_variant.compare_at_price | money }}
+        </s>
+      {% endif %}
     </div>
-  {% endif %}
+
+    {% if can_buy %}
+      <form class="product-item__form d-none d-md-block" action="/cart/add" method="post" enctype="multipart/form-data">
+        <input type="hidden" name="product-id" value="{{ product-item.id }}"/>
+        <input type="hidden" name="product-title" value="{{ product-item.title }}"/>
+        <select name="id" class="no-js" data-product-item-select>
+          {% for variant in product-item.variants %}
+            <option
+              {% if variant == current_variant %}selected="selected"{% endif %}
+              {% unless variant.available %}disabled="disabled"{% endunless %}
+              value="{{ variant.id }}">
+                {{ variant.title }}
+            </option>
+          {% endfor %}
+        </select>
+
+        {% assign var_selected = false %}
+        {% unless product-item.has_only_default_variant %}
+          {% for option in product-item.options_with_values %}
+            <div class="product-item__option-name">{{ option.name }}</div>
+            <div class="product-item__variants-wrap {% if forloop.last %}product-item__variants-wrap--last{% endif %}" data-product-item-option>
+              {% for value in option.values %}
+                <div class="product-item__variant-wrap">
+                  <input
+                    class="product-item__variant"
+                    type="radio"
+                    name="variation-radio-{{ option.name | handleize }}"
+                    value="{{ value | escape }}"
+                    data-product-item-option-input
+                    data-index="option{{ option.position }}"
+                    {% if product-item.available %}
+                      {% if forloop.index == 1 %}
+                        checked="checked"
+                      {% endif %}
+                    {% endif %}
+                    />
+                  <label class="product-item__variant-label">{{ value }}</label>
+                </div>
+              {% endfor %}
+            </div>
+          {% endfor %}
+        {% endunless %}
+
+        <button
+          class="product-item__form-submit"
+          type="submit"
+          name="add"
+          data-add-to-cart
+          data-product-item-add-button
+          {% unless product-item.available %}disabled="disabled"{% endunless %}>
+            <span data-add-button-text>
+              {% if product-item.available %}
+                {{ 'products.product.add_to_cart' | t }}
+              {% else %}
+                {{ 'products.product.sold_out' | t }}
+              {% endif %}
+            </span>
+        </button>
+      </form>
+    {% else %}
+      <div class="text-center d-none d-md-block">
+        <a href="{{ product-item.url }}" class="product-item__form-submit ">Learn more</a>
+      </div>
+    {% endif %}
+  {% endunless %}
 
   <div class="text-center d-block d-md-none">
     <a href="{{ product-item.url }}" class="product-item__form-submit ">Learn more</a>
