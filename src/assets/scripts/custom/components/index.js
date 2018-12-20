@@ -15,3 +15,4 @@ import "./responsive-sidemenu";
 import "./search";
 import "./home-stories";
 import "./sticky-sidebar";
+import "./omega-col-override";

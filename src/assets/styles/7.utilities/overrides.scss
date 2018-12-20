@@ -23,3 +23,30 @@
     max-width: 1295px;
   }
 }
+
+.omega-app-override {
+  width: 100% !important;
+  max-width: 100% !important;
+  flex: 100% !important;
+  .default-page {
+    &__title {
+      margin: 0 0 80px;
+    }
+
+    &__content {
+      ul {
+        list-style: none;
+        padding-inline-start: 0;
+      }
+
+      ul li {
+        text-indent: 0;
+      }
+
+      ul li::before {
+        content: none;
+        padding: 0;
+      }
+    }
+  }
+}
