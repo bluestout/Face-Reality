@@ -1,5 +1,5 @@
 .site-header {
-  @include transition(background-color, box-shadow);
+  @include transition(box-shadow);
   position: fixed;
   z-index: 4;
   background-color: transparent;
