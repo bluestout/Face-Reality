@@ -50,6 +50,10 @@
     border-bottom: 1px solid $color-fountain-blue;
     background-color: transparent;
 
+    &::placeholder {
+      opacity: 0.5;
+    }
+
     &--first {
       width: 48%;
       margin: 0 2% 10px 0;

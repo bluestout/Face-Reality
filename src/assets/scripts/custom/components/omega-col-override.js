@@ -11,15 +11,27 @@ function overrides() {
   }
 }
 
-/*
-const listItems = document.getElementsByClassName("os-e bucket");
-for (let index = 0; index < listItems.length; index++) {
-  const element = listItems[index];
-  const usePos = element.innerHTML.indexOf("use-");
-  const skinPos = element.innerHTML.indexOf("skin-");
-  if (usePos > -1) {
-    element.innerHTML = element.innerHTML.replace("use-", "");
-  } else if (skinPos > -1) {
-    element.innerHTML = element.innerHTML.replace("skin-", "");
+$(document).on("DOMNodeInserted", (event) => {
+  if (
+    event &&
+    event.target &&
+    event.target.classList &&
+    event.target.classList.value
+  ) {
+    if ($(event.target).hasClass("os-e os-sidebar")) {
+      const $listItems = $(event.target).find(".os-e.bucket");
+      $listItems.each(function() {
+        $(this).html(
+          $(this)
+            .html()
+            .replace("use-", ""),
+        );
+        $(this).html(
+          $(this)
+            .html()
+            .replace("skin-", ""),
+        );
+      });
+    }
   }
-} */
+});
