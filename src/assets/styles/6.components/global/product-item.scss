@@ -88,8 +88,9 @@
   }
 
   &__image-wrap {
+    z-index: 1;
     display: block;
-    margin: 55px auto 30px;
+    margin: 5px auto 20px;
   }
 
   &__image {
@@ -272,7 +273,7 @@
   @include media-query("medium-down") {
     &__image-wrap {
       max-height: 240px;
-      margin: 15px auto;
+      margin: 5px auto 15px;
     }
 
     &__image {

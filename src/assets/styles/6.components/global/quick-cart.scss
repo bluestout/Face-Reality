@@ -50,7 +50,7 @@
   height: 100%;
   padding: 32px 24px;
   background-color: $color-wild-sand;
-  @include transition(right 400ms);
+  @include transition(right 300ms);
 
   &.open {
     right: 0;
@@ -66,7 +66,7 @@
     opacity: 0;
     background-color: rgba($color-black, 0.5);
     pointer-events: none;
-    @include transition(400ms opacity);
+    @include transition(300ms opacity);
 
     &.active {
       opacity: 1;

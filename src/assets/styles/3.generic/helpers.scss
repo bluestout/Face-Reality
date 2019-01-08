@@ -117,3 +117,8 @@
   font-size: 0;
   line-height: 0;
 }
+
+.sticky-active {
+  position: absolute;
+  transition: bottom 300ms ease-out;
+}

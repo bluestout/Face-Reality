@@ -277,6 +277,10 @@
     &__update-wrap {
       padding: 40px 20px 0;
     }
+
+    &__product-id {
+      margin: 0 15px 10px 0;
+    }
   }
 
   @include media-query("v-small") {

@@ -3,14 +3,18 @@
   {% section 'collection-banner' %}
 
   <div class="collection-content max-wrap">
-    <div class="row no-gutters">
-      <div class="col-md-3">
-      </div>
-      <div class="col-md-9">
-        {% include 'authorization-filter' %}
+
+    <div class="collection-authorization-switch" data-collection-authorization-switch>
+      <div class="row no-gutters">
+        <div class="col-md-3">
+        </div>
+        <div class="col-md-9">
+          {% include 'authorization-filter' %}
+        </div>
       </div>
     </div>
-    <div class="row no-gutters">
+
+    <div class="row no-gutters" data-sticky-container>
       <div class="col-md-3">
 
         {% include 'product-filter' %}

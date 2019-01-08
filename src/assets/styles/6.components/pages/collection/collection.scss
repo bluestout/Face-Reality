@@ -36,6 +36,19 @@
     }
   }
 
+  .collection-authorization-switch {
+    @include transition(background-color, box-shadow);
+    position: static;
+
+    &.scrolled {
+      z-index: 5;
+      position: fixed;
+      width: 100%;
+      background-color: $color-white;
+      box-shadow: 0 2px 1px 1px rgba($color-black, 0.05);
+    }
+  }
+
   .collection-content {
     margin-bottom: 80px;
   }

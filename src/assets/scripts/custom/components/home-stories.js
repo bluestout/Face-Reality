@@ -77,7 +77,10 @@ function extractStyleFromFeaturedmedia(content) {
 }
 
 function getWpBlogs() {
-  if ($("body").hasClass("template-index")) {
+  if (
+    $("body").hasClass("template-index") &&
+    $("[data-blog-posts]").length > 0
+  ) {
     $.ajax({
       url: "https://facerealityacneclinic.com/wp-json/wp/v2/posts?_embed",
       type: "GET",
