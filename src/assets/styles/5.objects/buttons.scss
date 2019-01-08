@@ -22,6 +22,7 @@
     text-decoration: none;
     font-weight: 400;
     padding: 12px 24px;
+    background: none;
     background-color: $color-blumine;
     border-radius: 0;
     height: auto;
@@ -30,6 +31,7 @@
     &:not(:disabled) {
       &:hover,
       &:active {
+        background: none;
         color: $color-white;
         background-color: $color-accent;
       }
@@ -40,6 +42,7 @@
     }
 
     &:disabled {
+      background: none;
       cursor: not-allowed;
       background-color: $color-disabled-border;
     }
@@ -63,6 +66,7 @@
     text-decoration: none;
     font-weight: 400;
     padding: 11px 25px;
+    background: none;
     background-color: transparent;
     border: 1px solid $color-blumine;
     border-radius: 0;
@@ -73,6 +77,7 @@
       &:hover,
       &:active,
       &:focus {
+        background: none;
         background-color: $color-blumine;
         color: $color-white;
       }
@@ -80,6 +85,7 @@
 
     &:disabled {
       cursor: not-allowed;
+      background: none;
       background-color: transparent;
       color: $color-disabled;
       border-color: $color-disabled;

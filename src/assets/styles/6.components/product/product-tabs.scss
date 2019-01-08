@@ -7,10 +7,11 @@
   }
 
   &__link {
+    @include Text(13.5px, 14px, $color-black);
+    @include transition(opacity, color);
     position: relative;
     bottom: -1px;
     display: inline-block;
-    @include Text(13.5px, 14px, $color-black);
     text-decoration: none;
     margin: 0 25px;
     padding: 0 5px 15px;

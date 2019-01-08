@@ -8,6 +8,7 @@ const el = {
 
 function searchToggle() {
   $(el.searchform).slideToggle("fast");
+  document.getElementById(el.searchInputId).focus();
 }
 
 $("body").on("click", () => {

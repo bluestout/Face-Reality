@@ -1,4 +1,131 @@
-.store-locator {
-  margin: 40px 0 0;
-  padding: 0;
+// class used by app
+.bootstrap-msesl {
+  padding: 30px 0;
+
+  #maptab {
+    display: flex;
+    height: auto;
+  }
+
+  // map column, no classnames
+  .col-xs-12.col-sm-12.col-md-8.col-lg-8 {
+    padding: 0;
+    flex: 0 0 66.66666667%;
+    order: 2;
+  }
+
+  // results column
+  .col-xs-12.col-sm-12.col-md-4.col-lg-4 {
+    padding: 0;
+    flex: 0 0 33.33333333%;
+    order: 1;
+    display: flex;
+    flex-flow: row wrap;
+
+    > .labeltxt {
+      order: 1;
+    }
+  }
+
+  .labeltxt {
+    @include apercu(700);
+    @include Text(24px, 30px, $color-blumine);
+    text-transform: lowercase;
+    text-align: center;
+    margin: 0 0 20px;
+    border: none;
+    width: 100%;
+    &::first-letter {
+      text-transform: uppercase;
+    }
+  }
+
+  .filter_form {
+    order: 2;
+    width: 100%;
+  }
+
+  .form-event {
+    border: none;
+  }
+
+  .form-body {
+    padding: 0 15px;
+  }
+
+  .form-group {
+    display: flex;
+  }
+
+  .middle-label {
+    @include apercu(400);
+    @include Text(13.5px, 18px, $color-black);
+    margin: auto;
+    padding: 0;
+    flex: 1 1 25%;
+    float: none;
+  }
+
+  .list-group {
+    box-shadow: none;
+    border-radius: 0;
+    width: 100%;
+    order: 3;
+  }
+
+  .Polaris-Select {
+    margin: auto;
+    padding: 0;
+    flex: 1 1 75%;
+    float: none;
+  }
+
+  .form-btn {
+    padding: 0;
+    text-align: center;
+  }
+
+  .Polaris-Button {
+    @include button(main);
+  }
+
+  .list-group-item {
+    border-left: none;
+    border-right: none;
+    border-top: 1px solid $color-mercury;
+    border-bottom: 1px solid $color-mercury;
+    border-radius: 0 !important;
+    background-color: transparent !important;
+    color: $color-black !important;
+    text-shadow: none !important;
+    background-image: none !important;
+    background-repeat: no-repeat !important;
+
+    &:first-of-type {
+    }
+
+    &.active,
+    &:hover,
+    &:active {
+      background-color: transparent !important;
+      color: $color-black !important;
+      border-color: $color-fountain-blue !important;
+    }
+  }
+
+  form .labeltxt {
+    display: none;
+  }
+
+  @include media-query("md-down") {
+    .col-xs-12.col-sm-12.col-md-8.col-lg-8 {
+      flex: 0 0 100%;
+      order: 2;
+    }
+
+    .col-xs-12.col-sm-12.col-md-4.col-lg-4 {
+      flex: 0 0 100%;
+      order: 1;
+    }
+  }
 }
