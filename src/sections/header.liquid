@@ -33,11 +33,7 @@
       {% assign nav = section.settings.top_inline_nav %}
       {% if linklists[nav].links.size > 0 %}
         {% for link in linklists[nav].links %}
-          {% if link.handle contains "blog" %}
-            <a href="{{ link.url }}" target="_blank" class="site-header__secondary-nav-link">{{ link.title }}</a>
-          {% else %}
-            <a href="{{ link.url }}" class="site-header__secondary-nav-link">{{ link.title }}</a>
-          {% endif %}
+          <a href="{{ link.url }}" class="site-header__secondary-nav-link">{{ link.title }}</a>
         {% endfor %}
       {% endif %}
 

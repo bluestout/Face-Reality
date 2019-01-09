@@ -83,6 +83,11 @@ function blogStoryTemplate(article, index) {
       }" alt="${article.image.alt}"/></div>`
     : "<div class='blog-stories__background'></div>";
 
+  const author =
+    index === 0
+      ? `<span class="blog-stories__author">by ${article.author}</span>`
+      : "";
+
   const pattern = `
     <div class="blog-stories__story${size}">
       ${img}
@@ -91,7 +96,7 @@ function blogStoryTemplate(article, index) {
       )}" class="blog-stories__link" target="_blank">
         <span class="blog-stories__post-info">
           <h3 class="blog-stories__post-title">${article.title}</h3>
-          <span class="blog-stories__author">by ${article.author}</span>
+          ${author}
         </span>
         <span class="blog-stories__icon-wrap">
           <span class="blog-stories__icon icon-arrow-right"></span>
