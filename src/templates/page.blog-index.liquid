@@ -1,0 +1,28 @@
+<div class="blog">
+
+  <div class="container">
+    <h1 class="blog-title">Blog</h1>
+
+    {% if blog.all_tags.size > 0 %}
+      <h2 class="blog-subtitle">{{ 'blogs.general.categories' | t }}</h2>
+      <ul class="blog-tags">
+        {% for tag in blog.all_tags %}
+          {% if current_tags contains tag %}
+            <li class="blog-tag">{{ tag }}</li>
+          {% else %}
+            <li class="blog-tag">{{ tag | link_to_tag: tag }}</li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+    {% endif %}
+
+    <div class="row">
+      <div class="col-lg-9" data-blog-index></div>
+      <div class="col-lg-3">
+        {% include 'blog-sidebar' %}
+      </div>
+    </div>
+  </div>
+
+  {% section 'info-cta' %}
+</div>
