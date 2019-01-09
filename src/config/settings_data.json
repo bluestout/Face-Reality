@@ -46,7 +46,7 @@
           "announcement_bar_enabled": true,
           "announcement_bar_home_page_only": true,
           "announcement_bar_text": "10% promo discount on all products. Only this week. <a href=\"#\">Shop Now</a>",
-          "logo": "shopify://shop_images/face-reality-logo.png",
+          "logo": "shopify://shop_images/FRS-Logo-1-19.png",
           "logo_max_width": 180,
           "menu": "main-menu"
         }
@@ -56,7 +56,7 @@
         "settings": {
           "footer_linklist": "footer",
           "newsletter_text": "Sign up for Face Reality Newsletter and\u0003 receive promotions, announcements in your inbox",
-          "logo": "shopify://shop_images/face-reality-logo.png"
+          "logo": "shopify://shop_images/FRS-Logo-1-19_01d33c5c-df54-45e7-bc06-6d08aa307aaf.png"
         }
       },
       "1538382507930": {
@@ -814,20 +814,6 @@
           }
         },
         "block_order": ["1539849652456", "1539849710967"],
-        "settings": {}
-      },
-      "study-comparisons": {
-        "type": "study-comparisons",
-        "blocks": {
-          "1541770746981": {
-            "type": "block",
-            "settings": {
-              "page": "",
-              "test": "Ninja"
-            }
-          }
-        },
-        "block_order": ["1541770746981"],
         "settings": {}
       },
       "study-inflamed-acne": {
