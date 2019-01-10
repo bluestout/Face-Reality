@@ -4,7 +4,9 @@
       "skip_to_content": "Skip to content"
     },
     "glossary": {
-      "option": "Option"
+      "option": "Option",
+      "size": "Size",
+      "quantity": "Quantity"
     },
     "meta": {
       "tags": "Tagged \"{{ tags }}\"",

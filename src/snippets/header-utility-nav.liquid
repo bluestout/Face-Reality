@@ -24,6 +24,9 @@
   {% if shop.customer_accounts_enabled %}
     <a href="/account" rel="nofollow" class="utility-nav__icon-wrap">
       <span class="icon-user-o utility-nav__icon"></span>
+      {% if cart.item_count > 0 %}
+        <span class="utility-nav__count">{{ cart.item_count }}</span>
+      {% endif %}
     </a>
   {% endif %}
 

@@ -21,6 +21,20 @@
     font-size: 20px;
   }
 
+  &__count {
+    @include apercu(700);
+    @include Text(12px, 14px, $color-white);
+    background-color: $color-blumine;
+    height: 20px;
+    min-width: 20px;
+    padding: 3px;
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+    border-radius: 10px;
+    margin: 0 0 0 3px;
+  }
+
   &__searchform {
     position: absolute;
     right: 0;
