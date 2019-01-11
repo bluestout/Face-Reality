@@ -33,7 +33,7 @@
   {% endif %}
 
   <h1 class="product-content__title">{{ product.title }}</h1>
-  <p class="product-content__id">Product ID. {{ product.sku }}</p>
+  <p class="product-content__id">Product ID. <span data-product-sku>{{ product.selected_or_first_available_variant.sku }}</span></p>
 
   <div class="product-content__reviews">
     <span class="shopify-product-reviews-badge" data-id="{{ product.id }}"></span>
