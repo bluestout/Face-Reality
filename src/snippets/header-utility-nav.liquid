@@ -24,14 +24,14 @@
   {% if shop.customer_accounts_enabled %}
     <a href="/account" rel="nofollow" class="utility-nav__icon-wrap">
       <span class="icon-user-o utility-nav__icon"></span>
-      {% if cart.item_count > 0 %}
-        <span class="utility-nav__count">{{ cart.item_count }}</span>
-      {% endif %}
     </a>
   {% endif %}
 
   <a href="/cart" class="utility-nav__icon-wrap" {% comment %} data-quick-cart-toggle {% endcomment %}>
     <span class="icon-shopping-cart utility-nav__icon"></span>
+    {% if cart.item_count > 0 %}
+      <span class="utility-nav__count">{{ cart.item_count }}</span>
+    {% endif %}
   </a>
 
   <a href="#" class="utility-nav__big-button">Find a nearby clinic</a>
