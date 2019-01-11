@@ -3,6 +3,7 @@
   display: flex;
   flex-flow: column wrap;
   width: 100%;
+  min-height: 360px;
   height: calc(100% - 50px);
   text-align: center;
   margin: 0 0 50px;
@@ -244,11 +245,6 @@
       color: $color-white;
       background-color: $color-blumine;
     }
-    /* &.show-tooltip {
-      .swym-tooltip {
-        display: block;
-      }
-    } */
   }
   &__wishlist-icon {
     font-size: 18px;
@@ -271,6 +267,7 @@
   }
 
   @include media-query("medium-down") {
+    min-height: 210px;
     &__image-wrap {
       max-height: 240px;
       margin: 5px auto 15px;
@@ -314,6 +311,13 @@
         padding: 12px;
         width: auto;
       }
+    }
+  }
+
+  @include media-query("v-small") {
+    &__authorization {
+      width: auto;
+      max-width: 90%;
     }
   }
 }
