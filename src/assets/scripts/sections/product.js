@@ -24,6 +24,7 @@ const selectors = {
   productPrice: "[data-product-price]",
   productThumbs: "[data-product-single-thumbnail]",
   singleOptionSelector: "[data-single-option-selector]",
+  productSku: "[data-product-sku]",
 };
 
 const cssClasses = {
@@ -170,6 +171,7 @@ register("product", {
     if (variant.available) {
       $(selectors.addToCart, this.$container).prop("disabled", false);
       $(selectors.addToCartText, this.$container).html(theme.strings.addToCart);
+      $(selectors.productSku, this.$container).html(variant.sku);
     } else {
       $(selectors.addToCart, this.$container).prop("disabled", true);
       $(selectors.addToCartText, this.$container).html(theme.strings.soldOut);
