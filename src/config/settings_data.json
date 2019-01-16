@@ -19,7 +19,7 @@
     "social_youtube_link": "#",
     "social_vimeo_link": "",
     "social_linkedin_link": "#",
-    "cart_notes_enable": true,
+    "cart_notes_enable": false,
     "favicon": "",
     "checkout_header_image": "",
     "checkout_logo_image": "",
@@ -65,19 +65,19 @@
           "1538382537118": {
             "type": "tab-1",
             "settings": {
-              "collection": "chronically-dry-skin"
+              "collection": "dry-skin"
             }
           },
           "1538382564151": {
             "type": "tab-1",
             "settings": {
-              "collection": "mature-skin"
+              "collection": ""
             }
           },
           "1538575249055": {
             "type": "tab-1",
             "settings": {
-              "collection": "non-sensitive-skin"
+              "collection": ""
             }
           },
           "1538575259812": {
@@ -107,7 +107,7 @@
           "1542641954749": {
             "type": "tab-2",
             "settings": {
-              "collection": "home-care"
+              "collection": ""
             }
           },
           "1542641991083": {
@@ -213,7 +213,7 @@
             "type": "testimonial",
             "settings": {
               "testimonial": "This place really is amazing and anyone with acne knows $25 (which they waive if you elect to get a treatment) is REALLY cheap and worth it to get his or her skin under control. I have been to so many different places, spent tons of money, even tried the stuff from acne.org, just to be disappointed. I finally decided to check this place out based on all the great reviews and really nice man (Pat) I spoke with at the clinic over the phone. This place is the first place I have been able to leave from after getting a facial where I didn’t feel like I needed to hide.",
-              "image": "",
+              "image": "shopify://shop_images/example_img_adc3339c-87bb-458c-af0e-451791576ee0.png",
               "title": "Jeannine L.",
               "date": "Jun 2018"
             }
@@ -222,7 +222,7 @@
             "type": "testimonial",
             "settings": {
               "testimonial": "Within two to three weeks we noticed a huge change. The inflammation was going down and with treatments every two weeks my daughter Sarah’s skin really did start to clear. What amazes me is that Sarah has been to dermatologists since she was in junior high school. The last time she went in, the doctor said he did not know what to do, they had tried it all. Well, Sarah walked down the aisle on her wedding day acne free, thanks to Face Reality!",
-              "image": "",
+              "image": "shopify://shop_images/example_img_adc3339c-87bb-458c-af0e-451791576ee0.png",
               "title": "Sune N.",
               "date": "Jun 2018"
             }
@@ -231,7 +231,7 @@
             "type": "testimonial",
             "settings": {
               "testimonial": "This place really is amazing and anyone with acne knows $25 (which they waive if you elect to get a treatment) is REALLY cheap and worth it to get his or her skin under control. I have been to so many different places, spent tons of money, even tried the stuff from acne.org, just to be disappointed. I finally decided to check this place out based on all the great reviews and really nice man (Pat) I spoke with at the clinic over the phone. This place is the first place I have been able to leave from after getting a facial where I didn’t feel like I needed to hide.",
-              "image": "",
+              "image": "shopify://shop_images/example_img_adc3339c-87bb-458c-af0e-451791576ee0.png",
               "title": "Jeannine L.",
               "date": "Jun 2018"
             }
@@ -325,7 +325,7 @@
         "type": "about-content",
         "settings": {
           "content_top": "<p>In her mid-thirties, she finally found an esthetician who got her skin clear. She immediately felt compelled to help others as she had been helped. After all, she knew first-hand how adversely it had affected her life; and she wanted to spare others the agony of dealing with acne.</p>\n<p><br>She became a California state-licensed esthetician in 1990 and set out to learn everything about acne that she could. After having been a sole practitioner for many years, her dream of opening an acne-only clinic came true in 2005. As a result of her astounding results with acne, other&nbsp;estheticians started demanding classes to learn her protocol. Out of this was born her comprehensive Acne Specialist training and she has certified over 400 skin care professionals, including nurses and doctors, around the United States.&nbsp;</p>",
-          "image_top": "shopify://shop_images/lara-tuhmbnail-2.png",
+          "image_top": "shopify://shop_images/Laura_813444b6-8397-45ba-9721-b44e38b62d20.jpg",
           "image_middle": "shopify://shop_images/about-lara-banner.png",
           "content_middle": "After all, Laura knew first-hand how adversely it had affected her life; and she wanted to spare others the agony of dealing with acne.",
           "content_bottom": "<p>She organized the first U.S. conference for acne specialists in September 2014, and continues to write articles about acne and acne treatment in several skin care industry publications. She is continually doing research and testing products to increase her understanding of the disease known as retention hyperkeratosis, aka acne.</p>\n<p></p>\n<p></p>",
@@ -503,19 +503,19 @@
           "1539593230204": {
             "type": "tab-1",
             "settings": {
-              "collection": "chronically-dry-skin"
+              "collection": ""
             }
           },
           "1539593241165": {
             "type": "tab-1",
             "settings": {
-              "collection": "mature-skin"
+              "collection": ""
             }
           },
           "1539593246766": {
             "type": "tab-1",
             "settings": {
-              "collection": "non-sensitive-skin"
+              "collection": ""
             }
           },
           "1539593252090": {
@@ -539,7 +539,7 @@
           "1539593284221": {
             "type": "tab-2",
             "settings": {
-              "collection": "home-care"
+              "collection": ""
             }
           },
           "1539593290583": {
@@ -908,6 +908,24 @@
         "settings": {
           "case_studies_links": "case-studies"
         }
+      },
+      "study-noninflamed-acne": {
+        "type": "study-noninflamed-acne",
+        "blocks": {
+          "1547572082350": {
+            "type": "block",
+            "settings": {
+              "before": "shopify://shop_images/non-inflamed-1-before_562fed3c-73b2-4e17-8d1b-d1d624226820.jpg",
+              "after": "shopify://shop_images/non-inflamed-1-after.jpg",
+              "laura": "Kalen has the toughest kind of acne to get under control, so I decided to get quite aggressive with her skin right from the start. She has noninflamed resistive type of acne and her skin was not at all sensitive, so I put her on very strong home-care right from the beginning and had her come in for a medium-depth “Propeel” (a TCA peel from Vivant Pharmaceuticals). Her skin cleared up in about ten weeks. We are now working to lift her sun damage from the years she lived in Maui.",
+              "testimonial": "I have had problem skin since 6th grade and it was always really frustrating!! I never felt beautiful or confident! I even had a dermatologist nurse tell me I was never going to have clear skin. I had tried everything, I was beginning to think that nurse was right. Then I saw the ad for face reality and was skeptical but I had already spent thousands of dollars on things that didn’t work so why not try one more. I was really surprised when Laura guaranteed I would have clear skin. On my first visit she told me I had grade two acne which is the hardest to get rid of, so I was a little bummed. The amazing part was that after I started using her products my acne cleared up, even she was amazed at how fast it worked!!! It is great that I don’t feel scared to go out without make-up any more and I get compliments on my skin! I’m so thankful because I feel like I have a normal life now. Acne can be totally devastating and I know first hand! I wanted to just hide-out when I had acne now I don’t have to worry about my skin at all it is totally AWESOME!!!",
+              "client": "Kalen W.",
+              "age": ""
+            }
+          }
+        },
+        "block_order": ["1547572082350"],
+        "settings": {}
       }
     },
     "content_for_index": [
