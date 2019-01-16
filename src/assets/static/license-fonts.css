@@ -1,0 +1,42 @@
+/*
+ * Web Fonts from colophon-foundry.org
+ *
+ * The fonts included in this stylesheet are subject to the End User License you purchased
+ * from Colophon Foundry. The fonts are protected under domestic and international trademark and 
+ * copyright law. You are prohibited from modifying, reverse engineering, duplicating, or
+ * distributing this font software.
+ *
+ * (c) 2019 Colophon Foundry
+ *
+ * Licenced to Meredith Klausner Face Reality, Inc.
+ */
+
+@font-face {
+  font-family: "apercu-regular";
+  src: url("//cdn.shopify.com/s/files/1/0019/3603/1842/files/apercu-regular.eot?7865494663102634724");
+  src: url("//cdn.shopify.com/s/files/1/0019/3603/1842/files/apercu-regular.eot?7865494663102634724?#iefix")
+      format("embedded-opentype"),
+    url("//cdn.shopify.com/s/files/1/0019/3603/1842/files/apercu-regular.woff?6312646930588568155")
+      format("woff"),
+    url("//cdn.shopify.com/s/files/1/0019/3603/1842/files/apercu-regular.woff2?7865494663102634724")
+      format("woff2"),
+    url("//cdn.shopify.com/s/files/1/0019/3603/1842/files/apercu-regular.ttf?7865494663102634724")
+      format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "apercu-bold";
+  src: url("//cdn.shopify.com/s/files/1/0019/3603/1842/files/apercu-bold.eot?8501233249341425990");
+  src: url("//cdn.shopify.com/s/files/1/0019/3603/1842/files/apercu-bold.eot?8501233249341425990")
+      format("embedded-opentype"),
+    url("//cdn.shopify.com/s/files/1/0019/3603/1842/files/apercu-bold.woff?8501233249341425990")
+      format("woff"),
+    url("//cdn.shopify.com/s/files/1/0019/3603/1842/files/apercu-bold.woff2?8501233249341425990")
+      format("woff2"),
+    url("//cdn.shopify.com/s/files/1/0019/3603/1842/files/apercu-bold.ttf?8501233249341425990")
+      format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
