@@ -5,7 +5,7 @@
   padding: 70px 15% 0;
 
   &__title {
-    @include myriad(700);
+    @include apercu(700);
     @include Text(18px, 22px, $color-blumine);
     margin: 0 0 60px;
   }
@@ -54,7 +54,29 @@
     padding: 22px;
     font-size: 14px;
     width: 100%;
-    margin: 0 0 30px;
+    margin: 0;
+  }
+
+  &__shipping-check {
+    @include apercu;
+    @include Text(13.5px, 18px, $color-black);
+    position: relative;
+    top: 0;
+    opacity: 1;
+    padding: 10px 15px;
+    white-space: nowrap;
+    display: inline-block;
+    background-color: $color-iron;
+    margin: 15px 0 30px;
+    &::before {
+      content: "";
+      position: absolute;
+      top: -20px;
+      left: calc(50% - 10px);
+      display: block;
+      border: 10px solid transparent;
+      border-bottom: 10px solid $color-iron;
+    }
   }
 
   .usp-triple-icons {

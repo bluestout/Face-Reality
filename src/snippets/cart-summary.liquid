@@ -14,6 +14,15 @@
 
   <input class="cart-summary__checkout-button" type="submit" name="checkout" value="{{ 'cart.general.checkout' | t }}"/>
 
+  {% assign totals = cart.total_price %}
+  {% assign threshold = 4900 %}
+
+  {% if totals < threshold %}
+    <span class="cart-summary__shipping-check">You are {{ threshold | minus: totals | money }} away form free shipping</span>
+  {% else %}
+    <span class="cart-summary__shipping-check">You are eligible for free shipping</span>
+  {% endif %}
+
   <p class="cart-summary__note">{{ 'cart.general.shipping_at_checkout' | t }}</p>
 
   {% if settings.cart_notes_enable %}
