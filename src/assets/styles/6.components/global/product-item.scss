@@ -107,7 +107,7 @@
   }
 
   &__description {
-    @include apercu(400);
+    @include apercu;
     @include Text(12.5px, 16px, $color-black, 0.5px);
     margin: 0 auto 14px;
     max-width: 220px;
@@ -117,7 +117,7 @@
   }
 
   &__authorization {
-    @include myriad(400);
+    @include apercu;
     @include Text(11.5px, 16px, $color-white);
     background-color: $color-de-york;
     padding: 6px;
@@ -127,7 +127,7 @@
   }
 
   &__price {
-    @include aller(700);
+    @include apercu(700);
     @include Text(13.5px, 16px, $color-blumine);
     display: block;
     width: 100%;
@@ -147,7 +147,7 @@
   }
 
   &__option-name {
-    @include myriad(400);
+    @include apercu;
     @include Text(11.5px, 16px, $color-blumine);
   }
 
@@ -202,7 +202,7 @@
   &__variant-label {
     z-index: 2;
     position: relative;
-    @include apercu(400);
+    @include apercu;
     @include Text(11px, 12px, $color-dove-gray);
     opacity: 0.5;
     margin: 0;

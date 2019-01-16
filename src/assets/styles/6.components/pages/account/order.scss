@@ -54,7 +54,7 @@
   }
 
   &__cell {
-    @include apercu(400);
+    @include apercu;
     @include Text(16px, 20px, $color-black);
     padding: 20px;
     text-align: left;

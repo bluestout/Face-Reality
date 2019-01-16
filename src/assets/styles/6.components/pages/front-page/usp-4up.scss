@@ -19,7 +19,7 @@
 
   &__text {
     @include Text(16px, 25px, $color-black);
-    @include apercu(400);
+    @include apercu;
     @include clearfix;
     @include transition(color);
   }

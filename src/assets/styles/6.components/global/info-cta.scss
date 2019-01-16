@@ -4,7 +4,7 @@
   padding: 165px 30px;
 
   &__title {
-    @include aller(700);
+    @include apercu(700);
     @include Text(25px, 27px, $color-white);
     text-transform: uppercase;
     margin: 0 auto 40px;
@@ -19,7 +19,7 @@
 
   &__button {
     @include button;
-    @include myriad;
+    @include apercu;
     @include Text(14px, 16px, $color-dove-gray);
     @include transition(background-color, color);
     text-align: center;

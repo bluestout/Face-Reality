@@ -21,7 +21,7 @@
   }
 
   &__registration-info-note {
-    @include apercu(400);
+    @include apercu;
     @include Text(12.5px, 15px, $color-black);
     opacity: 0.6;
     margin: 0 auto 50px;
@@ -38,7 +38,7 @@
     }
 
     li {
-      @include apercu(400);
+      @include apercu;
       @include Text(14px, 20px, $color-black);
       display: block;
 
@@ -114,13 +114,13 @@
   }
 
   &__have-account {
-    @include apercu(400);
+    @include apercu;
     @include Text(12.5px, 15px, $color-black);
     opacity: 0.6;
   }
 
   &__have-account-link {
-    @include apercu(400);
+    @include apercu;
     @include Text(12.5px, 15px, $color-black);
     opacity: 0.6;
   }
@@ -137,7 +137,7 @@
   }
 
   &__professionals {
-    @include apercu(400);
+    @include apercu;
     @include Text(12.5px, 15px, $color-blumine);
   }
 }

@@ -15,7 +15,7 @@
   appearance: none;
 
   @if $type == main {
-    @include myriad(400);
+    @include apercu;
     @include Text(12.5px, 14px, $color-white);
     @include transition(background-color);
     text-align: center;

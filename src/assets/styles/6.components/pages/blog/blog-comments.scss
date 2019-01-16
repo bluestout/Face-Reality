@@ -39,7 +39,7 @@
   }
 
   &__meta {
-    @include open-sans(700, italic);
+    @include apercu(700, italic);
     @include Text(13px, 20px, $color-black);
     text-align: right;
   }

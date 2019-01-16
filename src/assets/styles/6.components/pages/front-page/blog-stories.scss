@@ -70,7 +70,7 @@
   }
 
   &__author {
-    @include apercu(400);
+    @include apercu;
     @include Text(12.5px, 13px, $color-white);
     opacity: 0.6;
     @include transition(opacity);

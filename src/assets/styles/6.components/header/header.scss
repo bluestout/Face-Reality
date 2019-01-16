@@ -43,7 +43,7 @@
 
     &-link {
       @include Text(12.5px, 14px, $color-black);
-      @include apercu(400);
+      @include apercu;
       display: inline-block;
       vertical-align: middle;
       text-decoration: none;

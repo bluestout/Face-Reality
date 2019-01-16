@@ -14,7 +14,7 @@
   }
 
   .blog-subtitle {
-    @include apercu(400);
+    @include apercu;
     @include Text(18px, 24px, $color-blumine);
     margin: 0 0 15px;
     text-align: center;

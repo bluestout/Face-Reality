@@ -37,7 +37,7 @@
     }
 
     &-content {
-      @include apercu(400);
+      @include apercu;
       @include Text(15px, 22px, $color-black);
       margin: 0;
     }
@@ -51,7 +51,7 @@
     }
 
     &-content {
-      @include apercu(400);
+      @include apercu;
       @include Text(15px, 22px, $color-black);
       position: relative;
 
@@ -73,12 +73,12 @@
     }
 
     &-client {
-      @include myriad(400);
+      @include apercu;
       @include Text(12px, 13px, $color-black);
     }
 
     &-age {
-      @include apercu(400);
+      @include apercu;
       @include Text(12px, 13px, $color-black);
       opacity: 0.5;
       margin: 0 0 0 10px;

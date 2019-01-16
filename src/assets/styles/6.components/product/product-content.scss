@@ -5,7 +5,7 @@
   max-width: 400px;
 
   &__authorization-tag {
-    @include myriad(400);
+    @include apercu;
     @include Text(11.5px, 16px, $color-white);
     background-color: $color-de-york;
     padding: 4px;
@@ -21,7 +21,7 @@
   }
 
   &__id {
-    @include apercu(400);
+    @include apercu;
     @include Text(11px, 17px, $color-blumine);
     opacity: 0.55;
     margin: 0 0 10px;
@@ -38,14 +38,14 @@
   }
 
   &__description {
-    @include apercu(400);
+    @include apercu;
     @include Text(13px, 21px, $color-black);
     margin: 0 0 30px;
     text-align: left;
 
     p,
     li {
-      @include apercu(400);
+      @include apercu;
       @include Text(13px, 21px, $color-black);
     }
 
@@ -69,7 +69,7 @@
   }
 
   &__option-name {
-    @include apercu(400);
+    @include apercu;
     @include Text(12.5px, 14px, $color-dove-gray);
     margin: 20px 0 10px;
   }
@@ -89,7 +89,7 @@
   &__variant-label {
     z-index: 2;
     position: relative;
-    @include apercu(400);
+    @include apercu;
     @include Text(12.5px, 14px, $color-dove-gray);
     opacity: 0.5;
     margin: 0;

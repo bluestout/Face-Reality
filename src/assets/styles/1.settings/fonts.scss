@@ -1,13 +1,3 @@
-@mixin open-sans($weight: 400, $style: normal) {
-  font: {
-    family: "Open Sans", sans-serif;
-    weight: $weight;
-    style: $style;
-  }
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
 @mixin apercu($weight: 400, $style: normal) {
   @if $weight == 400 {
     font-family: apercu-regular, sans-serif;
@@ -17,26 +7,6 @@
     font-family: apercu-regular, sans-serif;
   }
   font-style: $style;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-@mixin myriad($weight: 400, $style: normal) {
-  font: {
-    family: "apercu-regular", sans-serif;
-    weight: $weight;
-    style: $style;
-  }
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-@mixin aller($weight: 400, $style: normal) {
-  font: {
-    family: "Open Sans", sans-serif;
-    weight: $weight;
-    style: $style;
-  }
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

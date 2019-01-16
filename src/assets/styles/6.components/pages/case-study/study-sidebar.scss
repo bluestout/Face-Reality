@@ -28,7 +28,7 @@
 
   &__link-text {
     @include Text(16px, 16px, $color-blumine);
-    @include aller(700);
+    @include apercu(700);
     text-transform: uppercase;
     align-self: center;
     flex: auto;

@@ -1,16 +1,16 @@
 .about-content {
   &__page-content {
-    @include apercu(400);
+    @include apercu;
     @include Text(20px, 30px, $color-blumine);
     margin: 0 0 45px;
 
     p {
-      @include apercu(400);
+      @include apercu;
       @include Text(20px, 30px, $color-blumine);
     }
 
     a {
-      @include apercu(400);
+      @include apercu;
       @include Text(20px, 30px, $color-blumine);
     }
 
@@ -25,14 +25,14 @@
   }
 
   &__content {
-    @include apercu(400);
+    @include apercu;
     @include Text(16px, 26px, $color-black);
     p {
-      @include apercu(400);
+      @include apercu;
       @include Text(16px, 26px, $color-black);
     }
     a {
-      @include apercu(400);
+      @include apercu;
       @include Text(16px, 26px, $color-black);
     }
   }

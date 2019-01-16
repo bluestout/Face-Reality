@@ -28,7 +28,7 @@
 
   &__article-text {
     @include Text(13.5px, 16px, $color-blumine);
-    @include aller(400);
+    @include apercu;
     align-self: center;
     flex: auto;
   }
@@ -43,7 +43,7 @@
 
   &__link-text {
     @include Text(16px, 16px, $color-blumine);
-    @include aller(700);
+    @include apercu(700);
     text-transform: uppercase;
     align-self: center;
     flex: auto;

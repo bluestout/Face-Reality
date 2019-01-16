@@ -129,7 +129,7 @@
     margin: 0 0 100px;
     &::first-letter,
     .initial::first-letter {
-      @include aller(700);
+      @include apercu(700);
       @include Text(49px, 60px, $color-blumine);
     }
 

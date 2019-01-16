@@ -58,7 +58,7 @@
   }
 
   .middle-label {
-    @include apercu(400);
+    @include apercu;
     @include Text(13.5px, 18px, $color-black);
     margin: auto;
     padding: 0;

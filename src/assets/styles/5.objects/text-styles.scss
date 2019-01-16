@@ -1,5 +1,5 @@
 @mixin title-small {
-  @include apercu(400);
+  @include apercu;
   @include Text(13.5px, 20px, $color-fountain-blue);
 }
 

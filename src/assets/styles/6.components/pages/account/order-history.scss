@@ -20,12 +20,12 @@
   }
 
   &__cell {
-    @include apercu(400);
+    @include apercu;
     padding: 20px;
     text-align: left;
     border-bottom: 1px solid $color-mercury;
     a {
-      @include apercu(400);
+      @include apercu;
       @include Text(16px, 20px, $color-black);
     }
 
@@ -37,7 +37,7 @@
   }
 
   &__fulfillment {
-    @include apercu(400);
+    @include apercu;
     @include Text(13px, 15px, $color-white);
     padding: 1px 5px;
     background-color: $color-pancho;

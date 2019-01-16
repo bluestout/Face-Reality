@@ -37,7 +37,7 @@
   }
 
   &__cell {
-    @include myriad;
+    @include apercu;
     @include Text(13.5px, 20px, $color-black);
     border-bottom: 1px solid $color-white;
     background-color: $color-aqua-haze;
@@ -62,7 +62,7 @@
   }
 
   table td {
-    @include myriad;
+    @include apercu;
     @include Text(13.5px, 20px, $color-black);
     border-bottom: 1px solid $color-white;
     background-color: $color-aqua-haze;

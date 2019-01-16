@@ -13,7 +13,7 @@
   }
 
   &__text {
-    @include apercu(400);
+    @include apercu;
     @include Text(20px, 27px, $color-black);
     margin: 0 0 80px;
   }

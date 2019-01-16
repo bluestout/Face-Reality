@@ -4,7 +4,7 @@
   background-color: $color-pampas;
 
   &__content {
-    @include apercu(400);
+    @include apercu;
     @include Text(14px, 23px, $color-black);
     margin: 0 0 35px;
   }
@@ -26,12 +26,12 @@
   }
 
   &__or {
-    @include apercu(400);
+    @include apercu;
     @include Text(14px, 23px, $color-black);
   }
 
   &__link-inline {
-    @include apercu(400);
+    @include apercu;
     @include Text(14px, 23px, $color-blumine);
     text-decoration: none;
   }

@@ -159,7 +159,7 @@
   }
 
   &__hover-col-text {
-    @include apercu(400);
+    @include apercu;
     @include Text(12.5px, 16px, rgba($color-blumine, 0.65));
     text-align: center;
     margin: 0 0 22px;
@@ -167,7 +167,7 @@
   }
 
   &__hover-col-link {
-    @include apercu(400);
+    @include apercu;
     @include Text(12.5px, 16px, $color-blumine);
     display: block;
     text-align: center;
