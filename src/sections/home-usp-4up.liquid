@@ -14,21 +14,33 @@
         {% endif %}
         {% if block.type == 'usp-text' %}
           <div class="usp-4up__col usp-4up__col--text {{ even_odd }} {{ is_last }}">
+            {% if block.settings.link %}
+              <a class="usp-4up__link" href="{{ block.settings.link }}">
+            {% endif %}
             <p class="usp-4up__text">
               {% if block.settings.badge %}
                 <img class="usp-4up__image" src="{{ block.settings.badge | img_url: '170x170'  }}" alt="Face reality" />
               {% endif %}
               {{ block.settings.text }}
             </p>
+            {% if block.settings.link %}
+              </a>
+            {% endif %}
           </div>
         {% elsif block.type == 'usp-icon' %}
           <div class="usp-4up__col usp-4up__col--icon {{ even_odd }} {{ is_last }}">
-            {% if block.settings.icon %}
-              <div class="usp-4up__icon-wrap">
-                <img class="usp-4up__icon" src="{{ block.settings.icon | img_url: 'small' }}" alt="{{ block.settings.title }}"/>
-              </div>
+            {% if block.settings.link %}
+              <a class="usp-4up__link" href="{{ block.settings.link }}">
             {% endif %}
-            <h3 class="usp-4up__title">{{ block.settings.title }}</h3>
+              {% if block.settings.icon %}
+                <span class="usp-4up__icon-wrap">
+                  <img class="usp-4up__icon" src="{{ block.settings.icon | img_url: 'small' }}" alt="{{ block.settings.title }}"/>
+                </span>
+              {% endif %}
+              <h3 class="usp-4up__title">{{ block.settings.title }}</h3>
+            {% if block.settings.link %}
+              </a>
+            {% endif %}
           </div>
         {% endif %}
       </div>
@@ -58,6 +70,11 @@
             "type": "image_picker",
             "id": "badge",
             "label": "Badge"
+          },
+          {
+            "type": "url",
+            "id": "link",
+            "label": "link"
           }
         ]
       },
@@ -74,6 +91,11 @@
             "type": "image_picker",
             "id": "icon",
             "label": "Icon"
+          },
+          {
+            "type": "url",
+            "id": "link",
+            "label": "link"
           }
         ]
       }
