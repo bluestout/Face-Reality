@@ -17,7 +17,7 @@
   &__link {
     position: relative;
     @include Text(13.5px, 16px, $color-black);
-    padding: 5px;
+    padding: 5px 4px;
     display: inline-block;
     vertical-align: middle;
     text-decoration: none;

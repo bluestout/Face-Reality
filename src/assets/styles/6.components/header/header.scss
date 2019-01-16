@@ -106,6 +106,12 @@
     object-fit: scale-down;
   }
 
+  @include media-query("xl-down") {
+    &__logo {
+      max-width: 150px;
+    }
+  }
+
   @include media-query("large") {
     &__secondary-nav {
       &-logo-link {
