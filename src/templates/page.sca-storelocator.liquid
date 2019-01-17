@@ -1,62 +1,54 @@
-<div id='scasl-app-container' style="display:none">
-<div class="bh-sl-container scasl-container" >
-	<div id="page-header">
-		<h1 class="bh-sl-title">Find Our Store</h1>
-	</div>
-	
-	<div  class="scasl-location-mobile-wrap" >
-  	</div>
 
-	<div class="bh-sl-form-container">
-		<div id="scasl-tab-radius">
-			<form id="bh-sl-user-location" class="scasl-distance" method="post" action="#">
-				<div class="form-input">
-					<label for="bh-sl-address">Current Location</label>
-					<input type="text" id="bh-sl-address" name="bh-sl-address" />
-                    <button id="scapl-geocode-btn" type="button">Find My Location</button>
-				</div>
+<div id="scasl-app-container" style="display:none">
+  <div class="row no-gutters">
+    <div class="col-md-6">
+      <div class="bh-sl-container scasl-container" >
+        <div id="page-header">
+          <h1 class="bh-sl-title">Store Locator</h1>
+        </div>
+        <div class="subtitle">Find your nearest Face Reality Certified Clinic</div>
 
-				<div class="form-input">
-					<label for="scasl-radius-container">Search Radius</label>
-					<select id="scasl-radius-container" name="bh-sl-maxdistance">
-					</select>
-				</div>
+        <div class="bh-sl-form-container">
+          <div id="scasl-tab-radius">
+            <form id="bh-sl-user-location" class="scasl-distance" method="post" action="#">
+              <div class="main-input">
+                <input type="text" id="bh-sl-address" placeholder="Enter city name or a zip code" name="bh-sl-address" />
+                <button class="main-submit" type="submit"><span class="icon-search"></span></button>
+              </div>
 
-				<div class="form-input">
-					<label for="scasl-lengthUnit">Search Radius Measurement</label>
-					<select id="scasl-lengthUnit" name="scasl-lengthUnit">
-						<option value="km">Kilometer</option>
-						<option value="m">Mile</option>
-					</select>
-				</div>
+              <div class="half-input main-input--caret">
+                <label for="scasl-radius-container">Search Radius (miles)</label>
+                <select id="scasl-radius-container" name="bh-sl-maxdistance"></select>
+              </div>
+              <div class="bh-sl-filters-container scasl-tag half-input">
+                <label for="scasl-tag-list-container">Tags</label>
+                <ul id="scasl-tag-list-container" class="bh-sl-filters scasl-tag-list"></ul>
+              </div>
+              <div class="clearfix"></div>
 
-				<div class="bh-sl-filters-container scasl-tag">
-					<label for="scasl-tag-list-container">Tags</label>
-					<ul id="scasl-tag-list-container" class="bh-sl-filters scasl-tag-list">
-					</ul>
-				</div>
+            </form>
+            <div class="spinner">
+                    <div class="double-bounce1"></div>
+                    <div class="double-bounce2"></div>
+                  </div>
+          </div>
+        </div>
 
-				<div class="scasl-search-btn">
-					<button id="bh-sl-submit" type="submit">Search</button>
-				</div>
-			</form>
-			<div class="spinner">
-	            <div class="double-bounce1"></div>
-	            <div class="double-bounce2"></div>
-          	</div>
-		</div>
-	</div>
+        <div id="bh-sl-map-container"  class="bh-sl-map-container scasl-map-container">
+          <div class="bh-sl-loc-list scasl-location-list">
+            <ul class="list"></ul>
+          </div>
+        </div>
+      </div>
 
-	<div id="bh-sl-map-container" class="bh-sl-map-container scasl-map-container">
-		<div class="bh-sl-loc-list scasl-location-list">
-			<ul class="list"></ul>
-		</div>
-		<div id="bh-sl-map" class="bh-sl-map scasl-map"></div>
-	</div>
-</div>
+    </div>
+    <div class="col-md-6">
+      <div id="bh-sl-map" class="bh-sl-map scasl-map"></div>
+    </div>
+  </div>
 
 </div>
-<br style="clear:both !important;" />
+
 <script src="//cdn.secomapp.com/storelocator/assets/cdn/js/infobubble.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
 <script>
@@ -149,3 +141,5 @@ if("undefined"==typeof Handlebars&&"function"==typeof define&&define.amd){var sc
 {{/location}}
 {%endraw%}
 </script>
+
+

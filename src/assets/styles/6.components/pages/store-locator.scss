@@ -1,1 +1,151 @@
 // class used by app
+#scasl-app-container {
+  margin: 30px 0 0;
+
+  .subtitle {
+    @include apercu;
+    @include Text(13.5px, 19px, rgba($color-black, 0.5));
+    text-align: center;
+    margin: 0 0 30px;
+  }
+
+  .main-input {
+    @include clearfix;
+    display: flex;
+    max-width: 400px !important;
+    margin: 0 auto 20px !important;
+    float: none;
+    clear: none;
+    min-height: 50px;
+    border: 1px solid $color-fountain-blue;
+  }
+
+  .half-input {
+    @include clearfix;
+    display: flex;
+    width: calc(50% - 25px);
+    max-width: 400px !important;
+    min-height: 50px;
+    border: 1px solid $color-fountain-blue;
+    clear: none !important;
+    margin: 0 10px 20px !important;
+    float: left;
+  }
+
+  .main-input,
+  .half-input {
+    label {
+      @include apercu;
+      font-size: 13.5px;
+      line-height: 19px;
+      color: $color-black;
+      font-weight: 400;
+      margin: auto;
+    }
+
+    select {
+      text-align: center;
+    }
+
+    &--caret {
+      position: relative;
+      &::after {
+        content: "\e902";
+        @include icoMoon(16px, $color-black);
+        position: absolute;
+        right: 10px;
+        top: 14px;
+        display: block;
+        pointer-events: none;
+      }
+    }
+  }
+
+  .main-submit {
+    padding: 10px;
+    margin: 0 10px;
+    background-color: transparent;
+    border-radius: 0;
+    appearance: none;
+    font-size: 20px;
+    color: $color-fountain-blue;
+    &:hover,
+    &:active {
+      color: $color-blumine;
+    }
+  }
+
+  .scasl-distance label {
+    width: auto !important;
+  }
+  .scasl-location-list {
+    width: 100% !important;
+  }
+  .bh-sl-container .bh-sl-loc-list ul li {
+    border: none;
+    border-bottom: 1px solid $color-mercury;
+    background-color: $color-white !important;
+  }
+}
+
+#page-header {
+  width: 100%;
+  float: none;
+  margin: 30px 0 20px;
+  text-align: center;
+  h1 {
+    @include apercu(700);
+    @include Text(25px, 30px, $color-blumine);
+  }
+}
+
+#bh-sl-address {
+  @include apercu;
+  @include Text(13.5px, 18px, $color-black);
+  &::placeholder {
+    opacity: 0.4;
+  }
+}
+
+#bh-sl-map {
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 300px;
+}
+
+#scasl-tab-radius {
+  padding: 0;
+}
+
+#bh-sl-user-location {
+  width: 100%;
+}
+
+#bh-sl-map-container {
+  margin: 0 !important;
+}
+
+#scasl-title {
+  @include apercu;
+  @include Text(13.5px, 18px, $color-black);
+  margin: 0 0 10px;
+  font-weight: 400 !important;
+}
+
+#scasl-tag-list-container {
+  width: auto !important;
+  margin: auto !important;
+  label {
+    line-height: 10px !important;
+  }
+}
+
+@include media-query("small-down") {
+  #scasl-app-container {
+    .half-input {
+      width: calc(100% - 20px) !important;
+      margin: 0 auto 20px !important;
+      float: none !important;
+    }
+  }
+}
