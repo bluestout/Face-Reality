@@ -47,7 +47,9 @@ function isCollFilterScrolled(scroll, authPos) {
 
 $(el.sublist).hover(listIn, listOut);
 
-$(window).on("load resize", headerOffset);
+$(window).on("resize", headerOffset);
+
+$(document).ready(headerOffset);
 
 function scrolling() {
   let authPos = 0;
