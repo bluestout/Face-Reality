@@ -150,4 +150,10 @@
       margin: 0 0 0 5px;
     }
   }
+
+  @media (max-width: 400px) {
+    &__menu-button-text {
+      display: none;
+    }
+  }
 }

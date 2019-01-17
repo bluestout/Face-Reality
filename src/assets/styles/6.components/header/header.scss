@@ -160,6 +160,18 @@
     }
   }
 
+  @media (max-width: 400px) {
+    &__logo-col {
+      flex-grow: 0.8;
+    }
+    &__nav-col {
+      flex-grow: 0.3;
+      .primary-nav__menu-button-text {
+        display: none;
+      }
+    }
+  }
+
   @import "./primary-nav";
 
   @import "./utility-nav";
