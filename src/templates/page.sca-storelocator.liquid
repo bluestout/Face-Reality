@@ -11,12 +11,16 @@
         <div class="bh-sl-form-container">
           <div id="scasl-tab-radius">
             <form id="bh-sl-user-location" class="scasl-distance" method="post" action="#">
+              {% comment %}
+                main-input class will make it take up 100% width,
+                while the half-input will take 50%,
+                and two of them will stack into one line
+              {% endcomment %}
               <div class="main-input">
                 <input type="text" id="bh-sl-address" placeholder="Enter city name or a zip code" name="bh-sl-address" />
                 <button class="main-submit" type="submit"><span class="icon-search"></span></button>
               </div>
-
-              <div class="half-input main-input--caret">
+              <div class="main-input main-input--caret">
                 <label for="scasl-radius-container">Search Radius (miles)</label>
                 <select id="scasl-radius-container" name="bh-sl-maxdistance"></select>
               </div>
@@ -28,9 +32,9 @@
 
             </form>
             <div class="spinner">
-                    <div class="double-bounce1"></div>
-                    <div class="double-bounce2"></div>
-                  </div>
+              <div class="double-bounce1"></div>
+              <div class="double-bounce2"></div>
+            </div>
           </div>
         </div>
 
