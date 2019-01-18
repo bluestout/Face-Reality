@@ -35,24 +35,25 @@ function stickySidebar(lastPosition, padding = 90) {
 
         if (lastPosition > containerOffset - headerH) {
           if (lastPosition > maxH) {
-            $this.css("bottom", 0);
+            $this.css({ bottom: 0, top: "" });
           } else {
-            $this.css(
-              "bottom",
-              containerHeight -
+            $this.css({
+              bottom:
+                containerHeight -
                 $this.height() -
                 lastPosition +
                 containerOffset -
                 headerH -
                 padding,
-            );
+              top: "",
+            });
           }
         } else {
-          $this.css("bottom", containerHeight - $this.height());
+          $this.css({ top: 0, bottom: null });
         }
       }
     } else {
-      $this.css({ bottom: "auto", "max-height": "100%" });
+      $this.css({ bottom: "", top: "", "max-height": "100%" });
     }
   });
 }
@@ -74,5 +75,16 @@ function prepSticky() {
 }
 
 $(document).ajaxComplete(stickySidebar);
+
+$(document).ready(() => {
+  document.addEventListener("runFilter", () => {
+    lastKnownScrollPos = window.scrollY;
+    stickySidebar(lastKnownScrollPos);
+    setTimeout(() => {
+      lastKnownScrollPos = window.scrollY;
+      stickySidebar(lastKnownScrollPos);
+    }, 201);
+  });
+});
 
 $(window).on("load resize", prepSticky);

@@ -120,5 +120,5 @@
 
 .sticky-active {
   position: absolute;
-  transition: bottom 300ms ease-out;
+  transition: bottom 300ms ease-out, top 300ms ease-out;
 }
