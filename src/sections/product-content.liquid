@@ -25,7 +25,7 @@
   {% assign can_buy = true %}
 {% endif %}
 
-<article class="product-content" data-section-id="{{ section.id }}" data-section-type="product" data-enable-history-state="true">
+<article class="product-content">
   {%- assign current_variant = product.selected_or_first_available_variant -%}
 
   {% if needs_authorization %}
