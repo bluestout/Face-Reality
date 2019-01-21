@@ -63,7 +63,7 @@
                   <img src="{{ img_src }}" alt="{{ info-article-item.title }}" class="info-topics__image">
                 {% endif %}
               </div>
-              <a href="{{ link.url }}" target="_blank" class="info-topics__title">
+              <a href="{{ link.url }}" class="info-topics__title">
                 <span class="info-topics__title-primary">{{ link.title }}</span>
                 {% if page_meta.section_subtitle %}
                   <span class="info-topics__title-secondary">{{ page_meta.section_subtitle }}</span>
@@ -73,7 +73,7 @@
                 <ul class="info-topics__subtopics">
                   {% for sublink in link.links %}
                     <li class="info-topics__subtopic">
-                      <a href="{{ sublink.url }}" target="_blank" class="info-topics__sublink">{{ sublink.title }}</a>
+                      <a href="{{ sublink.url }}" class="info-topics__sublink">{{ sublink.title }}</a>
                     </li>
                   {% endfor %}
                 </ul>

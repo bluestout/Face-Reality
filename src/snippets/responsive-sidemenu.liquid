@@ -67,11 +67,7 @@
     <div class="responsive-sidemenu__secondary">
       {% if linklists[nav].links.size > 0 %}
         {% for link in linklists[nav].links %}
-          {% if link.handle contains "blog" %}
-            <a href="{{ link.url }}" target="_blank" class="responsive-sidemenu__secondary-link">{{ link.title }}</a>
-          {% else %}
-            <a href="{{ link.url }}" class="responsive-sidemenu__secondary-link">{{ link.title }}</a>
-          {% endif %}
+          <a href="{{ link.url }}" class="responsive-sidemenu__secondary-link">{{ link.title }}</a>
         {% endfor %}
       {% endif %}
     </div>
