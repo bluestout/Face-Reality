@@ -13,9 +13,13 @@
     <tbody>
 
       {% for item in cart.items %}
-        {% assign line_item_handle = item.title | handleize %}
-        {% assign line_product = all_products[line_item_handle] %}
-        {% unless line_product.tags contains "hidden-product" %}
+          {% unless item.product.tags contains "hidden-product" %}
+          {% comment %} hide only certain aspects of this product {% endcomment %}
+          {% if item.product.tags contains "obscured-product" %}
+            {% assign obscured = true %}
+          {% else %}
+            {% assign obscured = false %}
+          {% endif %}
 
           <tr class="responsive-table-row cart-table__row">
 
@@ -32,7 +36,7 @@
                 <a class="cart-table__product-link" href="{{ item.url }}">{{ item.product.title }}</a>
               </h3>
               <div class="cart-table__product-id">{{ 'cart.label.product' | t }} ID. {{ item.variant_id }} {% comment %} {{ item.sku }} {% endcomment %}</div>
-              {% unless line_product.tags contains "obscured-product" %}
+              {% unless obscured %}
                 <a class="cart-table__remove" href="/cart/change?line={{ forloop.index }}&amp;quantity=0">{{ 'cart.general.remove' | t }}</a>
               {% endunless %}
             </td>
@@ -46,7 +50,7 @@
             </td>
 
             <td class="cart-table__cell d-none d-md-table-cell text-center {% unless forloop.last %}cart-table__cell--border{% endunless %}">
-              {% unless line_product.tags contains "obscured-product" %}
+              {% unless obscured %}
                 <div class="cart-table__price">
                   {% if item.original_line_price != item.line_price %}
                     <span class="visually-hidden">{{ 'cart.label.discounted_price' | t }}</span>
@@ -73,7 +77,7 @@
                 <div class="cart-table__rsp-content">
                   <h3 class="cart-table__rsp-title">
                     <a class="cart-table__rsp-link" href="{{ item.url }}">{{ item.product.title }}</a>
-                    {% unless line_product.tags contains "obscured-product" %}
+                    {% unless obscured %}
                       <span class="cart-table__rsp-price">
                         {% if item.original_line_price != item.line_price %}
                           <span class="visually-hidden">{{ 'cart.label.discounted_price' | t }}</span>
@@ -93,14 +97,14 @@
                     {% endunless %}
                     <span class="cart-table__rsp-id">{{ 'cart.label.product' | t }} ID. {{ item.sku }} {% comment %} {{ item.sku }} {% endcomment %}</span>
                   </div>
-                  {% unless line_product.tags contains "obscured-product" %}
+                  {% unless obscured %}
                     <a class="cart-table__rsp-remove" href="/cart/change?line={{ forloop.index }}&amp;quantity=0">{{ 'cart.general.remove' | t }}</a>
                   {% endunless %}
                   <div class="clearfix"></div>
                 </div>
               </div>
               <div class="clearfix"></div>
-              {% unless line_product.tags contains "obscured-product" %}
+              {% unless obscured %}
                 <div class="cart-table__quantity">
                   <button type="button" class="cart-table__quantity-button" data-qty-change="[product-qty-{{ forloop.index }}]" data-direction="down">-</button>
                   <input
