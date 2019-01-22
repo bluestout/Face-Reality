@@ -52,10 +52,10 @@ function formatShopifyDate(date) {
 }
 
 function compareDesc(a, b) {
-  if (a.created_at < b.created_at) {
+  if (a.published_at < b.published_at) {
     return 1;
   }
-  if (a.created_at > b.created_at) {
+  if (a.published_at > b.published_at) {
     return -1;
   }
   return 0;
@@ -151,7 +151,7 @@ function blogIndexTemplate(article) {
     </h3>
 
     <p class="blog-article__info">
-      Posted by ${article.author} on ${formatShopifyDate(article.created_at)}
+      Posted by ${article.author} on ${formatShopifyDate(article.published_at)}
     </p>
     ${img}
     <div class="rte blog-article__content">${excerpt}</div>
@@ -182,7 +182,7 @@ function getRecentBlogs() {
         await new Promise((resolve) => {
           resolve(
             $.getJSON(
-              `/admin/blogs/${json.blogs[i].id}/articles.json?limit=10`,
+              `/admin/blogs/${json.blogs[i].id}/articles.json?limit=100`,
               (jsonArticle) => {
                 for (let j = 0; j < jsonArticle.articles.length; j++) {
                   const article = jsonArticle.articles[j];
@@ -194,6 +194,8 @@ function getRecentBlogs() {
           );
         });
       }
+
+      console.log(allArticles);
 
       if (allArticles.length > 0) {
         allArticles = allArticles.sort(compareDesc);
