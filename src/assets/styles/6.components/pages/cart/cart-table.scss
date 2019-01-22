@@ -37,6 +37,7 @@
 
     &--image {
       padding: 20px 20px 30px 0;
+      min-width: 150px;
     }
 
     &--border {
@@ -49,9 +50,36 @@
     }
   }
 
+  &__square-wrap {
+    position: relative;
+    padding-top: 100%;
+  }
+
+  &__square {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    &--white {
+      background-color: $color-white;
+    }
+  }
+
+  &__square-content {
+    display: flex;
+    height: 100%;
+    width: 100%;
+
+    img {
+      flex: auto;
+      object-fit: scale-down;
+    }
+  }
+
   &__product-title {
     @include no-font-size;
-    margin: 0 0 10px;
+    margin: 0 0 8px;
   }
 
   &__product-link {
@@ -63,16 +91,28 @@
 
   &__product-id {
     @include apercu;
-    @include Text(12px, 16px, $color-dove-gray);
+    @include Text(13.5px, 16px, $color-dove-gray);
     text-decoration: none;
-    margin: 0 20px 20px 0;
+    margin: 0 20px 8px 0;
+  }
+
+  .spr-badge {
+    margin: 0 20px 15px 0;
+    float: left;
+    clear: both;
+  }
+
+  .spr-badge-caption {
+    display: none;
   }
 
   &__remove {
     @include apercu;
-    @include Text(12px, 16px, rgba($color-blumine, 0.6));
+    @include Text(13.5px, 16px, rgba($color-blumine, 0.6));
     text-decoration: none;
+    margin: 0 10px 0 0;
     float: left;
+    clear: both;
 
     &:hover,
     &:active {
@@ -82,7 +122,7 @@
 
   &__option {
     @include apercu;
-    @include Text(12px, 16px, $color-black);
+    @include Text(13.5px, 16px, $color-black);
   }
 
   &__price {
@@ -128,19 +168,21 @@
   &__rsp {
     &-info {
       float: left;
-      width: calc(100% - 60px);
-      margin: 0 18px 0 0;
+      width: calc(100% - 65px);
+      margin: 0 20px 0 0;
     }
 
     &-image-wrap {
-      width: 60px;
+      width: 80px;
       margin: 0 10px 0 0;
       display: block;
       float: left;
+      background-color: $color-white;
+      padding: 10px;
     }
 
     &-content {
-      width: calc(100% - 70px);
+      width: calc(100% - 90px);
       display: block;
       float: right;
     }
@@ -167,7 +209,7 @@
 
     &-id {
       @include apercu;
-      @include Text(11px, 13px, $color-dove-gray);
+      @include Text(12px, 14px, $color-dove-gray);
       text-decoration: none;
       display: inline-block;
       margin: 0 0 10px;
@@ -175,17 +217,18 @@
 
     &-option {
       @include apercu;
-      @include Text(11px, 13px, $color-black);
+      @include Text(12px, 14px, $color-black);
       text-decoration: none;
       margin: 0 20px 10px;
+      display: inline-block;
     }
 
     &-remove {
       @include apercu;
-      @include Text(11px, 13px, rgba($color-blumine, 0.6));
+      @include Text(12px, 14px, rgba($color-blumine, 0.6));
       text-decoration: none;
       float: left;
-      width: 42px;
+      width: 45px;
       &:hover,
       &:active {
         color: $color-blumine;
@@ -207,7 +250,7 @@
       }
 
       &--image {
-        padding: 10px 10px 10px 0;
+        padding: 10px 20px 10px 0;
       }
 
       &--last {
@@ -280,6 +323,15 @@
 
     &__product-id {
       margin: 0 15px 10px 0;
+    }
+
+    &__rsp {
+      &-option {
+        margin: 0 20px 10px 0;
+      }
+      &-id {
+        margin: 0 20px 10px 0;
+      }
     }
   }
 

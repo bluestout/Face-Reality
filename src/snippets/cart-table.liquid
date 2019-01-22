@@ -25,9 +25,13 @@
 
             <td class="cart-table__cell cart-table__cell--image d-none d-md-table-cell text-left {% unless forloop.last %}cart-table__cell--border{% endunless %}">
               {% if item.image != blank %}
-                <a href="{{ item.url | within: collections.all }}">
-                  {{ item | img_url: '300x300' | img_tag: item.title }}
-                </a>
+              <div class="cart-table__square-wrap">
+                <div class="cart-table__square cart-table__square--white">
+                  <a class="cart-table__square-content" href="{{ item.url | within: collections.all }}">
+                    {{ item | img_url: '300x300' | img_tag: item.title }}
+                  </a>
+                </div>
+              </div>
               {% endif %}
             </td>
 
@@ -35,7 +39,8 @@
               <h3 class="cart-table__product-title">
                 <a class="cart-table__product-link" href="{{ item.url }}">{{ item.product.title }}</a>
               </h3>
-              <div class="cart-table__product-id">{{ 'cart.label.product' | t }} ID. {{ item.variant_id }} {% comment %} {{ item.sku }} {% endcomment %}</div>
+              <div class="cart-table__product-id">{{ 'cart.label.product' | t }} ID. {{ item.sku }}</div>
+              <span class="shopify-product-reviews-badge" data-id="{{ item.product.id }}"></span>
               {% unless obscured %}
                 <a class="cart-table__remove" href="/cart/change?line={{ forloop.index }}&amp;quantity=0">{{ 'cart.general.remove' | t }}</a>
               {% endunless %}
@@ -95,7 +100,8 @@
                     {% unless item.product.has_only_default_variant %}
                       <span class="cart-table__rsp-option">{{ item.variant.title }}</span>
                     {% endunless %}
-                    <span class="cart-table__rsp-id">{{ 'cart.label.product' | t }} ID. {{ item.sku }} {% comment %} {{ item.sku }} {% endcomment %}</span>
+                    <span class="cart-table__rsp-id">{{ 'cart.label.product' | t }} ID. {{ item.sku }}</span>
+                    <span class="shopify-product-reviews-badge" data-id="{{ item.product.id }}"></span>
                   </div>
                   {% unless obscured %}
                     <a class="cart-table__rsp-remove" href="/cart/change?line={{ forloop.index }}&amp;quantity=0">{{ 'cart.general.remove' | t }}</a>

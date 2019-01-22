@@ -34,7 +34,7 @@
   &__note {
     @include apercu;
     @include Text(14px, 20px, $color-blumine);
-    margin: 0 0 30px;
+    margin: 10px 0 30px;
   }
 
   &__label {
@@ -106,7 +106,7 @@
     }
 
     &__note {
-      margin: 0 auto 40px;
+      margin: 10px auto 40px;
       max-width: 600px;
     }
 
