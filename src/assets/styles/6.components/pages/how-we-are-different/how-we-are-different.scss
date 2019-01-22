@@ -3,13 +3,14 @@
     @include Text(13.5px, 21px, $color-black);
     text-align: center;
     font-weight: 400;
-    margin: 0 0 30px;
+    margin: 0 auto 30px;
+    max-width: 770px;
   }
 
   &__subtitle {
     @include title-main;
     text-align: center;
-    margin: 0 0 85px;
+    margin: 0 auto 85px;
   }
 
   &__shop-wrap {
@@ -28,11 +29,11 @@
 
   @include media-query("medium-down") {
     &__title {
-      margin: 0 0 15px;
+      margin: 0 auto 15px;
     }
 
     &__subtitle {
-      margin: 0 0 40px;
+      margin: 0 auto 40px;
     }
   }
 }
