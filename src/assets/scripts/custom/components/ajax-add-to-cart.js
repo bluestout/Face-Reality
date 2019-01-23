@@ -59,7 +59,7 @@ function showMessage(message) {
   $(el.addedContainer).addClass("active");
   eventHolder = setTimeout(() => {
     $(el.addedContainer).removeClass("active");
-  }, 4500);
+  }, 3000);
   return eventHolder;
 }
 

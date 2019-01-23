@@ -66,11 +66,14 @@
       text-decoration: none !important;
       color: $color-fountain-blue !important;
     }
-  }
-
-  .os-index .os-hit-products .os-name {
-    color: $color-blumine !important;
-    transition: color 200ms ease-in-out;
+    .os-name {
+      color: $color-blumine !important;
+      transition: color 200ms ease-in-out;
+    }
+    .os-image .os-helper img {
+      max-height: 370px;
+      object-fit: scale-down;
+    }
   }
 
   .os-index .os-align-center {
