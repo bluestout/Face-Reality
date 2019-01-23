@@ -157,6 +157,9 @@
     margin: 0 auto 10px;
     max-width: 300px;
     border: 1px solid $color-bermuda-gray;
+    &--constrict {
+      max-width: 180px;
+    }
   }
 
   &__variant-wrap {
