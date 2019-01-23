@@ -195,8 +195,6 @@ function getRecentBlogs() {
         });
       }
 
-      console.log(allArticles);
-
       if (allArticles.length > 0) {
         allArticles = allArticles.sort(compareDesc);
         // is there a stories section to fill?
