@@ -48,15 +48,23 @@
     <span class="product-item__tag-wrap">
       {% include 'product-tags' with product-item %}
     </span>
-    {% if product-item.featured_image != blank %}
-      {% include 'responsive-image' with
-        image: product-item.featured_image,
-        wrapper_class: 'product-item__image-wrap',
-        image_class: 'product-item__image',
-        max_width: 370,
-        max_height: 370,
-        span: true,
-      %}
+    {%- assign p_item_variant = product-item.selected_or_first_available_variant -%}
+    {%- assign p_item_featured = p_item_variant.featured_image | default: product-item.featured_image -%}
+
+    {% if p_item_variant.featured_image %}
+      {% for image in product-item.images %}
+        {% capture wrapper_class %}product-gallery__image-wrapper {% unless p_item_featured == image %} hide{% endunless %}{% endcapture %}
+        {% include 'responsive-image' with
+          image: image,
+          image_attributes: "data-product-featured-image",
+          wrapper_attributes: "data-product-image-wrapper",
+          wrapper_class: wrapper_class,
+          image_class: 'product-item__image',
+          max_width: 370,
+          max_height: 370,
+          span: true,
+        %}
+      {% endfor %}
     {% else %}
       <span class="product-item__image-wrap"></span>
     {% endif %}
@@ -88,6 +96,7 @@
       <form class="product-item__form d-none d-md-block" action="/cart/add" method="post" enctype="multipart/form-data">
         <input type="hidden" name="product-id" value="{{ product-item.id }}"/>
         <input type="hidden" name="product-title" value="{{ product-item.title }}"/>
+        <input type="hidden" name="quantity" value="1">
         <select name="id" class="no-js" data-product-item-select>
           {% for variant in product-item.variants %}
             <option
