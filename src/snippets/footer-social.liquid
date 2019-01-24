@@ -1,10 +1,31 @@
 <div class="footer-newsletter">
-  <p class="footer-newsletter__text">{{ section.settings.newsletter_text }}</p>
-  <form action="#" class="footer-newsletter__form">
-    <input type="text" class="footer-newsletter__input" placeholder="Enter your email">
-    <input type="submit" class="footer-newsletter__submit" value="SUBSCRIBE">
-  </form>
+  {% if section.settings.newsletter_text != blank %}
+    <label class="footer-newsletter__text" for="Email">{{ section.settings.newsletter_text | escape }}</label>
+  {% endif %}
+
+  {% form 'customer' %}
+    {{ form.errors | default_errors }}
+    {% if form.posted_successfully? %}
+      <p class="footer-newsletter__thanks">{{ 'general.newsletter_form.confirmation' | t }}</p>
+    {% else %}
+      <div class="footer-newsletter__form">
+        <input type="hidden" name="contact[tags]" value="newsletter">
+        <input type="email"
+          name="contact[email]"
+          id="Email"
+          class="footer-newsletter__input"
+          value="{% if customer.email != blank %}{{ customer.email }}{% endif %}"
+          placeholder="{{ 'general.newsletter_form.email_placeholder' | t }}"
+          autocorrect="off"
+          autocapitalize="off">
+        <button type="submit" class="footer-newsletter__submit" name="commit" id="Subscribe">
+          <span class="footer-newsletter__submit-text">{{ 'general.newsletter_form.submit' | t }}</span>
+        </button>
+      </div>
+    {% endif %}
+  {% endform %}
 </div>
+
 {%- assign social_accounts = 'Facebook, Twitter, Pinterest, Instagram, Snapchat, Tumblr, YouTube, Vimeo, LinkedIn' | split: ', ' -%}
 <div class="site-footer__socials">
   {% for social in social_accounts %}

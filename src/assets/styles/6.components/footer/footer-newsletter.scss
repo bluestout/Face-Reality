@@ -4,6 +4,13 @@
   &__text {
     @include Text(12.5px, 14.5px, $color-blumine);
     margin: 0 0 15px;
+    display: block;
+  }
+
+  &__thanks {
+    @include Text(16px, 22px, $color-blumine);
+    margin: 0 0 15px;
+    display: block;
   }
 
   &__form {
@@ -13,6 +20,7 @@
 
   &__input {
     position: relative;
+    width: calc(100% - 120px);
     &::placeholder {
       opacity: 0.3;
     }
@@ -30,13 +38,21 @@
   }
 
   &__submit {
+    @include apercu(700);
+    @include transition(color);
     font-size: 14px;
-    font-weight: 400;
+    line-height: 16px;
+    color: $color-blumine;
+    text-transform: uppercase;
     appearance: none;
     background-color: transparent;
+    border: none;
     border-left: 1px solid $color-mercury;
-    color: $color-blumine;
-    @include transition(color);
+    padding: 10px 20px;
+    height: 36px;
+    display: inline-block;
+    vertical-align: middle;
+    width: 115px;
 
     &:hover,
     &:active {
