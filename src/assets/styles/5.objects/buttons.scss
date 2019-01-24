@@ -15,7 +15,7 @@
   appearance: none;
 
   @if $type == main {
-    @include apercu;
+    @include apercu(700);
     @include Text(12.5px, 14px, $color-white);
     @include transition(background-color);
     text-align: center;
@@ -60,6 +60,7 @@
       font-size: 12px;
     }
   } @else if $type == wire {
+    @include apercu(700);
     @include Text(12.5px, 14px, $color-blumine);
     @include transition(background-color, color);
     text-align: center;
