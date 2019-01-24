@@ -15,8 +15,9 @@
   }
 
   &__link {
-    position: relative;
     @include Text(13.5px, 16px, $color-black);
+    @include apercu(700);
+    position: relative;
     padding: 5px 4px;
     display: inline-block;
     vertical-align: middle;
@@ -58,15 +59,16 @@
   }
 
   &__icon {
+    @include transition(transform);
     font-size: 8px;
     line-height: inherit;
     display: inline-block;
     vertical-align: middle;
-    @include transition(transform);
     margin: 0 0 0 5px;
   }
 
   &__sub-list {
+    @include transition(top 300ms, opacity 300ms);
     position: absolute;
     top: calc(100% + 40px);
     left: 50%;
@@ -79,7 +81,6 @@
     box-shadow: 0 5px 10px 5px rgba($color-black, 0.05);
     opacity: 0;
     pointer-events: none;
-    @include transition(top 300ms, opacity 300ms);
 
     &:hover,
     &:active {
@@ -99,10 +100,11 @@
   }
 
   &__sub-link {
+    @include transition(color, background-color);
+    @include apercu(700);
     white-space: nowrap;
     text-decoration: none;
     display: block;
-    @include transition(color, background-color);
 
     &:hover,
     &:active {

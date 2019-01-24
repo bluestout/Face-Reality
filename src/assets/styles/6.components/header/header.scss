@@ -42,8 +42,8 @@
     @include clearfix;
 
     &-link {
-      @include Text(12.5px, 14px, $color-black);
       @include apercu;
+      @include Text(12.5px, 14px, $color-black);
       display: inline-block;
       vertical-align: middle;
       text-decoration: none;
