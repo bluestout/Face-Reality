@@ -187,7 +187,9 @@ function getRecentBlogs() {
                 for (let j = 0; j < jsonArticle.articles.length; j++) {
                   const article = jsonArticle.articles[j];
                   article.blogHandle = json.blogs[i].handle;
-                  allArticles.push(article);
+                  if (article.published_at) {
+                    allArticles.push(article);
+                  }
                 }
               },
             ),
