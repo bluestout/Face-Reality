@@ -7,6 +7,19 @@
     @include backgroundImage;
   }
 
+  &__gradient {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      180deg,
+      rgba($color-white, 1) 0,
+      rgba($color-white, 0) 30%
+    );
+  }
+
   &__title {
     @include Text(45px, 47px, $color-black);
     @include apercu(700);
@@ -35,9 +48,6 @@
     bottom: 11px;
   }
 
-  &__badge-image {
-  }
-
   @include media-query("xl-down") {
     &__title {
       font-size: 38px;
@@ -59,6 +69,11 @@
 
   @include media-query("medium-down") {
     padding: 200px 0 40px;
+
+    &__gradient {
+      display: none;
+    }
+
     &__title {
       font-size: 30px;
       line-height: 36px;
