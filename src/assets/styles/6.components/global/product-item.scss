@@ -77,11 +77,11 @@
   }
 
   &__tag-text {
+    @include Text(13.5px, 20px, $color-white);
+    @include apercu;
     position: relative;
     z-index: 2;
     display: block;
-    @include Text(13.5px, 20px, $color-white);
-    @include apercu;
     text-align: left;
     width: 60px;
     padding: 5px;
@@ -100,19 +100,19 @@
   &__title {
     @include apercu(700);
     @include Text(20px, 22px, $color-calypso);
+    @include transition(color);
     margin: 0 auto 13px;
     max-width: 190px;
-    @include transition(color);
   }
 
   &__description {
     @include apercu;
     @include Text(12.5px, 16px, $color-black, 0.5px);
+    @include transition(opacity);
     margin: 0 auto 14px;
     max-width: 220px;
     display: block;
     opacity: 0.5;
-    @include transition(opacity);
   }
 
   &__authorization {
@@ -140,8 +140,9 @@
 
     &-submit {
       @include button(main);
-      padding: 16px;
-      width: 180px;
+      padding: 13px;
+      max-width: 180px;
+      width: 100%;
     }
   }
 
@@ -153,20 +154,21 @@
   &__variants-wrap {
     display: flex;
     flex-flow: row wrap;
-    margin: 0 auto 10px;
-    max-width: 300px;
+    margin: 0 auto;
+    max-width: 180px;
     border: 1px solid $color-bermuda-gray;
-    &--constrict {
-      max-width: 180px;
-    }
   }
 
   &__variant-wrap {
     position: relative;
-    flex: 1 0 25%;
+    flex: 1 0 33%;
+    display: flex;
+    justify-content: center;
+    min-height: 38px;
   }
 
   &__variant {
+    @include transition(background-color, color);
     position: absolute;
     left: 0;
     top: 0;
@@ -178,7 +180,6 @@
     background-color: $color-mystic;
     outline: none;
     cursor: pointer;
-    @include transition(background-color, color);
 
     &:hover + label,
     &:active + label {
@@ -202,16 +203,17 @@
   }
 
   &__variant-label {
-    z-index: 2;
-    position: relative;
     @include apercu;
     @include Text(11px, 12px, $color-dove-gray);
+    @include transition(opacity, color);
+    z-index: 2;
+    position: relative;
     opacity: 0.5;
     margin: 0;
     padding: 6px;
     display: inline-block;
     pointer-events: none;
-    @include transition(opacity, color);
+    align-self: center;
   }
   .spr-badge {
     margin: 0 0 10px;
