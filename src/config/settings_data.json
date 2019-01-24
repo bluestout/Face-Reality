@@ -10,15 +10,15 @@
     "share_facebook": true,
     "share_twitter": true,
     "share_pinterest": true,
-    "social_twitter_link": "#",
-    "social_facebook_link": "#",
-    "social_pinterest_link": "",
-    "social_instagram_link": "#",
+    "social_twitter_link": "https://twitter.com/FaceRealityAcne",
+    "social_facebook_link": "https://www.facebook.com/FaceRealityAcneClinic",
+    "social_pinterest_link": "https://www.pinterest.com/acneexpert/",
+    "social_instagram_link": "https://www.instagram.com/explore/tags/facerealityacneclinic/?hl=en",
     "social_snapchat_link": "",
     "social_tumblr_link": "",
-    "social_youtube_link": "#",
+    "social_youtube_link": "https://www.youtube.com/user/AcneExpert/videos",
     "social_vimeo_link": "",
-    "social_linkedin_link": "",
+    "social_linkedin_link": "https://www.linkedin.com/in/facerealityacneclinic/",
     "cart_notes_enable": false,
     "favicon": "shopify://shop_images/fr-favicon.png",
     "checkout_header_image": "",
@@ -55,7 +55,7 @@
         "type": "footer",
         "settings": {
           "footer_linklist": "footer",
-          "newsletter_text": "Sign up for Face Reality Newsletter and\u0003 receive promotions, announcements in your inbox",
+          "newsletter_text": "Sign up for Face Reality Newsletter and receive promotions, announcements in your inbox",
           "logo": "shopify://shop_images/FRS-Logo-1-19_01d33c5c-df54-45e7-bc06-6d08aa307aaf.png"
         }
       },
@@ -71,13 +71,13 @@
           "1538382564151": {
             "type": "tab-1",
             "settings": {
-              "collection": ""
+              "collection": "normal-skin"
             }
           },
           "1538575249055": {
             "type": "tab-1",
             "settings": {
-              "collection": ""
+              "collection": "oily-skin"
             }
           },
           "1538575259812": {
@@ -110,12 +110,6 @@
               "collection": ""
             }
           },
-          "1542641991083": {
-            "type": "tab-1",
-            "settings": {
-              "collection": "featured"
-            }
-          },
           "1542642003791": {
             "type": "tab-2",
             "settings": {
@@ -132,22 +126,21 @@
           "1542641939127",
           "1542641947100",
           "1542641954749",
-          "1542641991083",
           "1542642003791"
         ],
         "settings": {
-          "title_tab_1": "Browse by skin type",
-          "title_tab_2": "Browse by product type",
-          "button_url": "",
-          "button_text": "Browse all products"
+          "title_tab_1": "Browse By Skin Type",
+          "title_tab_2": "Browse By Product Type",
+          "button_url": "/collections/all/",
+          "button_text": "Browse All Products"
         }
       },
       "1538382732928": {
         "type": "home-featured-collection",
         "settings": {
-          "title": "Our products",
+          "title": "Our Products",
           "text": "The Face Reality products are specifically formulated for acneic skin and are guaranteed to not clog your pores.",
-          "list_title": "Most popular",
+          "list_title": "Most Popular",
           "collection": "featured"
         }
       },
@@ -155,10 +148,10 @@
         "type": "home-primary-banner",
         "settings": {
           "title": "Tried everything and still have acne? Get it under control with our clear-skin system.",
-          "button_url": "",
+          "button_url": "shopify://pages/acne-information-center",
           "button_text": "Learn More",
-          "link_url": "",
-          "link_text": "Explore our products",
+          "link_url": "/collections/all/",
+          "link_text": "Explore Our Products",
           "background": "shopify://shop_images/home-banner.png",
           "badge": "shopify://shop_images/success-rate-badge.png"
         }
@@ -207,7 +200,7 @@
         ],
         "settings": {
           "button_text": "Find a nearby clinic",
-          "button_url": ""
+          "button_url": "shopify://pages/sca-store-locator"
         }
       },
       "1538384423675": {
@@ -270,8 +263,8 @@
           "suptitle": "Testimonials",
           "title": "Our process changes lives",
           "text": "Thousand of clients have been sucessfully put acne under control with our Clear skin system. Read their comments.",
-          "button_text": "Read all testimonials",
-          "button_link": ""
+          "button_text": "Read All Testimonials",
+          "button_link": "shopify://pages/testimonials"
         }
       },
       "1538385694899": {
@@ -308,21 +301,21 @@
         "block_order": ["1538385715089", "1542649168569", "1547654220236"],
         "settings": {
           "suptitle": "Case Studies",
-          "title": "Acne types"
+          "title": "Acne Types"
         }
       },
       "1538388429503": {
         "type": "home-instagram",
         "settings": {
           "title": "@facerealityacneclinic",
-          "link": "#"
+          "link": "https://www.instagram.com/explore/tags/facerealityacneclinic/?hl=en"
         }
       },
       "1538388684815": {
         "type": "home-stories",
         "settings": {
           "title": "Stories",
-          "link_text": "All stories",
+          "link_text": "All Stories",
           "link_url": "shopify://pages/blog"
         }
       },
@@ -367,7 +360,7 @@
             "type": "mention",
             "settings": {
               "image": "shopify://shop_images/marin-independent-logo.png",
-              "url": "#"
+              "url": ""
             }
           },
           "1539180267265": {
@@ -587,11 +580,11 @@
           "1539593301437"
         ],
         "settings": {
-          "title": "Explore our products",
-          "collection_1_title": "Browse by skin type",
-          "collection_2_title": "Browse by product type",
+          "title": "Explore Our Products",
+          "collection_1_title": "Browse By Skin Type",
+          "collection_2_title": "Browse By Product Type",
           "button_2_url": "/collections/all/",
-          "button_2_text": "Browse all products"
+          "button_2_text": "Browse All Products"
         }
       },
       "code-of-conduct-banner": {
@@ -778,7 +771,7 @@
       "info-cta": {
         "type": "info-cta",
         "settings": {
-          "title": "Learn more about face reality clinic, and why we can help you when nobody else can.",
+          "title": "Learn more about face reality skincare, and why we can help you when nobody else can.",
           "bg": "shopify://shop_images/background-cta.png",
           "button_url": "shopify://pages/about",
           "button_text": "Learn more about Face Reality",
