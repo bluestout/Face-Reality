@@ -107,13 +107,25 @@
           "1542641954749": {
             "type": "tab-2",
             "settings": {
-              "collection": ""
+              "collection": "hydrators"
             }
           },
-          "1542642003791": {
+          "1548335239199": {
             "type": "tab-2",
             "settings": {
-              "collection": "featured"
+              "collection": "moisturizers"
+            }
+          },
+          "1548335262016": {
+            "type": "tab-2",
+            "settings": {
+              "collection": "sunscreens"
+            }
+          },
+          "1548335278308": {
+            "type": "tab-2",
+            "settings": {
+              "collection": "supplements"
             }
           }
         },
@@ -126,7 +138,9 @@
           "1542641939127",
           "1542641947100",
           "1542641954749",
-          "1542642003791"
+          "1548335239199",
+          "1548335262016",
+          "1548335278308"
         ],
         "settings": {
           "title_tab_1": "Browse By Skin Type",
@@ -148,11 +162,12 @@
         "type": "home-primary-banner",
         "settings": {
           "title": "Tried everything and still have acne? Get it under control with our clear-skin system.",
-          "button_url": "shopify://pages/acne-information-center",
+          "button_url": "shopify://pages/how-we-are-different",
           "button_text": "Learn More",
           "link_url": "/collections/all/",
           "link_text": "Explore Our Products",
-          "background": "shopify://shop_images/home-banner.png",
+          "background": "shopify://shop_images/home-hero.jpg",
+          "background_mobile": "shopify://shop_images/home-hero-mobile.jpg",
           "badge": "shopify://shop_images/success-rate-badge.png"
         }
       },
@@ -171,7 +186,7 @@
             "type": "usp-icon",
             "settings": {
               "title": "Find a certified local clinic",
-              "icon": "shopify://shop_images/icon-person_33b36bc6-3cb8-411a-9ab8-a7aa80f2cd79.png",
+              "icon": "shopify://shop_images/icon-home-1_3b0afcc1-9597-4002-bd41-483ac0cc19ca.png",
               "link": ""
             }
           },
@@ -179,7 +194,7 @@
             "type": "usp-icon",
             "settings": {
               "title": "Find the correct products for your skin type",
-              "icon": "shopify://shop_images/icon-cosmetics_553ff72a-2c7f-4a71-b402-aaa7f0b21902.png",
+              "icon": "shopify://shop_images/icon-home-2.png",
               "link": "shopify://collections/all"
             }
           },
@@ -187,7 +202,7 @@
             "type": "usp-icon",
             "settings": {
               "title": "Clear skin in 3-4 months",
-              "icon": "shopify://shop_images/icon-calendar_ea3fc095-0a79-4dee-ab82-d42ab97a38b8.png",
+              "icon": "shopify://shop_images/icon-home-3.png",
               "link": ""
             }
           }
