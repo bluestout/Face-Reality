@@ -1,5 +1,5 @@
 {% if section.settings.background %}
-  <section class="primary-banner primary-banner--bg lazyload" data-bgset="{% include 'responsive-bg-image', image: section.settings.background %}">
+  <section class="primary-banner primary-banner--bg lazyload" data-bgset="{% include 'responsive-bg-image', image: section.settings.background, image_rsp: section.settings.background_mobile %}">
 {% else %}
   <section class="primary-banner">
 {% endif %}
@@ -63,6 +63,12 @@
         "id": "background",
         "label": "Background",
         "info": "1920x650"
+      },
+      {
+        "type": "image_picker",
+        "id": "background_mobile",
+        "label": "Mobile background",
+        "info": "1024x1024"
       },
       {
         "type": "image_picker",
