@@ -33,6 +33,12 @@
   {% endif %}
 
   <h1 class="product-content__title">{{ product.title }}</h1>
+
+  {% comment %} wishlist {% endcomment %}
+  <div class="swym-dummy">
+    <span class="swym-button"></span>
+  </div>
+
   <p class="product-content__id">Product ID. <span data-product-sku>{{ product.selected_or_first_available_variant.sku }}</span></p>
 
   <div class="product-content__reviews">
