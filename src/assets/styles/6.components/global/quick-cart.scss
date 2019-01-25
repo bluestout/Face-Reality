@@ -204,10 +204,10 @@
   }
 
   &__qty {
+    @include Text(16px, 20px, $color-mercury);
     display: inline-block;
     width: 50px;
     vertical-align: middle;
-    @include Text(16px, 20px, $color-mercury);
     font-weight: 400;
     text-align-last: center;
     text-align: center;
@@ -223,10 +223,10 @@
   }
 
   &__qty-change {
-    display: inline-block;
-    vertical-align: middle;
     @include Text(26px, 26px, $color-mercury);
     @include transition(color);
+    display: inline-block;
+    vertical-align: middle;
     cursor: pointer;
     &:hover,
     &:active {

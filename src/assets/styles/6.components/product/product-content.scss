@@ -153,6 +153,7 @@
     @include Text(20px, 40px, $color-blumine);
     width: 28px;
     height: 40px;
+    padding: 0;
     float: left;
     background: none;
     border: none;
@@ -173,7 +174,7 @@
     @include apercu;
     height: 40px;
     max-width: calc(100% - 60px);
-    width: auto;
+    width: 100%;
     float: left;
     text-align-last: center;
     text-align: center;
@@ -208,6 +209,14 @@
 
   @include media-query("medium-down") {
     margin: 0 auto 60px;
+
+    &__input-wrap {
+      width: 50%;
+    }
+
+    &__submit {
+      width: 50%;
+    }
 
     &__title {
       font-size: 26px;
@@ -260,7 +269,7 @@
 
     &__quantity {
       height: 45px;
-      width: calc(100% - 100px);
+      width: calc(100% - 102px);
     }
   }
 }
