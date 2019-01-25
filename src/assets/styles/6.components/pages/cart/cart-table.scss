@@ -196,6 +196,7 @@
     &-title {
       @include clearfix;
       margin: 0 0 10px;
+      white-space: normal;
     }
 
     &-link {
@@ -203,6 +204,7 @@
       @include Text(16px, 22px, $color-blumine);
       float: left;
       width: calc(100% - 70px);
+      white-space: normal;
     }
 
     &-price {
@@ -211,6 +213,7 @@
       text-align: right;
       float: left;
       width: 70px;
+      white-space: normal;
     }
 
     &-id {
@@ -219,6 +222,7 @@
       text-decoration: none;
       display: inline-block;
       margin: 0 0 10px;
+      white-space: normal;
     }
 
     &-option {
@@ -227,6 +231,7 @@
       text-decoration: none;
       margin: 0 20px 10px;
       display: inline-block;
+      white-space: normal;
     }
 
     &-remove {
@@ -324,7 +329,7 @@
     }
 
     &__update-wrap {
-      padding: 40px 20px 0;
+      padding: 20px 20px 0;
     }
 
     &__product-id {
