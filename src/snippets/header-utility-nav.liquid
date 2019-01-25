@@ -1,4 +1,8 @@
 <div class="utility-nav">
+  <a href="#swym-wishlist" class="utility-nav__icon-wrap">
+    <span aria-hidden="true" focusable="false" role="presentation" class="icon-heart utility-nav__icon"></span>
+  </a>
+
   <button type="button" class="utility-nav__icon-wrap" data-header-search-toggle>
     <span class="icon-search utility-nav__icon"></span>
   </button>
@@ -30,7 +34,7 @@
   <a href="/cart" class="utility-nav__icon-wrap" {% comment %} data-quick-cart-toggle {% endcomment %}>
     <span class="icon-shopping-cart utility-nav__icon"></span>
     {% if cart.item_count > 0 %}
-      <span class="utility-nav__count">{{ cart.item_count }}</span>
+      <span class="utility-nav__count" data-cart-count>{{ cart.item_count }}</span>
     {% endif %}
   </a>
 
