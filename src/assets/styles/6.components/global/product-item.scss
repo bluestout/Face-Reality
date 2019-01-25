@@ -4,7 +4,7 @@
   flex-flow: column wrap;
   width: 100%;
   min-height: 360px;
-  height: calc(100% - 50px);
+  height: calc(100% - 49px);
   text-align: center;
   margin: 0 0 50px;
 
@@ -120,7 +120,8 @@
     @include Text(11.5px, 16px, $color-white);
     background-color: $color-de-york;
     padding: 6px;
-    width: 180px;
+    width: 100%;
+    max-width: 180px;
     margin: 0 auto 15px;
     display: block;
   }
@@ -282,13 +283,13 @@
     }
 
     &__background {
-      height: 220px;
+      height: 50%;
     }
 
     &__variants-wrap {
-      margin: 0 0 -1px;
+      margin: 0 auto -1px;
       &--last {
-        margin: 0 0 10px;
+        margin: 0 auto 10px;
       }
     }
 
@@ -313,15 +314,7 @@
     &__form {
       &-submit {
         padding: 12px;
-        width: auto;
       }
-    }
-  }
-
-  @include media-query("v-small") {
-    &__authorization {
-      width: auto;
-      max-width: 90%;
     }
   }
 }

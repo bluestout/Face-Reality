@@ -131,33 +131,38 @@
   }
 
   &__quantity {
-    border: 1px solid $color-blumine;
     @include clearfix;
+    border: 1px solid $color-blumine;
   }
 
   &__quantity-button {
+    @include Text(20px, 40px, $color-blumine);
     width: 28px;
     height: 40px;
     float: left;
-    @include Text(20px, 40px, $color-blumine);
     background: none;
     border: none;
     appearance: none;
-    &[data-direction="up"] {
-      border-left: 1px solid rgba($color-bermuda-gray, 0.5);
-    }
+
     &[data-direction="down"] {
       border-right: 1px solid rgba($color-bermuda-gray, 0.5);
+      float: left;
+    }
+    &[data-direction="up"] {
+      border-left: 1px solid rgba($color-bermuda-gray, 0.5);
+      float: right;
     }
   }
 
   &__quantity-input {
+    @include apercu;
     height: 40px;
-    width: calc(100% - 56px);
+    width: auto;
+    max-width: calc(100% - 60px);
+    margin: 0 auto;
     background-color: transparent;
     float: left;
     text-align-last: center;
-    @include apercu;
     &::-webkit-inner-spin-button,
     &::-webkit-outer-spin-button {
       appearance: none;
@@ -188,8 +193,8 @@
     }
 
     &-title {
-      margin: 0 0 10px;
       @include clearfix;
+      margin: 0 0 10px;
     }
 
     &-link {

@@ -1,10 +1,13 @@
 @mixin apercu($weight: 400, $style: normal) {
   @if $weight == 400 {
     font-family: apercu-regular, sans-serif;
+    font-weight: 400;
   } @else if $weight == 700 {
     font-family: apercu-bold, sans-serif;
+    font-weight: 700;
   } @else {
     font-family: apercu-regular, sans-serif;
+    font-weight: 400;
   }
   font-style: $style;
   -webkit-font-smoothing: antialiased;

@@ -35,9 +35,6 @@
     margin: 0 auto 55px;
   }
 
-  &__links {
-  }
-
   &__link {
     @include button(main);
     width: 240px;
@@ -45,9 +42,9 @@
   }
 
   &__or {
-    position: relative;
     @include apercu;
     @include Text(10px, 14px, $color-black);
+    position: relative;
     text-transform: uppercase;
     opacity: 0.35;
     margin: 0 35px;

@@ -12,7 +12,7 @@
   }
 
   &__subtitle {
-    @include apercu;
+    @include apercu(400);
     @include Text(20px, 28px, $color-black);
     margin: 0;
   }

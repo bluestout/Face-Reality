@@ -18,7 +18,7 @@
   {% assign threshold = 4900 %}
 
   {% if totals < threshold %}
-    <span class="cart-summary__shipping-check">You are {{ threshold | minus: totals | money }} away form free shipping</span>
+    <span class="cart-summary__shipping-check">You are {{ threshold | minus: totals | money }} away from free shipping</span>
   {% else %}
     <span class="cart-summary__shipping-check">You are eligible for free shipping</span>
   {% endif %}

@@ -65,9 +65,10 @@
     opacity: 1;
     padding: 10px 15px;
     white-space: nowrap;
-    display: inline-block;
+    display: block;
     background-color: $color-iron;
-    margin: 15px 0 30px;
+    margin: 15px auto 30px;
+    max-width: 400px;
     &::before {
       content: "";
       position: absolute;
@@ -123,7 +124,7 @@
 
     &__checkout-button {
       padding: 15px;
-      margin: 0 auto 40px;
+      margin: 0 auto;
       max-width: 600px;
     }
   }

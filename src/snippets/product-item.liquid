@@ -30,6 +30,11 @@
 {% endif %}
 
 <div class="product-item {% if modulo == 0 %}product-item--even{% else %}product-item--odd{% endif %}" itemscope itemtype="http://schema.org/Product" data-product-item>
+  {% unless product-item == empty %}
+    <script type="application/json" data-product-item-json>
+      {{ product-item | json }}
+    </script>
+  {% endunless %}
   <meta itemprop="name" content="{{ prod.title }}">
   <meta itemprop="url" content="{{ shop.url }}{{ prod.url }}">
   <meta itemprop="image" content="{{ featured_image | img_url: '800x' }}">
@@ -152,21 +157,13 @@
             </span>
         </button>
       </form>
+      <div class="text-center d-block d-md-none">
+        <a href="{{ product-item.url }}" class="product-item__form-submit ">Learn more</a>
+      </div>
     {% else %}
-      <div class="text-center d-none d-md-block">
+      <div class="text-center">
         <a href="{{ product-item.url }}" class="product-item__form-submit ">Learn more</a>
       </div>
     {% endif %}
-  {% endunless %}
-
-  <div class="text-center d-block d-md-none">
-    <a href="{{ product-item.url }}" class="product-item__form-submit ">Learn more</a>
-  </div>
-
-
-  {% unless product == empty %}
-    <script type="application/json" data-product-item-json>
-      {{ product | json }}
-    </script>
   {% endunless %}
 </div>

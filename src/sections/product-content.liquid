@@ -34,11 +34,6 @@
 
   <h1 class="product-content__title">{{ product.title }}</h1>
 
-  {% comment %} wishlist {% endcomment %}
-  <div class="swym-dummy">
-    <span class="swym-button"></span>
-  </div>
-
   <p class="product-content__id">Product ID. <span data-product-sku>{{ product.selected_or_first_available_variant.sku }}</span></p>
 
   <div class="product-content__reviews">
@@ -135,6 +130,11 @@
       {% include 'product-authorization' with auth_note: section.settings.authorization_text, auth_link: section.settings.authorization_url, auth_l_text: section.settings.authorization_link_text  %}
     {% endif %}
   {% endunless %}
+
+  {% comment %} wishlist {% endcomment %}
+  <div class="swym-dummy">
+    <span class="swym-button"></span>
+  </div>
 
   <div class="product-content__description d-lg-none">
     {{ product.description }}
