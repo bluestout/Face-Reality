@@ -1,0 +1,19 @@
+{% layout none %}
+{
+  "blogs": [
+    {% for item in linklists['blogs'].links %}
+    {
+      "blog_handle": "{{ item.handle }}",
+      "blog_url": "{{ item.url }}",
+      {% assign blog_item = item.object %}
+      "articles": [
+        {% if blog_item.articles.size > 0 %}
+          {%- for article in blog_item.articles -%}
+            {{ article | json }}{%- unless forloop.last -%},{%- endunless -%}
+          {%- endfor -%}
+        {% endif %}
+      ]
+    }{%- unless forloop.last -%},{%- endunless -%}
+    {% endfor %}
+  ]
+}

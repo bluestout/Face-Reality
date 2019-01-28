@@ -51,7 +51,7 @@ function formatShopifyDate(date) {
   return `${month} ${day}, ${year}`;
 }
 
-function compareDesc(a, b) {
+function compareDate(a, b) {
   if (a.published_at < b.published_at) {
     return 1;
   }
@@ -63,8 +63,8 @@ function compareDesc(a, b) {
 
 function getArticleUrl(article) {
   const url =
-    article && article.handle && article.blogHandle
-      ? `/blogs/${article.blogHandle}/${article.handle}`
+    article && article.handle && article.blogUrl
+      ? `${article.blogUrl}/${article.handle}`
       : "";
   return url;
 }
@@ -175,62 +175,69 @@ function blogSidebarRecentTemplate(article) {
 }
 
 function getRecentBlogs() {
-  let allArticles = [];
-  $.getJSON("/admin/blogs.json", (json) => {
-    (async function getArticles() {
-      for (let i = 0; i < json.blogs.length; i++) {
-        await new Promise((resolve) => {
-          resolve(
-            $.getJSON(
-              `/admin/blogs/${json.blogs[i].id}/articles.json?limit=100`,
-              (jsonArticle) => {
-                for (let j = 0; j < jsonArticle.articles.length; j++) {
-                  const article = jsonArticle.articles[j];
-                  article.blogHandle = json.blogs[i].handle;
-                  if (article.published_at) {
-                    allArticles.push(article);
-                  }
-                }
-              },
-            ),
-          );
-        });
-      }
+  if (
+    $("body").hasClass("template-index") ||
+    $("body").hasClass("template-blog") ||
+    $("body").hasClass("template-article") ||
+    $("#blog").length > 0
+  ) {
+    $.ajax({
+      type: "GET",
+      url: "/pages/blog?view=blog-index.json",
+      async: false,
+      dataType: "html",
+      success: (json) => {
+        const allblogs = JSON.parse(json);
+        let blogs = [];
+        const allBlogsLength = allblogs.blogs.length;
 
-      if (allArticles.length > 0) {
-        allArticles = allArticles.sort(compareDesc);
-        // is there a stories section to fill?
-        if ($(el.stories).length > 0) {
-          for (let i = 0; i < 5; i++) {
-            $(`[data-blog-story="${i + 1}"]`).html(
-              blogStoryTemplate(allArticles[i], i),
-            );
+        if (allBlogsLength > 0) {
+          for (let i = 0; i < allBlogsLength; i++) {
+            const allblog = allblogs.blogs[i];
+            for (let j = 0; j < allblog.articles.length; j++) {
+              const article = allblog.articles[j];
+              article.blogHandle = allblog.blog_handle;
+              article.blogUrl = allblog.blog_url;
+              blogs.push(article);
+            }
           }
-          $(el.stories).slideDown();
-        }
 
-        // is there a blog index section to fill?
-        if ($(el.index).length > 0) {
-          let renderedArticles = "";
-          const limit = allArticles.length < 6 ? allArticles.length : 6;
-          for (let i = 0; i < limit; i++) {
-            renderedArticles += blogIndexTemplate(allArticles[i]);
+          blogs = blogs.sort(compareDate);
+          // is there a stories section to fill?
+          if ($(el.stories).length > 0) {
+            for (let i = 0; i < 5; i++) {
+              $(`[data-blog-story="${i + 1}"]`).html(
+                blogStoryTemplate(blogs[i], i),
+              );
+            }
+            $(el.stories).slideDown();
           }
-          $(el.index).html(renderedArticles);
-        }
 
-        // is there a recent posts sidebar to fill?
-        if ($(el.indexRecent).length > 0) {
-          let recentArticles = "";
-          const limit = allArticles.length < 10 ? allArticles.length : 10;
-          for (let i = 0; i < limit; i++) {
-            recentArticles += blogSidebarRecentTemplate(allArticles[i]);
+          // is there a blog index section to fill?
+          if ($(el.index).length > 0) {
+            let renderedArticles = "";
+            const limit = blogs.length < 6 ? blogs.length : 6;
+            for (let i = 0; i < limit; i++) {
+              renderedArticles += blogIndexTemplate(blogs[i]);
+            }
+            $(el.index).html(renderedArticles);
           }
-          $(el.indexRecent).html(recentArticles);
+
+          // is there a recent posts sidebar to fill?
+          if ($(el.indexRecent).length > 0) {
+            let recentArticles = "";
+            const limit = blogs.length < 10 ? blogs.length : 10;
+            for (let i = 0; i < limit; i++) {
+              recentArticles += blogSidebarRecentTemplate(blogs[i]);
+            }
+            $(el.indexRecent).html(recentArticles);
+          }
         }
-      }
-    })();
-  });
+      },
+      cache: false,
+    });
+  }
+  return null;
 }
 
 $(document).ready(getRecentBlogs);
