@@ -80,7 +80,9 @@
   <div class="flex-shaper"></div>
 
   {% if p_tags contains "authorization" %}
-    <div class="product-item__authorization">Needs authorization</div>
+    {% unless has_authorization %}
+      <div class="product-item__authorization">Needs authorization</div>
+    {% endunless %}
     <span class="hide" data-authorization-required=true></span>
   {% else %}
     <span class="hide" data-authorization-required=false></span>

@@ -29,7 +29,9 @@
   {%- assign current_variant = product.selected_or_first_available_variant -%}
 
   {% if needs_authorization %}
-    <div class="product-content__authorization-tag">Needs authorization</div>
+    {% unless has_authorization %}
+      <div class="product-content__authorization-tag">Needs authorization</div>
+    {% endunless %}
   {% endif %}
 
   <h1 class="product-content__title">{{ product.title }}</h1>
