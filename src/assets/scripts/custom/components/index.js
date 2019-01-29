@@ -6,6 +6,7 @@ import "./product-related-slick";
 import "./different-mentions-slick";
 import "./testimonials";
 import "./header";
+import "./footer";
 import "./image-compare";
 import "./qty-changer";
 import "./accordion";

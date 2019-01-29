@@ -4,7 +4,7 @@
 
   &__text {
     @include apercu;
-    @include Text(20px, 30px, $color-black);
+    @include paragraph-xl;
     margin: 0 auto 25px;
     max-width: 800px;
   }
@@ -12,11 +12,6 @@
   @include media-query("medium-down") {
     text-align: center;
     margin: 0 auto 20px;
-
-    &__text {
-      font-size: 16px;
-      line-height: 24px;
-    }
   }
 
   @include media-query("v-small") {

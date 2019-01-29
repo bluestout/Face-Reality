@@ -2,13 +2,13 @@
   margin: 0 0 30px;
 
   &__text {
-    @include Text(12.5px, 14.5px, $color-blumine);
+    @include paragraph-xs($color-blumine);
     margin: 0 0 15px;
     display: block;
   }
 
   &__thanks {
-    @include Text(16px, 22px, $color-blumine);
+    @include paragraph-m($color-blumine);
     margin: 0 0 15px;
     display: block;
   }

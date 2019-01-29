@@ -3,13 +3,13 @@
   text-align: center;
 
   &__title {
-    @include title-main;
+    @include title-xl;
     margin: 0 0 15px;
   }
 
   &__subtitle {
     @include apercu;
-    @include Text(20px, 28px, $color-black);
+    @include paragraph-xl;
   }
 
   .breadcrumbs {
@@ -21,11 +21,6 @@
 
     &__title {
       margin: 0 0 5px;
-    }
-
-    &__subtitle {
-      font-size: 16px;
-      line-height: 22px;
     }
 
     .breadcrumbs {

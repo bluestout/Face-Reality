@@ -9,20 +9,20 @@
 
   &__title {
     @include apercu;
-    @include Text(19px, 28px, $color-black);
+    @include paragraph-l;
     text-align: center;
     margin: 0 0 40px;
   }
 
   &__content {
     @include apercu;
-    @include Text(15px, 22px, $color-black);
+    @include paragraph-m-s;
     margin: 0 0 55px;
   }
 
   &__footnote {
     @include apercu;
-    @include Text(12px, 17px, $color-black);
+    @include paragraph-xxs;
     opacity: 0.5;
   }
 
@@ -32,8 +32,6 @@
     }
 
     &__title {
-      font-size: 16px;
-      line-height: 24px;
       margin: 0 0 40px;
     }
 

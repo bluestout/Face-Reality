@@ -1,17 +1,17 @@
 .about-content {
   &__page-content {
     @include apercu;
-    @include Text(20px, 30px, $color-blumine);
+    @include paragraph-xl($color-blumine);
     margin: 0 0 45px;
 
     p {
       @include apercu;
-      @include Text(20px, 30px, $color-blumine);
+      @include paragraph-xl($color-blumine);
     }
 
     a {
       @include apercu;
-      @include Text(20px, 30px, $color-blumine);
+      @include paragraph-xl($color-blumine);
     }
 
     h1,
@@ -26,14 +26,14 @@
 
   &__content {
     @include apercu;
-    @include Text(16px, 26px, $color-black);
+    @include paragraph-m;
     p {
       @include apercu;
-      @include Text(16px, 26px, $color-black);
+      @include paragraph-m;
     }
     a {
       @include apercu;
-      @include Text(16px, 26px, $color-black);
+      @include paragraph-m;
     }
   }
 
@@ -43,13 +43,13 @@
   }
 
   &__internal-text {
+    @include apercu(700);
+    @include title-s-m($color-white);
     position: absolute;
     bottom: 60px;
     left: 60px;
     right: 60px;
     max-width: 520px;
-    @include apercu(700);
-    @include Text(23px, 28px, $color-white);
 
     &::before {
       content: "";
@@ -64,41 +64,10 @@
 
   @include media-query("medium-down") {
     &__page-content {
-      font-size: 16px;
-      line-height: 22px;
       margin: 0 0 30px;
-
-      p {
-        font-size: 16px;
-        line-height: 22px;
-      }
-
-      a {
-        font-size: 16px;
-        line-height: 22px;
-      }
     }
-
-    &__content {
-      font-size: 14px;
-      line-height: 24px;
-      p {
-        font-size: 14px;
-        line-height: 24px;
-      }
-      a {
-        font-size: 14px;
-        line-height: 24px;
-      }
-    }
-
     &__image-wrap {
       margin: 0 0 30px;
-    }
-
-    &__internal-text {
-      font-size: 20px;
-      line-height: 26px;
     }
   }
 

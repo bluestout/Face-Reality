@@ -8,13 +8,13 @@
   }
 
   &__title {
-    @include title-small;
+    @include title-xxs;
     margin: 0 0 20px;
   }
 
   &__text {
     @include apercu;
-    @include Text(20px, 27px, $color-black);
+    @include paragraph-xl;
     margin: 0 0 80px;
   }
 
@@ -122,8 +122,6 @@
     }
 
     &__text {
-      font-size: 19px;
-      line-height: 26px;
       margin: 0 0 40px;
     }
 

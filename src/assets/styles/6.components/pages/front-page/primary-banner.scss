@@ -34,11 +34,11 @@
   }
 
   &__or {
-    @include Text(12.5px, 14px, $color-dusty-gray);
+    @include Text(13px, 14px, $color-dusty-gray);
   }
 
   &__link-inline {
-    @include Text(12.5px, 14px, $color-dove-gray);
+    @include Text(13px, 14px, $color-dove-gray);
     text-decoration: none;
   }
 

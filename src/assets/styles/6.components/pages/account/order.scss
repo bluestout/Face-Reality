@@ -27,13 +27,13 @@
 
   &__title {
     @include apercu(700);
-    @include Text(20px, 26px, $color-blumine);
+    @include title-s-s($color-blumine);
     margin: 0 0 10px;
   }
 
   &__date {
     @include apercu;
-    @include Text(16px, 22px, $color-black);
+    @include paragraph-m;
     margin: 0 0 20px;
   }
 
@@ -55,19 +55,19 @@
 
   &__cell {
     @include apercu;
-    @include Text(16px, 20px, $color-black);
+    @include paragraph-m;
     padding: 20px;
     text-align: left;
     border-bottom: 1px solid $color-mercury;
 
     &--head {
-      @include Text(14px, 20px, rgba($color-blumine, 0.5));
+      @include paragraph-s(rgba($color-blumine, 0.5));
       padding: 10px 20px;
       border-top: 1px solid $color-mercury;
     }
 
     &--foot {
-      @include Text(14px, 20px, $color-blumine);
+      @include paragraph-s($color-blumine);
       padding: 10px 20px;
       border-bottom: 1px solid rgba($color-mercury, 0.5);
     }
@@ -75,7 +75,7 @@
 
   &__note-title {
     @include apercu(700);
-    @include Text(18px, 22px, $color-blumine);
+    @include paragraph-l($color-blumine);
     margin: 0 0 10px;
   }
 
@@ -94,14 +94,7 @@
       margin: 0 0 60px;
     }
 
-    &__title {
-      font-size: 16px;
-      line-height: 22px;
-    }
-
     &__date {
-      font-size: 13.5px;
-      line-height: 18px;
       margin: 0 0 10px;
     }
 
@@ -114,7 +107,7 @@
     }
 
     &__cell {
-      font-size: 13.5px;
+      font-size: 14px;
       line-height: 18px;
       padding: 10px;
 
@@ -129,11 +122,6 @@
         line-height: 16px;
         padding: 10px;
       }
-    }
-
-    &__note-title {
-      font-size: 14px;
-      line-height: 18px;
     }
   }
 

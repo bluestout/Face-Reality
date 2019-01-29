@@ -26,13 +26,13 @@
   }
 
   &__copyright {
-    @include Text(12px, 14px, $color-blumine);
+    @include paragraph-xs($color-blumine);
     text-align: center;
     margin: 90px 0 30px;
     opacity: 0.5;
 
     > a {
-      @include Text(12px, 14px, $color-blumine);
+      @include paragraph-xs($color-blumine);
       text-decoration: none;
     }
   }

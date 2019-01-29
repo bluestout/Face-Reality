@@ -15,7 +15,7 @@
       color: $color-blumine;
     }
     a {
-      @include Text(13.5, 21px, $color-white);
+      @include paragraph-m-s($color-white);
       font-weight: 700;
       padding: 5px;
       width: 30px;
@@ -36,7 +36,7 @@
   .prev {
     display: inline-block;
     a {
-      @include Text(13.5, 21px, $color-white);
+      @include paragraph-m-s($color-white);
       font-weight: 700;
       padding: 5px 10px;
       background-color: $color-blumine;

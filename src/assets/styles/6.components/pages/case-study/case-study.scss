@@ -4,8 +4,7 @@
   margin: 30px 0 0;
 
   .study-title {
-    @include apercu(700);
-    @include Text(25px, 29px, $color-blumine);
+    @include title-s($color-blumine);
     margin: 0 0 15px;
     text-align: center;
   }
@@ -18,7 +17,7 @@
 
   .study-backlink {
     @include apercu;
-    @include Text(12px, 18px, $color-calypso);
+    @include paragraph-xxs($color-calypso);
     text-decoration: none;
   }
 
@@ -59,8 +58,6 @@
     }
 
     .study-title {
-      font-size: 18px;
-      line-height: 24px;
       margin: 0 0 15px;
     }
 
@@ -94,8 +91,6 @@
     }
 
     .study-title {
-      font-size: 18px;
-      line-height: 24px;
       margin: 0 0 15px;
     }
 

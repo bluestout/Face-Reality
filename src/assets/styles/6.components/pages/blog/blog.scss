@@ -8,14 +8,14 @@
 
   .blog-title {
     @include apercu(700);
-    @include Text(36px, 42px, $color-blumine);
+    @include title-l($color-blumine);
     margin: 0 0 15px;
     text-align: center;
   }
 
   .blog-subtitle {
     @include apercu;
-    @include Text(18px, 24px, $color-blumine);
+    @include paragraph-l($color-blumine);
     margin: 0 0 15px;
     text-align: center;
   }
@@ -46,7 +46,7 @@
 
   .blog-backlink {
     @include apercu;
-    @include Text(12px, 18px, $color-calypso);
+    @include paragraph-xxs($color-calypso);
     text-decoration: none;
   }
 
@@ -66,14 +66,7 @@
     padding: 15px 0 60px;
     margin: 10px 0 0;
 
-    .blog-title {
-      font-size: 24px;
-      line-height: 30px;
-    }
-
     .blog-subtitle {
-      font-size: 16px;
-      line-height: 22px;
       margin: 0 0 5px;
     }
 

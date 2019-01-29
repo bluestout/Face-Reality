@@ -1,12 +1,12 @@
 .footer-navigation {
   &__link {
+    @include paragraph-xs($color-blumine);
+    @include transition(opacity);
     position: relative;
-    @include Text(12px, 14px, $color-blumine);
     text-decoration: none;
     opacity: 0.5;
     margin: 0 0 30px;
     display: inline-block;
-    @include transition(opacity);
 
     &:hover,
     &:active {
@@ -25,10 +25,10 @@
   }
 
   &__sublink {
-    @include Text(12px, 14px, $color-blumine);
+    @include paragraph-xs($color-blumine);
+    @include transition(color);
     text-decoration: none;
     display: inline-block;
-    @include transition(color);
 
     &:hover,
     &:active {
@@ -50,20 +50,20 @@
     text-align: center;
 
     &__caret {
+      @include transition(transform);
       position: absolute;
       right: 5px;
       top: 2px;
-      @include transition(transform);
     }
 
     &__sub-caret {
+      @include transition(transform);
       font-size: 10px;
       line-height: 1;
       color: rgba($color-blumine, 0.5);
       position: absolute;
       right: 5px;
       top: 2px;
-      @include transition(transform);
     }
 
     &__link {

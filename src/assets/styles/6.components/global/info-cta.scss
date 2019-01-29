@@ -4,8 +4,7 @@
   padding: 165px 30px;
 
   &__title {
-    @include apercu(700);
-    @include Text(25px, 27px, $color-white);
+    @include title-s($color-white);
     text-transform: uppercase;
     margin: 0 auto 40px;
     text-align: center;
@@ -40,14 +39,14 @@
 
   &__or {
     @include apercu;
-    @include Text(14px, 23px, $color-white);
+    @include paragraph-s($color-white);
   }
 
   &__link {
     @include apercu;
-    @include Text(14px, 23px, $color-white);
-    text-decoration: none;
+    @include paragraph-s($color-white);
     @include transition(color);
+    text-decoration: none;
 
     &:hover,
     &:active {
@@ -59,8 +58,6 @@
     padding: 90px 30px;
 
     &__title {
-      font-size: 24px;
-      line-height: 30px;
       text-transform: none;
       margin: 0 auto 20px;
       max-width: 460px;
@@ -80,8 +77,6 @@
     padding: 60px 30px;
 
     &__title {
-      font-size: 16px;
-      line-height: 24px;
       max-width: 300px;
     }
   }

@@ -3,7 +3,7 @@
 
   &__responsive-header {
     @include apercu(700);
-    @include Text(18px, 22px, $color-blumine);
+    @include paragraph-l($color-blumine);
     text-align: center;
     margin: 0 auto 30px;
   }
@@ -31,7 +31,7 @@
 
     &--head {
       @include apercu;
-      @include Text(13px, 20px, rgba($color-blumine, 0.5));
+      @include paragraph-xs(rgba($color-blumine, 0.5));
       padding: 10px 20px;
     }
 
@@ -84,14 +84,14 @@
 
   &__product-link {
     @include apercu(700);
-    @include Text(18px, 22px, $color-blumine);
+    @include paragraph-l($color-blumine);
     text-decoration: none;
     display: inline-block;
   }
 
   &__product-id {
     @include apercu;
-    @include Text(13.5px, 16px, $color-dove-gray);
+    @include paragraph-s($color-dove-gray);
     text-decoration: none;
     margin: 0 20px 8px 0;
   }
@@ -108,7 +108,7 @@
 
   &__remove {
     @include apercu;
-    @include Text(13.5px, 16px, rgba($color-blumine, 0.6));
+    @include paragraph-s(rgba($color-blumine, 0.6));
     text-decoration: none;
     margin: 0 10px 0 0;
     float: left;
@@ -122,12 +122,12 @@
 
   &__option {
     @include apercu;
-    @include Text(13.5px, 16px, $color-black);
+    @include paragraph-s;
   }
 
   &__price {
     @include apercu;
-    @include Text(16px, 20px, $color-blumine);
+    @include paragraph-m($color-blumine);
   }
 
   &__quantity {
@@ -202,7 +202,7 @@
 
     &-link {
       @include apercu(700);
-      @include Text(16px, 22px, $color-blumine);
+      @include paragraph-m($color-blumine);
       float: left;
       width: calc(100% - 70px);
       white-space: normal;
@@ -210,7 +210,7 @@
 
     &-price {
       @include apercu;
-      @include Text(16px, 22px, $color-blumine);
+      @include paragraph-m($color-blumine);
       text-align: right;
       float: left;
       width: 70px;
@@ -219,7 +219,7 @@
 
     &-id {
       @include apercu;
-      @include Text(12px, 14px, $color-dove-gray);
+      @include paragraph-xxs;
       text-decoration: none;
       display: inline-block;
       margin: 0 0 10px;
@@ -228,7 +228,7 @@
 
     &-option {
       @include apercu;
-      @include Text(12px, 14px, $color-black);
+      @include paragraph-xxs;
       text-decoration: none;
       margin: 0 20px 10px;
       display: inline-block;
@@ -237,7 +237,7 @@
 
     &-remove {
       @include apercu;
-      @include Text(12px, 14px, rgba($color-blumine, 0.6));
+      @include paragraph-xxs(rgba($color-blumine, 0.6));
       text-decoration: none;
       float: left;
       width: 45px;

@@ -3,8 +3,8 @@
   padding: 0 50px;
 
   &__main-title {
-    @include Text(20px, 30px, $color-blumine);
     @include apercu(700);
+    @include title-s-s($color-blumine);
     margin: 0 0 35px;
   }
 
@@ -31,7 +31,7 @@
 
   &__title-text {
     @include apercu(700);
-    @include Text(15px, 22px, $color-blumine);
+    @include paragraph-m-s($color-blumine);
   }
 
   &__list {
@@ -58,10 +58,49 @@
   }
 
   &__label {
-    @include Text(12px, 18px, $color-black);
+    @include paragraph-xxs;
     display: block;
     float: left;
     width: calc(100% - 30px);
+  }
+
+  &__responsive-toggle {
+    font-size: 18px;
+    line-height: 1;
+    padding: 2px;
+    border: none;
+    background: transparent;
+    opacity: 0.3;
+    appearance: none;
+    float: right;
+    @include transition(opacity);
+
+    &:hover,
+    &:active {
+      opacity: 1;
+    }
+  }
+
+  &__responsive-reset {
+    @include apercu;
+    @include paragraph-xxs($color-fountain-blue);
+    padding: 2px;
+    margin: 0 0 30px 1px;
+    border: none;
+    background: transparent;
+    appearance: none;
+    @include transition(color);
+
+    &:hover,
+    &:active {
+      color: $color-calypso;
+    }
+  }
+
+  &__responsive-content {
+    padding: 0 0 25px;
+    border-bottom: 1px solid $color-mercury;
+    margin: 0 0 25px;
   }
 
   @include media-query("xl-down") {
@@ -78,18 +117,11 @@
 
   @include media-query("medium-down") {
     &__main-title {
-      font-size: 18px;
-      line-height: 24px;
       margin: 0 0 20px;
     }
 
     &__icon {
       margin: 0 20px 0 0;
-    }
-
-    &__title-text {
-      font-size: 14px;
-      line-height: 16px;
     }
 
     &__list {
@@ -102,11 +134,6 @@
 
     &__radio {
       margin: 0 10px 0 0;
-    }
-
-    &__label {
-      font-size: 12px;
-      line-height: 16px;
     }
   }
 
@@ -131,45 +158,6 @@
         left: 0;
         box-shadow: -4px 0 40px 10px rgba($color-black, 0.25);
       }
-    }
-
-    &__responsive-toggle {
-      font-size: 18px;
-      line-height: 1;
-      padding: 2px;
-      border: none;
-      background: transparent;
-      opacity: 0.3;
-      appearance: none;
-      float: right;
-      @include transition(opacity);
-
-      &:hover,
-      &:active {
-        opacity: 1;
-      }
-    }
-
-    &__responsive-reset {
-      @include apercu();
-      @include Text(12px, 16px, $color-fountain-blue);
-      padding: 2px;
-      margin: 0 0 30px 1px;
-      border: none;
-      background: transparent;
-      appearance: none;
-      @include transition(color);
-
-      &:hover,
-      &:active {
-        color: $color-calypso;
-      }
-    }
-
-    &__responsive-content {
-      padding: 0 0 25px;
-      border-bottom: 1px solid $color-mercury;
-      margin: 0 0 25px;
     }
   }
 

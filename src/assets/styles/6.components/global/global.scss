@@ -17,7 +17,6 @@
 }
 body {
   // this is here just to override base styles - more generic than maincontent
-  @import "./quick-cart";
   @import "./ajax-search-results";
   @import "./item-added-message";
   @import "./spr-reviews";

@@ -1,7 +1,7 @@
 .blog-sidebar {
   &__title {
     @include apercu(700);
-    @include Text(22px, 27px, $color-blumine);
+    @include title-s-m($color-blumine);
     margin: 0 0 20px;
 
     &--first {
@@ -27,8 +27,8 @@
   }
 
   &__article-text {
-    @include Text(13.5px, 16px, $color-blumine);
     @include apercu;
+    @include paragraph-m-s($color-blumine);
     align-self: center;
     flex: auto;
   }
@@ -50,7 +50,7 @@
   }
 
   &__tag {
-    @include Text(14px, 20px, $color-blumine);
+    @include paragraph-s($color-blumine);
     padding: 2px 5px;
     background-color: $color-white;
   }

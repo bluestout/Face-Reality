@@ -1,6 +1,6 @@
 p {
   @include apercu(400);
-  @include Text(13.5px, 21px, $color-black);
+  @include paragraph-m-s;
   font-weight: 400;
   margin: 0 0 21px;
   word-break: break-word;
@@ -8,7 +8,7 @@ p {
 
 li {
   @include apercu(400);
-  @include Text(13.5px, 21px, $color-black);
+  @include paragraph-m-s;
   font-weight: 400;
   margin: 0 0 10px;
   word-break: break-word;
@@ -16,7 +16,7 @@ li {
 
 a {
   @include apercu(400);
-  @include Text(13.5px, 21px, $color-black);
+  @include paragraph-m-s;
   @include transition(color);
   font-weight: 400;
   word-break: break-word;
@@ -41,7 +41,7 @@ h1 {
 
 h2 {
   @include apercu(700);
-  @include Text(32px, 37px, $color-black);
+  @include title-m;
   word-break: break-word;
   a,
   span,
@@ -53,26 +53,25 @@ h2 {
 }
 
 h3 {
-  @include apercu(700);
-  @include Text(22px, 26px, $color-black);
+  @include title-s-m;
   word-break: break-word;
 }
 
 h4 {
-  @include apercu(400);
-  @include Text(20px, 24px, $color-black);
+  @include apercu;
+  @include title-s-s;
   word-break: break-word;
 }
 
 h5 {
-  @include apercu(400);
-  @include Text(18px, 24px, $color-black);
+  @include apercu;
+  @include paragraph-l;
   word-break: break-word;
 }
 
 h6 {
-  @include apercu(400);
-  @include Text(16px, 24px, $color-black);
+  @include apercu;
+  @include paragraph-m;
   word-break: break-word;
 }
 
@@ -111,7 +110,7 @@ input[type="tel"],
 input[type="password"],
 input[type="search"],
 textarea {
-  @include Text(16px, 16px, $color-black);
+  @include input-text;
   background-color: $color-white;
   padding: 15px 20px;
   border-radius: 0;
@@ -123,7 +122,7 @@ textarea {
 }
 
 input[type="submit"] {
-  @include Text(16px, 16px, $color-white);
+  @include input-text($color-white);
   font-weight: 700;
   color: $color-white;
   background-color: $color-blumine;
@@ -140,7 +139,7 @@ input[type="submit"] {
 }
 
 select {
-  @include Text(16px, 16px, $color-black);
+  @include input-text;
   background-color: $color-white;
   padding: 15px 20px;
   border: none;
@@ -233,29 +232,5 @@ input[type="radio"] {
   h1 {
     font-size: 32px;
     line-height: 36px;
-  }
-
-  h2 {
-    font-size: 28px;
-    line-height: 34px;
-  }
-
-  h3 {
-    font-size: 20px;
-    line-height: 24px;
-  }
-  h4 {
-    font-size: 18px;
-    line-height: 24px;
-  }
-
-  h5 {
-    font-size: 16px;
-    line-height: 22px;
-  }
-
-  h6 {
-    font-size: 15px;
-    line-height: 22px;
   }
 }

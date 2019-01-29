@@ -6,7 +6,7 @@
 
   &__note {
     @include apercu;
-    @include Text(20px, 30px, $color-black);
+    @include paragraph-xl;
     margin: 0 0 30px;
   }
 
@@ -36,7 +36,7 @@
 
   &__input {
     @include apercu;
-    @include Text(16px, 24px, $color-black);
+    @include paragraph-m;
     display: block;
     width: 100%;
     padding: 10px 0;
@@ -57,8 +57,6 @@
     padding: 60px 15px;
 
     &__note {
-      font-size: 16px;
-      line-height: 20px;
       margin: 0 0 20px;
     }
 
@@ -80,11 +78,6 @@
   @include media-query("small-down") {
     padding: 0;
     margin: 0 auto;
-
-    &__note {
-      font-size: 16px;
-      line-height: 20px;
-    }
 
     &__input-wrap {
       &--submit {

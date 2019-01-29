@@ -22,13 +22,13 @@
 
   &__title {
     @include apercu(700);
-    @include Text(32px, 34px, $color-blumine);
+    @include title-m($color-blumine);
     margin: 0 0 10px;
   }
 
   &__price {
     @include apercu(700);
-    @include Text(18px, 22px, $color-blumine);
+    @include paragraph-l($color-blumine);
     margin: 0 0 30px;
 
     small {
@@ -38,14 +38,14 @@
 
   &__description {
     @include apercu;
-    @include Text(15px, 22px, $color-black);
+    @include paragraph-m-s;
     margin: 0 auto 40px;
     max-width: 375px;
   }
 
   &__link {
     @include apercu;
-    @include Text(14px, 18px, $color-blumine);
+    @include paragraph-s;
     padding: 5px 20px;
     background-color: transparent;
     text-decoration: none;
@@ -60,10 +60,10 @@
     }
 
     &::after {
-      content: "\e905";
-      margin: 0 0 0 20px;
       @include icoMoon;
       @include Text(18px, 1, $color-blumine);
+      content: "\e905";
+      margin: 0 0 0 20px;
       opacity: 0.5;
       display: inline-block;
       vertical-align: bottom;
@@ -86,11 +86,6 @@
       max-width: 300px;
     }
 
-    &__title {
-      font-size: 18px;
-      line-height: 24px;
-    }
-
     &__price {
       font-size: 16px;
       line-height: 22px;
@@ -98,15 +93,8 @@
     }
 
     &__description {
-      font-size: 13.5px;
-      line-height: 21px;
       margin: 0 auto 20px;
       max-width: 300px;
-    }
-
-    &__link {
-      font-size: 13.5px;
-      line-height: 18px;
     }
   }
 

@@ -1,11 +1,5 @@
 .register {
-  margin: 0 0 120px;
-
-  &__image-wrap {
-  }
-
-  &__image {
-  }
+  margin: 60px 0 120px;
 
   &__registration {
     text-align: center;
@@ -15,14 +9,13 @@
   }
 
   &__registration-title {
-    @include apercu(700);
-    @include Text(21px, 25px, $color-blumine);
+    @include title-s-m($color-blumine);
     margin: 0 0 20px;
   }
 
   &__registration-info-note {
     @include apercu;
-    @include Text(12.5px, 15px, $color-black);
+    @include paragraph-xs;
     opacity: 0.6;
     margin: 0 auto 50px;
     max-width: 180px;
@@ -39,7 +32,7 @@
 
     li {
       @include apercu;
-      @include Text(14px, 20px, $color-black);
+      @include paragraph-s;
       display: block;
 
       &:not(:last-of-type) {
@@ -54,12 +47,12 @@
   }
 
   .error-message {
+    @include paragraph-s($color-black);
     position: absolute;
     z-index: 1;
     top: 100%;
     left: 0;
     width: 100%;
-    @include Text(14px, 20px, $color-black);
     padding: 10px;
     margin: 10px 0 0;
     background-color: $color-gallery;
@@ -75,12 +68,12 @@
   }
 
   &__input {
+    @include transition(border-color);
     position: relative;
     border: 1px solid rgba($color-calypso, 0.3);
     display: block;
     width: 100%;
     outline: none;
-    @include transition(border-color);
 
     &::placeholder {
       opacity: 0.3;
@@ -115,13 +108,13 @@
 
   &__have-account {
     @include apercu;
-    @include Text(12.5px, 15px, $color-black);
+    @include paragraph-xs;
     opacity: 0.6;
   }
 
   &__have-account-link {
     @include apercu;
-    @include Text(12.5px, 15px, $color-black);
+    @include paragraph-xs($color-black);
     opacity: 0.6;
   }
 
@@ -138,6 +131,6 @@
 
   &__professionals {
     @include apercu;
-    @include Text(12.5px, 15px, $color-blumine);
+    @include paragraph-xs($color-blumine);
   }
 }

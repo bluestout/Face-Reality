@@ -5,8 +5,7 @@
   width: 100%;
 
   &__title {
-    @include apercu(700);
-    @include Text(28px, 36px, $color-blumine);
+    @include title-s($color-blumine);
     text-align: center;
     margin: 0 0 40px;
     padding: 0 20px;
@@ -25,13 +24,13 @@
   }
 
   &__content {
-    @include Text(15px, 22px, $color-black);
+    @include paragraph-m;
     margin: 0 0 20px;
     display: block;
 
     p,
     li {
-      @include Text(15px, 22px, $color-black);
+      @include paragraph-m;
     }
 
     ul {
@@ -98,11 +97,11 @@
   }
 
   &__utilities {
+    @include hide-print;
     position: relative;
     padding: 0;
     text-align: right;
     margin: 0 40px 40px;
-    @include hide-print;
   }
 
   &__social {
@@ -118,7 +117,7 @@
 
     &-text {
       @include apercu;
-      @include Text(15px, 22px, $color-black);
+      @include paragraph-m;
       vertical-align: middle;
     }
 
@@ -171,10 +170,10 @@
     }
 
     &__icon {
+      @include transition(color);
       font-size: 24px;
       line-height: 1;
       color: $color-blumine;
-      @include transition(color);
     }
   }
 

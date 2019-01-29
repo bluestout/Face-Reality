@@ -5,14 +5,14 @@
 
   &__content {
     @include apercu;
-    @include Text(14px, 23px, $color-black);
+    @include paragraph-m;
     margin: 0 0 35px;
   }
 
   &__button {
     @include button(main);
     text-align: center;
-    font-size: 14px;
+    font-size: 16px;
     line-height: 18px;
     padding: 19px;
     margin: 0 auto;
@@ -27,12 +27,12 @@
 
   &__or {
     @include apercu;
-    @include Text(14px, 23px, $color-black);
+    @include paragraph-m;
   }
 
   &__link-inline {
     @include apercu;
-    @include Text(14px, 23px, $color-blumine);
+    @include paragraph-m($color-blumine);
     text-decoration: none;
   }
 

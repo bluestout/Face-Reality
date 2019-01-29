@@ -29,13 +29,13 @@
 
   &__suptitle {
     @include apercu;
-    @include Text(13.5px, 20px, $color-black);
+    @include paragraph-m-s;
     margin: 0 0 15px;
   }
 
   &__title {
     @include apercu(700);
-    @include title-main;
+    @include title-xl;
   }
 
   &__badge-wrap {

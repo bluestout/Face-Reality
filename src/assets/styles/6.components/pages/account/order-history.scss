@@ -3,8 +3,7 @@
   margin: 0 auto 100px;
 
   &__title {
-    @include apercu(700);
-    @include Text(22px, 26px, $color-blumine);
+    @include title-s-m($color-blumine);
     text-align: center;
     margin: 0 0 50px;
   }
@@ -21,16 +20,17 @@
 
   &__cell {
     @include apercu;
+    @include paragraph-m;
     padding: 20px;
     text-align: left;
     border-bottom: 1px solid $color-mercury;
     a {
       @include apercu;
-      @include Text(16px, 20px, $color-black);
+      @include paragraph-m;
     }
 
     &--head {
-      @include Text(14px, 20px, rgba($color-blumine, 0.5));
+      @include paragraph-s(rgba($color-blumine, 0.5));
       padding: 10px 20px;
       border-top: 1px solid $color-mercury;
     }
@@ -71,18 +71,9 @@
       margin: 0 0 30px;
     }
     &__cell {
-      font-size: 13.5px;
-      line-height: 18px;
       padding: 10px;
 
-      a {
-        font-size: 13.5px;
-        line-height: 18px;
-      }
-
       &--head {
-        font-size: 13.5px;
-        line-height: 18px;
         padding: 10px;
       }
     }
@@ -105,18 +96,18 @@
     }
 
     &__cell {
-      font-size: 11px;
-      line-height: 14px;
+      font-size: 12px;
+      line-height: 16px;
       padding: 5px;
 
       a {
-        font-size: 11px;
-        line-height: 14px;
+        font-size: 12px;
+        line-height: 16px;
       }
 
       &--head {
-        font-size: 11px;
-        line-height: 14px;
+        font-size: 12px;
+        line-height: 16px;
         padding: 15px;
       }
     }

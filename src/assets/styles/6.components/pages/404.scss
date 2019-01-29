@@ -16,22 +16,21 @@
   }
 
   &__title {
-    @include apercu(700);
-    @include Text(35.5px, 40px, $color-blumine);
+    @include title-l($color-blumine);
     margin: 0 auto 15px;
     max-width: 500px;
   }
 
   &__alias {
     @include apercu(700);
-    @include Text(18px, 21px, $color-dusty-gray);
+    @include paragraph-l($color-dusty-gray);
     opacity: 0.6;
     margin: 0 auto 45px;
   }
 
   &__text {
     @include apercu;
-    @include Text(14px, 21px, $color-black);
+    @include paragraph-s;
     margin: 0 auto 55px;
   }
 
@@ -84,21 +83,15 @@
     }
 
     &__title {
-      font-size: 24px;
-      line-height: 32px;
       margin: 0 auto 10px;
       max-width: 340px;
     }
 
     &__alias {
-      font-size: 13.5px;
-      line-height: 18px;
       margin: 0 auto 35px;
     }
 
     &__text {
-      font-size: 13.5px;
-      line-height: 21px;
       margin: 0 auto 30px;
       max-width: 400px;
     }
@@ -126,11 +119,6 @@
 
     &__banner {
       padding: 30px 40px 60px;
-    }
-
-    &__title {
-      font-size: 18px;
-      line-height: 24px;
     }
   }
 }

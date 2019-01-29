@@ -8,12 +8,7 @@
   $easing: $animation-timing;
   $delay: null;
 
-  $defaultProperties: (
-    $property,
-    $duration,
-    $easing,
-    $delay
-  );
+  $defaultProperties: ($property, $duration, $easing, $delay);
 
   $properties: ();
 

@@ -74,16 +74,16 @@
   }
 
   &__suptitle {
-    position: relative;
     @include apercu;
+    position: relative;
     font-size: 13.5px;
     line-height: 20px;
     margin: 0 0 30px;
   }
 
   &__title {
-    position: relative;
     @include apercu(700);
+    position: relative;
     font-size: 40px;
     line-height: 49px;
     margin: 0;

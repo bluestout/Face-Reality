@@ -21,8 +21,7 @@
   }
 
   &__title {
-    @include apercu(700);
-    @include Text(24px, 30px, $color-blumine);
+    @include title-s($color-blumine);
     text-align: center;
     margin: 0 0 40px;
     padding: 0 20px;
@@ -30,12 +29,12 @@
 
   &__description {
     @include apercu;
-    @include Text(14px, 18px, $color-black);
+    @include paragraph-m;
     display: block;
 
     p,
     li {
-      @include Text(14px, 18px, $color-black);
+      @include paragraph-m;
     }
 
     ul {
@@ -77,7 +76,7 @@
 
   &__text {
     @include apercu;
-    @include Text(14px, 18px, $color-blumine);
+    @include paragraph-m($color-blumine);
     display: inline-block;
     vertical-align: middle;
   }

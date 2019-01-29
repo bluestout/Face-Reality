@@ -11,8 +11,8 @@
   @include transition(top 500ms, opacity 700ms);
 
   &__message {
-    @include Text(20px, 30px, $color-blumine);
-    @include apercu(bold);
+    @include apercu(700);
+    @include title-s-s($color-blumine);
     padding: 10px;
     background-color: $color-white;
   }

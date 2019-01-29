@@ -27,7 +27,7 @@
   }
 
   &__announcement-text {
-    @include Text(12.5px, 14px, $color-white);
+    @include Text(13px, 14px, $color-white);
     padding: 8px;
     margin: 0;
     a {
@@ -43,7 +43,7 @@
 
     &-link {
       @include apercu;
-      @include Text(12.5px, 14px, $color-black);
+      @include Text(14px, 16px, $color-black);
       display: inline-block;
       vertical-align: middle;
       text-decoration: none;
@@ -56,7 +56,7 @@
     }
 
     &-button {
-      @include Text(12.5px, 14px, $color-blumine);
+      @include Text(13px, 14px, $color-blumine);
       text-align: center;
       text-decoration: none;
       padding: 11px 20px;

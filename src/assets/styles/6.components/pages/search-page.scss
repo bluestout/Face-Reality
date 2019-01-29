@@ -9,12 +9,9 @@
   }
 
   &__title {
-    @include title-main;
+    @include title-xl;
     text-align: center;
     margin: 0 0 60px;
-  }
-
-  &__content {
   }
 
   &__list {

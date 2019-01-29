@@ -2,13 +2,13 @@
   padding: 0 30px;
 
   &__title {
-    @include Text(18px, 24px, $color-black);
+    @include paragraph-l;
     font-weight: 700;
     text-transform: uppercase;
     margin: 0 0 30px;
   }
   &__or {
-    @include Text(14px, 20px, $color-blumine);
+    @include paragraph-s($color-blumine);
     font-weight: 400;
     &--block {
       display: block;
@@ -16,7 +16,7 @@
     }
   }
   &__subtitle {
-    @include Text(16px, 20px, $color-blumine);
+    @include paragraph-m($color-blumine);
     font-weight: 700;
     margin: 0 0 16px;
   }
@@ -76,13 +76,13 @@
   }
 
   &__cancel {
-    @include Text(14px, 20px, $color-blumine);
+    @include paragraph-s($color-blumine);
     font-weight: 400;
     text-decoration: none;
   }
 
   &__label {
-    @include Text(14px, 16px, $color-blumine);
+    @include paragraph-s($color-blumine);
     display: block;
     margin: 0 0 4px;
     &--checkbox {

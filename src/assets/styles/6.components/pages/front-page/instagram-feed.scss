@@ -1,7 +1,7 @@
 .instagram-feed {
   &__title {
     @include apercu;
-    @include Text(21px, 32px, $color-black);
+    @include title-s-s;
     margin: 0 auto 36px;
     text-align: center;
     text-decoration: none;
@@ -11,8 +11,6 @@
 @include media-query("medium-down") {
   .instagram-feed {
     &__title {
-      font-size: 20px;
-      line-height: 30px;
       margin: 0 auto 24px;
     }
   }

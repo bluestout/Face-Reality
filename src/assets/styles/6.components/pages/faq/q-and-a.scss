@@ -4,7 +4,7 @@
 
   &__introduction {
     @include apercu;
-    @include Text(20px, 30px, $color-black);
+    @include paragraph-xl;
     text-align: center;
     margin: 0 auto 50px;
     max-width: 770px;
@@ -93,12 +93,12 @@
 
   &__question-text {
     @include apercu;
-    @include Text(20px, 30px, $color-black);
+    @include paragraph-xl;
+    @include transition(color);
     width: calc(100% - 60px);
     padding: 0 30px;
     display: block;
     float: left;
-    @include transition(color);
   }
 
   &__toggle-icon {
@@ -116,15 +116,13 @@
 
   &__answer {
     @include apercu;
-    @include Text(16px, 22px, $color-black);
+    @include paragraph-m;
     display: none;
     padding: 60px 60px 30px;
   }
 
   @include media-query("medium-down") {
     &__introduction {
-      font-size: 16px;
-      line-height: 22px;
       margin: 0 auto 40px;
     }
 
@@ -150,8 +148,6 @@
     }
 
     &__question-text {
-      font-size: 16px;
-      line-height: 22px;
       width: calc(100% - 48px);
       padding: 0 20px;
     }
@@ -164,7 +160,7 @@
     }
 
     &__answer {
-      font-size: 13.5px;
+      font-size: 14px;
       line-height: 21px;
       padding: 30px 44px;
     }

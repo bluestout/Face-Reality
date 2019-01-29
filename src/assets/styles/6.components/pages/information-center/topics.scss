@@ -32,12 +32,12 @@
 
     p {
       @include apercu;
-      @include Text(20px, 30px, $color-black);
+      @include paragraph-xl;
     }
 
     a {
       @include apercu;
-      @include Text(20px, 30px, $color-blumine);
+      @include paragraph-xl($color-blumine);
       text-decoration: none;
     }
 
@@ -71,21 +71,20 @@
   }
 
   &__title {
+    @include no-font-size;
     margin: 0 0 30px;
     text-decoration: none;
     display: inline-block;
-    @include no-font-size;
 
     &-primary {
-      @include apercu(700);
-      @include Text(25px, 30px, $color-blumine);
+      @include title-s($color-blumine);
       margin: 0 0 5px;
       display: inline-block;
     }
 
     &-secondary {
       @include apercu(700);
-      @include Text(14px, 17px, $color-blumine);
+      @include paragraph-s($color-blumine);
       display: block;
     }
   }
@@ -103,7 +102,7 @@
 
   &__sublink {
     @include apercu;
-    @include Text(14px, 22px, $color-black);
+    @include paragraph-s;
     background-color: transparent;
     padding: 7px 40px;
     margin: 0 0 5px;
@@ -172,16 +171,6 @@
 
     &__introduction {
       margin: 0 auto;
-
-      p {
-        font-size: 16px;
-        line-height: 22px;
-      }
-
-      a {
-        font-size: 16px;
-        line-height: 22px;
-      }
     }
 
     &__topic {
@@ -201,20 +190,11 @@
       margin: 0 0 25px;
 
       &-primary {
-        font-size: 18px;
-        line-height: 24px;
         margin: 0 0 5px;
-      }
-
-      &-secondary {
-        font-size: 13px;
-        line-height: 18px;
       }
     }
 
     &__sublink {
-      font-size: 13.5px;
-      line-height: 21px;
       padding: 5px 20px;
       margin: 0 0 5px;
     }
@@ -240,8 +220,6 @@
     }
 
     &__sublink {
-      font-size: 13.5px;
-      line-height: 21px;
       padding: 5px 0;
     }
   }

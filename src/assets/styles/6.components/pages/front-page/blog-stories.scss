@@ -1,7 +1,7 @@
 .blog-stories {
   margin: 0 auto 85px;
   &__title {
-    @include title-small;
+    @include title-xxs;
     margin: 0 0 30px;
     text-align: center;
   }
@@ -49,19 +49,19 @@
 
     &:hover,
     &:active {
+      background-position: 100% 0;
+
       .blog-stories__icon {
         opacity: 1;
         right: 0;
       }
-
-      background-position: 100% 0;
     }
   }
 
   &__post-title {
-    display: block;
     @include apercu(700);
-    @include Text(25px, 26px, $color-white);
+    @include title-s($color-white);
+    display: block;
     margin: 0 0 15px;
   }
 
@@ -71,7 +71,7 @@
 
   &__author {
     @include apercu;
-    @include Text(12.5px, 13px, $color-white);
+    @include paragraph-xs($color-white);
     opacity: 0.6;
     @include transition(opacity);
   }
@@ -85,6 +85,7 @@
 
   &__icon {
     position: relative;
+    right: 5px;
     font-size: 20px;
     line-height: 1;
     color: $color-white;
@@ -94,7 +95,6 @@
     text-align: right;
     align-self: flex-end;
     transition: opacity 200ms ease-out, right 200ms ease-out;
-    right: 5px;
   }
 
   &__story {
@@ -112,7 +112,7 @@
       }
 
       .blog-stories__post-title {
-        @include Text(35.5px, 36px, $color-white);
+        @include title-l($color-white);
       }
 
       .blog-stories__post-info {

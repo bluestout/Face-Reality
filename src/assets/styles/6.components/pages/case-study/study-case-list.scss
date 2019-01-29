@@ -8,13 +8,11 @@
   }
 
   &__client {
-    @include apercu(700);
-    @include Text(22px, 27px, $color-blumine);
+    @include title-s-m($color-blumine);
   }
 
   &__age {
-    @include apercu(700);
-    @include Text(22px, 27px, $color-blumine);
+    @include title-s-m($color-blumine);
   }
 
   &__comparison {
@@ -31,28 +29,26 @@
     }
 
     &-title {
-      @include apercu(700);
-      @include Text(22px, 27px, $color-blumine);
+      @include title-s-m($color-blumine);
       margin: 25px 0 15px;
     }
 
     &-content {
       @include apercu;
-      @include Text(15px, 22px, $color-black);
+      @include paragraph-m;
       margin: 0;
     }
   }
 
   &__testimonial {
     &-title {
-      @include apercu(700);
-      @include Text(22px, 27px, $color-blumine);
+      @include title-s-m($color-blumine);
       margin: 0 0 15px;
     }
 
     &-content {
       @include apercu;
-      @include Text(15px, 22px, $color-black);
+      @include paragraph-m;
       position: relative;
 
       &::before {
@@ -74,12 +70,12 @@
 
     &-client {
       @include apercu;
-      @include Text(12px, 13px, $color-black);
+      @include paragraph-xxs;
     }
 
     &-age {
       @include apercu;
-      @include Text(12px, 13px, $color-black);
+      @include paragraph-xxs;
       opacity: 0.5;
       margin: 0 0 0 10px;
     }
@@ -102,36 +98,20 @@
 
     &__notes {
       margin: 0 0 30px;
-      &-title {
-        font-size: 18px;
-        line-height: 24px;
-      }
 
       &-content {
-        font-size: 13.5px;
+        font-size: 14px;
         line-height: 21px;
       }
     }
 
-    &__client {
-      font-size: 16px;
-      line-height: 22px;
-    }
-
-    &__age {
-      font-size: 16px;
-      line-height: 22px;
-    }
-
     &__testimonial {
       &-title {
-        font-size: 16px;
-        line-height: 22px;
         margin: 0 0 15px;
       }
 
       &-content {
-        font-size: 13.5px;
+        font-size: 14px;
         line-height: 21px;
       }
     }

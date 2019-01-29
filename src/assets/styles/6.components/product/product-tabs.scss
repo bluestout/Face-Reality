@@ -7,7 +7,7 @@
   }
 
   &__link {
-    @include Text(13.5px, 14px, $color-black);
+    @include Text(14px, 14px, $color-black);
     @include transition(opacity, color);
     position: relative;
     bottom: -1px;
@@ -32,7 +32,7 @@
   }
 
   &__content {
-    @include Text(13.5px, 21px, $color-black);
+    @include paragraph-m-s;
     font-weight: 400;
     margin: 0 0 21px;
     word-break: break-word;

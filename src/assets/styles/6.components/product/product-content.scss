@@ -6,7 +6,7 @@
 
   &__authorization-tag {
     @include apercu;
-    @include Text(11.5px, 16px, $color-white);
+    @include paragraph-xxs($color-white);
     background-color: $color-de-york;
     padding: 4px;
     width: 180px;
@@ -16,13 +16,13 @@
 
   &__title {
     @include apercu(700);
-    @include Text(31px, 35px, $color-blumine);
+    @include title-m($color-blumine);
     margin: 0 0 10px;
   }
 
   &__id {
     @include apercu;
-    @include Text(11px, 17px, $color-blumine);
+    @include paragraph-xxs($color-blumine);
     opacity: 0.55;
     margin: 0 0 10px;
   }
@@ -32,21 +32,21 @@
   }
 
   &__reviews-link {
-    @include Text(11px, 18px, $color-blumine);
+    @include paragraph-xxs($color-blumine);
     margin: 0 0 0 5px;
     text-decoration: none;
   }
 
   &__description {
     @include apercu;
-    @include Text(13px, 21px, $color-black);
+    @include paragraph-xs;
     margin: 0 0 30px;
     text-align: left;
 
     p,
     li {
       @include apercu;
-      @include Text(13px, 21px, $color-black);
+      @include paragraph-xs;
     }
 
     p {
@@ -76,13 +76,13 @@
 
   &__price {
     @include apercu(700);
-    @include Text(18px, 22px, $color-blumine);
+    @include paragraph-l($color-blumine);
     margin: 0 0 15px;
   }
 
   &__option-name {
     @include apercu;
-    @include Text(12.5px, 14px, $color-dove-gray);
+    @include Text(13px, 14px, $color-dove-gray);
     margin: 20px 0 10px;
   }
 
@@ -100,7 +100,7 @@
 
   &__variant-label {
     @include apercu;
-    @include Text(12.5px, 14px, $color-dove-gray);
+    @include Text(13px, 14px, $color-dove-gray);
     @include transition(opacity, color);
     z-index: 2;
     position: relative;

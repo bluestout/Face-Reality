@@ -16,7 +16,7 @@
 
   &__responsive-text {
     @include apercu(700);
-    @include Text(13px, 16px, $color-fountain-blue);
+    @include paragraph-xs($color-fountain-blue);
   }
 
   &__responsive-icon {

@@ -40,7 +40,7 @@
 
   &__phone-text {
     @include apercu;
-    @include Text(18px, 22px, $color-black);
+    @include paragraph-l;
     margin: 0 0 0 10px;
   }
 

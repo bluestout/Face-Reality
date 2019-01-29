@@ -28,14 +28,14 @@
   }
 
   &__tabs-link {
+    @include title-xxs;
+    @include transition(color);
     position: relative;
-    @include title-small;
     text-align: center;
     display: block;
     text-decoration: none;
     padding: 14px 28px;
     border-bottom: 1px solid rgba($color-black, 0.35);
-    @include transition(color);
 
     &.active {
       color: $color-fountain-blue;
@@ -55,12 +55,12 @@
   }
 
   &__title {
-    @include title-section;
+    @include title-l;
     margin: 0 0 40px;
   }
 
   &__collection-title {
-    @include title-small;
+    @include title-xxs;
     margin: 0 0 45px;
   }
 
@@ -100,8 +100,8 @@
   }
 
   &__col-title {
-    @include apercu(700);
-    @include Text(22px, 24px, $color-blumine);
+    @include title-s-m($color-blumine);
+    line-height: 24px;
     text-align: center;
     display: block;
     margin: auto;
@@ -160,7 +160,7 @@
 
   &__hover-col-text {
     @include apercu;
-    @include Text(12.5px, 16px, rgba($color-blumine, 0.65));
+    @include paragraph-xs(rgba($color-blumine, 0.65));
     text-align: center;
     margin: 0 0 22px;
     display: block;
@@ -168,7 +168,7 @@
 
   &__hover-col-link {
     @include apercu;
-    @include Text(12.5px, 16px, $color-blumine);
+    @include paragraph-xs($color-blumine);
     display: block;
     text-align: center;
     text-decoration: none;
@@ -190,6 +190,7 @@
     &__hover-col-header {
       .collection-by-type__col-title {
         font-size: 18px;
+        line-height: 24px;
       }
     }
   }
@@ -198,6 +199,7 @@
     &__hover-col-header {
       .collection-by-type__col-title {
         font-size: 18px;
+        line-height: 24px;
       }
     }
   }
@@ -241,6 +243,7 @@
 
     &__col-title {
       font-size: 18px;
+      line-height: 24px;
     }
 
     &__hover-col {
@@ -316,6 +319,7 @@
 
     &__col-title {
       font-size: 16px;
+      line-height: 24px;
     }
 
     .col-count:nth-of-type(3n + 1) {

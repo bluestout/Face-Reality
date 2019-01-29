@@ -9,7 +9,7 @@
 
   &__introduction {
     @include apercu;
-    @include Text(20px, 30px, $color-black);
+    @include paragraph-xl;
     text-align: center;
     margin: 0 0 90px;
   }
@@ -27,8 +27,7 @@
   }
 
   &__title {
-    @include apercu(700);
-    @include Text(22px, 27px, $color-blumine);
+    @include title-s-m($color-blumine);
     text-align: center;
     margin: 0 0 25px;
   }
@@ -36,7 +35,7 @@
   &__content {
     @include clearfix;
     @include apercu;
-    @include Text(15px, 22px, $color-black);
+    @include paragraph-m-s;
 
     ul {
       list-style: none;
@@ -59,8 +58,6 @@
     }
 
     &__introduction {
-      font-size: 18px;
-      line-height: 24px;
       margin: 0 0 40px;
     }
 
@@ -69,8 +66,6 @@
     }
 
     &__title {
-      font-size: 20px;
-      line-height: 26px;
       margin: 0 0 30px;
     }
 
@@ -99,8 +94,6 @@
     }
 
     &__introduction {
-      font-size: 16px;
-      line-height: 22px;
       margin: 0 0 30px;
     }
 
@@ -109,14 +102,10 @@
     }
 
     &__title {
-      font-size: 18px;
-      line-height: 24px;
       margin: 0 0 20px;
     }
 
     &__content {
-      font-size: 13.5px;
-      line-height: 21px;
       ul {
         list-style: none;
         padding: 0 0 0 30px;

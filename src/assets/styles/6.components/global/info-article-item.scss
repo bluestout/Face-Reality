@@ -22,15 +22,14 @@
   }
 
   &__title {
-    @include apercu(700);
-    @include Text(24px, 30px, $color-blumine);
+    @include title-s($color-blumine);
     margin: 0 auto 24px;
     padding: 0 15px;
   }
 
   &__description {
     @include apercu;
-    @include Text(14px, 18px, $color-black);
+    @include paragraph-s;
     opacity: 0.6;
     margin: 0 auto 24px;
     padding: 0 15px;
@@ -51,7 +50,7 @@
 
   &__text {
     @include apercu(700);
-    @include Text(14px, 18px, $color-blumine);
+    @include paragraph-s($color-blumine);
     display: inline-block;
     vertical-align: middle;
   }
@@ -78,18 +77,11 @@
     }
 
     &__title {
-      font-size: 18px;
-      line-height: 24px;
       margin: 0 auto 20px;
     }
 
     &__description {
-      font-size: 13.5px;
       margin: 0 auto 20px;
-    }
-
-    &__text {
-      font-size: 13.5px;
     }
 
     &__icon {
@@ -140,11 +132,6 @@
     &__text {
       display: none;
     }
-
-    &__icon {
-      font-size: 16px;
-      line-height: 16px;
-    }
   }
 
   @include media-query("v-small") {
@@ -154,10 +141,6 @@
   @media (max-width: 400px) {
     &__title {
       margin: 10px 0;
-    }
-    &__description {
-      font-size: 12px;
-      line-height: 16px;
     }
   }
 }

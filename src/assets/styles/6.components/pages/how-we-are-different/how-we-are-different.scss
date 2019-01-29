@@ -1,6 +1,6 @@
 .how-different {
   &__title {
-    @include Text(13.5px, 21px, $color-black);
+    @include paragraph-m-s;
     text-align: center;
     font-weight: 400;
     margin: 0 auto 30px;
@@ -8,7 +8,7 @@
   }
 
   &__subtitle {
-    @include title-main;
+    @include title-xl;
     text-align: center;
     margin: 0 auto 85px;
   }

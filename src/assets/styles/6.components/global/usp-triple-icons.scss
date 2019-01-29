@@ -14,7 +14,7 @@
 
   &__usp-text {
     @include apercu(700);
-    @include Text(13.5px, 14px, $color-blumine);
+    @include Text(14px, 14px, $color-blumine);
     display: block;
     margin: 15px auto 0;
     max-width: 110px;

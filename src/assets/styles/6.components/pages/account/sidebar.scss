@@ -4,18 +4,18 @@
 
   .account-sidebar__title {
     @include apercu(700);
-    @include Text(14px, 18px, $color-blumine);
+    @include paragraph-s($color-blumine);
     margin: 0 0 25px;
   }
 
   .account-sidebar__link {
     @include apercu(700);
-    @include Text(14px, 18px, $color-black);
+    @include paragraph-s;
+    @include transition(opacity);
     text-decoration: none;
     margin: 0 0 25px;
     opacity: 0.5;
     display: inline-block;
-    @include transition(opacity);
 
     &:hover,
     &:active {

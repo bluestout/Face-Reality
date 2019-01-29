@@ -25,14 +25,13 @@
   }
 
   &__title {
-    @include apercu(700);
-    @include Text(35.5px, 40px, $color-blumine);
+    @include title-l($color-blumine);
     margin: 0 auto 15px;
   }
 
   &__text {
     @include apercu;
-    @include Text(14px, 21px, $color-black);
+    @include paragraph-s;
     margin: 0 auto 65px;
   }
 
@@ -43,7 +42,7 @@
 
   &__col-text {
     @include apercu;
-    @include Text(15px, 22px, $color-black);
+    @include paragraph-m-s;
     margin: 0 auto 35px;
   }
 

@@ -3,17 +3,14 @@
 
   &__title {
     @include apercu(700);
-    @include Text(20px, 26px, $color-blumine);
+    @include title-s-s($color-blumine);
     margin: 0 0 15px;
     text-align: center;
   }
 
-  &__container {
-  }
-
   &__message {
     @include apercu(700);
-    @include Text(15px, 22px, $color-black);
+    @include paragraph-m-s;
     margin: 0 0 15px;
     text-align: center;
     padding: 0 20px;
@@ -32,15 +29,15 @@
   }
 
   &__content {
-    @include Text(15px, 22px, $color-black);
+    @include paragraph-m-s;
     p {
-      @include Text(15px, 22px, $color-black);
+      @include paragraph-m-s;
     }
   }
 
   &__meta {
     @include apercu(700, italic);
-    @include Text(13px, 20px, $color-black);
+    @include paragraph-xs;
     text-align: right;
   }
 
@@ -87,8 +84,8 @@
 
   .errors {
     li {
-      @include Text(15px, 22px, $color-black);
-      font-weight: 700;
+      @include paragraph-m-s;
+      @include apercu(700);
     }
 
     ul {
@@ -115,8 +112,6 @@
     }
 
     &__message {
-      font-size: 13.5px;
-      line-height: 21px;
       margin: 0 0 10px;
     }
 
@@ -128,18 +123,7 @@
       padding: 15px;
     }
 
-    &__content {
-      font-size: 13.5px;
-      line-height: 18px;
-      p {
-        font-size: 13.5px;
-        line-height: 18px;
-      }
-    }
-
     &__meta {
-      font-size: 11px;
-      line-height: 14px;
       margin: 0 0 10px;
     }
 
@@ -158,11 +142,6 @@
     }
 
     .errors {
-      li {
-        font-size: 13.5px;
-        line-height: 21px;
-      }
-
       ul {
         padding-inline-start: 35px;
       }

@@ -19,9 +19,9 @@
     padding: 30px;
 
     &-text {
-      position: relative;
       @include apercu;
-      @include Text(14px, 22px, $color-black);
+      @include paragraph-m-s;
+      position: relative;
       margin: 0 0 35px;
 
       &::before {
@@ -49,13 +49,13 @@
 
     &-name {
       @include apercu;
-      @include Text(11.5px, 12.5px, $color-blumine);
+      @include paragraph-m-s($color-blumine);
       margin: 0 11px 0 0;
     }
 
     &-date {
       @include apercu;
-      @include Text(11.5px, 12.5px, $color-blumine);
+      @include paragraph-xs;
       opacity: 0.5;
     }
   }

@@ -16,7 +16,7 @@
 
   @if $type == main {
     @include apercu(700);
-    @include Text(12.5px, 14px, $color-white);
+    @include Text(13px, 14px, $color-white);
     @include transition(background-color);
     text-align: center;
     text-decoration: none;
@@ -48,7 +48,7 @@
     }
 
     @if $size == big {
-      font-size: 14px;
+      font-size: 15px;
       padding-top: 20px;
       padding-bottom: 20px;
     } @else if $size == small {
@@ -61,7 +61,7 @@
     }
   } @else if $type == wire {
     @include apercu(700);
-    @include Text(12.5px, 14px, $color-blumine);
+    @include Text(13px, 14px, $color-blumine);
     @include transition(background-color, color);
     text-align: center;
     text-decoration: none;
@@ -93,7 +93,7 @@
     }
 
     @if $size == big {
-      font-size: 14px;
+      font-size: 15px;
       padding-top: 19px;
       padding-bottom: 19px;
     } @else if $size == small {

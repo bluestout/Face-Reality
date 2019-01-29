@@ -3,7 +3,7 @@
   padding: 100px 0;
 
   &__suptitle {
-    @include title-small;
+    @include title-xxs;
     text-align: center;
     max-width: 700px;
     margin: 0 auto 25px;
@@ -29,7 +29,7 @@
 
   &__study-title {
     @include apercu(700);
-    @include Text(31px, 35px, $color-blumine);
+    @include title-m($color-blumine);
     margin: 0 0 50px;
   }
 
@@ -37,7 +37,7 @@
     p,
     li,
     a {
-      @include Text(15px, 22px, $color-black);
+      @include paragraph-m-s($color-black);
     }
   }
 

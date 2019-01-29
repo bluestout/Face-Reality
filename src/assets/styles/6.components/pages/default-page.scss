@@ -9,7 +9,7 @@
   }
 
   &__title {
-    @include title-main;
+    @include title-xl;
     text-align: center;
     margin: 0 0 120px;
 
@@ -20,42 +20,17 @@
 
   &__sup-title {
     @include apercu;
-    @include Text(13.5px, 20px, $color-black);
+    @include paragraph-m-s;
     text-align: center;
     margin: 0 0 40px;
   }
 
   &__introduction {
     @include apercu;
-    @include Text(20px, 30px, $color-black);
+    @include paragraph-xl;
     text-align: center;
     margin: 0 0 100px;
   }
-
-  /* &__table {
-    border-spacing: 0;
-  }
-
-  &__cell {
-    @include apercu;
-    @include Text(13.5px, 20px, $color-black);
-    border-bottom: 1px solid $color-white;
-    background-color: $color-aqua-haze;
-    text-align: center;
-    padding: 20px;
-
-    &--left {
-      text-align: left;
-    }
-
-    &--head {
-      @include apercu;
-      @include Text(12px, 17px, $color-black);
-      opacity: 0.5;
-      padding: 10px 20px;
-      background-color: transparent;
-    }
-  } */
 
   table {
     border-spacing: 0;
@@ -63,7 +38,7 @@
 
   table td {
     @include apercu;
-    @include Text(13.5px, 20px, $color-black);
+    @include paragraph-m-s;
     border-bottom: 1px solid $color-white;
     background-color: $color-aqua-haze;
     text-align: center;
@@ -76,7 +51,7 @@
 
   table th {
     @include apercu;
-    @include Text(12px, 17px, $color-black);
+    @include paragraph-xxs;
     opacity: 0.5;
     padding: 10px 20px;
     background-color: transparent;
@@ -136,8 +111,6 @@
     }
 
     &__introduction {
-      font-size: 16px;
-      line-height: 20px;
       margin: 0 0 30px;
     }
 

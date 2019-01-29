@@ -121,11 +121,121 @@
   background-position: center center;
 }
 
-@mixin Text($size: 15px, $line: 1.25, $colour: initial, $spacing: normal) {
+@mixin Text($size: 15px, $line: 1.25, $color: initial, $spacing: normal) {
   font-size: $size;
   line-height: $line;
-  color: $colour;
+  color: $color;
   letter-spacing: $spacing;
+}
+
+@mixin title-xl($color: $color-black, $letter-spacing: normal) {
+  @include apercu(700);
+  @include Text(40px, 50px, $color, $letter-spacing);
+  @include media-query("medium-down") {
+    font-size: 24px;
+    line-height: 30px;
+  }
+
+  @include media-query("v-small") {
+    font-size: 18px;
+    line-height: 24px;
+  }
+}
+
+@mixin title-l($color: $color-black, $letter-spacing: normal) {
+  @include apercu(700);
+  @include Text(36px, 42px, $color, $letter-spacing);
+  @include media-query("medium-down") {
+    font-size: 25px;
+    line-height: 32px;
+  }
+}
+
+@mixin title-m($color: $color-black, $letter-spacing: normal) {
+  @include Text(32px, 38px, $color, $letter-spacing);
+}
+
+@mixin title-s($color: $color-black, $letter-spacing: normal) {
+  @include apercu(700);
+  @include Text(25px, 30px, $color, $letter-spacing);
+  @include media-query("medium-down") {
+    font-size: 20px;
+    line-height: 26px;
+  }
+}
+
+@mixin title-s-m($color: $color-black, $letter-spacing: normal) {
+  @include apercu(700);
+  @include Text(22px, 28px, $color, $letter-spacing);
+  @include media-query("medium-down") {
+    font-size: 18px;
+    line-height: 24px;
+  }
+}
+
+@mixin title-s-s($color: $color-black, $letter-spacing: normal) {
+  @include Text(20px, 26px, $color-blumine);
+  @include media-query("medium-down") {
+    font-size: 18px;
+    line-height: 24px;
+  }
+}
+
+@mixin title-xxs {
+  @include apercu;
+  @include Text(14px, 20px, $color-fountain-blue);
+}
+
+@mixin paragraph-xl($color: $color-black, $letter-spacing: normal) {
+  @include Text(20px, 30px, $color-blumine);
+  @include media-query("medium-down") {
+    font-size: 16px;
+    line-height: 25px;
+  }
+}
+
+@mixin paragraph-l($color: $color-black, $letter-spacing: normal) {
+  @include Text(18px, 25px, $color-blumine);
+  @include media-query("medium-down") {
+    font-size: 16px;
+    line-height: 25px;
+  }
+}
+
+@mixin paragraph-m($color: $color-black, $letter-spacing: normal) {
+  @include Text(16px, 25px, $color, $letter-spacing);
+}
+
+@mixin paragraph-m-s($color: $color-black, $letter-spacing: normal) {
+  @include Text(15px, 22px, $color, $letter-spacing);
+  @include media-query("v-small") {
+    font-size: 14px;
+    line-height: 20px;
+  }
+}
+
+@mixin paragraph-s($color: $color-black, $letter-spacing: normal) {
+  @include Text(14px, 20px, $color, $letter-spacing);
+  @include media-query("v-small") {
+    font-size: 13px;
+    line-height: 18px;
+  }
+}
+
+@mixin paragraph-xs($color: $color-black, $letter-spacing: normal) {
+  @include Text(13px, 18px, $color, $letter-spacing);
+  @include media-query("v-small") {
+    font-size: 12px;
+    line-height: 16px;
+  }
+}
+
+@mixin paragraph-xxs($color: $color-black, $letter-spacing: normal) {
+  @include Text(12px, 18px, $color, $letter-spacing);
+}
+
+@mixin input-text($color: $color-black, $letter-spacing: normal) {
+  @include Text(16px, 1, $color, $letter-spacing);
 }
 
 @mixin icoMoon($size: 14px, $color: #000) {

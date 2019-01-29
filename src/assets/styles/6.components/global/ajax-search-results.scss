@@ -37,7 +37,7 @@
   }
 
   &__title {
-    @include Text(14px, 18px, $color-blumine);
+    @include paragraph-s($color-blumine);
     align-self: center;
     @include transition(color);
   }

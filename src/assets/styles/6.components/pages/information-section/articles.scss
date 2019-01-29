@@ -3,18 +3,18 @@
 
   &__backlink {
     @include apercu;
-    @include Text(12px, 18px, $color-blumine);
+    @include paragraph-xxs($color-blumine);
     display: inline-block;
     vertical-align: middle;
     text-decoration: none;
     margin: 0 0 30px;
 
     &::before {
+      @include icoMoon;
       content: "\e907";
       display: inline-block;
       vertical-align: bottom;
       margin: 0 10px 0 0;
-      @include icoMoon;
       font-size: 14px;
       line-height: 18px;
       opacity: 0.6;
