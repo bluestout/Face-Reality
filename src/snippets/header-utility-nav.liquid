@@ -31,7 +31,7 @@
     </a>
   {% endif %}
 
-  <a href="/cart" class="utility-nav__icon-wrap" {% comment %} data-quick-cart-toggle {% endcomment %}>
+  <a href="/cart" class="utility-nav__icon-wrap" data-cart-count-position>
     <span class="icon-shopping-cart utility-nav__icon"></span>
     {% if cart.item_count > 0 %}
       <span class="utility-nav__count" data-cart-count>{{ cart.item_count }}</span>

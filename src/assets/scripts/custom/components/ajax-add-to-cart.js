@@ -10,6 +10,7 @@ const el = {
   addedContainer: "[data-item-added-container]",
   addedMessage: "[data-item-added-message]",
   cartQty: "[data-cart-count]",
+  cartQtyPos: "[data-cart-count-position]",
 };
 
 function ajaxAddToCart(event) {
@@ -29,7 +30,17 @@ function ajaxAddToCart(event) {
 
 function updateCartQty() {
   $.getJSON("/cart.js", (json) => {
-    $(el.cartQty).text(json.item_count);
+    if (json.item_count > 0) {
+      if ($(el.cartQty).length > 0) {
+        $(el.cartQty).text(json.item_count);
+      } else {
+        $(el.cartQtyPos).append(
+          `<span class="utility-nav__count" data-cart-count>${
+            json.item_count
+          }</span>`,
+        );
+      }
+    }
   });
 }
 
