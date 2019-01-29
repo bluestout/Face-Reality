@@ -58,7 +58,7 @@
 
     {% if p_item_variant.featured_image %}
       {% for image in product-item.images %}
-        {% capture wrapper_class %}product-gallery__image-wrapper {% unless p_item_featured == image %} hide{% endunless %}{% endcapture %}
+        {% capture wrapper_class %}product-item__image-wrap {% unless p_item_featured == image %} hide{% endunless %}{% endcapture %}
         {% include 'responsive-image' with
           image: image,
           image_attributes: "data-product-featured-image",

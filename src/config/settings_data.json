@@ -18,7 +18,7 @@
     "social_tumblr_link": "",
     "social_youtube_link": "https://www.youtube.com/user/AcneExpert/videos",
     "social_vimeo_link": "",
-    "social_linkedin_link": "https://www.linkedin.com/in/facerealityacneclinic/",
+    "social_linkedin_link": "",
     "cart_notes_enable": false,
     "favicon": "shopify://shop_images/fr-favicon.png",
     "checkout_header_image": "",
@@ -382,28 +382,28 @@
             "type": "mention",
             "settings": {
               "image": "shopify://shop_images/the-argus-logo.png",
-              "url": "#"
+              "url": ""
             }
           },
           "1539180274197": {
             "type": "mention",
             "settings": {
               "image": "shopify://shop_images/alameda-times-logo.png",
-              "url": "#"
+              "url": ""
             }
           },
           "1539180281285": {
             "type": "mention",
             "settings": {
               "image": "shopify://shop_images/bay-area-logo.png",
-              "url": "#"
+              "url": ""
             }
           },
           "1539180288733": {
             "type": "mention",
             "settings": {
               "image": "shopify://shop_images/dermascope-logo.png",
-              "url": "#"
+              "url": ""
             }
           }
         },

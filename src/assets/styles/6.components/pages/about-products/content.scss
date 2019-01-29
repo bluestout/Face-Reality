@@ -26,6 +26,15 @@
     opacity: 0.5;
   }
 
+  .usp-triple-icons {
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    &__usp {
+      margin: 0 15px;
+    }
+  }
+
   @include media-query("medium-down") {
     &__inner {
       padding: 60px 0;
@@ -38,11 +47,21 @@
     &__content {
       margin: 0 0 30px;
     }
+    .usp-triple-icons {
+      &__usp {
+        margin: 0 15px;
+      }
+    }
   }
 
   @include media-query("v-small") {
     &__inner {
       padding: 40px 0;
+    }
+    .usp-triple-icons {
+      &__usp {
+        margin: 0 15px;
+      }
     }
   }
 }

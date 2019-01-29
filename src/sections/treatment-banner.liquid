@@ -9,6 +9,8 @@
       max_width: 1920,
       max_height: img_height
     %}
+  {% else %}
+    <div class="treatment-banner__bg"></div>
   {% endif %}
   <div class="treatment-banner__content {{ classes }}">
     <h2 class="treatment-banner__suptitle">{{ page.title }}</h2>

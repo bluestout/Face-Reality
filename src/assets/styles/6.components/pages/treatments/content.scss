@@ -45,7 +45,7 @@
 
   &__link {
     @include apercu;
-    @include paragraph-s;
+    @include paragraph-s($color-blumine);
     padding: 5px 20px;
     background-color: transparent;
     text-decoration: none;

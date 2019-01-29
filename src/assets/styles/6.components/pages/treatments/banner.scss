@@ -13,6 +13,7 @@
     left: 0;
     width: 100%;
     height: 100%;
+    background-color: $color-aqua-haze;
   }
 
   &__bg-image {
@@ -34,8 +35,7 @@
   }
 
   &__title {
-    @include apercu(700);
-    @include title-xl;
+    @include title-xl($color-blumine);
   }
 
   &__badge-wrap {

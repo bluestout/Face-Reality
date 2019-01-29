@@ -9,12 +9,32 @@
     max-width: 800px;
   }
 
+  .usp-triple-icons {
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    &__usp {
+      text-transform: uppercase;
+      margin: 0 15px;
+    }
+  }
+
   @include media-query("medium-down") {
     text-align: center;
     margin: 0 auto 20px;
+    .usp-triple-icons {
+      &__usp {
+        margin: 0 15px;
+      }
+    }
   }
 
   @include media-query("v-small") {
     margin: 0;
+    .usp-triple-icons {
+      &__usp {
+        margin: 0 15px;
+      }
+    }
   }
 }

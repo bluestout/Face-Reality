@@ -10,7 +10,7 @@
   }
 
   &__title {
-    @include title-section;
+    @include title-l($color-blumine);
     text-align: center;
     max-width: 700px;
     margin: 0 auto 65px;
@@ -227,8 +227,6 @@
     }
 
     &__study-title {
-      font-size: 21px;
-      line-height: 24px;
       margin: 0 0 25px;
     }
   }

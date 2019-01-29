@@ -11,6 +11,8 @@
             wrapper_class: 'treatment-content__image-wrap',
             image_class: 'treatment-content__image lazyload'
           %}
+        {% else %}
+          <div class="treatment-content__image-wrap"></div>
         {% endif %}
           <h3 class="treatment-content__title">{{ block.settings.title }}</h3>
           <p class="treatment-content__price">{{ block.settings.price }}</p>
