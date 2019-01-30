@@ -89,12 +89,12 @@
               </tr>
             {% endfor %}
 
-            {% for tax_line in order.tax_lines %}
+            {% if order.tax_price > 0 %}
               <tr>
-                <td class="single-order__cell single-order__cell--foot" colspan="4" class="small--hide">{{ 'customer.order.tax' | t }} ({{ tax_line.title }} {{ tax_line.rate | times: 100 }}%)</td>
-                <td class="single-order__cell single-order__cell--foot" data-label="{{ 'customer.order.tax' | t }} ({{ tax_line.title }} {{ tax_line.rate | times: 100 }}%)">{{ tax_line.price | money }}</td>
+                <td class="single-order__cell single-order__cell--foot" colspan="4" class="small--hide">{{ 'customer.order.tax' | t }}</td>
+                <td class="single-order__cell single-order__cell--foot" data-label="{{ 'customer.order.tax' | t }}">{{ order.tax_price | money }}</td>
               </tr>
-            {% endfor %}
+            {% endif %}
 
             <tr>
               <td class="single-order__cell single-order__cell--foot" colspan="4" class="small--hide">{{ 'customer.order.total' | t }}</td>
