@@ -12,13 +12,13 @@
         <input type="hidden" name="contact[tags]" value="newsletter">
         <input type="email"
           name="contact[email]"
-          id="Email"
           class="footer-newsletter__input"
           value="{% if customer.email != blank %}{{ customer.email }}{% endif %}"
           placeholder="{{ 'general.newsletter_form.email_placeholder' | t }}"
           autocorrect="off"
-          autocapitalize="off">
-        <button type="submit" class="footer-newsletter__submit" name="commit" id="Subscribe">
+          autocapitalize="off"
+          data-newsletter-input>
+        <button type="submit" class="footer-newsletter__submit" name="commit" data-newsletter-submit disabled title="Enter a valid email">
           <span class="footer-newsletter__submit-text">{{ 'general.newsletter_form.submit' | t }}</span>
         </button>
       </div>

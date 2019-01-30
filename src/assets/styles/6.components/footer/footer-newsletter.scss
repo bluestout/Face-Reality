@@ -37,6 +37,17 @@
     }
   }
 
+  .errors {
+    li {
+      @include paragraph-m-s;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+  }
+
   &__submit {
     @include apercu(700);
     @include transition(color);
@@ -54,10 +65,17 @@
     vertical-align: middle;
     width: 115px;
 
-    &:hover,
-    &:active {
-      color: $color-black;
-      background-color: transparent;
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    &:not(:disabled) {
+      &:hover,
+      &:active {
+        color: $color-black;
+        background-color: transparent;
+      }
     }
   }
 
