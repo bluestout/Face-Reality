@@ -1,10 +1,27 @@
+{% comment %} {% assign video_src = auth_video %} {% endcomment %}
+{% assign video_src = "https://cdn.shopify.com/s/files/1/0078/6074/8377/files/comp.mp4?11023748034662492061" %}
 <div class="product-authorization">
   <img class="product-authorization__icon" src="{{ '../assets/images/icon-authorized.png' | asset_img_url: '60x' }}" alt="Register"/>
   <div class="product-authorization__content">
     <p>{{ auth_note }}</p>
-    <a href="{{ auth_url }}" class="product-content__button">{{ auth_l_text }}</a>
+    {% if video_src %}
+      <a data-toggle-authorization-modal href="{{ auth_url }}" class="product-content__button">{{ auth_l_text }}</a>
+    {% endif %}
     <br>
     <br>
     <p>If you already have an authorization, <a href="/account/login/">log in</a></p>
   </div>
 </div>
+
+{% if video_src %}
+  <div class="product-authorization__video-wrapper" data-authorization-modal style="display:none">
+    <div class="product-authorization__video-background" data-toggle-authorization-modal></div>
+    <div class="product-authorization__video-box">
+      <button class="product-authorization__video-close" data-toggle-authorization-modal><span class="icon-close"></span></button>
+      <video class="product-authorization__video" width="640" height="360" data-authorization-video>
+        <source src="{{ video_src }}" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </div>
+{% endif %}

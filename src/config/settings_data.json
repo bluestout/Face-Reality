@@ -290,8 +290,8 @@
             "settings": {
               "title": "Inflamed Acne",
               "description": "<p>Characteristics:</p>\n<ul>\n<li>redness/ blotchiness</li>\n<li>hot to the touch</li>\n<li>pimples/ pustules/ whiteheads/ blackheads</li>\n<li>possibility of cysts</li>\n<li>excessive oil</li>\n<li>sensitive skin and reactive to products</li>\n</ul>",
-              "image_before": "",
-              "image_after": ""
+              "image_before": "shopify://shop_images/francisco-before_04ea2cbf-984a-4d79-8dad-7d6d87e52456.jpg",
+              "image_after": "shopify://shop_images/francisco-after_995d21eb-9869-490b-ae2f-6e59a275659d.jpg"
             }
           },
           "1542649168569": {
@@ -299,8 +299,8 @@
             "settings": {
               "title": "Acne & Hyperpigmentation",
               "description": "<p>Characteristics:</p>\n<ul>\n<li>dull sluggish appearance</li>\n<li>Hyperpigmentation (dark spots) where acne has occurred</li>\n<li>Inflamed, noninflamed acne or both</li>\n<li>excessive oil</li>\n<li>tissue congestion</li>\n<li>skin generally not sensitive or reactive</li>\n</ul>",
-              "image_before": "",
-              "image_after": ""
+              "image_before": "shopify://shop_images/alison-before.jpg",
+              "image_after": "shopify://shop_images/alison-after.jpg"
             }
           },
           "1547654220236": {
@@ -308,8 +308,8 @@
             "settings": {
               "title": "Rosacea",
               "description": "<p>Characteristics:</p>\n<ul>\n<li>facial flushing</li>\n<li>facial redness</li>\n<li>facial papules</li>\n<li>facial pustules</li>\n<li>face gets red after drinking alcohol or hot drinks</li>\n<li>face gets red and/or bumpy after eating spicy foods.</li>\n<li>face gets red and/or bumpy with hot / cold temps or exercise.</li>\n</ul>",
-              "image_before": "",
-              "image_after": ""
+              "image_before": "shopify://shop_images/sam-before.jpg",
+              "image_after": "shopify://shop_images/sam-after.jpg"
             }
           }
         },
