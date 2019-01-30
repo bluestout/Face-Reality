@@ -21,6 +21,12 @@
   display: inline-block;
 }
 
+#swym-plugin #swym-notification .swym-item .swym-image img,
+#swym-hosted-plugin #swym-notification .swym-item .swym-image img {
+  max-height: 100%;
+  object-fit: scale-down;
+}
+
 #swym-plugin .swym-item-grid .swym-image .swym-vertical-middler,
 #swym-hosted-plugin .swym-item-grid .swym-image .swym-vertical-middler {
   display: block;
@@ -29,10 +35,15 @@
 #swym-plugin .swym-item-grid .swym-image .swym-vertical-middler-cell,
 #swym-hosted-plugin .swym-item-grid .swym-image .swym-vertical-middler-cell {
   display: flex;
+  max-height: 100%;
 }
 
 #swym-plugin .swym-item-grid .swym-image img,
 #swym-hosted-plugin .swym-item-grid .swym-image img {
   max-height: 100%;
   object-fit: scale-down;
+}
+
+.swym-button.swym-add-to-wishlist {
+  text-transform: none;
 }
