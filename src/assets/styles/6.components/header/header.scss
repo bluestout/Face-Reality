@@ -1,7 +1,7 @@
 .site-header {
   @include transition(background-color 100ms, box-shadow 100ms);
   position: fixed;
-  z-index: 4;
+  z-index: 7;
   background-color: transparent;
   width: 100%;
   padding: 0 0 10px;
@@ -10,6 +10,10 @@
   &.scrolled {
     background-color: $color-white;
     box-shadow: 0 0 1px 1px rgba($color-black, 0.05);
+  }
+
+  &.no-box {
+    box-shadow: none;
   }
 
   &__primary-nav-wrap {

@@ -40,8 +40,10 @@ function isCollFilterScrolled(scroll, authPos) {
     $(el.authSwitch)
       .css("top", $(el.header).outerHeight())
       .addClass("scrolled");
+    $(el.header).addClass("no-box");
   } else {
     $(el.authSwitch).removeClass("scrolled");
+    $(el.header).removeClass("no-box");
   }
 }
 
