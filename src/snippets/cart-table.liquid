@@ -1,5 +1,10 @@
 <div class="cart-table__wrap">
   <div class="cart-table__responsive-header d-xl-none">Cart content</div>
+  {% if cart.item_count > 4 %}
+    <div class="cart-table__update-wrap">
+      <input class="cart-table__update" type="submit" name="update" value="{{ 'cart.general.update' | t }}">
+    </div>
+  {% endif %}
   <table class="responsive-table cart-table">
     <thead class="cart-table__thead">
       <tr>
