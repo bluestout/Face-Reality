@@ -42,6 +42,12 @@
         opacity: 1;
       }
     }
+
+    &--no-link {
+      .different-mentions__mention-logo {
+        opacity: 1;
+      }
+    }
   }
 
   &__mention-logo {
