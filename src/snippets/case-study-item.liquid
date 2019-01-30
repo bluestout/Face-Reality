@@ -12,7 +12,7 @@
     {% assign src_split = img_src_before | split: '.png' %}
     {% assign type = '.png' %}
   {% endif %}
-  {% assign img_src_before = src_split[0] | append: '_500x' | append: type %}
+  {% assign img_src_before = src_split[0] | append: '_600x' | append: type %}
 
   {% assign img_src_after = page_meta.after %}
   {% assign src_split = "" %}
@@ -23,7 +23,7 @@
     {% assign type = '.png' %}
     {% assign src_split = img_src_after | split: '.png' %}
   {% endif %}
-  {% assign img_src_after = src_split[0] | append: '_500x' | append: type %}
+  {% assign img_src_after = src_split[0] | append: '_600x' | append: type %}
 {% else %}
 {% endif %}
 

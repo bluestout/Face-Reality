@@ -15,8 +15,8 @@
 
       {% if block.settings.before and block.settings.after  %}
         <div class="study-case-list__comparison">
-          {% assign img_before = block.settings.before | img_url: 'large' %}
-          {% assign img_after = block.settings.after | img_url: 'large' %}
+          {% assign img_before = block.settings.before | img_url: '700x' %}
+          {% assign img_after = block.settings.after | img_url: '700x' %}
           {%- include 'image-compare'
             with before: img_before,
             after: img_after,
