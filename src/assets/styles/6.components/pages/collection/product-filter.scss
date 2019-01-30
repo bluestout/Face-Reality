@@ -149,7 +149,7 @@
       top: 0;
       left: -360px;
       width: 360px;
-      height: 100%;
+      height: 100vh;
       padding: 25px 35px;
       background-color: $color-white;
       @include transition(left 300ms, box-shadow 300ms);
@@ -165,7 +165,7 @@
     &__container {
       left: -100%;
       width: 100%;
-      padding: 20px 30px;
+      padding: 20px;
     }
   }
 }

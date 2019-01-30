@@ -15,7 +15,7 @@
 
 {% comment %} don't show filters if there is no filtering to be done {% endcomment %}
 {% if skin_tags_a.size > 1 or types.size > 1 or use_tags_a.size > 1 %}
-  <div class="product-filter__container" data-product-filter-container data-sticky-sidebar>
+  <div class="product-filter__container js-sticky-sidebar" data-product-filter-container>
     <div class="product-filter" data-accordion-parent=false>
       <h2 class="product-filter__main-title">
         Filter products

@@ -845,7 +845,7 @@
             "settings": {
               "before": "shopify://shop_images/francisco-before.jpg",
               "after": "shopify://shop_images/francisco-after.jpg",
-              "laura": "Francisco has the classic case of teenage inflamed acne. Acne can really ravage \u0003\t\t    the skin of teenage boys – the hormonal fluctuations that teenage boys have can give them horrendous cysts and often they end up with lifelong scars because of it. We started off using the strongest antibacterials we had to get his inflammation under control in the quickest manner possible. We wanted to get the inflammation down as soon as possible to avoid the scarring that could happen if it was left unchecked. His acne cleared up in four month’s time and he was left with minimal scarring. Francisco and his father drove 1.5 hours (one way) to get to our clinic.",
+              "laura": "Francisco has the classic case of teenage inflamed acne. Acne can really ravage the skin of teenage boys – the hormonal fluctuations that teenage boys have can give them horrendous cysts and often they end up with lifelong scars because of it. We started off using the strongest antibacterials we had to get his inflammation under control in the quickest manner possible. We wanted to get the inflammation down as soon as possible to avoid the scarring that could happen if it was left unchecked. His acne cleared up in four month’s time and he was left with minimal scarring. Francisco and his father drove 1.5 hours (one way) to get to our clinic.",
               "testimonial": "I have tried Proactiv and antibiotics and none of them seemed to work to clear my skin. My experience at Face Reality was great! My face started to clear fast after I started coming to the clinic. Yes, the results totally met my expectations and ever since my face has started to clear up, I have been getting noticed by everyone. I recommend Face Reality for people with acne; and for them to come to Face Reality Acne & Skin Care Clinic. It will change your perspective in life.",
               "client": "Francisco S.",
               "age": "Age 15"
@@ -1107,6 +1107,23 @@
         },
         "block_order": ["1547653076566"],
         "settings": {}
+      },
+      "product-content": {
+        "type": "product-content",
+        "settings": {
+          "show_share_buttons": true,
+          "authorization_text": "To be able to buy this product you need to be authorized. Please see your nearest Face Reality clinic to get authorization.",
+          "authorization_url": "",
+          "authorization_link_text": "Why can't I buy?",
+          "authorization_video": "https://cdn.shopify.com/s/files/1/0019/3603/1842/files/comp.mp4?17429764702981473630"
+        }
+      },
+      "product-related": {
+        "type": "product-related",
+        "settings": {
+          "title": "Other products in this group",
+          "collection": ""
+        }
       }
     },
     "content_for_index": [
