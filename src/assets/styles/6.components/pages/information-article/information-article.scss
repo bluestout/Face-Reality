@@ -134,6 +134,7 @@
 
     p {
       @include paragraph-m-s;
+      clear: both;
     }
 
     ul {
