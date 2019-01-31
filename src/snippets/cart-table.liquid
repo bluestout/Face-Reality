@@ -2,7 +2,7 @@
   <div class="cart-table__responsive-header d-xl-none">Cart content</div>
   {% if cart.item_count > 4 %}
     <div class="cart-table__update-wrap">
-      <input class="cart-table__update" type="submit" name="update" value="{{ 'cart.general.update' | t }}">
+      <input class="cart-table__update" data-cart-update-button type="submit" name="update" value="{{ 'cart.general.update' | t }}">
     </div>
   {% endif %}
   <table class="responsive-table cart-table">
@@ -116,7 +116,7 @@
               </div>
               <div class="clearfix"></div>
               {% unless obscured %}
-                <div class="cart-table__quantity">
+                <div class="cart-table__quantity" {% if forloop.first %}data-cart-table-quantity{% endif %}>
                   <button type="button" class="cart-table__quantity-button" data-qty-change="[product-qty-{{ forloop.index }}]" data-direction="down">-</button>
                   <input
                     class="cart-table__quantity-input"
@@ -139,6 +139,6 @@
     </tbody>
   </table>
   <div class="cart-table__update-wrap">
-    <input class="cart-table__update" type="submit" name="update" value="{{ 'cart.general.update' | t }}">
+    <input class="cart-table__update" data-cart-update-button type="submit" name="update" value="{{ 'cart.general.update' | t }}">
   </div>
 </div>

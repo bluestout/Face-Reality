@@ -4,3 +4,4 @@ import "./register";
 import "./account";
 import "./collection-page";
 import "./case-studies";
+import "./cart";

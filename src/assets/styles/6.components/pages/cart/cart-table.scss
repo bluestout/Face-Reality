@@ -18,10 +18,13 @@
 
   &__update {
     @include button(wire);
+    padding: 11px;
+    width: 100%;
+    max-width: 200px;
   }
 
   &__update-wrap {
-    text-align: center;
+    text-align: right;
     padding: 0 60px;
   }
 
@@ -133,6 +136,8 @@
   &__quantity {
     @include clearfix;
     border: 1px solid $color-blumine;
+    width: 100%;
+    max-width: 200px;
   }
 
   &__quantity-button {
@@ -273,7 +278,7 @@
 
   @include media-query("large-down") {
     &__update-wrap {
-      text-align: center;
+      padding: 0 10px;
     }
 
     &__wrap {
@@ -313,8 +318,12 @@
     }
 
     &__quantity {
-      max-width: 70%;
+      max-width: 200px;
       margin: 0 0 0 auto;
+    }
+
+    &__update {
+      max-width: 200px;
     }
 
     &__quantity-button {
@@ -330,7 +339,7 @@
     }
 
     &__update-wrap {
-      padding: 20px 20px 0;
+      padding: 20px 15px 0;
     }
 
     &__product-id {
