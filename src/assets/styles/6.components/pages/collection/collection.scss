@@ -20,6 +20,9 @@
 
     &--bg {
       @include backgroundImage;
+      max-width: 2560px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     &--default {

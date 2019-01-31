@@ -1,94 +1,97 @@
 <section class="collection-by-type">
+  <div class="max-wrap">
 
-  <h2 class="collection-by-type__title">{{ section.settings.title }}</h2>
+    <h2 class="collection-by-type__title">{{ section.settings.title }}</h2>
 
-  <h3 class="collection-by-type__collection-title">{{ section.settings.collection_1_title }}</h3>
+    <h3 class="collection-by-type__collection-title">{{ section.settings.collection_1_title }}</h3>
 
-  <div class="collection-by-type__type">
-    <div class="row no-gutters">
-      {% assign index = 1 %}
-      {% comment %} looped the same array twice, because we can't know in what order the user will add blocks {% endcomment %}
-      {% for block in section.blocks %}
-        {% if block.type == 'tab-1' %}
-          <div class="col-lg col-md-4 col-6 col-count">
-            {% assign collection_block = collections[block.settings.collection] %}
-            <div class="collection-by-type__visible-col index-{{ index }}">
-              <div class="collection-by-type__visible-col-inner">
-                <h3 class="collection-by-type__col-title">{{ collection_block.title }}</h3>
-                <span class="collection-by-type__visible-col-arrow icon-angle-right"></span>
+    <div class="collection-by-type__type">
+      <div class="row no-gutters">
+        {% assign index = 1 %}
+        {% comment %} looped the same array twice, because we can't know in what order the user will add blocks {% endcomment %}
+        {% for block in section.blocks %}
+          {% if block.type == 'tab-1' %}
+            <div class="col-lg col-md-4 col-6 col-count">
+              {% assign collection_block = collections[block.settings.collection] %}
+              <div class="collection-by-type__visible-col index-{{ index }}">
+                <div class="collection-by-type__visible-col-inner">
+                  <h3 class="collection-by-type__col-title">{{ collection_block.title }}</h3>
+                  <span class="collection-by-type__visible-col-arrow icon-angle-right"></span>
+                </div>
               </div>
+              <a href="{{ collection_block.url }}" class="collection-by-type__hover-col">
+                <span class="collection-by-type__hover-col-header">
+                  <h3 class="collection-by-type__col-title">{{ collection_block.title }}</h3>
+                </span>
+                {% if collection_block.image != blank or collection_block.products.first != blank %}
+                  {%- assign image_object = collection_block.image | default: collection_block.products.first.featured_image -%}
+                {% endif %}
+                {% include 'responsive-image' with
+                  image: image_object,
+                  wrapper_class: 'collection-by-type__hover-col-image-wrap',
+                  image_class: 'collection-by-type__hover-col-image',
+                  alt: collection_block.title
+                  max_width: 360,
+                  max_height: 285,
+                  span: true
+                %}
+                <span class="collection-by-type__hover-col-content">
+                  <span class="collection-by-type__hover-col-text">{{ collection_block.description }}</span>
+                  <span class="collection-by-type__hover-col-link">See products</span>
+                </span>
+              </a>
             </div>
-            <a href="{{ collection_block.url }}" class="collection-by-type__hover-col">
-              <span class="collection-by-type__hover-col-header">
-                <h3 class="collection-by-type__col-title">{{ collection_block.title }}</h3>
-              </span>
-              {% if collection_block.image != blank or collection_block.products.first != blank %}
-                {%- assign image_object = collection_block.image | default: collection_block.products.first.featured_image -%}
-              {% endif %}
-              {% include 'responsive-image' with
-                image: image_object,
-                wrapper_class: 'collection-by-type__hover-col-image-wrap',
-                image_class: 'collection-by-type__hover-col-image',
-                alt: collection_block.title
-                max_width: 360,
-                max_height: 285,
-                span: true
-              %}
-              <span class="collection-by-type__hover-col-content">
-                <span class="collection-by-type__hover-col-text">{{ collection_block.description }}</span>
-                <span class="collection-by-type__hover-col-link">See products</span>
-              </span>
-            </a>
-          </div>
-          {% assign index = index | plus: 1 %}
-        {% endif %}
-      {% endfor %}
+            {% assign index = index | plus: 1 %}
+          {% endif %}
+        {% endfor %}
+      </div>
     </div>
-  </div>
 
-  <h3 class="collection-by-type__collection-title">{{ section.settings.collection_2_title }}</h3>
+    <h3 class="collection-by-type__collection-title">{{ section.settings.collection_2_title }}</h3>
 
-  <div class="collection-by-type__type">
-    <div class="row no-gutters">
-      {% assign index = 1 %}
-      {% for block in section.blocks %}
-        {% if block.type == 'tab-2' %}
-          <div class="col-lg col-md-4 col-6 col-count">
-            {% assign collection_block = collections[block.settings.collection] %}
-            <div class="collection-by-type__visible-col index-{{ index }}">
-              <div class="collection-by-type__visible-col-inner">
-                <h3 class="collection-by-type__col-title">{{ collection_block.title }}</h3>
-                <span class="collection-by-type__visible-col-arrow icon-angle-right"></span>
+    <div class="collection-by-type__type">
+      <div class="row no-gutters">
+        {% assign index = 1 %}
+        {% for block in section.blocks %}
+          {% if block.type == 'tab-2' %}
+            <div class="col-lg col-md-4 col-6 col-count">
+              {% assign collection_block = collections[block.settings.collection] %}
+              <div class="collection-by-type__visible-col index-{{ index }}">
+                <div class="collection-by-type__visible-col-inner">
+                  <h3 class="collection-by-type__col-title">{{ collection_block.title }}</h3>
+                  <span class="collection-by-type__visible-col-arrow icon-angle-right"></span>
+                </div>
               </div>
+              <a href="{{ collection_block.url }}" class="collection-by-type__hover-col">
+                <span class="collection-by-type__hover-col-header">
+                  <h3 class="collection-by-type__col-title">{{ collection_block.title }}</h3>
+                </span>
+                {% include 'responsive-image' with
+                  image: collection_block.image,
+                  wrapper_class: 'collection-by-type__hover-col-image-wrap',
+                  image_class: 'collection-by-type__hover-col-image',
+                  alt: collection_block.title
+                  max_width: 360,
+                  max_height: 285,
+                  span: true
+                %}
+                <span class="collection-by-type__hover-col-content">
+                  <span class="collection-by-type__hover-col-text">{{ collection_block.description }}</span>
+                  <span class="collection-by-type__hover-col-link">See products</span>
+                </span>
+              </a>
             </div>
-            <a href="{{ collection_block.url }}" class="collection-by-type__hover-col">
-              <span class="collection-by-type__hover-col-header">
-                <h3 class="collection-by-type__col-title">{{ collection_block.title }}</h3>
-              </span>
-              {% include 'responsive-image' with
-                image: collection_block.image,
-                wrapper_class: 'collection-by-type__hover-col-image-wrap',
-                image_class: 'collection-by-type__hover-col-image',
-                alt: collection_block.title
-                max_width: 360,
-                max_height: 285,
-                span: true
-              %}
-              <span class="collection-by-type__hover-col-content">
-                <span class="collection-by-type__hover-col-text">{{ collection_block.description }}</span>
-                <span class="collection-by-type__hover-col-link">See products</span>
-              </span>
-            </a>
-          </div>
-          {% assign index = index | plus: 1 %}
-        {% endif %}
-      {% endfor %}
+            {% assign index = index | plus: 1 %}
+          {% endif %}
+        {% endfor %}
+      </div>
     </div>
-  </div>
 
-  {% if section.settings.button_2_text != '' %}
-    <a class="collection-by-type__link" href="{{ section.settings.button_2_url }}">{{ section.settings.button_2_text }}</a>
-  {% endif %}
+    {% if section.settings.button_2_text != '' %}
+      <a class="collection-by-type__link" href="{{ section.settings.button_2_url }}">{{ section.settings.button_2_text }}</a>
+    {% endif %}
+
+  </div>
 
 </section>
 
