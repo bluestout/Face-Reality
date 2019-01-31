@@ -1,7 +1,7 @@
 import $ from "jquery";
 
 function faqAccordion(event) {
-  event.preventDefault();
+  event.preventDefault ? event.preventDefault() : (event.returnValue = false);
   const $this = $(this);
   const $parent = $this.closest("[data-faq-item]");
 

@@ -96,9 +96,9 @@ register("product", {
     }
 
     $productThumbs
-      .on("click", (evt) => {
-        evt.preventDefault();
-        const imageId = $(evt.currentTarget).data("thumbnail-id");
+      .on("click", (event) => {
+        event.preventDefault ? event.preventDefault() : (event.returnValue = false);
+        const imageId = $(event.currentTarget).data("thumbnail-id");
         this.switchImage(imageId);
         this.setActiveThumbnail(imageId);
       })

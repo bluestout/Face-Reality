@@ -8,7 +8,7 @@ const el = {
 function footerNav() {
   if ($(window).width() < 768) {
     $(el.link).on("click", (event) => {
-      event.preventDefault();
+      event.preventDefault ? event.preventDefault() : (event.returnValue = false);
       const $this = $(event.currentTarget);
       const $sibling = $this.siblings(el.list);
       if ($sibling.length > 0 && $sibling.css("display") === "none") {

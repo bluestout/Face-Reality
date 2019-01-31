@@ -7,7 +7,7 @@ const el = {
 };
 let timeHolder;
 function toggleModal(event) {
-  event.preventDefault();
+  event.preventDefault ? event.preventDefault() : (event.returnValue = false);
   $(el.modal).fadeToggle();
   $(el.modal).toggleClass("active");
   clearTimeout(timeHolder);

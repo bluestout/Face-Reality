@@ -6,7 +6,7 @@ const el = {
 
 function QuantityChange(event) {
   if (typeof event !== "undefined") {
-    event.preventDefault();
+    event.preventDefault ? event.preventDefault() : (event.returnValue = false);
   }
   const $source = $(event.currentTarget);
   const $input = $($source.data("qty-change"));

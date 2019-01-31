@@ -36,7 +36,7 @@ function checkAccordionState() {
 }
 
 function openAccordion(event) {
-  event.preventDefault();
+  event.preventDefault ? event.preventDefault() : (event.returnValue = false);
   const $source = $(event.currentTarget);
   // if a parent is set, close neighbor accordions when opening a new one
   if (

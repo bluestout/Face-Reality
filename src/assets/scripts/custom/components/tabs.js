@@ -1,7 +1,7 @@
 import $ from "jquery";
 
 function tabs(event) {
-  event.preventDefault();
+  event.preventDefault ? event.preventDefault() : (event.returnValue = false);
   const $this = $(event.currentTarget);
   if (!$this.hasClass("active")) {
     const $container = $this.closest("[data-tabs-container]");

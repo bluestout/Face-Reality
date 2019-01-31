@@ -14,7 +14,7 @@ const el = {
 };
 
 function ajaxAddToCart(event) {
-  event.preventDefault();
+  event.preventDefault ? event.preventDefault() : (event.returnValue = false);
   const $source = $(event.currentTarget);
   const $form = $source.closest("form");
   return $.ajax({

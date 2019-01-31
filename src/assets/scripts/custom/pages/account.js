@@ -2,7 +2,7 @@ import $ from "jquery";
 
 // load more order items on click - pagination ajax
 function loadMore(event) {
-  event.preventDefault();
+  event.preventDefault ? event.preventDefault() : (event.returnValue = false);
   const $source = $(event.currentTarget);
   const link = $source.attr("href");
   const $paginationContainer = $("[data-order-pagination]");

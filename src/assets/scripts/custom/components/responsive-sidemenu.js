@@ -10,13 +10,13 @@ const el = {
 };
 
 function menuToggle(event) {
-  event.preventDefault();
+  event.preventDefault ? event.preventDefault() : (event.returnValue = false);
   $(el.sidemenu).toggleClass("active");
   $("html").toggleClass("no-scroll");
 }
 
 function subNavToggle(event) {
-  event.preventDefault();
+  event.preventDefault ? event.preventDefault() : (event.returnValue = false);
   $(event.currentTarget)
     .toggleClass("active")
     .siblings(el.subNavItem)

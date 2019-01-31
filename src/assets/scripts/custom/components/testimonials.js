@@ -1,7 +1,7 @@
 import $ from "jquery";
 
 function loadMore(event) {
-  event.preventDefault();
+  event.preventDefault ? event.preventDefault() : (event.returnValue = false);
   const $this = $(event.currentTarget);
   let index = $this.data("testimonials-loader");
   const next = index + 1;
