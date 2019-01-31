@@ -16,10 +16,12 @@ function searchToggle() {
   }
 }
 
-$("body").on("click", () => {
-  $(el.searchResults).fadeOut(100);
-  if ($(el.searchform).is(":visible")) {
-    $(el.searchform).slideToggle("fast");
+$("body").on("click", (event) => {
+  if (typeof $(event.target).closest("form").data("header-search-form") === "undefined") {
+    $(el.searchResults).fadeOut(100);
+    if ($(el.searchform).is(":visible")) {
+      $(el.searchform).slideToggle("fast");
+    }
   }
 });
 

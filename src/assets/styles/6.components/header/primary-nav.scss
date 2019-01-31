@@ -113,6 +113,13 @@
     }
   }
 
+  @media screen and (max-width: 1355px) {
+    &__item {
+      margin: 0 5px;
+    }
+  }
+
+
   @include media-query("medium-up") {
     &__menu-button {
       display: none;

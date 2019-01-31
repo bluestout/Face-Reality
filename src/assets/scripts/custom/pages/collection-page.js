@@ -182,15 +182,6 @@ function MoveAuthorizationFilter() {
   }
 }
 
-function limitResponsiveFilterHeight() {
-  const height = $(window).height();
-  if ($(window).width() > 992) {
-    $(filter.prodFilterBox).css("max-height", "100%");
-  } else {
-    $(filter.prodFilterBox).css("max-height", height);
-  }
-}
-
 // initialize the functionality for each product-item present on the page
 function productItemInit() {
   $(el.container)
@@ -310,5 +301,3 @@ $(document).on("click", filter.reset, resetFilters);
 $(document).on("click", `${filter.set} input`, toggleFilter);
 
 $(window).on("load resize", MoveAuthorizationFilter);
-
-$(window).on("load resize", limitResponsiveFilterHeight);
