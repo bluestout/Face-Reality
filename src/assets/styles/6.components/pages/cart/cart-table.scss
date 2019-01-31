@@ -1,6 +1,12 @@
 .cart-table {
   border-spacing: 0;
 
+  &__row {
+    &--invisible {
+      display: none;
+    }
+  }
+
   &__responsive-header {
     @include apercu(700);
     @include paragraph-l($color-blumine);
