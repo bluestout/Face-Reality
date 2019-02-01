@@ -5,3 +5,4 @@ import "./account";
 import "./collection-page";
 import "./case-studies";
 import "./cart";
+import "./challenge";
