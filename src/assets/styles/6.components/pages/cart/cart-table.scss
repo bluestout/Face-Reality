@@ -320,7 +320,9 @@
     }
 
     &__thead {
-      display: none;
+      &:not(.keep-on-small) {
+        display: none;
+      }
     }
 
     &__quantity {
