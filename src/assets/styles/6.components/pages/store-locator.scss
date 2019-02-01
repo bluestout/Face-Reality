@@ -1,0 +1,15 @@
+.store-locator {
+  padding: 40px 0 0;
+  margin: 0 0 40px;
+
+  [data-stockist-widget-tag] {
+    padding: 40px;
+    text-align: center;
+    font-size: 18px;
+    line-height: 24px;
+    a {
+      font-size: 18px;
+      line-height: 24px;
+    }
+  }
+}
