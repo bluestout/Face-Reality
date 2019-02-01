@@ -30,7 +30,13 @@
     <div class="product-related__list" data-related-products-slider>
       {% for p in products limit: 6 %}
         {% unless p.handle == product.handle %}
-          {% include 'product-item' with p, index: forloop.index %}
+          {% assign login_required = false %}
+          {% if p.tags contains "login_required" %}
+            {% assign login_required = true %}
+          {% endif %}
+          {% unless login_required and customer == null %}
+            {% include 'product-item' with p, index: forloop.index %}
+          {% endunless %}
         {% endunless %}
       {% endfor %}
     </div>

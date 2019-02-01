@@ -4,7 +4,10 @@
   {% assign needs_authorization = false %}
 {% endif %}
 
-{% assign obscured_product = false %}
+{% if product.tags contains "login_required" %}
+  {% assign login_required = true %}
+{% endif %}
+
 {% if product.tags contains "obscured-product" %}
   {% assign obscured_product = true %}
 {% endif %}
@@ -47,105 +50,112 @@
     {{ product.description }}
   </div>
 
-  {% unless obscured_product %}
-    {% if can_buy %}
-      <form class="product-content__form" action="/cart/add" method="post" enctype="multipart/form-data">
+  {% unless login_required and customer == null %}
 
-        <input type="hidden" name="product-id" value="{{ product.id }}"/>
-        <input type="hidden" name="product-title" value="{{ product.title }}"/>
+    {% unless obscured_product %}
 
-        <div class="product-content__price" data-price-wrapper>
-          <span data-product-price>
-            {{ current_variant.price | money }}
-          </span>
+      {% if can_buy %}
+        <form class="product-content__form" action="/cart/add" method="post" enctype="multipart/form-data">
 
-          {% if product.compare_at_price_max > product.price %}
-            <s data-compare-price>
-              {% if current_variant.compare_at_price > current_variant.price %}
-                {{ current_variant.compare_at_price | money }}
-              {% endif %}
-            </s>
-          {% endif %}
-        </div>
+          <input type="hidden" name="product-id" value="{{ product.id }}"/>
+          <input type="hidden" name="product-title" value="{{ product.title }}"/>
 
-        {% assign var_selected = false %}
-        {% unless product.has_only_default_variant %}
-          {% for option in product.options_with_values %}
-            <div class="product-content__option-name">{{ option.name }}</div>
-            <div class="product-content__variants-wrap">
-              {% for value in option.values %}
-                <div class="product-content__variant-wrap">
-                  <input
-                    class="product-content__variant"
-                    type="radio"
-                    name="variation-radio-{{ option.name | handleize }}"
-                    value="{{ value | escape }}"
-                    data-single-option-selector
-                    data-index="option{{ option.position }}"
-                    {% if product.available %}
-                      {% if forloop.index == 1 %}
-                        checked="checked"
-                      {% endif %}
-                    {% endif %}
-                    />
-                  <label class="product-content__variant-label">{{ value }}</label>
-                </div>
-              {% endfor %}
-            </div>
-          {% endfor %}
-        {% endunless %}
+          <div class="product-content__price" data-price-wrapper>
+            <span data-product-price>
+              {{ current_variant.price | money }}
+            </span>
 
-        <select name="id" class="no-js" data-product-select>
-          {% for variant in product.variants %}
-            <option
-              {% if variant == current_variant %}selected="selected"{% endif %}
-              {% unless variant.available %}disabled="disabled"{% endunless %}
-              value="{{ variant.id }}">
-                {{ variant.title }}
-            </option>
-          {% endfor %}
-        </select>
-
-        <div class="product-content__submit-wrap">
-          <div class="product-content__input-wrap">
-            <button type="button" class="product-content__quantity-button" data-qty-change="#Quantity" data-direction="down">-</button>
-            <input class="product-content__quantity" type="number" id="Quantity" name="quantity" value="1" min="1">
-            <button type="button" class="product-content__quantity-button" data-qty-change="#Quantity" data-direction="up">+</button>
-          </div>
-          <button
-            class="product-content__submit"
-            type="submit"
-            name="add"
-            data-add-to-cart
-            {% unless current_variant.available %}disabled="disabled"{% endunless %}>
-              <span data-add-to-cart-text>
-                {% if current_variant.available %}
-                  {{ 'products.product.add_to_cart' | t }}
-                {% else %}
-                  {{ 'products.product.sold_out' | t }}
+            {% if product.compare_at_price_max > product.price %}
+              <s data-compare-price>
+                {% if current_variant.compare_at_price > current_variant.price %}
+                  {{ current_variant.compare_at_price | money }}
                 {% endif %}
-              </span>
-          </button>
-        </div>
-      </form>
-    {% else %}
-      {% include 'product-authorization' with
-      auth_note: section.settings.authorization_text,
-      auth_link: section.settings.authorization_url,
-      auth_l_text: section.settings.authorization_link_text
-      auth_video: section.settings.authorization_video
-      %}
-    {% endif %}
+              </s>
+            {% endif %}
+          </div>
+
+          {% assign var_selected = false %}
+          {% unless product.has_only_default_variant %}
+            {% for option in product.options_with_values %}
+              <div class="product-content__option-name">{{ option.name }}</div>
+              <div class="product-content__variants-wrap">
+                {% for value in option.values %}
+                  <div class="product-content__variant-wrap">
+                    <input
+                      class="product-content__variant"
+                      type="radio"
+                      name="variation-radio-{{ option.name | handleize }}"
+                      value="{{ value | escape }}"
+                      data-single-option-selector
+                      data-index="option{{ option.position }}"
+                      {% if product.available %}
+                        {% if forloop.index == 1 %}
+                          checked="checked"
+                        {% endif %}
+                      {% endif %}
+                      />
+                    <label class="product-content__variant-label">{{ value }}</label>
+                  </div>
+                {% endfor %}
+              </div>
+            {% endfor %}
+          {% endunless %}
+
+          <select name="id" class="no-js" data-product-select>
+            {% for variant in product.variants %}
+              <option
+                {% if variant == current_variant %}selected="selected"{% endif %}
+                {% unless variant.available %}disabled="disabled"{% endunless %}
+                value="{{ variant.id }}">
+                  {{ variant.title }}
+              </option>
+            {% endfor %}
+          </select>
+
+          <div class="product-content__submit-wrap">
+            <div class="product-content__input-wrap">
+              <button type="button" class="product-content__quantity-button" data-qty-change="#Quantity" data-direction="down">-</button>
+              <input class="product-content__quantity" type="number" id="Quantity" name="quantity" value="1" min="1">
+              <button type="button" class="product-content__quantity-button" data-qty-change="#Quantity" data-direction="up">+</button>
+            </div>
+            <button
+              class="product-content__submit"
+              type="submit"
+              name="add"
+              data-add-to-cart
+              {% unless current_variant.available %}disabled="disabled"{% endunless %}>
+                <span data-add-to-cart-text>
+                  {% if current_variant.available %}
+                    {{ 'products.product.add_to_cart' | t }}
+                  {% else %}
+                    {{ 'products.product.sold_out' | t }}
+                  {% endif %}
+                </span>
+            </button>
+          </div>
+        </form>
+      {% else %}
+        {% include 'product-authorization' with
+        auth_note: section.settings.authorization_text,
+        auth_link: section.settings.authorization_url,
+        auth_l_text: section.settings.authorization_link_text
+        auth_video: section.settings.authorization_video
+        %}
+      {% endif %}
+      {% comment %} end obscured product {% endcomment %}
+    {% endunless %}
+
+    {% comment %} wishlist {% endcomment %}
+    <div class="swym-dummy">
+      <span class="swym-button"></span>
+    </div>
+
+    <div class="product-content__description d-lg-none">
+      {{ product.description }}
+    </div>
+
+    {% comment %} end login required {% endcomment %}
   {% endunless %}
-
-  {% comment %} wishlist {% endcomment %}
-  <div class="swym-dummy">
-    <span class="swym-button"></span>
-  </div>
-
-  <div class="product-content__description d-lg-none">
-    {{ product.description }}
-  </div>
 
   {% if can_buy %}
     {% include 'usp-triple-icons' %}

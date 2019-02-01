@@ -34,6 +34,8 @@
                       {% assign filtered_tags_s = filtered_tags_s | append: p_tag_h | append: '::'  %}
                     {% elsif p_tag == "hidden-product" %}
                       {% assign hide_product = true %}
+                    {% elsif p_tag == "login_required" %}
+                      {% assign login_required = true %}
                     {% endif %}
                   {% endfor %}
                   {% if product.tags contains "authorization" %}
@@ -49,9 +51,11 @@
                   {% if condition %}
                   {% endif %}
                   {% unless hide_product  %}
-                    <div class="col-lg-4 col-6 {{ all_tags }} {{ type_tag }} {{ p_filtered_tag_classes }}" data-collection-product-column>
-                      {% include 'product-item' with product, index: forloop.index %}
-                    </div>
+                    {% unless login_required and customer == null %}
+                      <div class="col-lg-4 col-6 {{ all_tags }} {{ type_tag }} {{ p_filtered_tag_classes }}" data-collection-product-column>
+                        {% include 'product-item' with product, index: forloop.index %}
+                      </div>
+                    {% endunless %}
                   {% endunless %}
                 {% endfor %}
               </div>

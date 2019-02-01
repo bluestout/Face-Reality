@@ -18,12 +18,23 @@
     <tbody>
 
       {% for item in cart.items %}
-    
+        {% comment %} does this product require login? {% endcomment %}
+        {% assign login_required = false %}
+        {% if item.product.tags contains "login_required" %}
+          {% assign login_required = true %}
+        {% endif %}
+
         {% comment %} hide only certain aspects of this product {% endcomment %}
         {% if item.product.tags contains "obscured-product" %}
           {% assign obscured = true %}
         {% else %}
           {% assign obscured = false %}
+        {% endif %}
+
+        {% if login_required and customer == null %}
+          {% assign login_required = true %}
+        {% else %}
+          {% assign login_required = false %}
         {% endif %}
 
         <tr class="responsive-table-row cart-table__row {% if item.product.tags contains 'hidden-product' %}cart-table__row--invisible{% endif %}">
@@ -46,7 +57,7 @@
             </h3>
             <div class="cart-table__product-id">{{ 'cart.label.product' | t }} ID. {{ item.sku }}</div>
             <span class="shopify-product-reviews-badge" data-id="{{ item.product.id }}"></span>
-            {% unless obscured %}
+            {% unless obscured or login_required %}
               <a class="cart-table__remove" href="/cart/change?line={{ forloop.index }}&amp;quantity=0">{{ 'cart.general.remove' | t }}</a>
             {% endunless %}
           </td>
@@ -60,7 +71,7 @@
           </td>
 
           <td class="cart-table__cell d-none d-md-table-cell text-center {% unless forloop.last %}cart-table__cell--border{% endunless %}">
-            {% unless obscured %}
+            {% unless obscured or login_required %}
               <div class="cart-table__price">
                 {% if item.original_line_price != item.line_price %}
                   <span class="visually-hidden">{{ 'cart.label.discounted_price' | t }}</span>
@@ -87,7 +98,7 @@
               <div class="cart-table__rsp-content">
                 <h3 class="cart-table__rsp-title">
                   <a class="cart-table__rsp-link" href="{{ item.url }}">{{ item.product.title }}</a>
-                  {% unless obscured %}
+                  {% unless obscured or login_required %}
                     <span class="cart-table__rsp-price">
                       {% if item.original_line_price != item.line_price %}
                         <span class="visually-hidden">{{ 'cart.label.discounted_price' | t }}</span>
@@ -108,14 +119,14 @@
                   <span class="cart-table__rsp-id">{{ 'cart.label.product' | t }} ID. {{ item.sku }}</span>
                   <span class="shopify-product-reviews-badge" data-id="{{ item.product.id }}"></span>
                 </div>
-                {% unless obscured %}
+                {% unless obscured or login_required %}
                   <a class="cart-table__rsp-remove" href="/cart/change?line={{ forloop.index }}&amp;quantity=0">{{ 'cart.general.remove' | t }}</a>
                 {% endunless %}
                 <div class="clearfix"></div>
               </div>
             </div>
             <div class="clearfix"></div>
-            {% unless obscured %}
+            {% unless obscured or login_required %}
               <div class="cart-table__quantity" {% if forloop.first %}data-cart-table-quantity{% endif %}>
                 <button type="button" class="cart-table__quantity-button" data-qty-change="[product-qty-{{ forloop.index }}]" data-direction="down">-</button>
                 <input
