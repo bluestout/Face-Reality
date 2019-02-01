@@ -89,12 +89,13 @@
     }
 
     ul li {
-      text-indent: -40px;
+      position: relative;
     }
 
     ul li::before {
       content: "—";
-      padding: 0 26.5px 0 0;
+      position: absolute;
+      left: -30px;
     }
 
     h1,
@@ -187,13 +188,8 @@
         padding: 0 0 0 40px;
       }
 
-      ul li {
-        text-indent: -30px;
-      }
-
       ul li::before {
-        content: "—";
-        padding: 0 16.5px 0 0;
+        left: -20px;
       }
 
       h1 {

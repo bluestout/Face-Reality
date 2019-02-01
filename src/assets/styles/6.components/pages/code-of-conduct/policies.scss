@@ -43,12 +43,13 @@
     }
 
     li {
-      text-indent: -40px;
+      position: relative;
     }
 
     li::before {
       content: "—";
-      padding: 0 26.5px 0 0;
+      position: absolute;
+      left: -30px;
     }
   }
 
@@ -77,13 +78,9 @@
         list-style: none;
         padding: 0 0 0 50px;
       }
-      li {
-        text-indent: -30px;
-      }
 
       li::before {
-        content: "—";
-        padding: 0 16.5px 0 0;
+        left: -20px;
       }
     }
   }

@@ -83,12 +83,13 @@
     }
 
     ul li {
-      text-indent: -28.5px;
+      position: relative;
     }
 
     ul li::before {
       content: "—";
-      padding: 0 15px 0 0;
+      position: absolute;
+      left: -25px;
     }
   }
 
@@ -154,13 +155,8 @@
         padding-inline-start: 35px;
       }
 
-      ul li {
-        text-indent: -23.5px;
-      }
-
       ul li::before {
-        content: "—";
-        padding: 0 10px 0 0;
+        left: -20px;
       }
     }
   }
