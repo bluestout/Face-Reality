@@ -14,12 +14,11 @@
   margin-bottom: 60px;
 }
 
-#stockist-widget .stockist-search-form::before {
+#stockist-widget .stockist-side-panel::before {
   content: "Store locator";
   display: block;
   text-align: center;
   padding: 30px;
-  margin: 0 0 30px;
   font-family: apercu-bold, sans-serif;
   font-weight: 700;
   font-size: 26px;
@@ -47,6 +46,19 @@
   width: 100%;
   max-width: 400px;
   margin: 0 auto;
+}
+
+#stockist-widget .stockist-search-form::before {
+  content: "This locator allows you to search for a Certified Face Reality Acne Specialist. These Specialists manage their own businesses, which are not operated by Face Reality Skincare. We recommend researching individual Specialists before beginning any treatment.";
+  display: block;
+  text-align: center;
+  margin: 0 0 20px;
+padding: 0 30px;
+  font-family: apercu-regular, sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 24px;
+  color: #000;
 }
 
 #stockist-widget .stockist-result-list ul>li {

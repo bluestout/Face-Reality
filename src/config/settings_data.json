@@ -55,7 +55,7 @@
         "type": "footer",
         "settings": {
           "footer_linklist": "footer",
-          "newsletter_text": "Sign up for Face Reality Newsletter and receive promotions, announcements in your inbox",
+          "newsletter_text": "Sign up for Face Reality Newsletter to receive promotions and announcements in your inbox.",
           "logo": "shopify://shop_images/FRS-Logo-1-19_01d33c5c-df54-45e7-bc06-6d08aa307aaf.png"
         }
       },
@@ -499,7 +499,7 @@
         "settings": {
           "description": "Face Reality Acne Clinic serves San Leandro, Fremont, Hayward, Oakland, East Bay, and the greater San Francisco Bay Area.",
           "phone": "866-477-3077",
-          "email": "pros@facerealityacneclinic.com"
+          "email": "info@facerealityacneclinic.com"
         }
       },
       "about-products-banner": {
