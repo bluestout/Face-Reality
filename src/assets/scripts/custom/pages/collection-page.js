@@ -290,14 +290,51 @@ function getVariant(options, variants) {
   return found || null;
 }
 
-$(document).ready(productItemInit);
+function getUrlParams() {
+  const params = {};
+  if (window.location.search.length > 0) {
+    document.location.search
+      .substr(1)
+      .split("&")
+      .forEach((pair) => {
+        const paramsSplit = pair.split("=");
+        params[paramsSplit[0]] = paramsSplit[1];
+      });
+  }
+  return params;
+}
 
-$(document).on("click", page.button, loadMoreClick);
+function runUrlFilter() {
+  const params = getUrlParams();
+  if (params.authorization) {
+    $(`#authorization-filter-${params.authorization}`).click();
+  }
+  if (params.type) {
+    $(`#type-f-${params.type}`).click();
+  }
+  if (params.usecase) {
+    $(`#usecase-f-${params.usecase}`).click();
+  }
+  if (params.skin) {
+    $(`#skin-f-${params.skin}`).click();
+  }
+}
 
-$(document).on("click", filter.responsiveToggle, responsiveToggle);
+function initialize() {
+  productItemInit();
+  runUrlFilter();
+}
 
-$(document).on("click", filter.reset, resetFilters);
+if (document.getElementsByClassName("template-collection").length) {
+  $(document).ready(initialize);
 
-$(document).on("click", `${filter.set} input`, toggleFilter);
+  $(document).on("click", page.button, loadMoreClick);
 
-$(window).on("load resize", MoveAuthorizationFilter);
+  $(document).on("click", filter.responsiveToggle, responsiveToggle);
+
+  $(document).on("click", filter.reset, resetFilters);
+
+  $(document).on("click", `${filter.set} input`, toggleFilter);
+
+  $(window).on("load resize", MoveAuthorizationFilter);
+}
