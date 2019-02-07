@@ -92,16 +92,16 @@
               "collection": "cleansers"
             }
           },
-          "1542641939127": {
-            "type": "tab-2",
-            "settings": {
-              "collection": "serums"
-            }
-          },
           "1542641947100": {
             "type": "tab-2",
             "settings": {
               "collection": "toners"
+            }
+          },
+          "1542641939127": {
+            "type": "tab-2",
+            "settings": {
+              "collection": "serums"
             }
           },
           "1542641954749": {
@@ -121,12 +121,6 @@
             "settings": {
               "collection": "sunscreens"
             }
-          },
-          "1548335278308": {
-            "type": "tab-2",
-            "settings": {
-              "collection": "supplements"
-            }
           }
         },
         "block_order": [
@@ -135,12 +129,11 @@
           "1538575249055",
           "1538575259812",
           "1542641930822",
-          "1542641939127",
           "1542641947100",
+          "1542641939127",
           "1542641954749",
           "1548335239199",
-          "1548335262016",
-          "1548335278308"
+          "1548335262016"
         ],
         "settings": {
           "title_tab_1": "Browse By Skin Type",
@@ -224,45 +217,36 @@
           "1538384458991": {
             "type": "testimonial",
             "settings": {
-              "testimonial": "This place really is amazing and anyone with acne knows $25 (which they waive if you elect to get a treatment) is REALLY cheap and worth it to get his or her skin under control. I have been to so many different places, spent tons of money, even tried the stuff from acne.org, just to be disappointed. I finally decided to check this place out based on all the great reviews and really nice man (Pat) I spoke with at the clinic over the phone. This place is the first place I have been able to leave from after getting a facial where I didn’t feel like I needed to hide.",
-              "image": "shopify://shop_images/example_img_adc3339c-87bb-458c-af0e-451791576ee0.png",
-              "title": "Jeannine L.",
-              "date": "Jun 2018"
+              "testimonial": "My acne was so bad it hurt to the touch. I tried everything from over the counter products to going to a dermatologist and nothing was working. Face Reality saved my face and gave me back my confidence.",
+              "image": "shopify://shop_images/B2C_Testimonial_1.png",
+              "title": "Charity",
+              "date": "February 2019"
             }
           },
           "1538384503030": {
             "type": "testimonial",
             "settings": {
-              "testimonial": "Within two to three weeks we noticed a huge change. The inflammation was going down and with treatments every two weeks my daughter Sarah’s skin really did start to clear. What amazes me is that Sarah has been to dermatologists since she was in junior high school. The last time she went in, the doctor said he did not know what to do, they had tried it all. Well, Sarah walked down the aisle on her wedding day acne free, thanks to Face Reality!",
-              "image": "shopify://shop_images/example_img_adc3339c-87bb-458c-af0e-451791576ee0.png",
-              "title": "Sune N.",
-              "date": "Jun 2018"
+              "testimonial": "Face Reality has given me not only acne free skin but absolutely amazing, glowing and beautiful skin. These products healed my skin!!! I am so grateful to be able to wake up to clear skin everyday!",
+              "image": "shopify://shop_images/B2C_Testimonial_2.jpeg",
+              "title": "",
+              "date": "February 2019"
             }
           },
           "1538384524495": {
             "type": "testimonial",
             "settings": {
-              "testimonial": "This place really is amazing and anyone with acne knows $25 (which they waive if you elect to get a treatment) is REALLY cheap and worth it to get his or her skin under control. I have been to so many different places, spent tons of money, even tried the stuff from acne.org, just to be disappointed. I finally decided to check this place out based on all the great reviews and really nice man (Pat) I spoke with at the clinic over the phone. This place is the first place I have been able to leave from after getting a facial where I didn’t feel like I needed to hide.",
-              "image": "shopify://shop_images/example_img_adc3339c-87bb-458c-af0e-451791576ee0.png",
-              "title": "Jeannine L.",
-              "date": "Jun 2018"
+              "testimonial": "I started using Face Reality in August 2017 and it changed my life. I understand a lot of people probably say this but truthfully it did... I found Face Reality. My skin has never been more thankful!",
+              "image": "shopify://shop_images/B2C_Testimonial_3.jpg",
+              "title": "Karli",
+              "date": "February 2019"
             }
           },
           "1538665766851": {
             "type": "testimonial",
             "settings": {
-              "testimonial": "This place really is amazing and anyone with acne knows $25 (which they waive if you elect to get a treatment) is REALLY cheap and worth it to get his or her skin under control. I have been to so many different places, spent tons of money, even tried the stuff from acne.org, just to be disappointed. I finally decided to check this place out based on all the great reviews and really nice man (Pat) I spoke with at the clinic over the phone. This place is the first place I have been able to leave from after getting a facial where I didn’t feel like I needed to hide.",
-              "image": "",
+              "testimonial": "I have tried everything under the sun before finding Face Reality through Laura at Arch and Brow Den. Thank you so much for creating such a great program that has not only helped me but countless others.",
+              "image": "shopify://shop_images/B2C_Testimonial_4.jpg",
               "title": "Jeannine L.",
-              "date": "Jun 2018"
-            }
-          },
-          "1538665789693": {
-            "type": "testimonial",
-            "settings": {
-              "testimonial": "Within two to three weeks we noticed a huge change. The inflammation was going down and with treatments every two weeks my daughter Sarah’s skin really did start to clear. What amazes me is that Sarah has been to dermatologists since she was in junior high school. The last time she went in, the doctor said he did not know what to do, they had tried it all. Well, Sarah walked down the aisle on her wedding day acne free, thanks to Face Reality!",
-              "image": "",
-              "title": "Sune N.",
               "date": "Jun 2018"
             }
           }
@@ -271,8 +255,7 @@
           "1538384458991",
           "1538384503030",
           "1538384524495",
-          "1538665766851",
-          "1538665789693"
+          "1538665766851"
         ],
         "settings": {
           "suptitle": "Testimonials",
@@ -524,19 +507,19 @@
           "1539593230204": {
             "type": "tab-1",
             "settings": {
-              "collection": ""
+              "collection": "dry-skin"
             }
           },
           "1539593241165": {
             "type": "tab-1",
             "settings": {
-              "collection": ""
+              "collection": "normal-skin"
             }
           },
           "1539593246766": {
             "type": "tab-1",
             "settings": {
-              "collection": ""
+              "collection": "oily-skin"
             }
           },
           "1539593252090": {
@@ -545,28 +528,10 @@
               "collection": "sensitive-skin"
             }
           },
-          "1539593259746": {
-            "type": "tab-1",
-            "settings": {
-              "collection": "featured"
-            }
-          },
           "1539593278367": {
             "type": "tab-2",
             "settings": {
               "collection": "cleansers"
-            }
-          },
-          "1539593284221": {
-            "type": "tab-2",
-            "settings": {
-              "collection": ""
-            }
-          },
-          "1539593290583": {
-            "type": "tab-2",
-            "settings": {
-              "collection": "serums"
             }
           },
           "1539593296523": {
@@ -575,10 +540,28 @@
               "collection": "toners"
             }
           },
-          "1539593301437": {
+          "1539593290583": {
             "type": "tab-2",
             "settings": {
-              "collection": "featured"
+              "collection": "serums"
+            }
+          },
+          "1539593284221": {
+            "type": "tab-2",
+            "settings": {
+              "collection": "hydrators"
+            }
+          },
+          "1549386768578": {
+            "type": "tab-2",
+            "settings": {
+              "collection": "moisturizers"
+            }
+          },
+          "1549386782587": {
+            "type": "tab-2",
+            "settings": {
+              "collection": "sunscreens"
             }
           }
         },
@@ -587,12 +570,12 @@
           "1539593241165",
           "1539593246766",
           "1539593252090",
-          "1539593259746",
           "1539593278367",
-          "1539593284221",
-          "1539593290583",
           "1539593296523",
-          "1539593301437"
+          "1539593290583",
+          "1539593284221",
+          "1549386768578",
+          "1549386782587"
         ],
         "settings": {
           "title": "Explore Our Products",
