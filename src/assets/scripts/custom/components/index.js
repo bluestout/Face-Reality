@@ -19,3 +19,4 @@ import "./sticky-sidebar";
 import "./omega-col-override";
 import "./authorization-modal";
 import "./newsletter";
+import "./reviews";
