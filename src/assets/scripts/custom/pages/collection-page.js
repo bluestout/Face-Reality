@@ -36,7 +36,7 @@ const page = {
   button: "[data-order-load-more]",
   pagination: "[data-collection-pagination]",
   content: "[data-paginate-collection-content]",
-  product: "[data-collection-product-column]",
+  product: "[data-product-column]",
 };
 
 // remove falsy && empty values from array
@@ -130,6 +130,7 @@ function loadMore() {
   $(page.pagination).html("<div class='linear-loader'></div>");
   $.get(link, (data) => {
     const $content = $(`${page.content} ${page.product}`, data);
+    console.log($(`${page.content}`, data));
     const $moreLink = $(page.button, data);
     $(page.content).append($content);
     $content.hide().slideDown();
