@@ -21,7 +21,7 @@ const el = {
 };
 
 const filter = {
-  item: "[data-collection-product-column]",
+  item: "[data-product-column]",
   authorization: "[data-authorization-filter]",
   set: "[data-filter-set]",
   authFilterBox: "[data-authorization-filter-container]",
@@ -29,6 +29,7 @@ const filter = {
   responsiveToggle: "[data-responsive-filter-toggle]",
   responsiveContent: "[data-product-filter-responsive-content]",
   reset: "[data-responsive-filter-reset]",
+  noResults: "[data-collections-no-results]",
 };
 
 const page = {
@@ -53,6 +54,7 @@ function toggleFilter(event) {
   const $source = $(event.currentTarget);
   const tag = $source.val();
   const $currentset = $source.closest($(filter.set));
+  $(filter.noResults).fadeOut();
 
   // when clicking an input, change the active tag classes
   if ($source[0].tagName === "INPUT") {
@@ -145,6 +147,7 @@ function loadMore() {
 }
 
 function resetFilters() {
+  $(filter.noResults).fadeOut();
   $(filter.set).each(function() {
     $(this)
       .removeClass()

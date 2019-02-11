@@ -52,7 +52,7 @@
                   {% endif %}
                   {% unless hide_product  %}
                     {% unless login_required and customer == null %}
-                      <div class="col-lg-4 col-6 {{ all_tags }} {{ type_tag }} {{ p_filtered_tag_classes }}" data-collection-product-column>
+                      <div class="col-lg-4 col-6 {{ all_tags }} {{ type_tag }} {{ p_filtered_tag_classes }}" data-product-column>
                         {% include 'product-item' with product, index: forloop.index %}
                       </div>
                     {% endunless %}
@@ -67,8 +67,7 @@
                 {% endif %}
               {% endif %}
             {% endpaginate %}
-          {% else %}
-            <p class="collection-products__no-products">There are no products in this collection.</p>
+            <p class="collection-products__no-products" style="display:none" data-collections-no-results>No products match the criteria.</p>
           {% endif %}
         </div>
       </div>
