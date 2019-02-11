@@ -13,6 +13,7 @@ function stickyInit() {
     const sidebar = new StickySidebar(".js-sticky-sidebar", {
       topSpacing: headerHeight,
       bottomSpacing: 10,
+      resizeSensor: true,
       containerSelector: ".js-sticky-sidebar-container",
     });
   }
