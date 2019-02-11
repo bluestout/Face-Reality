@@ -93,6 +93,10 @@
     }
   }
 
+  .pale {
+    opacity: 0.5;
+  }
+
   @include media-query("medium-down") {
     margin: 0;
 

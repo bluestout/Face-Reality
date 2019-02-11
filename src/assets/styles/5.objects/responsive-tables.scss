@@ -1,8 +1,28 @@
+@include media-query("small-up") {
+  .responsive-table {
+    &__cell-compact {
+      display: none;
+    }
+  }
+}
+
 @include media-query("small-down") {
   .responsive-table {
     width: 100%;
     overflow-y: auto;
     overflow-x: auto;
+
+    &__header-regular {
+      display: none;
+    }
+
+    &__cell-compact {
+      display: table-cell;
+    }
+
+    &__cell-regular {
+      display: none;
+    }
 
     table {
       white-space: nowrap;

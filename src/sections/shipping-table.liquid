@@ -1,6 +1,6 @@
 <div class="responsive-table">
   <table>
-    <thead>
+    <thead class="responsive-table__header-regular">
       <tr>
         <th>{{ section.settings.method_head }}</th>
         <th>{{ section.settings.rate_head }}</th>
@@ -11,10 +11,16 @@
     <tbody>
       {% for block in section.blocks %}
         <tr>
-          <td>{{ block.settings.method }}</td>
-          <td>{{ block.settings.rate }}</td>
-          <td>{{ block.settings.time }}</td>
-          <td>{{ block.settings.carrier }}</td>
+          <td class="responsive-table__cell-compact">
+            <div><span class="pale">{{ section.settings.method_head }}:</span> {{ block.settings.method }}</div>
+            <div><span class="pale">{{ section.settings.rate_head }}:</span> {{ block.settings.rate }}</div>
+            <div><span class="pale">{{ section.settings.time_head }}:</span> {{ block.settings.time }}</div>
+            <div><span class="pale">{{ section.settings.carrier_head }}:</span> {{ block.settings.carrier }}</div>
+          </td>
+          <td class="responsive-table__cell-regular">{{ block.settings.method }}</td>
+          <td class="responsive-table__cell-regular">{{ block.settings.rate }}</td>
+          <td class="responsive-table__cell-regular">{{ block.settings.time }}</td>
+          <td class="responsive-table__cell-regular">{{ block.settings.carrier }}</td>
         </tr>
       {% endfor %}
     </tbody>
