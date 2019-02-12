@@ -46,7 +46,7 @@
     <a class="product-content__reviews-link" href="#shopify-product-reviews-anchor">Read Reviews</a>
   </div>
 
-  <div class="product-content__description d-none d-lg-block">
+  <div class="product-content__description">
     {{ product.description }}
   </div>
 
@@ -134,31 +134,9 @@
             </button>
           </div>
         </form>
-      {% else %}
-        {% include 'product-authorization' with
-        auth_note: section.settings.authorization_text,
-        auth_link: section.settings.authorization_url,
-        auth_l_text: section.settings.authorization_link_text
-        auth_video: section.settings.authorization_video
-        %}
       {% endif %}
       {% comment %} end obscured product {% endcomment %}
     {% endunless %}
-
-    {% comment %} wishlist {% endcomment %}
-    <div class="swym-dummy">
-      <span class="swym-button"></span>
-    </div>
-
-    <div class="product-content__description d-lg-none">
-      {{ product.description }}
-    </div>
-
-  {% else %}
-    {% comment %} fix for wishlist attaching itself to the bottom of the document {% endcomment %}
-    <div class="swym-dummy d-none">
-      <span class="swym-button"></span>
-    </div>
     {% comment %} end login required {% endcomment %}
   {% endunless %}
 
@@ -167,7 +145,26 @@
     {% if section.settings.show_share_buttons %}
       {% include 'social-sharing', share_title: product.title, share_permalink: product.url, share_image: product %}
     {% endif %}
+  {% else %}
+    {% include 'product-authorization' with
+    auth_note: section.settings.authorization_text,
+    auth_link: section.settings.authorization_url,
+    auth_l_text: section.settings.authorization_link_text
+    auth_video: section.settings.authorization_video
+    %}
   {% endif %}
+
+  {% comment %} wishlist {% endcomment %}
+  {% unless obscured_product or login_required %}
+    <div class="swym-dummy">
+      <span class="swym-button"></span>
+    </div>
+  {% else %}
+    {% comment %} fix for wishlist attaching itself to the bottom of the document {% endcomment %}
+    <div class="swym-dummy d-none">
+      <span class="swym-button"></span>
+    </div>
+  {% endunless %}
 
   {% unless product == empty %}
     <script type="application/json" data-product-json>
