@@ -154,6 +154,11 @@
       {{ product.description }}
     </div>
 
+  {% else %}
+    {% comment %} fix for wishlist attaching itself to the bottom of the document {% endcomment %}
+    <div class="swym-dummy d-none">
+      <span class="swym-button"></span>
+    </div>
     {% comment %} end login required {% endcomment %}
   {% endunless %}
 
