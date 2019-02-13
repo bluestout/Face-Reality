@@ -23,10 +23,11 @@
       <div class="col-md-9">
         <div class="collection-products">
           {% if collection.products.size > 0 %}
-            {% paginate collection.products by 9 %}
+            {% paginate collection.products by 12 %}
               <div class="row no-gutters" data-paginate-collection-content>
                 {% for product in collection.products %}
                   {% assign hide_product = false %}
+                  {% assign login_required = false %}
                   {% assign filtered_tags_s = "" %}
                   {% for p_tag in product.tags %}
                     {% if p_tag contains "skin-" or p_tag contains "use-" %}
@@ -48,8 +49,7 @@
                   {% capture p_filtered_tag_classes %}{% unless filtered_tags_a == empty %}{% for f_tag in filtered_tags_a %} {{ f_tag }}{% endfor %}{% endunless %}{% endcapture %}
                   {% assign all_tags = "skin-all usecase-all type-all authorization-all" %}
                   {% assign type_tag = "type-" | append: product.type | handleize %}
-                  {% if condition %}
-                  {% endif %}
+
                   {% unless hide_product  %}
                     {% unless login_required and customer == null %}
                       <div class="col-lg-4 col-6 {{ all_tags }} {{ type_tag }} {{ p_filtered_tag_classes }}" data-product-column>

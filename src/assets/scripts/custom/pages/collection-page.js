@@ -18,10 +18,11 @@ const el = {
   optionInput: "[data-product-item-option-input]",
   json: "[data-product-item-json]",
   imageWrap: "[data-product-image-wrapper]",
+  cTitle: "[data-collection-banner-title]",
 };
 
 const filter = {
-  item: "[data-product-column]",
+  product: "[data-product-column]",
   authorization: "[data-authorization-filter]",
   set: "[data-filter-set]",
   authFilterBox: "[data-authorization-filter-container]",
@@ -98,17 +99,24 @@ function runFilter() {
 
   // depending on the allClasses content show or hide items
   if (allClasses.length > 0) {
-    $(`${filter.item}${activeTags}`).fadeIn(200);
-    $(`${filter.item}:not(${activeTags})`).fadeOut(200);
+    $(`${filter.product}${activeTags}`).fadeIn(200);
+    $(`${filter.product}:not(${activeTags})`).fadeOut(200);
     // this if prevents infinite recursion - run only if no results after filtering
-    if (
-      $(`${filter.item}${activeTags}`).length <= 0 &&
-      $(page.button).length > 0
-    ) {
-      loadMore();
-    }
+    setTimeout(() => {
+      if (
+        $(`${filter.product}${activeTags}`).length <= 9 &&
+        $(page.button).length > 0
+      ) {
+        loadMore();
+      } else if (
+        $(`${filter.product}${activeTags}`).length === 0 &&
+        $(page.button).length === 0
+      ) {
+        $(filter.noResults).fadeIn();
+      }
+    }, 100);
   } else {
-    $(filter.item).fadeIn(200);
+    $(filter.product).fadeIn(200);
   }
 
   return document.dispatchEvent(filterEvent);
@@ -312,16 +320,49 @@ function runUrlFilter() {
   const params = getUrlParams();
   if (params.authorization) {
     $(`#authorization-filter-${params.authorization}`).click();
+    setCollectionTitle(params.authorization, "authorization");
   }
   if (params.type) {
     $(`#type-f-${params.type}`).click();
+    setCollectionTitle(params.type, "type");
   }
   if (params.usecase) {
     $(`#usecase-f-${params.usecase}`).click();
+    setCollectionTitle(params.usecase, "use");
   }
   if (params.skin) {
     $(`#skin-f-${params.skin}`).click();
+    setCollectionTitle(params.skin, "skin");
   }
+}
+
+function deHandleize(str) {
+  return str.replace("-", " ").replace("_", " ");
+}
+
+function capitalizeFirstLetter(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
+function setCollectionTitle(titleRaw, type) {
+  let title = "";
+  if (type === "skin") {
+    title = titleRaw.replace("skin-", "");
+    title = capitalizeFirstLetter(deHandleize(title));
+    title += " Skin";
+  } else if (type === "type") {
+    if (titleRaw === "sunscreen") {
+      title = "Sun Protection";
+    } else if (titleRaw === "acne-prevention") {
+      title = "Acne Prevention";
+    } else if (titleRaw === "miscellaneous") {
+      title = capitalizeFirstLetter(deHandleize(titleRaw));
+    } else {
+      title = capitalizeFirstLetter(deHandleize(titleRaw));
+      title += "s";
+    }
+  }
+  return $(el.cTitle).text(title);
 }
 
 function initialize() {
