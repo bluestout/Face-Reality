@@ -103,9 +103,16 @@
     @include title-s-m($color-blumine);
     line-height: 24px;
     text-align: center;
+    text-decoration: none;
     display: block;
     margin: auto;
+    width: 100%;
+  }
+
+  &__visible-col-text {
     width: calc(100% - 20px);
+    display: block;
+    float: left;
     padding: 0 7%;
   }
 
@@ -117,7 +124,8 @@
     opacity: 0.25;
     margin: auto;
     width: 20px;
-    text-align: left;
+    text-align: center;
+    float: right;
   }
 
   &__hover-col {
@@ -354,7 +362,7 @@
   }
 
   @media (max-width: 400px) {
-    &__col-title {
+    &__visible-col-text {
       width: calc(100% - 11px);
     }
 

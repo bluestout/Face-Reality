@@ -15,8 +15,10 @@
               {% assign collection_block = collections[block.settings.collection] %}
               <div class="collection-by-type__visible-col index-{{ index }}">
                 <div class="collection-by-type__visible-col-inner">
-                  <h3 class="collection-by-type__col-title">{{ collection_block.title }}</h3>
-                  <span class="collection-by-type__visible-col-arrow icon-angle-right"></span>
+                  <a href="{{ collection_block.url }}" class="collection-by-type__col-title">
+                    <span class="collection-by-type__visible-col-text">{{ collection_block.title }}</span>
+                    <span class="collection-by-type__visible-col-arrow icon-angle-right"></span>
+                  </a>
                 </div>
               </div>
               <a href="{{ collection_block.url }}" class="collection-by-type__hover-col">
@@ -58,8 +60,10 @@
               {% assign collection_block = collections[block.settings.collection] %}
               <div class="collection-by-type__visible-col index-{{ index }}">
                 <div class="collection-by-type__visible-col-inner">
-                  <h3 class="collection-by-type__col-title">{{ collection_block.title }}</h3>
-                  <span class="collection-by-type__visible-col-arrow icon-angle-right"></span>
+                  <a href="{{ collection_block.url }}" class="collection-by-type__col-title">
+                    <span class="collection-by-type__visible-col-text">{{ collection_block.title }}</span>
+                    <span class="collection-by-type__visible-col-arrow icon-angle-right"></span>
+                  </a>
                 </div>
               </div>
               <a href="{{ collection_block.url }}" class="collection-by-type__hover-col">
@@ -151,5 +155,3 @@
     ]
   }
 {% endschema %}
-
-
