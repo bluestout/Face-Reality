@@ -38,5 +38,7 @@
     {% endif %}
   </a>
 
-  <a href="/pages/store-locator/" class="utility-nav__big-button">Find a nearby clinic</a>
+  {% if section.settings.store_locator_text != "" %}
+    <a href="{{ section.settings.store_locator_url }}" class="utility-nav__big-button">{{ section.settings.store_locator_text }}</a>
+  {% endif %}
 </div>

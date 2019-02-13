@@ -25,7 +25,9 @@
     </div>
 
     <div class="responsive-sidemenu__big-buttons">
-      <a href="/pages/store-locator/" class="responsive-sidemenu__big-button responsive-sidemenu__big-button--solid">Find a nearby clinic</a>
+      {% if section.settings.store_locator_text != "" %}
+        <a href="{{ section.settings.store_locator_url }}" class="responsive-sidemenu__big-button responsive-sidemenu__big-button--solid">{{ section.settings.store_locator_text }}</a>
+      {% endif %}
 
       {% if section.settings.professionals_text != "" %}
         <a
