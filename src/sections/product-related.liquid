@@ -9,7 +9,7 @@
   {% endif %}
 {% endfor %}
 
-{% if section.settings.collection and found == false  %}
+{% if section.settings.collection != "" and found == false  %}
   {% assign products = collections[section.settings.collection].products %}
   {% assign found = true %}
 {% endif %}
