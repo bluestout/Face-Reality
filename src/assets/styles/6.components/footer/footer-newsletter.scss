@@ -1,4 +1,5 @@
 .footer-newsletter {
+  position: relative;
   margin: 0 0 30px;
 
   &__text {
@@ -65,17 +66,33 @@
     vertical-align: middle;
     width: 115px;
 
-    &:disabled {
+    &.disabled {
       opacity: 0.5;
       cursor: not-allowed;
     }
 
-    &:not(:disabled) {
+    &:not(.disabled) {
       &:hover,
       &:active {
         color: $color-black;
         background-color: transparent;
       }
+    }
+  }
+
+  &__message {
+    @include transition(top, opacity);
+    position: absolute;
+    z-index: 1;
+    top: calc(100% + 20px);
+    right: 0;
+    padding: 10px;
+    background-color: $color-white;
+    opacity: 0;
+    box-shadow: 0 0 1px 1px rgba($color-black, 0.05);
+    &.active {
+      opacity: 1;
+      top: calc(100% + 5px);
     }
   }
 

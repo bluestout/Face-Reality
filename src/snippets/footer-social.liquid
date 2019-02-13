@@ -18,12 +18,13 @@
           autocorrect="off"
           autocapitalize="off"
           data-newsletter-input>
-        <button type="submit" class="footer-newsletter__submit" name="commit" data-newsletter-submit disabled title="Enter a valid email">
+        <button type="submit" class="footer-newsletter__submit" name="commit" data-newsletter-submit title="Enter a valid email">
           <span class="footer-newsletter__submit-text">{{ 'general.newsletter_form.submit' | t }}</span>
         </button>
       </div>
     {% endif %}
   {% endform %}
+  <div class="footer-newsletter__message" data-newsletter-message>Please enter a valid email.</div>
 </div>
 
 {%- assign social_accounts = 'Facebook, Twitter, Pinterest, Instagram, Snapchat, Tumblr, YouTube, Vimeo, LinkedIn' | split: ', ' -%}
