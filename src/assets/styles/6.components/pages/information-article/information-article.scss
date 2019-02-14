@@ -126,10 +126,10 @@
 
   &__content {
     margin: 0 0 100px;
-    &::first-letter,
     .initial::first-letter {
       @include apercu(700);
-      @include Text(49px, 60px, $color-blumine);
+      font-size: 49px;
+      color: $color-blumine;
     }
 
     p {
@@ -253,10 +253,10 @@
 
     &__content {
       margin: 0 0 40px;
-      &::first-letter,
       .initial::first-letter {
-        font-size: 30px;
-        line-height: 40px;
+        @include apercu(700);
+        font-size: 49px;
+        color: $color-blumine;
       }
 
       ul {
