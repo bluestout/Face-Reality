@@ -35,7 +35,7 @@
     {% capture social_icon %}icon-{{ social_handle }}{% endcapture %}
 
     {% if settings[social_link] != blank %}
-      <a href="{{ settings[social_link] }}" class="site-footer__social" title="{{ 'layout.footer.social_platform' | t: name: shop.name, platform: social }}">
+      <a href="{{ settings[social_link] }}" target="_blank" class="site-footer__social" title="{{ 'layout.footer.social_platform' | t: name: shop.name, platform: social }}">
         <span class="site-footer__social-icon {{ social_icon }}"></span>
       </a>
     {% endif %}
