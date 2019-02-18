@@ -1,7 +1,12 @@
 .primary-banner {
+  @include transition(padding);
   position: relative;
   padding: 240px 0 140px;
   text-align: center;
+
+  &.big-padding {
+    padding: 310px 0 140px;
+  }
 
   &--bg {
     @include backgroundImage;
@@ -68,10 +73,18 @@
     &__badge {
       display: none;
     }
+
+    &.big-padding {
+      padding: 270px 0 60px;
+    }
   }
 
   @include media-query("medium-down") {
     padding: 200px 0 40px;
+
+    &.big-padding {
+      padding: 270px 0 60px;
+    }
 
     &__gradient {
       background: linear-gradient(

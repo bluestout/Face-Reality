@@ -41,6 +41,63 @@
     }
   }
 
+  &__announcement-bar-big {
+    @include clearfix;
+    @include Text(13px, 14px, $color-white);
+    position: relative;
+    background-color: $color-black;
+    padding: 10px 30px;
+  }
+
+  &__announcement-bar-big-inner {
+    text-align: center;
+    max-width: 600px;
+    display: flex;
+    margin: 0 auto;
+  }
+
+  &__announcement-text-big {
+    color: $color-white;
+    margin: 0 auto;
+    a {
+      color: $color-white;
+      text-decoration: underline;
+      font: inherit;
+      margin: 0;
+    }
+    p,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    li {
+      margin: 0;
+      color: $color-white;
+    }
+  }
+
+  &__announcement-link {
+    @include button(main);
+    margin: 0 auto;
+    align-self: center;
+    text-decoration: none;
+  }
+
+  &__announcement-close {
+    position: absolute;
+    right: 15px;
+    top: calc(50% - 13px);
+    font-size: 20px;
+    line-height: 1;
+    color: white;
+    background-color: transparent;
+    border-radius: 0;
+    border: none;
+    padding: 3px;
+  }
+
   &__secondary-nav {
     text-align: right;
     @include clearfix;
@@ -148,6 +205,14 @@
     }
   }
 
+  @include media-query("small-down") {
+    &__announcement-close {
+      right: 5px;
+      font-size: 14px;
+      padding: 2px;
+    }
+  }
+
   @include media-query("v-small") {
     .utility-col {
       position: static;
@@ -161,6 +226,23 @@
       padding: 6px;
       margin: 0;
       font-size: 11.5px;
+    }
+
+    &__announcement-bar-big {
+      padding: 10px 20px;
+    }
+
+    &__announcement-bar-big-inner {
+      flex-flow: column nowrap;
+    }
+
+    &__announcement-link {
+      padding: 8px;
+      margin: 5px 0 0;
+    }
+
+    &__announcement-close {
+      top: 10px;
     }
   }
 

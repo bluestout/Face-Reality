@@ -1,7 +1,7 @@
 {% if section.settings.background %}
-  <section class="primary-banner primary-banner--bg lazyload" data-bgset="{% include 'responsive-bg-image', image: section.settings.background, image_rsp: section.settings.background_mobile %}">
+  <section class="primary-banner primary-banner--bg lazyload" data-bgset="{% include 'responsive-bg-image', image: section.settings.background, image_rsp: section.settings.background_mobile %}" data-primary-banner>
 {% else %}
-  <section class="primary-banner">
+  <section class="primary-banner" data-primary-banner>
 {% endif %}
   <div class="primary-banner__gradient"></div>
   <div class="container">

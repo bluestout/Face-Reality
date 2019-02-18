@@ -1,10 +1,34 @@
 <header data-section-id="{{ section.id }}" data-section-type="header" role="banner" class="site-header">
   {%- if section.settings.announcement_bar_enabled -%}
-    <div class="site-header__announcement-bar">
-      {%- if section.settings.announcement_bar_home_page_only == false or template.name == 'index' -%}
+    {%- if section.settings.announcement_bar_home_page_only == false or template.name == 'index' -%}
+      <div class="site-header__announcement-bar">
         <p class="site-header__announcement-text">{{ section.settings.announcement_bar_text }}</p>
+      </div>
+    {%- endif -%}
+  {%- endif -%}
+  {%- if section.settings.announcement_bar2_enabled -%}
+    {% if section.settings.announcement_bar2_login and customer %}
+      {% assign show_big_announcement = true %}
+    {% elsif section.settings.announcement_bar2_login == false %}
+      {% assign show_big_announcement = true %}
+    {% else %}
+      {% assign show_big_announcement = false %}
+    {% endif %}
+    {% if show_big_announcement %}
+      {%- if section.settings.announcement_bar2_home_page_only == false or template.name == 'index' -%}
+        <div class="site-header__announcement-bar-big" data-announcement-bar-xl>
+          <div class="site-header__announcement-bar-big-inner">
+            <div class="site-header__announcement-text-big">
+              {{ section.settings.announcement_bar2_text }}
+            </div>
+            {% if section.settings.announcement_bar2_button != "" %}
+              <a class="site-header__announcement-link" href="{{ section.settings.announcement_bar2_url }}">{{ section.settings.announcement_bar2_button }}</a>
+            {% endif %}
+          </div>
+          <button class="icon-close site-header__announcement-close" data-announcement-close></button>
+        </div>
       {%- endif -%}
-    </div>
+    {% endif %}
   {%- endif -%}
   <div class="container">
     <div class="site-header__secondary-nav">
@@ -155,6 +179,43 @@
         "id": "announcement_bar_text",
         "label": "Announcement text",
         "default": "Announce something here"
+      },
+      {
+        "type": "header",
+        "content": "Large Announcement bar"
+      },
+      {
+        "type": "checkbox",
+        "id": "announcement_bar2_enabled",
+        "label": "Show announcement",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "announcement_bar2_home_page_only",
+        "label": "Show on home page only",
+        "default": true
+      },
+      {
+        "type": "textarea",
+        "id": "announcement_bar2_text",
+        "label": "Announcement text"
+      },
+      {
+        "type": "text",
+        "id": "announcement_bar2_button",
+        "label": "Button text"
+      },
+      {
+        "type": "url",
+        "id": "announcement_bar2_url",
+        "label": "Button URL"
+      },
+      {
+        "type": "checkbox",
+        "id": "announcement_bar2_login",
+        "label": "Show Only If Logged In",
+        "default": false
       },
       {
         "type": "header",
