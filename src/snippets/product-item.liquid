@@ -1,6 +1,7 @@
 {% assign modulo = index | modulo: 2 %}
 {% assign p_tags = product-item.tags %}
 {%- assign current_p_i_variant = product-item.selected_or_first_available_variant -%}
+{%- assign featured_image = current_p_i_variant.featured_image | default: product-item.featured_image -%}
 
 {% comment %} obscured product - when we show the product, but cannot allow adding it to cart {% endcomment %}
 {% assign obscured_product = false %}
@@ -56,12 +57,10 @@
     <span class="product-item__tag-wrap">
       {% include 'product-tags' with product-item %}
     </span>
-    {%- assign p_item_variant = product-item.selected_or_first_available_variant -%}
-    {%- assign p_item_featured = p_item_variant.featured_image | default: product-item.featured_image -%}
 
-    {% if p_item_variant.featured_image %}
+    {% if featured_image %}
       {% for image in product-item.images %}
-        {% capture wrapper_class %}product-item__image-wrap {% unless p_item_featured == image %} hide{% endunless %}{% endcapture %}
+        {% capture wrapper_class %}product-item__image-wrap {% unless featured_image == image %} hide{% endunless %}{% endcapture %}
         {% include 'responsive-image' with
           image: image,
           image_attributes: "data-product-featured-image",
