@@ -6,11 +6,11 @@
  * @namespace password
  */
 
-import $ from 'jquery';
+import $ from "jquery";
 
 const selectors = {
-  recoverPasswordForm: '#RecoverPassword',
-  hideRecoverPasswordLink: '#HideRecoverPasswordLink',
+  recoverPasswordForm: "#RecoverPassword",
+  hideRecoverPasswordLink: "#HideRecoverPasswordLink",
 };
 
 function onShowHidePasswordForm(event) {
@@ -22,7 +22,7 @@ function checkUrlHash() {
   const hash = window.location.hash;
 
   // Allow deep linking to recover password form
-  if (hash === '#recover') {
+  if (hash === "#recover") {
     toggleRecoverPasswordForm();
   }
 }
@@ -31,15 +31,15 @@ function checkUrlHash() {
  *  Show/Hide recover password form
  */
 function toggleRecoverPasswordForm() {
-  $('#RecoverPasswordForm').toggleClass('hide');
-  $('#CustomerLoginForm').toggleClass('hide');
+  $("#RecoverPasswordForm").toggleClass("hide");
+  $("#CustomerLoginForm").toggleClass("hide");
 }
 
 /**
  *  Show reset password success message
  */
 function resetPasswordSuccess() {
-  const $formState = $('.reset-password-success');
+  const $formState = $(".reset-password-success");
 
   // check if reset password form was successfully submited.
   if (!$formState.length) {
@@ -47,13 +47,36 @@ function resetPasswordSuccess() {
   }
 
   // show success message
-  $('#ResetSuccess').removeClass('hide');
+  $("#ResetSuccess").removeClass("hide");
 }
 
 if ($(selectors.recoverPasswordForm).length) {
   checkUrlHash();
   resetPasswordSuccess();
 
-  $(selectors.recoverPasswordForm).on('click', onShowHidePasswordForm);
-  $(selectors.hideRecoverPasswordLink).on('click', onShowHidePasswordForm);
+  $(selectors.recoverPasswordForm).on("click", onShowHidePasswordForm);
+  $(selectors.hideRecoverPasswordLink).on("click", onShowHidePasswordForm);
+}
+
+function getUrlParams() {
+  const params = {};
+  if (window.location.search.length > 0) {
+    document.location.search
+      .substr(1)
+      .split("&")
+      .forEach((pair) => {
+        const paramsSplit = pair.split("=");
+        params[paramsSplit[0]] = paramsSplit[1];
+      });
+  }
+  return params;
+}
+
+if (document.getElementsByClassName("template-login")[0]) {
+  $(document).ready(() => {
+    const params = getUrlParams();
+    if (params.reset === "true") {
+      toggleRecoverPasswordForm();
+    }
+  });
 }
