@@ -98,6 +98,30 @@
     flex: 1 0 auto;
   }
 
+  &__variant {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    appearance: none;
+    outline: none;
+    opacity: 0 !important;
+
+    &::after,
+    &::before {
+      content: none;
+    }
+
+    &:checked {
+      + label {
+        background-color: $color-white;
+        color: $color-blumine;
+        opacity: 1;
+      }
+    }
+  }
+
   &__variant-label {
     @include apercu;
     @include Text(13px, 14px, $color-dove-gray);
@@ -107,34 +131,16 @@
     opacity: 0.5;
     margin: 0;
     padding: 16px;
-    display: inline-block;
     pointer-events: none;
-  }
-
-  &__variant {
-    @include transition(background-color);
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    appearance: none;
     border-top: 1px solid $color-botticelli;
     border-left: 1px solid $color-botticelli;
     background-color: $color-mystic;
-    outline: none;
+    height: 100%;
+    width: 100%;
+    display: flex;
 
-    &::after,
-    &::before {
-      content: none;
-    }
-
-    &:checked {
-      background-color: $color-white;
-      + label {
-        color: $color-blumine;
-        opacity: 1;
-      }
+    &-span {
+      margin: auto;
     }
   }
 
