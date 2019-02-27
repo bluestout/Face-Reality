@@ -31,7 +31,13 @@
                     <td class="order-history__cell" data-label="{{ 'customer.orders.order_number' | t }}">{{ order.name | link_to: order.customer_url }}</td>
                     <td class="order-history__cell" data-label="{{ 'customer.orders.total' | t }}">{{ order.total_price | money }}</td>
                     <td class="order-history__cell" data-label="{{ 'customer.orders.fulfillment_status' | t }}">
-                      <span class="order-history__fulfillment {{ span_classes }}">{{ order.fulfillment_status_label }}</span>
+                      <span class="order-history__fulfillment {{ span_classes }}">
+                        {%- if order.fulfillment_status == "unfulfilled" -%}
+                          Processing
+                        {%- elsif order.fulfillment_status == "fulfilled" -%}
+                          Shipped
+                        {%- endif -%}
+                      </span>
                     </td>
                   </tr>
                 {% endfor %}
