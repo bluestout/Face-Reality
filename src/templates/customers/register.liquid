@@ -25,20 +25,36 @@
             {% form 'create_customer' %}
               {{ form.errors | default_errors }}
 
-
               <div class="register__input-wrap">
-                <label for="Name" class="label-hidden">Full name</label>
-                <input type="text"
+                <label for="FirstName" class="label-hidden">
+                  {{ 'customer.register.first_name' | t }}
+                </label>
+                <input
                   class="register__input"
-                  name="customer[name]"
-                  id="Name"
-                  placeholder="Full name"
+                  type="text"
+                  name="customer[first_name]"
+                  id="FirstName"
                   autofocus
-                  {% if form.first_name %}value="{{ form.name }}"{% endif %}
-                  data-register-name/>
+                  placeholder="{{ 'customer.register.first_name' | t }}"
+                  {% if form.first_name %}value="{{ form.first_name }}"{% endif %}
+                  data-register-name />
               </div>
 
-              <div class="register__input-wrap register__input-wrap--margin">
+              <div class="register__input-wrap">
+                <label for="LastName" class="label-hidden">
+                  {{ 'customer.register.last_name' | t }}
+                </label>
+                <input
+                  class="register__input register__input--bordermerge"
+                  type="text"
+                  name="customer[last_name]"
+                  id="LastName"
+                  placeholder="{{ 'customer.register.last_name' | t }}"
+                  {% if form.last_name %}value="{{ form.last_name }}"{% endif %}
+                  data-register-name />
+              </div>
+
+              <div class="register__input-wrap register__input-wrap--margin register__input--bordermerge">
                 <label for="Email" class="label-hidden">{{ 'customer.register.email' | t }}</label>
                 <input type="email"
                   class="register__input register__input--bordermerge"
