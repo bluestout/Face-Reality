@@ -34,18 +34,16 @@
 {% endif %}
 
 <div class="product-item {% if modulo == 0 %}product-item--even{% else %}product-item--odd{% endif %}" itemscope itemtype="http://schema.org/Product" data-product-item>
-  {% unless product-item == empty %}
-    <script type="application/json" data-product-item-json>
-      {{ product-item | json }}
-    </script>
-  {% endunless %}
-  <meta itemprop="name" content="{{ prod.title }}">
-  <meta itemprop="url" content="{{ shop.url }}{{ prod.url }}">
+  <meta itemprop="name" content="{{ product-item.title }}">
+  <meta itemprop="url" content="{{ shop.url }}{{ product-item.url }}">
   <meta itemprop="image" content="{{ featured_image | img_url: '800x' }}">
-  <meta itemprop="description" content="{{ prod.description | strip_html | escape }}">
-  <meta itemprop="priceCurrency" content="{{ shop.currency }}">
-  <meta itemprop="price" content="{{ prod.price | divided_by: 100.00 }}">
-  <link itemprop="availability" href="http://schema.org/{% if prod.available %}InStock{% else %}OutOfStock{% endif %}">
+  <meta itemprop="description" content="{{ product-item.description | strip_html | escape }}">
+  <meta itemprop="sku" content="{{ current_p_i_variant.sku }}">
+  <div itemprop="offers" itemscope itemtype="http://schema.org/AggregateOffer">
+    <link itemprop="availability" href="http://schema.org/{% if product-item.available %}InStock{% else %}OutOfStock{% endif %}">
+    <span itemprop="priceCurrency">{{ shop.currency }}</span>
+    <span itemprop="lowPrice">{{ product-item.price_min | divided_by: 100.00 }}</span> to <span itemprop="highPrice">{{ product-item.price_max | divided_by: 100.00 }}</span>
+  </div>
   <div class="product-item__background"></div>
 
   {% include 'swym-product-view', product: product-item %}
@@ -175,5 +173,11 @@
       {% comment %} end obscured prodcut {% endcomment %}
     {% endunless %}
     {% comment %} end login required {% endcomment %}
+  {% endunless %}
+
+  {% unless product-item == empty %}
+    <script type="application/json" data-product-item-json>
+      {{ product-item | json }}
+    </script>
   {% endunless %}
 </div>
