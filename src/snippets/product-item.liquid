@@ -39,7 +39,7 @@
   <meta itemprop="image" content="{{ featured_image | img_url: '800x' }}">
   <meta itemprop="description" content="{{ product-item.description | strip_html | escape }}">
   <meta itemprop="sku" content="{{ current_p_i_variant.sku }}">
-  <div itemprop="offers" itemscope itemtype="http://schema.org/AggregateOffer">
+  <div itemprop="offers" itemscope itemtype="http://schema.org/AggregateOffer" style="display: none;">
     <link itemprop="availability" href="http://schema.org/{% if product-item.available %}InStock{% else %}OutOfStock{% endif %}">
     <span itemprop="priceCurrency">{{ shop.currency }}</span>
     <span itemprop="lowPrice">{{ product-item.price_min | divided_by: 100.00 }}</span> to <span itemprop="highPrice">{{ product-item.price_max | divided_by: 100.00 }}</span>
