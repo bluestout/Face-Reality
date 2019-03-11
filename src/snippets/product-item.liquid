@@ -36,14 +36,20 @@
 <div class="product-item {% if modulo == 0 %}product-item--even{% else %}product-item--odd{% endif %}" itemscope itemtype="http://schema.org/Product" data-product-item>
   <meta itemprop="name" content="{{ product-item.title }}">
   <meta itemprop="url" content="{{ shop.url }}{{ product-item.url }}">
-  <meta itemprop="image" content="{{ featured_image | img_url: '800x' }}">
+  {% if featured_image contains "http://" or featured_image contains "https://" %}
+    <meta itemprop="image" content="{{ featured_image | img_url: '800x' }}">
+  {% else %}
+    <meta itemprop="image" content="https:{{ featured_image | img_url: '800x' }}">
+  {% endif %}
   <meta itemprop="description" content="{{ product-item.description | strip_html | escape }}">
   <meta itemprop="sku" content="{{ current_p_i_variant.sku }}">
-  <div itemprop="offers" itemscope itemtype="http://schema.org/AggregateOffer" style="display: none;">
+    <meta itemprop="id" content="{{ current_p_i_variant.id }}">
+  <div itemprop="offers" itemscope itemtype="http://schema.org/AggregateOffer" style="display:none;">
     <link itemprop="availability" href="http://schema.org/{% if product-item.available %}InStock{% else %}OutOfStock{% endif %}">
     <span itemprop="priceCurrency">{{ shop.currency }}</span>
     <span itemprop="lowPrice">{{ product-item.price_min | divided_by: 100.00 }}</span> to <span itemprop="highPrice">{{ product-item.price_max | divided_by: 100.00 }}</span>
   </div>
+
   <div class="product-item__background"></div>
 
   {% include 'swym-product-view', product: product-item %}
