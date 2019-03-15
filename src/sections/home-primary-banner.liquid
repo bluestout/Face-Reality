@@ -1,5 +1,28 @@
 {% if section.settings.background %}
-  <section class="primary-banner primary-banner--bg lazyload" data-bgset="{% include 'responsive-bg-image', image: section.settings.background, image_rsp: section.settings.background_mobile %}" data-primary-banner>
+  <section
+    class="primary-banner primary-banner--bg lazyload"
+    data-primary-banner
+    >
+    <style>
+
+      @media screen and (min-width: 1441px) {
+        .primary-banner.primary-banner--bg {
+          background-image: url({{ section.settings.background | img_url: '1920x' }});
+        }
+      }
+      @media screen and (max-width: 1440px) {
+        .primary-banner.primary-banner--bg {
+          background-image: url({{ section.settings.background | img_url: '1170x' }});
+        }
+      }
+      {% if section.settings.background_mobile != blank %}
+        @media screen and (max-width: 576px) {
+          .primary-banner.primary-banner--bg {
+            background-image: url({{ section.settings.background_mobile | img_url: '600x' }});
+          }
+        }
+      {% endif %}
+    </style>
 {% else %}
   <section class="primary-banner" data-primary-banner>
 {% endif %}
