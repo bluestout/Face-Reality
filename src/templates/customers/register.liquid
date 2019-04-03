@@ -84,11 +84,11 @@
                 <label for="CreatePasswordConfirm" class="label-hidden">Repeat password</label>
                 <input type="password"
                   class="register__input register__input--bordermerge"
-                  name="customer[password_confirmation]"
                   id="CreatePasswordConfirm"
                   class="{% if form.errors contains 'password' %}input-error{% endif %}"
                   placeholder="Repeat password"
-                  data-register-password-check/>
+                  data-register-password-check
+                  required/>
               </div>
 
               <div>
