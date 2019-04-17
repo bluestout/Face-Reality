@@ -153,20 +153,22 @@
           {% endunless %}
 
           <button
-            class="product-item__form-submit"
+            class="product-item__form-submit {% unless product-item.available %}d-none{% endunless %}"
             type="submit"
             name="add"
             data-add-to-cart
-            data-product-item-add-button
-            {% unless product-item.available %}disabled="disabled"{% endunless %}>
-              <span data-add-button-text>
-                {% if product-item.available %}
-                  {{ 'products.product.add_to_cart' | t }}
-                {% else %}
-                  {{ 'products.product.sold_out' | t }}
-                {% endif %}
+            data-product-item-add-button>
+              <span>
+                {{ 'products.product.add_to_cart' | t }}
               </span>
           </button>
+
+          <a
+            href="{{ product-item.url | within: collection }}"
+            class="product-item__form-submit {% if product-item.available %}d-none{% endif %}"
+            data-product-item-view-button>
+            {{ 'products.product.view_details' | t }}
+          </a>
         </form>
         <div class="text-center d-block d-md-none">
           <a href="{{ product-item.url }}" class="product-item__form-submit ">Learn more</a>

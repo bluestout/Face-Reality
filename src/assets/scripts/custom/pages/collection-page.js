@@ -13,7 +13,7 @@ const el = {
   price: "[data-product-item-price]",
   priceCompare: "[data-product-item-compare-price]",
   addToCart: "[data-product-item-add-button]",
-  addToCartText: "[data-add-button-text]",
+  viewDetails: "[data-product-item-view-button]",
   option: "[data-product-item-option]",
   optionInput: "[data-product-item-option-input]",
   json: "[data-product-item-json]",
@@ -246,11 +246,11 @@ function setNewVariant(parent, variant) {
 
   // set availability
   if (variant.available) {
-    $(el.addToCart, parent).prop("disabled", false);
-    $(el.addToCartText, parent).html(theme.strings.addToCart);
+    $(el.addToCart, parent).removeClass("d-none");
+    $(el.viewDetails, parent).addClass("d-none");
   } else {
-    $(el.addToCart, parent).prop("disabled", true);
-    $(el.addToCartText, parent).html(theme.strings.soldOut);
+    $(el.addToCart, parent).addClass("d-none");
+    $(el.viewDetails, parent).removeClass("d-none");
   }
 
   // switch image
@@ -355,14 +355,14 @@ function setCollectionTitle(titleRaw, type) {
       title = "Sun Protection";
     } else if (titleRaw === "acne-prevention") {
       title = "Acne Prevention";
-    } else if (titleRaw === "use-anti-aging") {
-      title = "Anti Aging";
     } else if (titleRaw === "miscellaneous") {
       title = capitalizeFirstLetter(deHandleize(titleRaw));
     } else {
       title = capitalizeFirstLetter(deHandleize(titleRaw));
       title += "s";
     }
+  } else if (titleRaw === "use-anti-aging") {
+    title = "Anti Aging";
   }
   return $(el.cTitle).text(title);
 }
