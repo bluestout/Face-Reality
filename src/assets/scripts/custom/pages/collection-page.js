@@ -317,54 +317,45 @@ function getUrlParams() {
 }
 
 function runUrlFilter() {
+  const collectionsElement = document.getElementById("collection-titles-json");
+  let collJson;
+  if (collectionsElement) {
+    collJson = JSON.parse(collectionsElement.innerHTML);
+    collJson = collJson.collections;
+  }
   const params = getUrlParams();
   if (params.authorization) {
     $(`#authorization-filter-${params.authorization}`).click();
-    setCollectionTitle(params.authorization, "authorization");
+    setCollectionTitleFromJson(params.availability, collJson);
   }
   if (params.type) {
     $(`#type-f-${params.type}`).click();
-    setCollectionTitle(params.type, "type");
+    setCollectionTitleFromJson(params.type, collJson);
   }
   if (params.usecase) {
     $(`#usecase-f-${params.usecase}`).click();
-    setCollectionTitle(params.usecase, "use");
+    setCollectionTitleFromJson(params.usecase, collJson);
   }
   if (params.skin) {
     $(`#skin-f-${params.skin}`).click();
-    setCollectionTitle(params.skin, "skin");
+    setCollectionTitleFromJson(params.skin, collJson);
   }
 }
 
-function deHandleize(str) {
-  return str.replace(/-/g, " ", " ").replace(/_/g, " ");
-}
-
-function capitalizeFirstLetter(string) {
-  return string.charAt(0).toUpperCase() + string.slice(1);
-}
-
-function setCollectionTitle(titleRaw, type) {
-  let title = "";
-  if (type === "skin") {
-    title = titleRaw.replace("skin-", "");
-    title = capitalizeFirstLetter(deHandleize(title));
-    title += " Skin";
-  } else if (type === "type") {
-    if (titleRaw === "sunscreen") {
-      title = "Sun Protection";
-    } else if (titleRaw === "acne-prevention") {
-      title = "Acne Prevention";
-    } else if (titleRaw === "miscellaneous") {
-      title = capitalizeFirstLetter(deHandleize(titleRaw));
-    } else {
-      title = capitalizeFirstLetter(deHandleize(titleRaw));
-      title += "s";
+// get settings from the collection banner json
+function setCollectionTitleFromJson(urlParam, collJson) {
+  if (collJson && collJson.length > 0) {
+    for (let i = 0; i < collJson.length; i++) {
+      const coll = collJson[i];
+      if (urlParam.indexOf(coll.handle) > -1) {
+        if (coll.subtitle.length > 0) {
+          $(el.cSubitle).text(coll.subtitle);
+        }
+        return $(el.cTitle).text(coll.title);
+      }
     }
-  } else if (titleRaw === "use-anti-aging") {
-    title = "Anti Aging";
   }
-  return $(el.cTitle).text(title);
+  return null;
 }
 
 function initialize() {

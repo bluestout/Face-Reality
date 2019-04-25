@@ -3,12 +3,16 @@
   {% assign c = collections[block.settings.collection] %}
   {% if c.handle == collection.handle %}
     {% assign c_found = true %}
-    {% if block.settings.title %}
+    {% if block.settings.title != blank %}
       {% assign b_title = block.settings.title %}
-    {% elsif section.settings.title %}
-      {% assign b_title = section.settings.title %}
     {% else %}
       {% assign b_title = collection.title %}
+    {% endif %}
+
+    {% if block.settings.subtitle != blank %}
+      {% assign b_subtitle = block.settings.subtitle %}
+    {% elsif section.settings.subtitle != blank %}
+      {% assign b_subtitle = section.settings.subtitle %}
     {% endif %}
 
     {% if block.settings.background %}
@@ -18,7 +22,10 @@
     {% else %}
       <div class="collection-banner collection-banner--default">
         <div class="container">
-          <h2 class="collection-banner__subtitle">{{ b_title }}</h2>
+          <h1 class="collection-banner__title" data-collection-banner-title>{{ b_title }}</h1>
+          {% if b_subtitle != blank %}
+            <h2 class="collection-banner__subtitle" data-collection-banner-subtitle>{{ b_subtitle }}</h2>
+          {% endif %}
         </div>
       </div>
     {% endif %}
@@ -34,17 +41,29 @@
     <div class="container">
       {% if collection.handle == "all" or collection.handle == "products" %}
         <h1 class="collection-banner__title" data-collection-banner-title>All Products</h1>
-      {% elsif section.settings.title != "" %}
-        <h1 class="collection-banner__title">{{ section.settings.title }}</h1>
       {% else %}
-        <h1 class="collection-banner__title">{{ collection.title }}</h1>
+        <h1 class="collection-banner__title" data-collection-banner-title>{{ collection.title }}</h1>
       {% endif %}
-      {% comment %} <h2 class="collection-banner__subtitle">{{ section.settings.title }}</h2> {% endcomment %}
+      {% comment %} <h2 class="collection-banner__subtitle" data-collection-banner-subtitle>{{ section.settings.title }}</h2> {% endcomment %}
     </div>
   </div>
 {% endif %}
 
 
+
+<script id="collection-titles-json" type="application/json" data-collection-titles-json style="display:none;">
+{
+  "collections": [
+    {% for block in section.blocks %}
+      {
+        "handle": {{ block.settings.collection | json }},
+        "title": {{ block.settings.title | json }},
+        "subtitle": {{ block.settings.subtitle | json }}
+      }{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+  ]
+}
+</script>
 
 {% schema %}
   {
@@ -66,7 +85,7 @@
     "blocks": [
       {
         "type": "block",
-        "name": "Block",
+        "name": "Collection",
         "settings": [
           {
             "type": "textarea",
@@ -79,6 +98,11 @@
             "id": "background",
             "label": "Background",
             "info": "1920x400"
+          },
+          {
+            "type": "textarea",
+            "id": "subtitle",
+            "label": "Subtitle"
           },
           {
             "type": "collection",
