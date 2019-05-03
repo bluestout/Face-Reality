@@ -155,7 +155,7 @@
         "settings": {
           "title": "Our Products",
           "text": "Face Reality products are specifically formulated for acne-prone skin and are guaranteed not to clog your pores.",
-          "list_title": "Most Popular",
+          "list_title": "Top Sellers",
           "collection": "featured"
         }
       },
@@ -167,8 +167,8 @@
           "button_text": "Learn More",
           "link_url": "/collections/all/",
           "link_text": "Explore Our Products",
-          "background": "shopify://shop_images/home-hero.jpg",
-          "background_mobile": "shopify://shop_images/home-hero-mobile.jpg",
+          "background": "shopify://shop_images/Homepage_update.png",
+          "background_mobile": "shopify://shop_images/mobile.png",
           "badge": "shopify://shop_images/success-rate-badge.png"
         }
       },
@@ -178,7 +178,7 @@
           "1538382823598": {
             "type": "usp-text",
             "settings": {
-              "text": "Face Reality Acne Clinic has a clear skin system that will have your acne under control in about three to four months, depending on your type of acne. We combine the power of clinical-grade products that are customized for your type of acne, with a series of bi-monthly treatments.",
+              "text": "Face Reality Skincare has a clear skin system that will have your acne under control in about three to four months, depending on your type of acne. We combine the power of clinical-grade products that are customized for your type of acne, with a series of bi-monthly treatments.",
               "badge": "shopify://shop_images/success-rate-badge.png",
               "link": ""
             }
@@ -222,12 +222,12 @@
       "1538384423675": {
         "type": "home-testimonials",
         "blocks": {
-          "1538384458991": {
+          "1538384524495": {
             "type": "testimonial",
             "settings": {
-              "testimonial": "My acne was so bad it hurt to the touch. I tried everything from over the counter products to going to a dermatologist and nothing was working. Face Reality saved my face and gave me back my confidence.",
-              "image": "shopify://shop_images/charity_testimonial.jpg",
-              "title": "Charity",
+              "testimonial": "I started using Face Reality in August 2017 and it changed my life. I understand a lot of people probably say this but truthfully it did... I found Face Reality. My skin has never been more thankful!",
+              "image": "shopify://shop_images/karli_testimonial.jpg",
+              "title": "Karli",
               "date": "February 2019"
             }
           },
@@ -240,15 +240,6 @@
               "date": "February 2019"
             }
           },
-          "1538384524495": {
-            "type": "testimonial",
-            "settings": {
-              "testimonial": "I started using Face Reality in August 2017 and it changed my life. I understand a lot of people probably say this but truthfully it did... I found Face Reality. My skin has never been more thankful!",
-              "image": "shopify://shop_images/karli_testimonial.jpg",
-              "title": "Karli",
-              "date": "February 2019"
-            }
-          },
           "1538665766851": {
             "type": "testimonial",
             "settings": {
@@ -256,6 +247,15 @@
               "image": "shopify://shop_images/Jeannie_testimonial.jpg",
               "title": "",
               "date": "Jun 2018"
+            }
+          },
+          "1538384458991": {
+            "type": "testimonial",
+            "settings": {
+              "testimonial": "My acne was so bad it hurt to the touch. I tried everything from over the counter products to going to a dermatologist and nothing was working. Face Reality saved my face and gave me back my confidence.",
+              "image": "shopify://shop_images/charity_testimonial.jpg",
+              "title": "Charity",
+              "date": "February 2019"
             }
           }
         },
@@ -338,7 +338,7 @@
         "settings": {
           "content_top": "<p>In her mid-thirties, she finally found an esthetician who got her skin clear. She immediately felt compelled to help others as she had been helped. After all, she knew first-hand how adversely it had affected her life; and she wanted to spare others the agony of dealing with acne.</p>\n<p><br>She became a California state-licensed esthetician in 1990 and set out to learn everything about acne that she could. After having been a sole practitioner for many years, her dream of opening an acne-only clinic came true in 2005. As a result of her astounding results with acne, other&nbsp;estheticians started demanding classes to learn her protocol. Out of this was born her comprehensive Acne Specialist training and she has certified over 400 skin care professionals, including nurses and doctors, around the United States.&nbsp;</p>",
           "image_top": "shopify://shop_images/Laura_813444b6-8397-45ba-9721-b44e38b62d20.jpg",
-          "image_middle": "shopify://shop_images/1.png",
+          "image_middle": "shopify://shop_images/About_Us_1110x560.jpg",
           "content_middle": "Laura knows first-hand how adversely acne can affect people's lives; and she wants to spare others the suffering that it can bring.",
           "content_bottom": "<p>She organized the first U.S. conference for acne specialists in September 2014, and continues to write articles about acne and acne treatment in several skin care industry publications. She is continually doing research and testing products to increase her understanding of the disease known as retention hyperkeratosis, aka acne.</p>\n<p></p>\n<p></p>",
           "cta_content": "Learn more about Face Reality Acne Clinic, and why we can help you when nobody else can.",
@@ -352,7 +352,7 @@
         "type": "different-full-w-rows",
         "settings": {
           "title_top": "Acne can be controlled with the right products and process",
-          "description_top": "<p>Acne is a mysterious skin disorder, but one thing is for sure &ndash; it can be controlled with the right combination of products, used in the correct way. Just as in a clogged drain, the pore must be treated with products that unclog it and kill the acne bacteria.</p>\n<p><br>Face Reality Acne Clinic has a clear-skin system that will have your acne under control in about three to four months, depending on your type of acne. We combine the power of clinical-grade products that are customized for your type of acne, with a series of bi-monthly treatments. We also teach you about other aggravating factors that make you break out &ndash; foods, medications, cosmetics, stress, and common ingredients in skin care formulations that might be clogging your pores (even professional and prescription products).</p>",
+          "description_top": "<p>Acne is a mysterious skin disorder, but one thing is for sure &ndash; it can be controlled with the right combination of products, used in the correct way. Just as in a clogged drain, the pore must be treated with products that unclog it and kill the acne bacteria.</p>\n<p><br>Face Reality&nbsp;Skincare has a clear-skin system that will have your acne under control in about three to four months, depending on your type of acne. We combine the power of clinical-grade products that are customized for your type of acne, with a series of bi-monthly treatments. We also teach you about other aggravating factors that make you break out &ndash; foods, medications, cosmetics, stress, and common ingredients in skin care formulations that might be clogging your pores (even professional and prescription products).</p>",
           "image_top": "shopify://shop_images/about1.jpg",
           "title_bottom": "Find the right products for your skin. And learn how to use them.",
           "description_bottom": "<p>The most important aspect of our system is not just starting you with the right products, but we teach you how to use them. We test your skin to make sure you are getting the most effective products for your acne type, skin type, and skin tolerance. It won&rsquo;t be enough just to have the right products &ndash; it&rsquo;s all about having the right routine for those products. You will learn how to use products slowly at first, so that your skin stays receptive without causing irritation or dehydration. But skin can become accustomed to products and then become less effective over time &ndash; that is why we will adjust your regimen little by little, to get rid of your acne.</p>",
@@ -931,13 +931,156 @@
           "1544697206758": {
             "type": "block",
             "settings": {
-              "title": "",
+              "title": "Cleansers",
+              "background": "shopify://shop_images/collection-banner-dark.png",
+              "subtitle": "",
+              "collection": "cleansers"
+            }
+          },
+          "1556209066194": {
+            "type": "block",
+            "settings": {
+              "title": "Anti-Aging",
               "background": "",
-              "collection": ""
+              "subtitle": "",
+              "collection": "anti-aging"
+            }
+          },
+          "1556209189197": {
+            "type": "block",
+            "settings": {
+              "title": "Eye Care",
+              "background": "",
+              "subtitle": "",
+              "collection": "eye-care"
+            }
+          },
+          "1556214829163": {
+            "type": "block",
+            "settings": {
+              "title": "Hydrators",
+              "background": "",
+              "subtitle": "",
+              "collection": "hydrators"
+            }
+          },
+          "1556214854532": {
+            "type": "block",
+            "settings": {
+              "title": "Masks",
+              "background": "",
+              "subtitle": "",
+              "collection": "masks"
+            }
+          },
+          "1556214872902": {
+            "type": "block",
+            "settings": {
+              "title": "Moisturizers",
+              "background": "",
+              "subtitle": "",
+              "collection": "moisturizers"
+            }
+          },
+          "1556214892311": {
+            "type": "block",
+            "settings": {
+              "title": "Serums",
+              "background": "",
+              "subtitle": "",
+              "collection": "serums"
+            }
+          },
+          "1556214908428": {
+            "type": "block",
+            "settings": {
+              "title": "Sun Protection",
+              "background": "",
+              "subtitle": "",
+              "collection": "sunscreens"
+            }
+          },
+          "1556215070615": {
+            "type": "block",
+            "settings": {
+              "title": "Supplements",
+              "background": "",
+              "subtitle": "",
+              "collection": "supplements"
+            }
+          },
+          "1556215093250": {
+            "type": "block",
+            "settings": {
+              "title": "Toners",
+              "background": "",
+              "subtitle": "",
+              "collection": "toners"
+            }
+          },
+          "1556215144665": {
+            "type": "block",
+            "settings": {
+              "title": "Aging Skin",
+              "background": "",
+              "subtitle": "",
+              "collection": "anti-aging"
+            }
+          },
+          "1556215162377": {
+            "type": "block",
+            "settings": {
+              "title": "Dry Skin",
+              "background": "",
+              "subtitle": "",
+              "collection": "dry-skin"
+            }
+          },
+          "1556215175592": {
+            "type": "block",
+            "settings": {
+              "title": "Normal Skin",
+              "background": "",
+              "subtitle": "",
+              "collection": "normal-skin"
+            }
+          },
+          "1556215189671": {
+            "type": "block",
+            "settings": {
+              "title": "Oily Skin",
+              "background": "",
+              "subtitle": "",
+              "collection": "oily-skin"
+            }
+          },
+          "1556215207354": {
+            "type": "block",
+            "settings": {
+              "title": "Sensitive Skin",
+              "background": "",
+              "subtitle": "",
+              "collection": "sensitive-skin"
             }
           }
         },
-        "block_order": ["1544697206758"],
+        "block_order": [
+          "1544697206758",
+          "1556209066194",
+          "1556209189197",
+          "1556214829163",
+          "1556214854532",
+          "1556214872902",
+          "1556214892311",
+          "1556214908428",
+          "1556215070615",
+          "1556215093250",
+          "1556215144665",
+          "1556215162377",
+          "1556215175592",
+          "1556215189671",
+          "1556215207354"
+        ],
         "settings": {
           "title": "The face reality products are specifically formulated for acneic skin and are guaranteed to not clog your pores.",
           "background": "shopify://shop_images/collection-banner-dark.png"
